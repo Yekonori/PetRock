@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 public class Panel_script : MonoBehaviour
 {
     public GameObject firstButtonPanel;
-    private Button selectedButton;
 
     private void OnEnable()
     {

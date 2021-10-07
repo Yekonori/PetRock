@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
 --- !u!114 &1032626975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1116,8 +1116,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc4fd8234d81144cb259a973a01babd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuPanel: {fileID: 849662795}
-  creditsPanel: {fileID: 976605297}
+  _menuButtons:
+  - {fileID: 1358137673}
+  - {fileID: 868883034}
+  - {fileID: 1812944318}
+  - {fileID: 1891749389}
+  _mainMenuPanel: {fileID: 849662795}
+  _creditsPanel: {fileID: 976605297}
 --- !u!1 &1083616721
 GameObject:
   m_ObjectHideFlags: 0

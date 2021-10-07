@@ -8,11 +8,12 @@ public class PlayerInput : MonoBehaviour
     #region Script Parameters
     
     [SerializeField] PlayerMovement playerMovement;
+    [Range(0f, 0.5f)] float deadZone = 0.4f;
 
     #endregion Script Parameters
 
     #region Fields
-    
+
     private Player _player;
 
     #endregion Fields
@@ -35,8 +36,11 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         float move = _player.GetAxis("MoveVertical");
-        float rotate = _player.GetAxis("Rotate");
+        int moveInt = Mathf.Abs(move) > deadZone ? (int)Mathf.Sign(move) : 0;
 
-        playerMovement.SetMovementDirection(move, rotate);
+        float rotate = _player.GetAxis("Rotate");
+        int rotateInt = Mathf.Abs(rotate) > deadZone ? (int)Mathf.Sign(rotate) : 0;
+
+        playerMovement.SetMovementDirection(moveInt, rotateInt);
     }
 }
