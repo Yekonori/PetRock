@@ -5,13 +5,21 @@ using Rewired;
 
 public class PlayerInput : MonoBehaviour
 {
-    Player player;
+    #region Script Parameters
+    
     [SerializeField] PlayerMovement playerMovement;
 
-    // Start is called before the first frame update
+    #endregion Script Parameters
+
+    #region Fields
+    
+    private Player _player;
+
+    #endregion Fields
+
     void Start()
     {
-        player = ReInput.players.GetPlayer(0);
+        _player = ReInput.players.GetPlayer(0);
 
         if (playerMovement == null)
         {
@@ -24,11 +32,10 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float move = player.GetAxis("MoveVertical");
-        float rotate = player.GetAxis("Rotate");
+        float move = _player.GetAxis("MoveVertical");
+        float rotate = _player.GetAxis("Rotate");
 
         playerMovement.SetMovementDirection(move, rotate);
     }
