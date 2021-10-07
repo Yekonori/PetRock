@@ -10,8 +10,6 @@ public class RockScript : MonoBehaviour
     private bool hasPlayer = false;
     private bool beingCarried = false;
 
-    private float t = 0;
-
 
 
 
@@ -43,7 +41,6 @@ public class RockScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("Tu m'as lâché");
                 GetComponent<Rigidbody>().isKinematic = false;
                 transform.parent = null;
                 beingCarried = false;
@@ -52,7 +49,6 @@ public class RockScript : MonoBehaviour
 
         if (beingCarried)
         {
-            Debug.Log("Je suis porté");
             transform.position = player.transform.position;
 
         }
