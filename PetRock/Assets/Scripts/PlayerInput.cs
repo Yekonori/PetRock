@@ -15,10 +15,10 @@ public class PlayerInput : MonoBehaviour
     #region Fields
 
     private Player _player;
-
+    
     #endregion Fields
 
-    void Start()
+        void Start()
     {
         _player = ReInput.players.GetPlayer(0);
 
@@ -35,6 +35,14 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance._inPause)
+            return;
+
+        if (_player.GetButton("Pause"))
+        {
+            GameManager.instance.PauseGame();
+        }
+
         float move = _player.GetAxis("MoveVertical");
         int moveInt = Mathf.Abs(move) > deadZone ? (int)Mathf.Sign(move) : 0;
 
