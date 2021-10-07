@@ -8,12 +8,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField]
-    private CanvasGroup mainMenuPanel;
-    [SerializeField]
-    private CanvasGroup creditsPanel;
+    #region Script parameters
 
-    private GameObject lastButtonSelected;
+    [SerializeField]
+    private List<Button> _menuButtons = new List<Button>();
+
+    #endregion
+
+    [SerializeField]
+    private CanvasGroup _mainMenuPanel;
+    [SerializeField]
+    private CanvasGroup _creditsPanel;
+
+    private GameObject _lastButtonSelected;
 
     public static MainMenuManager instance;
 
@@ -31,6 +38,11 @@ public class MainMenuManager : MonoBehaviour
         SetMainMenu();
     }
 
+    private void Start()
+    {
+        SetMenuButtons();
+    }
+
     #region Buttons function
 
     public void PlayGame()
@@ -40,21 +52,21 @@ public class MainMenuManager : MonoBehaviour
 
     public void CreditsGame()
     {
-        mainMenuPanel.DOFade(0.0f, 1.0f).OnComplete(() =>
+        _mainMenuPanel.DOFade(0.0f, 1.0f).OnComplete(() =>
         {
-            mainMenuPanel.gameObject.SetActive(false);
-            creditsPanel.gameObject.SetActive(true);
-            creditsPanel.DOFade(1.0f, 1.0f);
+            _mainMenuPanel.gameObject.SetActive(false);
+            _creditsPanel.gameObject.SetActive(true);
+            _creditsPanel.DOFade(1.0f, 1.0f);
         });
     }
 
     public void Back()
     {
-        creditsPanel.DOFade(0.0f, 1.0f).OnComplete(() =>
+        _creditsPanel.DOFade(0.0f, 1.0f).OnComplete(() =>
         {
-            creditsPanel.gameObject.SetActive(false);
-            mainMenuPanel.gameObject.SetActive(true);
-            mainMenuPanel.DOFade(1.0f, 1.0f);
+            _creditsPanel.gameObject.SetActive(false);
+            _mainMenuPanel.gameObject.SetActive(true);
+            _mainMenuPanel.DOFade(1.0f, 1.0f);
         });
     }
 
@@ -72,17 +84,28 @@ public class MainMenuManager : MonoBehaviour
     #region Menu functions
     private void SetMainMenu()
     {
-        mainMenuPanel.DOFade(1f, 0.1f);
-        creditsPanel.DOFade(0f, 0.1f);
+        _mainMenuPanel.DOFade(1f, 0.1f);
+        _creditsPanel.DOFade(0f, 0.1f);
+    }
+
+    private void SetMenuButtons()
+    {
+        foreach (Button button in _menuButtons)
+            button.onClick.RemoveAllListeners();
+
+        _menuButtons[0].onClick.AddListener(PlayGame); //Play button
+        _menuButtons[1].onClick.AddListener(CreditsGame); //Credits button
+        _menuButtons[2].onClick.AddListener(QuitGame); //Quit button
+        _menuButtons[3].onClick.AddListener(Back); //Back button
     }
 
     private void Update()
     {
         if (EventSystem.current.currentSelectedGameObject != null)
-            lastButtonSelected = EventSystem.current.currentSelectedGameObject;
+            _lastButtonSelected = EventSystem.current.currentSelectedGameObject;
 
         if (EventSystem.current.currentSelectedGameObject == null)
-            EventSystem.current.SetSelectedGameObject(lastButtonSelected);
+            EventSystem.current.SetSelectedGameObject(_lastButtonSelected);
 
         PressedSelectedButton();
     }
