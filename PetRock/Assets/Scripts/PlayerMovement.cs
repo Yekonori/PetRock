@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // direction and rotation
-    int moveForward = 0;
-    int moveRotation = 0;
+    #region Script Parameters
+
     [Range(0f, 0.5f)] float deadZone = 0.4f;
 
     [Header("..")]
@@ -14,22 +13,25 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, Min(0f)] float rotationSpeed = 90f;
     //[SerializeField, Min(0f)] float gravity = 5f; // can we jump? fall ?
 
-    // Start is called before the first frame update
-    //void Start()
-    //{
-        
-    //}
+    #endregion Script Parameters
 
-    // Update is called once per frame
+    #region Fields
+
+    // direction and rotation
+    private int _moveForward = 0;
+    private int _moveRotation = 0;
+
+    #endregion Fields
+
     void Update()
     {
-        transform.position += moveForward * transform.forward * speed * Time.deltaTime; // += gravity * 
-        transform.Rotate(Vector3.up, moveRotation * rotationSpeed * Time.deltaTime);
+        transform.position += _moveForward * transform.forward * speed * Time.deltaTime; // += gravity * 
+        transform.Rotate(Vector3.up, _moveRotation * rotationSpeed * Time.deltaTime);
     }
 
     public void SetMovementDirection(float vertical, float rotate)
     {
-        moveForward = Mathf.Abs(vertical) > deadZone ? (int)Mathf.Sign(vertical) : 0;
-        moveRotation = Mathf.Abs(rotate) > deadZone ? (int)Mathf.Sign(rotate) : 0; ;
+        _moveForward = Mathf.Abs(vertical) > deadZone ? (int)Mathf.Sign(vertical) : 0;
+        _moveRotation = Mathf.Abs(rotate) > deadZone ? (int)Mathf.Sign(rotate) : 0; ;
     }
 }

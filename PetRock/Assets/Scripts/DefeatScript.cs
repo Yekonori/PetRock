@@ -5,21 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class DefeatScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-
-        //Debug.Log("Perduuuu !!!!");
-        SceneManager.LoadScene("Defeat_Scene");
+        if (other.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene("Defeat_Scene");
+        }
     }
 }
