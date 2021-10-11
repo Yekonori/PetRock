@@ -50,5 +50,7 @@ public class PlayerInput : MonoBehaviour
         int rotateInt = Mathf.Abs(rotate) > deadZone ? (int)Mathf.Sign(rotate) : 0;
 
         playerMovement.SetMovementDirection(moveInt, rotateInt);
+
+        if (_player.GetButtonDown("Grab")) playerMovement.Grab();
     }
 }

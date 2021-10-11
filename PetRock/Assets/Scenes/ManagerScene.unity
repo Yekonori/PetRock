@@ -183,6 +183,76 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.actionIdCounter
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.actions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[3]._id
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[3]._name
+      value: Grab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[3]._type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[3]._userAssignable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[3]._descriptiveName
+      value: Grab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.actionCategoryMap.list.Array.data[0].actionIds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.actionCategoryMap.list.Array.data[0].actionIds.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[5]._actionId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[5]._elementType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[5]._keyboardKeyCode
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074318575099374246, guid: e10521fb3d041fe49b1c20934625fce7,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[5]._elementIdentifierId
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1074318575099374247, guid: e10521fb3d041fe49b1c20934625fce7,
         type: 3}
       propertyPath: m_Name
