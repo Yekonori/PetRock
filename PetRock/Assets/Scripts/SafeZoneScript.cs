@@ -8,8 +8,7 @@ public class SafeZoneScript : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log("Player enter");
-            other.GetComponent<PlayerMovement>().SetSafe(true);
+            other.gameObject.GetComponent<PlayerMovement>().SetSafe(true);
         }
     }
 
@@ -18,8 +17,7 @@ public class SafeZoneScript : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Player out");
-            other.GetComponent<PlayerMovement>().SetSafe(false); ;
+            other.gameObject.GetComponent<PlayerMovement>().SetSafe(false); ;
         }
     }
 }
