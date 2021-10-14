@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class SafeZoneScript : MonoBehaviour
 {
+    [SerializeField] bool finalZone;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerMovement>().SetSafe(true);
+
+            if(finalZone)
+            {
+                Debug.Log("C'est la final Zone !!");
+            }
         }
     }
 
