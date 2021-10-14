@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, Min(0f)] float rotationSpeed = 90f;
     //[SerializeField, Min(0f)] float gravity = 5f; // can we jump? fall ?
 
+    [SerializeField] bool isSafe = false;
+
     #endregion Script Parameters
 
     #region Fields
@@ -30,5 +32,11 @@ public class PlayerMovement : MonoBehaviour
     {
         _moveForward = (int)vertical;
         _moveRotation = (int)rotate;
+    }
+
+
+    public void SetSafe(bool bol)
+    {
+        isSafe = bol;
     }
 }
