@@ -63,11 +63,6 @@ public class PanicCanvas : MonoBehaviour
         _playerParameters = PlayerParameters.Instance;
     }
 
-    private void Update()
-    {
-        IncreasePanicGauge();
-    }
-
     #region Gauge
     public void IncreasePanicGauge()
     {
@@ -89,14 +84,12 @@ public class PanicCanvas : MonoBehaviour
 
     public void DecreasePanicGauge()
     {
-        if (_timer >= 0f)
+        if (!_decreaseIsPlaying)
         {
-            _timer -= Time.deltaTime;
-        }
-        else
-        {
-            DOTween.To(() => _playerParameters.panicGauge, x => _playerParameters.panicGauge = x, _playerParameters.panicGauge -= decreaseValue, 1.5f);
-            _timer = increaseSeconds;
+            float decrement = _playerParameters.panicGauge - decreaseValue;
+
+            _decreaseIsPlaying = true;
+            DOTween.To(() => _playerParameters.panicGauge, x => _playerParameters.panicGauge = x, decrement, decreaseSeconds).OnComplete(() => _decreaseIsPlaying = false);
         }
     }
     #endregion
