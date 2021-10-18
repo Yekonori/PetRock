@@ -11,7 +11,7 @@ public class SafeZoneScript : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             PlayerParameters.Instance.inSafeZone = true;
-            PlayerParameters.Instance.playerStates = PlayerParameters.PlayerStates.Regular;
+            PlayerParameters.Instance.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.Regular, PlayerParameters.PlayerStates.Regular);
 
             if(finalZone)
             {

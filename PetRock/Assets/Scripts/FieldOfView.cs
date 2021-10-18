@@ -17,6 +17,13 @@ public class FieldOfView : MonoBehaviour
     public MeshFilter viewMeshFilter;
     Mesh viewMesh;
 
+    PlayerParameters _playerParameters;
+
+    private void Awake()
+    {
+        _playerParameters = PlayerParameters.Instance;
+    }
+
     private void Start()
     {
         viewMesh = new Mesh();
@@ -49,6 +56,15 @@ public class FieldOfView : MonoBehaviour
 
     void FindVisibleTargets()
     {
+
+        if (_playerParameters.previousPlayerStates == PlayerParameters.PreviousPlayerStates.GiantZone)
+            _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.Stressed, PlayerParameters.PlayerStates.Stressed);
+        else
+        {
+            if(_playerParameters.previousPlayerStates != PlayerParameters.PreviousPlayerStates.Stressed)
+                _playerParameters.playerStates = PlayerParameters.PlayerStates.Regular;
+        }
+
         Collider[] targets = Physics.OverlapSphere(transform.position, range, targetLayerMask);
         if (targets.Length != 0)
         {
@@ -65,7 +81,9 @@ public class FieldOfView : MonoBehaviour
                     {
                         // TO DO : PLAYER IS SPOTTED
                         Debug.Log("Player is spotted");
-                        PlayerParameters.Instance.playerStates = PlayerParameters.PlayerStates.GiantZone;
+
+                        if (_playerParameters.previousPlayerStates != PlayerParameters.PreviousPlayerStates.GiantZone)
+                            _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.GiantZone, PlayerParameters.PlayerStates.GiantZone);
                     }
                 }
             }

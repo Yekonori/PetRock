@@ -646,7 +646,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3937287013587779222}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1152,7 +1152,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3937287014350281561}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1905,10 +1905,9 @@ MonoBehaviour:
   decreaseValue: 5
   startPanicEffectValue: 0
   startBigPanicEffectValue: 0
+  afterDialogueValue: 0
   _largePanicEffect: {fileID: 3937287014350281567}
   _smallPanicEffect: {fileID: 3937287013587779220}
-  giantZone: 0
-  beforeRb: 0
 --- !u!1 &3937287015167881801
 GameObject:
   m_ObjectHideFlags: 0

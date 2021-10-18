@@ -46,7 +46,7 @@ public class PanicCanvas : MonoBehaviour
     private CanvasGroup _smallPanicEffect;
 
     private bool _tweenIsPlaying = false;
-
+    
     private PlayerParameters _playerParameters;
 
     public static PanicCanvas Instance;

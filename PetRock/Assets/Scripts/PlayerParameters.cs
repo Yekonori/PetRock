@@ -21,6 +21,15 @@ public class PlayerParameters : MonoBehaviour
         Stressed
     }
 
+    public enum PreviousPlayerStates
+    {
+        Regular,
+        GiantZone,
+        Stressed
+    }
+
+    //[HideInInspector]
+    public PreviousPlayerStates previousPlayerStates = PreviousPlayerStates.Regular;
     public PlayerStates playerStates = PlayerStates.Regular;
 
     public static PlayerParameters Instance;
@@ -37,5 +46,11 @@ public class PlayerParameters : MonoBehaviour
     {
         if (panicGauge >= 100)
             SceneManager.LoadScene("Defeat_Scene");
+    }
+
+    public void UpdatePlayerState(PreviousPlayerStates tempPreviousPlayerStates, PlayerStates tempPlayerStates)
+    {
+        previousPlayerStates = tempPreviousPlayerStates;
+        playerStates = tempPlayerStates;
     }
 }
