@@ -92,7 +92,7 @@ public class FreeFollowView : AView
         }
         else if (list.Count == 1)
         {
-            Debug.Log("list contains only 1 element. Returning it");
+            //Debug.Log("list contains only 1 element. Returning it");
             return list[0];
         }
 

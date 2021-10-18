@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Defeat_Scene.unity
     guid: 03a8a15ec189dc541ada6732b4f26e72
+  - enabled: 1
+    path: Assets/Scenes/CameraScene.unity
+    guid: 0613a345351c0324db371d6643063d8a
   m_configObjects: {}
