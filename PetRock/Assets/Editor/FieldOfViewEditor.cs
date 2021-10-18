@@ -17,5 +17,4 @@ public class FieldOfViewEditor : Editor
         Handles.DrawLine(fov.transform.position, fov.transform.position + viewAngleA * fov.range);
         Handles.DrawLine(fov.transform.position, fov.transform.position + viewAngleB * fov.range);
     }
-
 }
