@@ -61,8 +61,12 @@ public class FieldOfView : MonoBehaviour
 
                 if (!Physics.Raycast(transform.position, dirToTarget, distanceToTarget, obstableLayerMask))
                 {
-                    // TO DO : PLAYER IS SPOTTED
-                    Debug.Log("Player is spotted");
+                    if (!PlayerParameters.Instance.inSafeZone)
+                    {
+                        // TO DO : PLAYER IS SPOTTED
+                        Debug.Log("Player is spotted");
+                        PlayerParameters.Instance.playerStates = PlayerParameters.PlayerStates.GiantZone;
+                    }
                 }
             }
         }

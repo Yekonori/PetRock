@@ -10,7 +10,8 @@ public class SafeZoneScript : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerMovement>().SetSafe(true);
+            PlayerParameters.Instance.inSafeZone = true;
+            PlayerParameters.Instance.playerStates = PlayerParameters.PlayerStates.Regular;
 
             if(finalZone)
             {
@@ -24,7 +25,7 @@ public class SafeZoneScript : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerMovement>().SetSafe(false); ;
+            PlayerParameters.Instance.inSafeZone = false;
         }
     }
 }

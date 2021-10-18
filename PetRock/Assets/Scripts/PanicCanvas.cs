@@ -19,6 +19,8 @@ public class PanicCanvas : MonoBehaviour
     [PropertyTooltip("Sets the panic gauge increment value every x seconds when the player leave the giant's eye zone and that he hasn't done rock balancing ")]
     public float beforeRbIncreaseValue = 0;
 
+    private float incrementValue;
+
     [TitleGroup("Decrease Panic Gauge")]
     [PropertyTooltip("Sets the number of seconds before the panic gauge decrement")]
     public float decreaseSeconds = 0;
@@ -31,6 +33,11 @@ public class PanicCanvas : MonoBehaviour
     [TitleGroup("Panic effect")]
     public float startBigPanicEffectValue = 0;
 
+    [TitleGroup("Panic Time Out")]
+    [PropertyTooltip("Sets the panic gauge to this value after the dialogue with the pet rock in the panic time out")]
+    [SerializeField]
+    private float afterDialogueValue = 0;
+
     [TitleGroup("Canvas effect")]
     [SerializeField]
     private CanvasGroup _largePanicEffect;
@@ -38,16 +45,7 @@ public class PanicCanvas : MonoBehaviour
     [SerializeField]
     private CanvasGroup _smallPanicEffect;
 
-    private float _timer;
-    private bool _increaseIsPlaying = false;
-    private bool _decreaseIsPlaying = false;
-
-    [TitleGroup("Bool")]
-    [SerializeField]
-    private bool giantZone = false;
-    [TitleGroup("Bool")]
-    [SerializeField]
-    private bool beforeRb = false;
+    private bool _tweenIsPlaying = false;
 
     private PlayerParameters _playerParameters;
 
@@ -63,34 +61,51 @@ public class PanicCanvas : MonoBehaviour
         _playerParameters = PlayerParameters.Instance;
     }
 
-    #region Gauge
-    public void IncreasePanicGauge()
+    private void Update()
     {
-        if (!_increaseIsPlaying)
+        if (!_playerParameters.doRockBalancing)
         {
-            _increaseIsPlaying = true;
-            float increment = _playerParameters.panicGauge;
+            if (!_playerParameters.inSafeZone)
+            {
+                switch (_playerParameters.playerStates)
+                {
+                    case PlayerParameters.PlayerStates.Regular:
+                        incrementValue = normalIncreaseValue;
+                        break;
 
-            if (giantZone)
-                increment += giantZoneIncreaseValue;
-            else if (!giantZone && beforeRb)
-                increment += beforeRbIncreaseValue;
+                    case PlayerParameters.PlayerStates.GiantZone:
+                        incrementValue = giantZoneIncreaseValue;
+                        break;
+
+                    case PlayerParameters.PlayerStates.Stressed:
+                        incrementValue = beforeRbIncreaseValue;
+                        break;
+                }
+
+                ModifyPanicGauge(incrementValue, increaseSeconds);
+            }
             else
-                increment += normalIncreaseValue;
-
-            DOTween.To(() => _playerParameters.panicGauge, x => _playerParameters.panicGauge = x, increment, increaseSeconds).OnComplete(()=> _increaseIsPlaying = false);
+                ModifyPanicGauge(-decreaseValue, decreaseSeconds);
         }
     }
 
-    public void DecreasePanicGauge()
+    #region Gauge
+    public void ModifyPanicGauge(float value, float duration)
     {
-        if (!_decreaseIsPlaying)
+        if (!_tweenIsPlaying)
         {
-            float decrement = _playerParameters.panicGauge - decreaseValue;
+            float newValue = _playerParameters.panicGauge;
 
-            _decreaseIsPlaying = true;
-            DOTween.To(() => _playerParameters.panicGauge, x => _playerParameters.panicGauge = x, decrement, decreaseSeconds).OnComplete(() => _decreaseIsPlaying = false);
+            newValue += value;
+            _tweenIsPlaying = true;
+
+            DOTween.To(() => _playerParameters.panicGauge, x => _playerParameters.panicGauge = x, Mathf.Clamp(newValue, 0f, 100f), duration).OnComplete(() => _tweenIsPlaying = false);
         }
+    }
+
+    public void PanicAfterDialogue()
+    {
+        DOTween.To(() => _playerParameters.panicGauge, x => _playerParameters.panicGauge = x, afterDialogueValue, 1f);
     }
     #endregion
 }
