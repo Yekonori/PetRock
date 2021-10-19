@@ -7,9 +7,8 @@ public class FieldOfView : MonoBehaviour
     // https://www.youtube.com/watch?v=rQG9aUWarwE  Ep01
     // https://www.youtube.com/watch?v=73Dc5JTCmKI  Ep02 => je n'ai pas fait la partie a partir de 18min
 
-    public float range = 5f;
-    [Range(0,360)]
-    public float viewAngle = 45f;
+    [Min(0)] public float range = 5f;
+    [Range(0,360)] public float viewAngle = 45f;
     public LayerMask targetLayerMask;
     public LayerMask obstableLayerMask;
 
@@ -129,5 +128,11 @@ public class FieldOfView : MonoBehaviour
             distance = _distance;
             angle = _angle;
         }
+    }
+
+    public void Init(float _range, float _angle)
+    {
+        range = _range;
+        viewAngle = _angle;
     }
 }
