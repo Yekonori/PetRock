@@ -53,11 +53,11 @@ public class FieldOfView : MonoBehaviour
     void FindVisibleTargets()
     {
 
-        if (_playerParameters.hasBeenOnGiantZone())
+        if (_playerParameters.HasBeenOnGiantZone())
             _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.Stressed, PlayerParameters.PlayerStates.Stressed);
         else
         {
-            if(!_playerParameters.hasBeenOnStressed())
+            if(!_playerParameters.HasBeenOnStressed())
                 _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.Regular, PlayerParameters.PlayerStates.Regular);
         }
 
@@ -73,12 +73,12 @@ public class FieldOfView : MonoBehaviour
 
                 if (!Physics.Raycast(transform.position, dirToTarget, distanceToTarget, obstableLayerMask))
                 {
-                    if (!PlayerParameters.Instance.inSafeZone)
+                    if (!_playerParameters.IsOnSafeZone())
                     {
                         // TO DO : PLAYER IS SPOTTED
                         Debug.Log("Player is spotted");
 
-                        if (!_playerParameters.hasBeenOnGiantZone())
+                        if (!_playerParameters.HasBeenOnGiantZone())
                             _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.GiantZone, PlayerParameters.PlayerStates.GiantZone);
                     }
                 }

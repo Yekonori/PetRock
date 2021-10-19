@@ -63,9 +63,9 @@ public class PanicCanvas : MonoBehaviour
 
     private void Update()
     {
-        if (!_playerParameters.doRockBalancing)
+        if (!_playerParameters.IsOnRockBalancing())
         {
-            if (!_playerParameters.inSafeZone)
+            if (!_playerParameters.IsOnSafeZone())
             {
                 switch (_playerParameters.playerStates)
                 {

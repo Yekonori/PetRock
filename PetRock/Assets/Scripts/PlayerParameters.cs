@@ -9,10 +9,8 @@ public class PlayerParameters : MonoBehaviour
     [PropertyRange(0,100)]
     public float panicGauge;
 
-    [HideInInspector]
-    public bool doRockBalancing = false;
-    [HideInInspector]
-    public bool inSafeZone = false;
+    private bool doRockBalancing = false;
+    private bool inSafeZone = false;
 
     public enum PlayerStates
     {
@@ -48,19 +46,47 @@ public class PlayerParameters : MonoBehaviour
             SceneManager.LoadScene("Defeat_Scene");
     }
 
+    #region Update states
+
     public void UpdatePlayerState(PreviousPlayerStates tempPreviousPlayerStates, PlayerStates tempPlayerStates)
     {
         previousPlayerStates = tempPreviousPlayerStates;
         playerStates = tempPlayerStates;
     }
 
-    public bool hasBeenOnGiantZone()
+    public void UpdateRockBalancing(bool active)
+    {
+        doRockBalancing = active;
+    }
+
+    public void UpdateStateSafeZone(bool active)
+    {
+        inSafeZone = active;
+    }
+
+    #endregion Update states
+
+    #region Bool
+
+    public bool IsOnSafeZone()
+    {
+        return inSafeZone;
+    }
+
+    public bool IsOnRockBalancing()
+    {
+        return doRockBalancing;
+    }
+
+    public bool HasBeenOnGiantZone()
     {
         return previousPlayerStates == PreviousPlayerStates.GiantZone;
     }
 
-    public bool hasBeenOnStressed()
+    public bool HasBeenOnStressed()
     {
         return previousPlayerStates == PreviousPlayerStates.Stressed;
     }
+
+    #endregion Bool
 }
