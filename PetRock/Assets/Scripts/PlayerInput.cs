@@ -18,7 +18,7 @@ public class PlayerInput : MonoBehaviour
     
     #endregion Fields
 
-        void Start()
+    void Start()
     {
         _player = ReInput.players.GetPlayer(0);
 

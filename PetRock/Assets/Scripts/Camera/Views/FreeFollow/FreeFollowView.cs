@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class FreeFollowView : AView
 {
@@ -21,27 +22,28 @@ public class FreeFollowView : AView
 
     private Matrix4x4 curveToWorldMatrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Vector3.one);
 
+    private Player _player;
+
     private void Start()
     {
         //base.Init();
         if (!(pitch.Count == roll.Count && pitch.Count == fov.Count))
             Debug.LogError("Pitch, Roll, et Fov n'ont pas le même nombre d'élément !");
+
+        _player = ReInput.players.GetPlayer(0);
     }
 
     private void Update()
     {
-        //if (Input.GetKey(KeyCode.RightArrow))
-        //{
-        //    yaw += yawSpeed * Time.deltaTime;
-        //}
-        //else if (Input.GetKey(KeyCode.LeftArrow))
-        //{
-        //    yaw -= yawSpeed * Time.deltaTime;
-        //}
-        
         if (Input.GetMouseButton(1)) //Right CLick
         {
             yaw += yawSpeed * Time.deltaTime * Input.GetAxis("Mouse X");
+        }
+        else if (_player != null)
+        {
+            float moveCam = _player.GetAxis("MoveFreeFollowCamera");
+            if (Mathf.Abs(moveCam) > 0.2f)
+                yaw += yawSpeed * Time.deltaTime * moveCam;
         }
 
         float inputMouseWheel = 0f;
@@ -51,19 +53,6 @@ public class FreeFollowView : AView
             curvePosition = 1f;
         if (curvePosition < 0f)
             curvePosition = 0f;
-
-        //if (Input.GetKey(KeyCode.UpArrow))
-        //{
-        //    curvePosition += curveSpeed * Time.deltaTime;
-        //    if (curvePosition > 1f)
-        //        curvePosition = 1f;
-        //}
-        //else if (Input.GetKey(KeyCode.DownArrow))
-        //{
-        //    curvePosition -= curveSpeed * Time.deltaTime;
-        //    if (curvePosition < 0f)
-        //        curvePosition = 0f;
-        //}
 
         _pitch = MultiLerp(pitch, curvePosition);
         _roll = MultiLerp(roll, curvePosition);
