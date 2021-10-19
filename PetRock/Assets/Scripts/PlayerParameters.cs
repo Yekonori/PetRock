@@ -46,6 +46,8 @@ public class PlayerParameters : MonoBehaviour
             SceneManager.LoadScene("Defeat_Scene");
     }
 
+    #region Update states
+
     public void UpdatePlayerState(PreviousPlayerStates tempPreviousPlayerStates, PlayerStates tempPlayerStates)
     {
         previousPlayerStates = tempPreviousPlayerStates;
@@ -61,6 +63,10 @@ public class PlayerParameters : MonoBehaviour
     {
         inSafeZone = active;
     }
+
+    #endregion Update states
+
+    #region Bool
 
     public bool IsOnSafeZone()
     {
@@ -81,4 +87,6 @@ public class PlayerParameters : MonoBehaviour
     {
         return previousPlayerStates == PreviousPlayerStates.Stressed;
     }
+
+    #endregion Bool
 }
