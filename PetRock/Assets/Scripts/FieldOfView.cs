@@ -18,16 +18,13 @@ public class FieldOfView : MonoBehaviour
 
     PlayerParameters _playerParameters;
 
-    private void Awake()
-    {
-        _playerParameters = PlayerParameters.Instance;
-    }
-
     private void Start()
     {
         viewMesh = new Mesh();
         viewMeshFilter.mesh = viewMesh;
         StartCoroutine(FindVisibleTargetsWithDelay(0.2f)); // J'aime pas le invoke Repeating
+
+        _playerParameters = PlayerParameters.Instance;
     }
 
     private void LateUpdate()
@@ -56,12 +53,12 @@ public class FieldOfView : MonoBehaviour
     void FindVisibleTargets()
     {
 
-        if (_playerParameters.previousPlayerStates == PlayerParameters.PreviousPlayerStates.GiantZone)
+        if (_playerParameters.hasBeenOnGiantZone())
             _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.Stressed, PlayerParameters.PlayerStates.Stressed);
         else
         {
-            if(_playerParameters.previousPlayerStates != PlayerParameters.PreviousPlayerStates.Stressed)
-                _playerParameters.playerStates = PlayerParameters.PlayerStates.Regular;
+            if(!_playerParameters.hasBeenOnStressed())
+                _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.Regular, PlayerParameters.PlayerStates.Regular);
         }
 
         Collider[] targets = Physics.OverlapSphere(transform.position, range, targetLayerMask);
@@ -81,7 +78,7 @@ public class FieldOfView : MonoBehaviour
                         // TO DO : PLAYER IS SPOTTED
                         Debug.Log("Player is spotted");
 
-                        if (_playerParameters.previousPlayerStates != PlayerParameters.PreviousPlayerStates.GiantZone)
+                        if (!_playerParameters.hasBeenOnGiantZone())
                             _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.GiantZone, PlayerParameters.PlayerStates.GiantZone);
                     }
                 }

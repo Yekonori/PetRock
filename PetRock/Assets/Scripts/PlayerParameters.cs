@@ -53,4 +53,14 @@ public class PlayerParameters : MonoBehaviour
         previousPlayerStates = tempPreviousPlayerStates;
         playerStates = tempPlayerStates;
     }
+
+    public bool hasBeenOnGiantZone()
+    {
+        return previousPlayerStates == PreviousPlayerStates.GiantZone;
+    }
+
+    public bool hasBeenOnStressed()
+    {
+        return previousPlayerStates == PreviousPlayerStates.Stressed;
+    }
 }

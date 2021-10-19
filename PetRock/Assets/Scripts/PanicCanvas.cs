@@ -80,6 +80,10 @@ public class PanicCanvas : MonoBehaviour
                     case PlayerParameters.PlayerStates.Stressed:
                         incrementValue = beforeRbIncreaseValue;
                         break;
+
+                    default:
+                        incrementValue = normalIncreaseValue;
+                        break;
                 }
 
                 ModifyPanicGauge(incrementValue, increaseSeconds);
