@@ -6,12 +6,19 @@ public class SafeZoneScript : MonoBehaviour
 {
     [SerializeField] bool finalZone;
 
+    PlayerParameters _playerParameters;
+
+    private void Start()
+    {
+        _playerParameters = PlayerParameters.Instance;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
-            PlayerParameters.Instance.inSafeZone = true;
-            PlayerParameters.Instance.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.Regular, PlayerParameters.PlayerStates.Regular);
+            _playerParameters.UpdateStateSafeZone(true);
+            _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.Regular, PlayerParameters.PlayerStates.Regular);
 
             if(finalZone)
             {
@@ -25,7 +32,7 @@ public class SafeZoneScript : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
-            PlayerParameters.Instance.inSafeZone = false;
+            _playerParameters.UpdateStateSafeZone(false);
         }
     }
 }
