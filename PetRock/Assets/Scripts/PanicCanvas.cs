@@ -91,6 +91,8 @@ public class PanicCanvas : MonoBehaviour
             else
                 ModifyPanicGauge(-decreaseValue, decreaseSeconds);
         }
+
+        GameManager.instance.vignettePostProcessing.intensity.value = _playerParameters.panicGauge / 100;
     }
 
     #region Gauge
