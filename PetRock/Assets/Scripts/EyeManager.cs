@@ -34,20 +34,35 @@ public class EyeParam
 }
 
 [Serializable]
+public class EyeVision
+{
+    [Header("FieldOfView")]
+    [Min(0)] public float range = 5;
+    [Range(0, 360)] public float viewAngle = 45;
+    public bool seeThroughObstacle = false;
+
+    [Header("Closing")]
+    public bool closingActivated = false;
+    [ShowIf("closingActivated", true), Min(0)] public float timeToStayOpen = 10;
+    [ShowIf("closingActivated", true), Min(0)] public float timeToClose = 1;
+    [ShowIf("closingActivated", true), Min(0)] public float timeToStayClosed = 3;
+    [ShowIf("closingActivated", true), Min(0)] public float timeToOpen = 1;
+}
+
+[Serializable]
 public class EyeInfo
 {
     public GameObject Eye;
     public float timeAlive;
-    [Header("FieldOfView")]
-    [Min(0)] public float range = 5;
-    [Range(0, 360)] public float viewAngle = 45;
+    public EyeVision eyeVision;
     [Space]
     public EyeParam eyeParam;
 }
 
 public class EyeManager : MonoBehaviour
 {
-    [SerializeField] AnimationCurve animationCurve;
+    [SerializeField] AnimationCurve movementAnimationCurve;
+    [SerializeField] AnimationCurve eyeFlickeringCurve;
     [SerializeField] List<EyeInfo> eyeInfos;
 
     private EyeInfo currentEyeInfo;
@@ -152,8 +167,8 @@ public class EyeManager : MonoBehaviour
         foreach (EyeInfo info in eyeInfos)
         {
             info.Eye.SetActive(false);
-            info.Eye.GetComponent<EyeMovement>().Init(info.eyeParam, animationCurve);
-            info.Eye.GetComponent<FieldOfView>().Init(info.range, info.viewAngle);
+            info.Eye.GetComponent<EyeMovement>().Init(info.eyeParam, movementAnimationCurve);
+            info.Eye.GetComponent<FieldOfView>().Init(info.eyeVision, eyeFlickeringCurve);
         }
     }
 }

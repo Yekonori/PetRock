@@ -7,15 +7,25 @@ public class FieldOfView : MonoBehaviour
     // https://www.youtube.com/watch?v=rQG9aUWarwE  Ep01
     // https://www.youtube.com/watch?v=73Dc5JTCmKI  Ep02 => je n'ai pas fait la partie a partir de 18min
 
-    [Min(0)] public float range = 5f;
-    [Range(0,360)] public float viewAngle = 45f;
-    public LayerMask targetLayerMask;
-    public LayerMask obstableLayerMask;
+    [Min(0)] public float range = 5f;    
 
-    public float meshResolution = 0.25f;
-    public int edgeResolveIteration = 4;
-    public float edgeDistanceThreshold = 0.5f;
-    public MeshFilter viewMeshFilter;
+    [Range(0,360)] public float viewAngle = 45f;
+    private float currentViewAngle;
+    private bool canFlicker = false;
+    private AnimationCurve flickerCurve;
+    private float timeToStayOpen = 10;
+    private float timeToClose = 1;
+    private float timeToStayClosed = 3;
+    private float timeToOpen = 1;
+    private float stayOpenTimer = 0;
+
+    [SerializeField] LayerMask targetLayerMask;
+    [SerializeField] LayerMask obstableLayerMask;
+
+    [SerializeField] float meshResolution = 0.25f;
+    [SerializeField] int edgeResolveIteration = 4;
+    [SerializeField] float edgeDistanceThreshold = 0.5f;
+    [SerializeField] MeshFilter viewMeshFilter;
     Mesh viewMesh;
 
     PlayerParameters _playerParameters;
@@ -29,6 +39,14 @@ public class FieldOfView : MonoBehaviour
         _playerParameters = PlayerParameters.Instance;
     }
 
+    private void Update()
+    {
+        if (!canFlicker) return;
+
+        stayOpenTimer += Time.deltaTime;
+        if (stayOpenTimer > timeToStayOpen)
+            StartCoroutine(Flicker());
+    }
     private void LateUpdate()
     {
         DrawFieldOfView();
@@ -69,7 +87,7 @@ public class FieldOfView : MonoBehaviour
             Transform target = targets[0].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
             
-            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+            if (Vector3.Angle(transform.forward, dirToTarget) < currentViewAngle / 2)
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
@@ -90,60 +108,67 @@ public class FieldOfView : MonoBehaviour
 
     void DrawFieldOfView()
     {
-        int stepCount = Mathf.RoundToInt(meshResolution * viewAngle);
-        float stepAngleSize = viewAngle / stepCount;
-        List<Vector3> viewPoints = new List<Vector3>();
-        ViewCastInfo oldViewCast = new ViewCastInfo();
-
-        for (int i = 0; i<stepCount; ++i)
+        int stepCount = Mathf.RoundToInt(meshResolution * currentViewAngle);
+        if (stepCount == 0)
         {
-            float angle = transform.eulerAngles.y - viewAngle / 2 + i * stepAngleSize;
-            ViewCastInfo newViewCast = ViewCast(angle);
+            viewMesh.Clear();
+        }
+        else
+        {
+            float stepAngleSize = currentViewAngle / stepCount;
+            List<Vector3> viewPoints = new List<Vector3>();
+            ViewCastInfo oldViewCast = new ViewCastInfo();
 
-            if (i > 0)
+            for (int i = 0; i < stepCount; ++i)
             {
-                bool edgeDistanceThresholdExceeded = Mathf.Abs(oldViewCast.distance - newViewCast.distance) > edgeDistanceThreshold;
+                float angle = transform.eulerAngles.y - currentViewAngle / 2 + i * stepAngleSize;
+                ViewCastInfo newViewCast = ViewCast(angle);
 
-                if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDistanceThresholdExceeded))
+                if (i > 0)
                 {
-                    EdgeInfo edge = FindEdge(oldViewCast, newViewCast);
+                    bool edgeDistanceThresholdExceeded = Mathf.Abs(oldViewCast.distance - newViewCast.distance) > edgeDistanceThreshold;
 
-                    if (edge.pointA != Vector3.zero)
+                    if (oldViewCast.hit != newViewCast.hit || (oldViewCast.hit && newViewCast.hit && edgeDistanceThresholdExceeded))
                     {
-                        viewPoints.Add(edge.pointA);
+                        EdgeInfo edge = FindEdge(oldViewCast, newViewCast);
+
+                        if (edge.pointA != Vector3.zero)
+                        {
+                            viewPoints.Add(edge.pointA);
+                        }
+                        if (edge.pointB != Vector3.zero)
+                        {
+                            viewPoints.Add(edge.pointB);
+                        }
                     }
-                    if (edge.pointB != Vector3.zero)
-                    {
-                        viewPoints.Add(edge.pointB);
-                    }
+                }
+
+                viewPoints.Add(newViewCast.point);
+                oldViewCast = newViewCast;
+            }
+
+            int vertexCount = stepCount + 1;
+            Vector3[] vertices = new Vector3[vertexCount];
+            int[] triangles = new int[(vertexCount - 2) * 3];
+
+            vertices[0] = Vector3.zero;
+            for (int i = 0; i < stepCount; ++i)
+            {
+                vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]);
+
+                if (i < vertexCount - 2)
+                {
+                    triangles[i * 3] = 0;
+                    triangles[i * 3 + 1] = i + 1;
+                    triangles[i * 3 + 2] = i + 2;
                 }
             }
 
-            viewPoints.Add(newViewCast.point);
-            oldViewCast = newViewCast;
+            viewMesh.Clear();
+            viewMesh.vertices = vertices;
+            viewMesh.triangles = triangles;
+            viewMesh.RecalculateNormals();
         }
-
-        int vertexCount = stepCount + 1;
-        Vector3[] vertices = new Vector3[vertexCount];
-        int[] triangles = new int[(vertexCount - 2) * 3];
-
-        vertices[0] = Vector3.zero;
-        for (int i = 0; i < stepCount; ++i)
-        {
-            vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]);
-
-            if (i < vertexCount - 2)
-            {
-                triangles[i * 3] = 0;
-                triangles[i * 3 + 1] = i + 1;
-                triangles[i * 3 + 2] = i + 2;
-            }
-        }
-
-        viewMesh.Clear();
-        viewMesh.vertices = vertices;
-        viewMesh.triangles = triangles;
-        viewMesh.RecalculateNormals();
     }
 
     ViewCastInfo ViewCast(float globalAngle)
@@ -172,11 +197,19 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    public void Init(float _range, float _angle)
+    public void Init(EyeVision eyeVision, AnimationCurve curve)
     {
-        range = _range;
-        viewAngle = _angle;
-    }
+        range = eyeVision.range;
+        viewAngle = eyeVision.viewAngle;
+        currentViewAngle = viewAngle;
+        canFlicker = eyeVision.closingActivated;
+        flickerCurve = curve;
+
+        timeToStayOpen = eyeVision.timeToStayOpen;
+        timeToClose = eyeVision.timeToClose;
+        timeToStayClosed = eyeVision.timeToStayClosed;
+        timeToOpen = eyeVision.timeToOpen;
+}
 
     public struct EdgeInfo
     {
@@ -217,5 +250,32 @@ public class FieldOfView : MonoBehaviour
         }
 
         return new EdgeInfo(minPoint, maxPoint);
+    }
+
+    IEnumerator Flicker()
+    {
+        float timer = 0f;
+
+        // CLose
+        while (timer < timeToClose)
+        {
+            currentViewAngle = Mathf.Lerp(viewAngle, 0, flickerCurve.Evaluate(timer / timeToClose));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        timer = 0;
+        currentViewAngle = 0;
+        yield return new WaitForSeconds(timeToStayClosed);
+
+        // Open
+        while (timer < timeToOpen)
+        {
+            currentViewAngle = Mathf.Lerp(0, viewAngle, timer / timeToOpen);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        currentViewAngle = viewAngle;
+        stayOpenTimer = 0;
     }
 }
