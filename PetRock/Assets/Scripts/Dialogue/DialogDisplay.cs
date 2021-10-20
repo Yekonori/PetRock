@@ -6,15 +6,29 @@ public class DialogDisplay : MonoBehaviour
 {
     public DialogueScript conversation;
 
-    public GameObject dialogObject;
+    public GameObject speakerLeft;
+    public GameObject speakerRight;
+    //public GameObject dialogObject;
 
     private int activeLineIndex = 0;
-    private DialogueUI dialogUI;
+   
+    private DialogueUI speakerUILeft;
+    private DialogueUI speakerUIRight; 
+    //private DialogueUI dialogUI;
+
+    private bool activeDialog;
 
     // Start is called before the first frame update
     void Start()
     {
-        dialogUI = dialogObject.GetComponent<DialogueUI>();
+        speakerUILeft = speakerLeft.GetComponent<DialogueUI>();
+        speakerUIRight = speakerRight.GetComponent<DialogueUI>();
+        //dialogUI = dialogObject.GetComponent<DialogueUI>();
+
+        speakerUILeft.Speaker = conversation.leftCharacter;
+        speakerUIRight.Speaker = conversation.rightCharacter;
+
+        activeDialog = false;
     }
 
     // Update is called once per frame
@@ -24,19 +38,29 @@ public class DialogDisplay : MonoBehaviour
         {
             NextDialog();
         }
+        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            DisplayDialog();
+            NextDialog();
+        }
     }
 
     //Passe au texte suivant
     public void NextDialog()
     {
-        if(activeLineIndex < conversation.lines.Length)
+        if(activeLineIndex < conversation.lines.Length && activeDialog)
         {
             DisplayLine();
             activeLineIndex += 1;
         }
         else
         {
-            dialogUI.Hide();
+            speakerUILeft.Hide();
+            speakerUIRight.Hide();
+            //dialogUI.Hide();
+
+            activeDialog = false;
             activeLineIndex = 0;
         }
     }
@@ -44,14 +68,40 @@ public class DialogDisplay : MonoBehaviour
     public void DisplayLine()
     {
         Line line = conversation.lines[activeLineIndex];
+        Characters character = line.character;
 
-        SetDialog(line.text);
+        if(speakerUILeft.SpeakerIs(character))
+        {
+            SetDialog(speakerUILeft, speakerUIRight, line.text);
+        }
+        else
+        {
+            SetDialog(speakerUIRight, speakerUILeft, line.text);
+        }
+
+        //SetDialog(line.text);
     }
 
-    void SetDialog(string text)
+    void SetDialog(DialogueUI activeSpeakerUI, DialogueUI inactiveSpeakerUI, string text)
     {
+        activeSpeakerUI.Dialog = text;
+        activeSpeakerUI.Show();
+        inactiveSpeakerUI.Hide();
+
+        /*
         dialogUI.Dialog = text;
-        dialogUI.Show();
+        dialogUI.Show();*/
+    }
+
+    //Active la boîte de dialogue
+    public void DisplayDialog()
+    {
+        activeDialog = true;
+    }
+
+    public void UseThisDialogTex(DialogueScript dialogText)
+    {
+        conversation = dialogText;
     }
 
 }

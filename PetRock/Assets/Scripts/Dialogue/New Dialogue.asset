@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfda5e4a1e9ab58429616bafaa2845cf, type: 3}
   m_Name: New Dialogue
   m_EditorClassIdentifier: 
+  leftCharacter: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+  rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
   lines:
-  - text: 1er panel
-  - text: blabkablba
-  - text: hello hello
-  - text: bye bye new wolrd
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Hey va te reposer
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Mais je viens \xE0 peine de me lever"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "Tu es stress\xE9 ?"
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: Nope.

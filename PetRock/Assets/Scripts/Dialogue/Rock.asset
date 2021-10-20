@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfda5e4a1e9ab58429616bafaa2845cf, type: 3}
-  m_Name: TextDiag
+  m_Script: {fileID: 11500000, guid: 0f1cfadeb316ba04e885076e9778a157, type: 3}
+  m_Name: Rock
   m_EditorClassIdentifier: 
-  lines:
-  - text: Test test test
-  - text: testest
-  - text: bouh
+  fullName: The Rock
+  portrait: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}

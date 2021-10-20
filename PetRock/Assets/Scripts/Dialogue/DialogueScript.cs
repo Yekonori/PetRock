@@ -7,6 +7,8 @@ using UnityEngine.UI;
 [System.Serializable]
 public struct Line
 {
+    public Characters character;
+
     [TextArea(2, 5)]
     public string text;
 }
@@ -14,5 +16,7 @@ public struct Line
 [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue")]
 public class DialogueScript : ScriptableObject
 {
+    public Characters leftCharacter;
+    public Characters rightCharacter;
     public Line[] lines;
 }
