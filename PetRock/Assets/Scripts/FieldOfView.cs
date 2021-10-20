@@ -18,6 +18,7 @@ public class FieldOfView : MonoBehaviour
     private float timeToStayClosed = 3;
     private float timeToOpen = 1;
     private float stayOpenTimer = 0;
+    private bool flickering = false;
 
     [SerializeField] LayerMask targetLayerMask;
     [SerializeField] LayerMask obstableLayerMask;
@@ -44,8 +45,11 @@ public class FieldOfView : MonoBehaviour
         if (!canFlicker) return;
 
         stayOpenTimer += Time.deltaTime;
-        if (stayOpenTimer > timeToStayOpen)
+        if (stayOpenTimer > timeToStayOpen && !flickering)
+        {
+            flickering = true;
             StartCoroutine(Flicker());
+        }
     }
     private void LateUpdate()
     {
@@ -264,6 +268,7 @@ public class FieldOfView : MonoBehaviour
             yield return null;
         }
 
+        // CLosed
         timer = 0;
         currentViewAngle = 0;
         yield return new WaitForSeconds(timeToStayClosed);
@@ -277,5 +282,6 @@ public class FieldOfView : MonoBehaviour
         }
         currentViewAngle = viewAngle;
         stayOpenTimer = 0;
+        flickering = false;
     }
 }
