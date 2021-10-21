@@ -38,12 +38,12 @@ public class DialogDisplay : MonoBehaviour
         {
             NextDialog();
         }
-        
+        /*
         if (Input.GetKeyDown(KeyCode.E))
         {
             DisplayDialog();
-            NextDialog();
-        }
+        NextDialog();
+        }*/
     }
 
     //Passe au texte suivant
@@ -78,7 +78,6 @@ public class DialogDisplay : MonoBehaviour
         {
             SetDialog(speakerUIRight, speakerUILeft, line.text);
         }
-
         //SetDialog(line.text);
     }
 
@@ -99,7 +98,7 @@ public class DialogDisplay : MonoBehaviour
         activeDialog = true;
     }
 
-    public void UseThisDialogTex(DialogueScript dialogText)
+    public void SetThisDialogTex(DialogueScript dialogText)
     {
         conversation = dialogText;
     }
