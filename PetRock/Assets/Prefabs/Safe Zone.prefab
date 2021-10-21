@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5705297409158236392}
   m_Layer: 0
   m_Name: Safe Zone
-  m_TagString: Untagged
+  m_TagString: SafeZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,3 +106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4f9a154375a2f44b52f08718f3d151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finalZone: 0

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Canvas
   - Rock
+  - RockBalancing
+  - SafeZone
   layers:
   - Default
   - TransparentFX
