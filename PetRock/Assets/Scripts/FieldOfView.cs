@@ -213,6 +213,9 @@ public class FieldOfView : MonoBehaviour
         timeToClose = eyeVision.timeToClose;
         timeToStayClosed = eyeVision.timeToStayClosed;
         timeToOpen = eyeVision.timeToOpen;
+
+        if (eyeVision.seeThroughObstacle)
+            obstableLayerMask = LayerMask.GetMask("Nothing");
 }
 
     public struct EdgeInfo
