@@ -16,6 +16,7 @@ public class PlayerTriggers : MonoBehaviour
                 break;
 
             case _rockBalancingZoneTag:
+                Debug.LogError("RB Zone");
                 break;
 
             default:
