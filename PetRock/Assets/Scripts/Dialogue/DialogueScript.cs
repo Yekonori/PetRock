@@ -19,4 +19,6 @@ public class DialogueScript : ScriptableObject
     public Characters leftCharacter;
     public Characters rightCharacter;
     public Line[] lines;
+    public bool automatic;
+    
 }
