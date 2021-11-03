@@ -22,6 +22,8 @@ public class PlayerInput : MonoBehaviour
     {
         _player = ReInput.players.GetPlayer(0);
 
+        GameManager.instance.player = _player;
+
         if (playerMovement == null)
         {
             playerMovement = GetComponentInChildren<PlayerMovement>();
@@ -35,13 +37,13 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance._inPause)
-            return;
-
         if (_player.GetButton("Pause"))
         {
             GameManager.instance.PauseGame();
         }
+
+        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing)
+            return;
 
         float move = _player.GetAxis("MoveVertical");
         int moveInt = Mathf.Abs(move) > deadZone ? (int)Mathf.Sign(move) : 0;
