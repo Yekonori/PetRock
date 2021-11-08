@@ -35,24 +35,26 @@ public class FreeFollowView : AView
 
     private void Update()
     {
-        if (Input.GetMouseButton(1)) //Right CLick
+        //if (Input.GetMouseButton(1)) //Right CLick
+        //{
+        //    yaw += yawSpeed * Time.deltaTime * Input.GetAxis("Mouse X");
+        //}
+        /*else*/ if (_player != null)
         {
-            yaw += yawSpeed * Time.deltaTime * Input.GetAxis("Mouse X");
-        }
-        else if (_player != null)
-        {
-            float moveCam = _player.GetAxis("MoveFreeFollowCamera");
-            if (Mathf.Abs(moveCam) > 0.2f)
+            float moveCam = _player.GetAxis("MoveFreeFollowCameraAround");
+            if (Mathf.Abs(moveCam) > 0.4f)
                 yaw += yawSpeed * Time.deltaTime * moveCam;
-        }
 
-        float inputMouseWheel = 0f;
-        inputMouseWheel = Input.GetAxis("Mouse ScrollWheel");
-        curvePosition += curveSpeed * Time.deltaTime * inputMouseWheel;
-        if (curvePosition > 1f)
-            curvePosition = 1f;
-        if (curvePosition < 0f)
-            curvePosition = 0f;
+            float inputMouseWheel = 0f;
+            inputMouseWheel = _player.GetAxis("MoveFreeFollowCameraCurve");
+            if (Mathf.Abs(inputMouseWheel) > 0.4f)
+                curvePosition += curveSpeed * Time.deltaTime * inputMouseWheel;
+
+            if (curvePosition > 1f)
+                curvePosition = 1f;
+            else if (curvePosition < 0f)
+                curvePosition = 0f;
+        }
 
         _pitch = MultiLerp(pitch, curvePosition);
         _roll = MultiLerp(roll, curvePosition);
