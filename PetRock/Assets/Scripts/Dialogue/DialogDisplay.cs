@@ -10,6 +10,8 @@ public class DialogDisplay : MonoBehaviour
     public GameObject speakerRight;
     //public GameObject dialogObject;
 
+    public float textDuration = 1;
+
     public float timeBeforeNextPanel = 3;
 
     private int activeLineIndex = 0;
@@ -18,7 +20,7 @@ public class DialogDisplay : MonoBehaviour
     private DialogueUI speakerUIRight; 
     //private DialogueUI dialogUI;
 
-    private bool activeDialog;
+    public bool activeDialog;
     private float t = 0;
 
     // Start is called before the first frame update
@@ -88,20 +90,24 @@ public class DialogDisplay : MonoBehaviour
         if(speakerUILeft.SpeakerIs(character))
         {
             SetDialog(speakerUILeft, speakerUIRight, line.text);
+            
         }
         else
         {
             SetDialog(speakerUIRight, speakerUILeft, line.text);
+            //StartSpeaking(speakerUIRight);
         }
         //SetDialog(line.text);
     }
 
     void SetDialog(DialogueUI activeSpeakerUI, DialogueUI inactiveSpeakerUI, string text)
     {
-        activeSpeakerUI.Dialog = text;
+       // activeSpeakerUI.Dialog = text;
         activeSpeakerUI.Show();
         inactiveSpeakerUI.Hide();
 
+        StartCoroutine(StartSpeaking(activeSpeakerUI, text));
+       
         /*
         dialogUI.Dialog = text;
         dialogUI.Show();*/
@@ -116,6 +122,23 @@ public class DialogDisplay : MonoBehaviour
     public void SetThisDialogTex(DialogueScript dialogText)
     {
         conversation = dialogText;
+    }
+
+
+    //Défilement du texte
+    private IEnumerator StartSpeaking(DialogueUI active,  string text)
+    {
+        active.dialog.text = "";
+
+        int textLength = text.Length;
+        float textSpeedRatio = textDuration / textLength;
+
+        foreach (char character in text)
+        {
+            active.dialog.text += character;
+
+            yield return new WaitForSeconds(textSpeedRatio);
+        }
     }
 
 }
