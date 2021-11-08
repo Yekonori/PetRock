@@ -199,10 +199,7 @@ MonoBehaviour:
         _categoryId: 1
         _layoutId: 0
       _defaultMouseMaps: []
-      _defaultKeyboardMaps:
-      - _enabled: 1
-        _categoryId: 0
-        _layoutId: 0
+      _defaultKeyboardMaps: []
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
       _assignMouseOnStart: 1
@@ -244,15 +241,24 @@ MonoBehaviour:
       _userAssignable: 1
       _categoryId: 0
     - _id: 3
-      _name: MoveFreeFollowCamera
+      _name: MoveFreeFollowCameraAround
       _type: 0
-      _descriptiveName: MoveFreeFollowCamera
+      _descriptiveName: MoveFreeFollowCameraAround
       _positiveDescriptiveName: ToRight
       _negativeDescriptiveName: ToLeft
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
     - _id: 4
+      _name: MoveFreeFollowCameraCurve
+      _type: 0
+      _descriptiveName: MoveFreeFollowCameraCurve
+      _positiveDescriptiveName: ToBeginning
+      _negativeDescriptiveName: ToEnd
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 1
+    - _id: 5
       _name: ProgressDialogue
       _type: 1
       _descriptiveName: ProgressDialogue
@@ -282,9 +288,9 @@ MonoBehaviour:
       - categoryId: 0
         actionIds: 000000000100000002000000
       - categoryId: 1
-        actionIds: 03000000
+        actionIds: 0300000004000000
       - categoryId: 2
-        actionIds: 04000000
+        actionIds: 05000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -321,13 +327,6 @@ MonoBehaviour:
       _descriptiveName: CameraControl
       _tag: 
       _id: 1
-      _userAssignable: 1
-      _checkConflictsWithAllCategories: 1
-      _checkConflictsCategoryIds: 
-    - _name: Dialogues
-      _descriptiveName: Dialogues
-      _tag: 
-      _id: 2
       _userAssignable: 1
       _checkConflictsWithAllCategories: 1
       _checkConflictsCategoryIds: 
@@ -400,7 +399,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 4
+        _actionId: 5
         _elementType: 1
         _elementIdentifierId: 4
         _axisRange: 0
@@ -626,17 +625,10 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
-    - id: 2
-      categoryId: 2
-      layoutId: 0
-      name: 
-      hardwareGuidString: 83b427e4-086f-47f3-bb06-be266abd1ca5
-      customControllerUid: 0
-      actionElementMaps:
       - _actionCategoryId: 0
         _actionId: 4
-        _elementType: 1
-        _elementIdentifierId: 4
+        _elementType: 0
+        _elementIdentifierId: 3
         _axisRange: 0
         _invert: 0
         _axisContribution: 0
@@ -713,15 +705,15 @@ MonoBehaviour:
     controllerMapLayoutManagerRuleSets: []
     controllerMapEnablerRuleSets: []
     playerIdCounter: 2
-    actionIdCounter: 5
+    actionIdCounter: 6
     actionCategoryIdCounter: 3
     inputBehaviorIdCounter: 1
-    mapCategoryIdCounter: 3
+    mapCategoryIdCounter: 2
     joystickLayoutIdCounter: 1
     keyboardLayoutIdCounter: 1
     mouseLayoutIdCounter: 1
     customControllerLayoutIdCounter: 1
-    joystickMapIdCounter: 3
+    joystickMapIdCounter: 2
     keyboardMapIdCounter: 1
     mouseMapIdCounter: 0
     customControllerMapIdCounter: 0
