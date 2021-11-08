@@ -15,6 +15,8 @@ public class Trigger_Dialog : MonoBehaviour
             dialogDisplay.SetThisDialogTex(conversation);
             dialogDisplay.DisplayDialog();
             dialogDisplay.NextDialog();
+
+            Destroy(this);
         }
     }
 }
