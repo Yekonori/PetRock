@@ -102,8 +102,7 @@ public class RockBalancingScript : MonoBehaviour
 
     private void EndRockBalancing()
     {
-        _triggeredViewVolume.view = _dollyView;
-        _triggeredViewVolume.ActiveView(true);
+        _dollyView.SetActive(true);
         StartCoroutine(finishRockBalancing());
     }
 
@@ -111,6 +110,7 @@ public class RockBalancingScript : MonoBehaviour
     {
         yield return new WaitForSeconds(_dollyView.getTimeToRotate + 1);
         GetComponent<Collider>().enabled = false;
+        _dollyView.SetActive(false);
         _triggeredViewVolume.ActiveView(false);
         enabled = false;
         GameManager.instance.inRockBalancing = false;
