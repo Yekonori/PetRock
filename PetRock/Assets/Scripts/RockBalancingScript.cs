@@ -27,6 +27,7 @@ public class RockBalancingScript : MonoBehaviour
     private Transform _finalPosRock;
     private Transform _finalA;
     private Transform _finalB;
+    private  Quaternion _margeRot;
 
     [Header("RockPrefab")]
     [SerializeField]
@@ -69,9 +70,9 @@ public class RockBalancingScript : MonoBehaviour
         SetMovementDirection(moveInt, rotateInt);
 
         _theRock.transform.position += _moveForward * transform.forward * _speed * Time.deltaTime; // += gravity * 
-        _theRock.transform.Rotate(Vector3.up, _moveRotation * _rotationSpeed * Time.deltaTime);
+        _theRock.transform.Rotate(Vector3.right, _moveRotation * _rotationSpeed * Time.deltaTime);
 
-        if (ValidatePos() && player.GetButton("ValidatePetRockPos"))
+        if (ValidateRot() == true && ValidatePos() == true && player.GetButton("ValidatePetRockPos"))
         {
             EndRockBalancing();
         }
@@ -87,11 +88,20 @@ public class RockBalancingScript : MonoBehaviour
     {
         if (_theRock.transform.position.z <= _finalA.position.z && _theRock.transform.position.z >= _finalB.position.z)
             _goodPlace = true;
+        else
+            _goodPlace = false;
 
-        if (_theRock.transform.rotation == _finalPosRock.rotation)
+        return _goodPlace;
+    }
+
+    private bool ValidateRot()
+    {
+        if (_theRock.transform.localRotation == _finalPosRock.rotation)
             _goodRot = true;
+        else
+            _goodRot = false;
 
-        return _goodPlace && _goodRot;
+        return _goodRot;
     }
 
     private IEnumerator startRockBalance()
@@ -109,9 +119,14 @@ public class RockBalancingScript : MonoBehaviour
     private IEnumerator finishRockBalancing()
     {
         yield return new WaitForSeconds(_dollyView.getTimeToRotate + 1);
+
         GetComponent<Collider>().enabled = false;
+
         _dollyView.SetActive(false);
         _triggeredViewVolume.ActiveView(false);
+
+        Destroy(_theRock);
+
         enabled = false;
         GameManager.instance.inRockBalancing = false;
     }

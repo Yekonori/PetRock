@@ -208,7 +208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1706345123126434409}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4, y: 0.96, z: 0}
+  m_LocalPosition: {x: -1.4, y: 1, z: 0}
   m_LocalScale: {x: 5, y: 0.05, z: 5}
   m_Children: []
   m_Father: {fileID: 1706345123641779282}
@@ -438,8 +438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9592a42464ff75844bad98941200e685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
-  _rotationSpeed: 90
+  _speed: 0.5
+  _rotationSpeed: 50
   _startPosRock: {fileID: 1706345123894593927}
   _finalPosRock: {fileID: 1706345123540692047}
   _prefabRock: {fileID: 639969987513982064, guid: 8e45ba70ab3f5204bb30bcd2487c964a,
@@ -524,6 +524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLoop: 0
   nodes:
+  - {fileID: 1706345122227006265}
   - {fileID: 1706345121812158168}
   - {fileID: 1706345122691140650}
   - {fileID: 1706345123523939768}
