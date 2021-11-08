@@ -10,7 +10,7 @@ public class Rail : MonoBehaviour
     private List<float> nodesDistance = new List<float>();
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (nodes.Count > 1)
         {
