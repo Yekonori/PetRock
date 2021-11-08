@@ -10,6 +10,8 @@ public class DialogDisplay : MonoBehaviour
     public GameObject speakerRight;
     //public GameObject dialogObject;
 
+    public float timeBeforeNextPanel = 3;
+
     private int activeLineIndex = 0;
    
     private DialogueUI speakerUILeft;
@@ -17,6 +19,7 @@ public class DialogDisplay : MonoBehaviour
     //private DialogueUI dialogUI;
 
     private bool activeDialog;
+    private float t = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +37,19 @@ public class DialogDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("space"))
+        if (conversation.automatic)
+        {
+            if(t>= timeBeforeNextPanel)
+            {
+                NextDialog();
+                t = 0;
+            }
+            else
+            {
+                t += Time.deltaTime;
+            }
+        }
+        else if (Input.GetKeyDown("space") && !conversation.automatic)
         {
             NextDialog();
         }
