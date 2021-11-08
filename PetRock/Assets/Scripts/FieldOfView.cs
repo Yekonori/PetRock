@@ -76,7 +76,6 @@ public class FieldOfView : MonoBehaviour
 
     void FindVisibleTargets()
     {
-
         if (_playerParameters.HasBeenOnGiantZone())
             _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.Stressed, PlayerParameters.PlayerStates.Stressed);
         else

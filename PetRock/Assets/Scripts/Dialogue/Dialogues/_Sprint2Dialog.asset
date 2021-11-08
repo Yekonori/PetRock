@@ -10,15 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda5e4a1e9ab58429616bafaa2845cf, type: 3}
-  m_Name: TextDiag
+  m_Name: _Sprint2Dialog
   m_EditorClassIdentifier: 
-  leftCharacter: {fileID: 0}
-  rightCharacter: {fileID: 0}
+  leftCharacter: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+  rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
   lines:
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: "Bravo tu es arriv\xE9 dans la zone de dialogue !!"
+    text: Hey ! Did you see this strange thing over there ?
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "Quoi quoi ! J'ai r\xE9ussi ?"
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Oui, parfaitement tout fonctionne correctement
-  automatic: 1
+    text: What is this thing ?! It scare me !

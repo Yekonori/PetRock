@@ -427,7 +427,7 @@ MonoBehaviour:
   target: {fileID: 0}
   curve: {fileID: 7990629210445783693}
   curvePosition: 0.406
-  curveSpeed: 50
+  curveSpeed: 1
 --- !u!1 &7990629210912193273
 GameObject:
   m_ObjectHideFlags: 0

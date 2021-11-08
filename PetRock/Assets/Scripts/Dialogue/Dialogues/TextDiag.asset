@@ -21,4 +21,3 @@ MonoBehaviour:
     text: "Quoi quoi ! J'ai r\xE9ussi ?"
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: Oui, parfaitement tout fonctionne correctement
-  automatic: 1
