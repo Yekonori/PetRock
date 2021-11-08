@@ -8,6 +8,7 @@ public class Trigger_Dialog : MonoBehaviour
     public DialogueScript conversation;
     public DialogDisplay dialogDisplay;
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")

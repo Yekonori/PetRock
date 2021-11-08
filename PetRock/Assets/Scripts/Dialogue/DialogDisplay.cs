@@ -83,7 +83,7 @@ public class DialogDisplay : MonoBehaviour
         Line line = conversation.lines[activeLineIndex];
         Characters character = line.character;
 
-        if(speakerUILeft.SpeakerIs(character))
+        if (speakerUILeft.SpeakerIs(character))
         {
             SetDialog(speakerUILeft, speakerUIRight, line.text);
             
@@ -112,6 +112,7 @@ public class DialogDisplay : MonoBehaviour
     {
         conversation = dialogText;
     }
+
 
 
     //Défilement du texte
