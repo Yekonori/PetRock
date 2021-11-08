@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Rewired;
 using UnityEngine;
 
 public class DialogDisplay : MonoBehaviour
@@ -8,7 +9,6 @@ public class DialogDisplay : MonoBehaviour
 
     public GameObject speakerLeft;
     public GameObject speakerRight;
-    //public GameObject dialogObject;
 
     public float textDuration = 1;
 
@@ -17,31 +17,34 @@ public class DialogDisplay : MonoBehaviour
     private int activeLineIndex = 0;
    
     private DialogueUI speakerUILeft;
-    private DialogueUI speakerUIRight; 
-    //private DialogueUI dialogUI;
+    private DialogueUI speakerUIRight;
 
     public bool activeDialog;
     private float t = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    private Player _player;
+
+    private void Start()
     {
+        _player = ReInput.players.GetPlayer(0);
+
         speakerUILeft = speakerLeft.GetComponent<DialogueUI>();
         speakerUIRight = speakerRight.GetComponent<DialogueUI>();
-        //dialogUI = dialogObject.GetComponent<DialogueUI>();
 
         speakerUILeft.Speaker = conversation.leftCharacter;
         speakerUIRight.Speaker = conversation.rightCharacter;
 
+        speakerLeft.SetActive(false);
+        speakerRight.SetActive(false);
+
         activeDialog = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (conversation.automatic)
         {
-            if(t>= timeBeforeNextPanel)
+            if(t >= timeBeforeNextPanel)
             {
                 NextDialog();
                 t = 0;
@@ -51,16 +54,10 @@ public class DialogDisplay : MonoBehaviour
                 t += Time.deltaTime;
             }
         }
-        else if (Input.GetKeyDown("space") && !conversation.automatic)
+        else if (_player.GetButtonDown("ProgressDialogue") && !conversation.automatic)
         {
             NextDialog();
         }
-        /*
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            DisplayDialog();
-        NextDialog();
-        }*/
     }
 
     //Passe au texte suivant
@@ -75,7 +72,6 @@ public class DialogDisplay : MonoBehaviour
         {
             speakerUILeft.Hide();
             speakerUIRight.Hide();
-            //dialogUI.Hide();
 
             activeDialog = false;
             activeLineIndex = 0;
@@ -95,22 +91,15 @@ public class DialogDisplay : MonoBehaviour
         else
         {
             SetDialog(speakerUIRight, speakerUILeft, line.text);
-            //StartSpeaking(speakerUIRight);
         }
-        //SetDialog(line.text);
     }
 
     void SetDialog(DialogueUI activeSpeakerUI, DialogueUI inactiveSpeakerUI, string text)
     {
-       // activeSpeakerUI.Dialog = text;
         activeSpeakerUI.Show();
         inactiveSpeakerUI.Hide();
 
         StartCoroutine(StartSpeaking(activeSpeakerUI, text));
-       
-        /*
-        dialogUI.Dialog = text;
-        dialogUI.Show();*/
     }
 
     //Active la boîte de dialogue
