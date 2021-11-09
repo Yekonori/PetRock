@@ -32,16 +32,12 @@ public class GetSpot_Dialog : MonoBehaviour
             etat = 1;
         }
         
-        if(_playerParameters.HasBeenOnStressed() && !dialogDisplay.activeDialog && etat != 2)
-        {
-            dialogDisplay.SetThisDialogTex(conversation2);
-            dialogDisplay.DisplayDialog();
-            dialogDisplay.NextDialog();
-            etat = 2;
-        }
-
-
-
+        //if(_playerParameters.HasBeenOnStressed() && !dialogDisplay.activeDialog && etat != 2)
+        //{
+        //    dialogDisplay.SetThisDialogTex(conversation2);
+        //    dialogDisplay.DisplayDialog();
+        //    dialogDisplay.NextDialog();
+        //    etat = 2;
+        //}
     }
-
 }

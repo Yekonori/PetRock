@@ -18,7 +18,7 @@ public class SafeZoneScript : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             _playerParameters.UpdateStateSafeZone(true);
-            _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.Regular, PlayerParameters.PlayerStates.Regular);
+            _playerParameters.UpdatePlayerState(PlayerParameters.PlayerStates.Regular);
 
             if(finalZone)
             {
@@ -29,7 +29,6 @@ public class SafeZoneScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-
         if (other.gameObject.tag == "Player")
         {
             _playerParameters.UpdateStateSafeZone(false);

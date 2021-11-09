@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class FieldOfView : MonoBehaviour
 {
     // https://www.youtube.com/watch?v=rQG9aUWarwE  Ep01
-    // https://www.youtube.com/watch?v=73Dc5JTCmKI  Ep02 => je n'ai pas fait la partie a partir de 18min
+    // https://www.youtube.com/watch?v=73Dc5JTCmKI  Ep02
 
     [Min(0)] public float range = 5f;    
 
@@ -76,14 +76,6 @@ public class FieldOfView : MonoBehaviour
 
     void FindVisibleTargets()
     {
-        if (_playerParameters.HasBeenOnGiantZone())
-            _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.Stressed, PlayerParameters.PlayerStates.Stressed);
-        else
-        {
-            if(!_playerParameters.HasBeenOnStressed())
-                _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.Regular, PlayerParameters.PlayerStates.Regular);
-        }
-
         Collider[] targets = Physics.OverlapSphere(transform.position, range, targetLayerMask);
         if (targets.Length != 0)
         {
@@ -100,9 +92,7 @@ public class FieldOfView : MonoBehaviour
                     {
                         // TO DO : PLAYER IS SPOTTED
                         Debug.Log("Player is spotted");
-
-                        if (!_playerParameters.HasBeenOnGiantZone())
-                            _playerParameters.UpdatePlayerState(PlayerParameters.PreviousPlayerStates.GiantZone, PlayerParameters.PlayerStates.GiantZone);
+                        _playerParameters.UpdatePlayerState(PlayerParameters.PlayerStates.GiantZone);
                     }
                 }
             }
