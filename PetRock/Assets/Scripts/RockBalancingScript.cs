@@ -27,7 +27,11 @@ public class RockBalancingScript : MonoBehaviour
     private Transform _finalPosRock;
     private Transform _finalA;
     private Transform _finalB;
-    private  Quaternion _margeRot;
+    [SerializeField]
+    private  float _margeRot;
+
+    private float _posVib;
+    private float _rotVib;
 
     [Header("RockPrefab")]
     [SerializeField]
@@ -37,6 +41,7 @@ public class RockBalancingScript : MonoBehaviour
     private bool _canRockBalance = false;
     private bool _goodPlace = false;
     private bool _goodRot = false;
+    private bool _endRockBalancing = false;
 
     [Header("Camera views")]
     [SerializeField]
@@ -72,9 +77,22 @@ public class RockBalancingScript : MonoBehaviour
         _theRock.transform.position += _moveForward * transform.forward * _speed * Time.deltaTime; // += gravity * 
         _theRock.transform.Rotate(Vector3.right, _moveRotation * _rotationSpeed * Time.deltaTime);
 
+        _posVib = Mathf.Clamp(Mathf.Abs(_theRock.transform.position.z - _finalPosRock.position.z), 0f, 0.5f);
+        _rotVib = Mathf.Clamp(Mathf.Abs((_theRock.transform.rotation.x - _finalPosRock.rotation.x)), 0f, 0.5f);
+
+
         if (ValidateRot() == true && ValidatePos() == true && player.GetButton("ValidatePetRockPos"))
         {
+            _endRockBalancing = true;
+
+            player.SetVibration(0, 0);
+            player.StopVibration();
             EndRockBalancing();
+        }
+        else
+        {
+            if(!_endRockBalancing)
+                player.SetVibration(0, _posVib + _rotVib);
         }
     }
 
@@ -86,7 +104,8 @@ public class RockBalancingScript : MonoBehaviour
 
     private bool ValidatePos()
     {
-        if (_theRock.transform.position.z <= _finalA.position.z && _theRock.transform.position.z >= _finalB.position.z)
+        if (_theRock.transform.position.z <= _finalA.position.z 
+            && _theRock.transform.position.z >= _finalB.position.z)
             _goodPlace = true;
         else
             _goodPlace = false;
@@ -96,7 +115,8 @@ public class RockBalancingScript : MonoBehaviour
 
     private bool ValidateRot()
     {
-        if (_theRock.transform.localRotation == _finalPosRock.rotation)
+        if (_theRock.transform.localRotation.eulerAngles.x >= (_finalPosRock.localRotation.eulerAngles.x - _margeRot)
+            && _theRock.transform.localRotation.eulerAngles.x <= (_finalPosRock.localRotation.eulerAngles.x + _margeRot))
             _goodRot = true;
         else
             _goodRot = false;
