@@ -23,6 +23,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing)
+        {
+            _moveForward = 0;
+            _moveRotation = 0;
+            return;
+        }
+
         transform.position += _moveForward * transform.forward * speed * Time.deltaTime; // += gravity * 
         transform.Rotate(Vector3.up, _moveRotation * rotationSpeed * Time.deltaTime);
     }

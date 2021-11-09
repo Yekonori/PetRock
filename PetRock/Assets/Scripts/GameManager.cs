@@ -4,6 +4,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
+using Rewired;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,11 +13,17 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool _inPause = false;
 
+    [HideInInspector]
+    public bool inRockBalancing = false;
+
     [TitleGroup("Post-Processing")]
     [SerializeField]
     private Volume volumePostProcessing;
     [HideInInspector]
     public Vignette vignettePostProcessing;
+
+    [HideInInspector]
+    public Player player;
 
     public static GameManager instance;
     private void Awake()

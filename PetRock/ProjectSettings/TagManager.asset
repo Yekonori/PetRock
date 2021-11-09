@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Canvas
   - Rock
+  - RockBalancing
+  - SafeZone
+  - Sculpture
   layers:
   - Default
   - TransparentFX

@@ -13,25 +13,19 @@ public class SafeZoneScript : MonoBehaviour
         _playerParameters = PlayerParameters.Instance;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void EnterOnSafeZone()
     {
-        if(other.gameObject.tag == "Player")
-        {
-            _playerParameters.UpdateStateSafeZone(true);
-            _playerParameters.UpdatePlayerState(PlayerParameters.PlayerStates.Regular);
+        _playerParameters.UpdateStateSafeZone(true);
+        _playerParameters.UpdatePlayerState(PlayerParameters.PlayerStates.Regular);
 
-            if(finalZone)
-            {
-                Debug.Log("C'est la final Zone !!");
-            }
+        if (finalZone)
+        {
+            Debug.Log("C'est la final Zone !!");
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void ExitSafeZone()
     {
-        if (other.gameObject.tag == "Player")
-        {
-            _playerParameters.UpdateStateSafeZone(false);
-        }
+        _playerParameters.UpdateStateSafeZone(false);
     }
 }

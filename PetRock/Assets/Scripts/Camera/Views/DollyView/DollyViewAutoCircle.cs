@@ -44,4 +44,12 @@ public class DollyViewAutoCircle : AView
     {
         return new CameraConfiguration(yaw, pitch, roll, railPosition, distance, fov);
     }
+
+    public float getTimeToRotate
+    {
+        get
+        {
+            return timeToRotate;
+        }
+    }
 }

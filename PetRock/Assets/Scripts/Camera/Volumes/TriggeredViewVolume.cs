@@ -19,4 +19,9 @@ public class TriggeredViewVolume : AViewVolume
             SetActive(false);
         }
     }
+
+    public void ActiveView(bool active)
+    {
+        SetActive(active);
+    }
 }
