@@ -339,7 +339,7 @@ PrefabInstance:
     - target: {fileID: 4373567877735034330, guid: 4432506f45877c64c8dc7494a2eb438d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4373567877735034330, guid: 4432506f45877c64c8dc7494a2eb438d,
         type: 3}
@@ -1199,6 +1199,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3623854392119738100, guid: 3b0e9cac5ff724a459484e9643dce017,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b0e9cac5ff724a459484e9643dce017, type: 3}
 --- !u!4 &984104275 stripped
@@ -1283,6 +1288,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obstacle (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623854392119738100, guid: 3b0e9cac5ff724a459484e9643dce017,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b0e9cac5ff724a459484e9643dce017, type: 3}
@@ -1649,7 +1659,7 @@ PrefabInstance:
     - target: {fileID: 5705297409158236388, guid: 951463cd2a8945a4f8e579cb60a3dc16,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5705297409158236388, guid: 951463cd2a8945a4f8e579cb60a3dc16,
         type: 3}
@@ -2282,6 +2292,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3623854392119738100, guid: 3b0e9cac5ff724a459484e9643dce017,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b0e9cac5ff724a459484e9643dce017, type: 3}
 --- !u!4 &1703151694 stripped
@@ -2491,6 +2506,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Obstacle (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623854392119738100, guid: 3b0e9cac5ff724a459484e9643dce017,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b0e9cac5ff724a459484e9643dce017, type: 3}
@@ -2929,7 +2949,7 @@ PrefabInstance:
     - target: {fileID: 7990629209976811674, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7990629209976811674, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
         type: 3}
@@ -3113,7 +3133,7 @@ PrefabInstance:
     - target: {fileID: 4986059838337872003, guid: 10b6d8f9f1092b049ad246ed294eea7d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4986059838337872003, guid: 10b6d8f9f1092b049ad246ed294eea7d,
         type: 3}
