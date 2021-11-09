@@ -9,6 +9,10 @@ public class PlayerParameters : MonoBehaviour
     [PropertyRange(0,100)]
     public float panicGauge;
 
+    [SerializeField, Min(0)] float timeFromStressedToRegular = 3f;
+    [SerializeField, Min(0)] float timeFromGiantToStressed = 0.3f;
+    private float stateTimer = 0f;
+
     private bool doRockBalancing = false;
     private bool inSafeZone = false;
 
@@ -19,15 +23,6 @@ public class PlayerParameters : MonoBehaviour
         Stressed
     }
 
-    public enum PreviousPlayerStates
-    {
-        Regular,
-        GiantZone,
-        Stressed
-    }
-
-    //[HideInInspector]
-    public PreviousPlayerStates previousPlayerStates = PreviousPlayerStates.Regular;
     public PlayerStates playerStates = PlayerStates.Regular;
 
     public static PlayerParameters Instance;
@@ -42,16 +37,33 @@ public class PlayerParameters : MonoBehaviour
 
     private void Update()
     {
+        if (playerStates == PlayerStates.GiantZone)
+        {
+            stateTimer += Time.deltaTime;
+            if (stateTimer > timeFromGiantToStressed)
+            {
+                UpdatePlayerState(PlayerStates.Stressed);
+            }
+        }
+        else if (playerStates == PlayerStates.Stressed)
+        {
+            stateTimer += Time.deltaTime;
+            if (stateTimer > timeFromStressedToRegular)
+            {
+                UpdatePlayerState(PlayerStates.Regular);
+            }
+        }
+
         if (panicGauge >= 100)
             SceneManager.LoadScene("Defeat_Scene");
     }
 
     #region Update states
 
-    public void UpdatePlayerState(PreviousPlayerStates tempPreviousPlayerStates, PlayerStates tempPlayerStates)
+    public void UpdatePlayerState(PlayerStates tempPlayerStates)
     {
-        previousPlayerStates = tempPreviousPlayerStates;
         playerStates = tempPlayerStates;
+        stateTimer = 0f;
     }
 
     public void UpdateRockBalancing(bool active)
@@ -80,12 +92,12 @@ public class PlayerParameters : MonoBehaviour
 
     public bool HasBeenOnGiantZone()
     {
-        return previousPlayerStates == PreviousPlayerStates.GiantZone;
+        return playerStates == PlayerStates.GiantZone;
     }
 
     public bool HasBeenOnStressed()
     {
-        return previousPlayerStates == PreviousPlayerStates.Stressed;
+        return playerStates == PlayerStates.Stressed;
     }
 
     #endregion Bool
