@@ -40,6 +40,11 @@ public class FieldOfView : MonoBehaviour
         _playerParameters = PlayerParameters.Instance;
     }
 
+    private void OnEnable()
+    {
+        StartCoroutine(FindVisibleTargetsWithDelay(0.2f));
+    }
+
     private void Update()
     {
         if (!canFlicker) return;
