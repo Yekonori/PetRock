@@ -24,6 +24,8 @@ public class DialogDisplay : MonoBehaviour
 
     private Player _player;
 
+    private bool canNextDialogue = true;
+
     private void Start()
     {
         _player = ReInput.players.GetPlayer(0);
@@ -54,8 +56,9 @@ public class DialogDisplay : MonoBehaviour
                 t += Time.deltaTime;
             }
         }
-        else if (_player.GetButtonDown("ProgressDialogue") && !conversation.automatic)
+        else if (_player.GetButtonDown("ProgressDialogue") && !conversation.automatic && canNextDialogue)
         {
+            canNextDialogue = false;
             NextDialog();
         }
     }
@@ -119,6 +122,7 @@ public class DialogDisplay : MonoBehaviour
     private IEnumerator StartSpeaking(DialogueUI active,  string text)
     {
         active.dialog.text = "";
+        canNextDialogue = true;
 
         int textLength = text.Length;
         float textSpeedRatio = textDuration / textLength;

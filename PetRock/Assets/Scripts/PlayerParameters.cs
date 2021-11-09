@@ -13,8 +13,12 @@ public class PlayerParameters : MonoBehaviour
     [SerializeField, Min(0)] float timeFromGiantToStressed = 0.3f;
     private float stateTimer = 0f;
 
+    [Header("Stress")]
+    public float decreaseStressValuePerSecond = 20;
+
     private bool doRockBalancing = false;
     private bool inSafeZone = false;
+    private float t = 0;
 
     public enum PlayerStates
     {
@@ -56,6 +60,22 @@ public class PlayerParameters : MonoBehaviour
 
         if (panicGauge >= 100)
             SceneManager.LoadScene("Defeat_Scene");
+
+        if(inSafeZone)
+        {
+            t += Time.deltaTime;
+            if(t>= 1)
+            {
+                panicGauge -= decreaseStressValuePerSecond;
+                t = 0;
+                if (panicGauge < 0)
+                    panicGauge = 0;
+            }
+        }
+        else
+        {
+            t = 0;
+        }
     }
 
     #region Update states
