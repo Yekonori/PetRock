@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, Min(0f)] float rotationSpeed = 90f;
     //[SerializeField, Min(0f)] float gravity = 5f; // can we jump? fall ?
 
+    [SerializeField] bool debugMode = false;
     #endregion Script Parameters
 
     #region Fields
@@ -30,5 +31,12 @@ public class PlayerMovement : MonoBehaviour
     {
         _moveForward = (int)vertical;
         _moveRotation = (int)rotate;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!debugMode) return;
+
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward);
     }
 }
