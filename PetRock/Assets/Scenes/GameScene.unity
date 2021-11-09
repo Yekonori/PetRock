@@ -982,6 +982,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 371245318}
     m_Modifications:
+    - target: {fileID: 4729378836783760449, guid: 4b2db09a3a224aa49a533c94344590ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 125.6001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4729378836783760449, guid: 4b2db09a3a224aa49a533c94344590ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -115.55005
+      objectReference: {fileID: 0}
     - target: {fileID: 5423105386432714066, guid: 4b2db09a3a224aa49a533c94344590ba,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1091,6 +1101,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005722805451012460, guid: 4b2db09a3a224aa49a533c94344590ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -125.6001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005722805451012460, guid: 4b2db09a3a224aa49a533c94344590ba,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -115.55005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b2db09a3a224aa49a533c94344590ba, type: 3}
@@ -2079,3 +2099,77 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
+--- !u!1001 &4986059837527977451
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4986059838337872003, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872003, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0000008940697
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872003, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872003, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872003, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872003, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872003, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872003, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872003, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872003, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872003, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872012, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: dialogDisplay
+      value: 
+      objectReference: {fileID: 1201569699}
+    - target: {fileID: 4986059838337872013, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: m_Name
+      value: States_Player_Dialog
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 10b6d8f9f1092b049ad246ed294eea7d, type: 3}
