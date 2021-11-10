@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueUI : MonoBehaviour
 {
     public Image portrait;
-    public Text fullName;
-    public Text dialog;
+    public TextMeshProUGUI fullName;
+    public TextMeshProUGUI dialog;
 
     private Characters speaker;
 

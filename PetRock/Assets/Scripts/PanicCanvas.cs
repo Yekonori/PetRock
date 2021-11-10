@@ -105,7 +105,14 @@ public class PanicCanvas : MonoBehaviour
             newValue += value;
             _tweenIsPlaying = true;
 
-            DOTween.To(() => _playerParameters.panicGauge, x => _playerParameters.panicGauge = x, Mathf.Clamp(newValue, 0f, 100f), duration).OnComplete(() => _tweenIsPlaying = false);
+            if (_playerParameters.playerStates == PlayerParameters.PlayerStates.GiantZone)
+            {
+                DOTween.To(() => _playerParameters.panicGauge, x => _playerParameters.panicGauge = x, Mathf.Clamp(newValue, 0f, 100f), duration).OnComplete(() => _tweenIsPlaying = false);
+            }
+            else
+            {
+                DOTween.To(() => _playerParameters.panicGauge, x => _playerParameters.panicGauge = x, Mathf.Clamp(newValue, 0f, 99f), duration).OnComplete(() => _tweenIsPlaying = false);
+            }
         }
     }
 

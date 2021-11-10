@@ -198,11 +198,11 @@ MonoBehaviour:
       - _enabled: 1
         _categoryId: 1
         _layoutId: 0
-      _defaultMouseMaps: []
-      _defaultKeyboardMaps:
       - _enabled: 1
-        _categoryId: 0
+        _categoryId: 2
         _layoutId: 0
+      _defaultMouseMaps: []
+      _defaultKeyboardMaps: []
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
       _assignMouseOnStart: 1
@@ -244,14 +244,59 @@ MonoBehaviour:
       _userAssignable: 1
       _categoryId: 0
     - _id: 3
-      _name: MoveFreeFollowCamera
+      _name: MoveFreeFollowCameraAround
       _type: 0
-      _descriptiveName: MoveFreeFollowCamera
+      _descriptiveName: MoveFreeFollowCameraAround
       _positiveDescriptiveName: ToRight
       _negativeDescriptiveName: ToLeft
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
+    - _id: 4
+      _name: MoveFreeFollowCameraCurve
+      _type: 0
+      _descriptiveName: MoveFreeFollowCameraCurve
+      _positiveDescriptiveName: ToBeginning
+      _negativeDescriptiveName: ToEnd
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 1
+    - _id: 5
+      _name: ProgressDialogue
+      _type: 1
+      _descriptiveName: ProgressDialogue
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 2
+    - _id: 6
+      _name: MovePetRock
+      _type: 0
+      _descriptiveName: MovePetRock
+      _positiveDescriptiveName: MoveRightPetRock
+      _negativeDescriptiveName: MoveLeftPetRock
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 3
+    - _id: 7
+      _name: TiltPetRock
+      _type: 0
+      _descriptiveName: TiltPetRock
+      _positiveDescriptiveName: TiltRightPetRock
+      _negativeDescriptiveName: TiltLeftPetRock
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 3
+    - _id: 8
+      _name: ValidatePetRockPos
+      _type: 1
+      _descriptiveName: ValidatePetRockPos
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 3
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -263,12 +308,26 @@ MonoBehaviour:
       _tag: 
       _id: 1
       _userAssignable: 1
+    - _name: Dialogue
+      _descriptiveName: Dialogue
+      _tag: 
+      _id: 2
+      _userAssignable: 1
+    - _name: RockBalancing
+      _descriptiveName: RockBalancing
+      _tag: 
+      _id: 3
+      _userAssignable: 1
     actionCategoryMap:
       list:
       - categoryId: 0
         actionIds: 000000000100000002000000
       - categoryId: 1
-        actionIds: 03000000
+        actionIds: 0300000004000000
+      - categoryId: 2
+        actionIds: 05000000
+      - categoryId: 3
+        actionIds: 060000000700000008000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -305,6 +364,13 @@ MonoBehaviour:
       _descriptiveName: CameraControl
       _tag: 
       _id: 1
+      _userAssignable: 1
+      _checkConflictsWithAllCategories: 1
+      _checkConflictsCategoryIds: 
+    - _name: RockBalancingControl
+      _descriptiveName: RockBalancingControl
+      _tag: 
+      _id: 2
       _userAssignable: 1
       _checkConflictsWithAllCategories: 1
       _checkConflictsCategoryIds: 
@@ -377,7 +443,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: -1
+        _actionId: 5
         _elementType: 1
         _elementIdentifierId: 4
         _axisRange: 0
@@ -603,6 +669,90 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 4
+        _elementType: 0
+        _elementIdentifierId: 3
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+    - id: 2
+      categoryId: 2
+      layoutId: 0
+      name: 
+      hardwareGuidString: 83b427e4-086f-47f3-bb06-be266abd1ca5
+      customControllerUid: 0
+      actionElementMaps:
+      - _actionCategoryId: 0
+        _actionId: 6
+        _elementType: 0
+        _elementIdentifierId: 0
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 7
+        _elementType: 0
+        _elementIdentifierId: 2
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 8
+        _elementType: 1
+        _elementIdentifierId: 10
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 8
+        _elementType: 1
+        _elementIdentifierId: 11
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 8
+        _elementType: 1
+        _elementIdentifierId: 12
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 8
+        _elementType: 1
+        _elementIdentifierId: 13
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     keyboardMaps:
     - id: 0
       categoryId: 0
@@ -672,15 +822,15 @@ MonoBehaviour:
     controllerMapLayoutManagerRuleSets: []
     controllerMapEnablerRuleSets: []
     playerIdCounter: 2
-    actionIdCounter: 4
-    actionCategoryIdCounter: 2
+    actionIdCounter: 9
+    actionCategoryIdCounter: 4
     inputBehaviorIdCounter: 1
-    mapCategoryIdCounter: 2
+    mapCategoryIdCounter: 3
     joystickLayoutIdCounter: 1
     keyboardLayoutIdCounter: 1
     mouseLayoutIdCounter: 1
     customControllerLayoutIdCounter: 1
-    joystickMapIdCounter: 2
+    joystickMapIdCounter: 3
     keyboardMapIdCounter: 1
     mouseMapIdCounter: 0
     customControllerMapIdCounter: 0
