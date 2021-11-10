@@ -198,6 +198,9 @@ MonoBehaviour:
       - _enabled: 1
         _categoryId: 1
         _layoutId: 0
+      - _enabled: 1
+        _categoryId: 2
+        _layoutId: 0
       _defaultMouseMaps: []
       _defaultKeyboardMaps: []
       _defaultCustomControllerMaps: []
