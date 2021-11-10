@@ -217,20 +217,20 @@ MonoBehaviour:
         _ruleSets: []
     actions:
     - _id: 0
-      _name: MoveVertical
+      _name: DirY
       _type: 0
-      _descriptiveName: Action0
-      _positiveDescriptiveName: MoveForward
-      _negativeDescriptiveName: MoveBackward
+      _descriptiveName: DirY
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
       _behaviorId: 0
-      _userAssignable: 0
+      _userAssignable: 1
       _categoryId: 0
     - _id: 1
-      _name: Rotate
+      _name: DirX
       _type: 0
-      _descriptiveName: Rotate
-      _positiveDescriptiveName: RotateRight
-      _negativeDescriptiveName: RotateLeft
+      _descriptiveName: DirX
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 0

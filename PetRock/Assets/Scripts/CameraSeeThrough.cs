@@ -8,6 +8,7 @@ public class CameraSeeThrough : MonoBehaviour
     [SerializeField] float distanceRay = 4.5f;
 
     private Transform obstruction;
+    private MeshRenderer renderer;
 
     [SerializeField] bool debugMode = false;
 
@@ -33,18 +34,22 @@ public class CameraSeeThrough : MonoBehaviour
             {
                 if (obstruction != hit.transform)
                 {
-                    if (obstruction != null)
+                    if (obstruction != null && renderer != null)
                     {
-                        obstruction.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                        renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
                     }
                     obstruction = hit.transform;
-                    obstruction.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+                    renderer = obstruction.GetComponent<MeshRenderer>();
+                    if (renderer != null)
+                        renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
                 }
             }
             else if (obstruction != null)
             {
-                obstruction.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                if (renderer != null)
+                    renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
                 obstruction = null;
+                renderer = null;
             }
         }
     }
