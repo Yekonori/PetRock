@@ -16,28 +16,37 @@ public class PlayerMovement : MonoBehaviour
     #region Fields
 
     // direction and rotation
-    private int _moveForward = 0;
-    private int _moveRotation = 0;
-
+    private float dirX = 0;
+    private float dirY = 0;
+    private Camera cam;
     #endregion Fields
+
+    private void Start()
+    {
+        cam = Camera.main;
+    }
 
     void Update()
     {
         if (GameManager.instance._inPause || GameManager.instance.inRockBalancing)
         {
-            _moveForward = 0;
-            _moveRotation = 0;
-            return;
+            dirX = 0;
+            dirY = 0;
         }
+        Vector3 dir = new Vector3(dirX, 0, dirY);
+        if (dir.magnitude < 0.1f) return;
 
-        transform.position += _moveForward * transform.forward * speed * Time.deltaTime; // += gravity * 
-        transform.Rotate(Vector3.up, _moveRotation * rotationSpeed * Time.deltaTime);
+        Quaternion rot = Quaternion.LookRotation(Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up), Vector3.up) * Quaternion.LookRotation(dir, Vector3.up);
+        Quaternion rotation = Quaternion.Lerp(transform.rotation, rot, rotationSpeed * Time.deltaTime);
+
+        transform.position += dir.sqrMagnitude * transform.forward * speed * Time.deltaTime; // += gravity * 
+        transform.rotation = rotation;
     }
 
-    public void SetMovementDirection(float vertical, float rotate)
+    public void SetMovementDirection(float x, float y)
     {
-        _moveForward = (int)vertical;
-        _moveRotation = (int)rotate;
+        dirX = x;
+        dirY = y;
     }
 
     private void OnDrawGizmos()
