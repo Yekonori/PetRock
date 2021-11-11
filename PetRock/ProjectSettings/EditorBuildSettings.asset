@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LD1.unity
     guid: 19faf57c35e16ff48b0d281dc4ad9e5a
+  - enabled: 1
+    path: Assets/Scenes/LD4.unity
+    guid: 224bd5a508fe06f4b80d544bb9b4568b
   m_configObjects: {}
