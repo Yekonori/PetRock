@@ -274,8 +274,8 @@ MonoBehaviour:
       _name: MovePetRock
       _type: 0
       _descriptiveName: MovePetRock
-      _positiveDescriptiveName: MoveRightPetRock
-      _negativeDescriptiveName: MoveLeftPetRock
+      _positiveDescriptiveName: MoveLeftPetRock
+      _negativeDescriptiveName: MoveRightPetRock
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 3
