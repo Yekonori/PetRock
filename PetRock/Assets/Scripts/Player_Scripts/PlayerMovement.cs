@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("..")]
     [SerializeField, Min(0f)] float speed = 5f;
     [SerializeField, Min(0f)] float rotationSpeed = 90f;
-    //[SerializeField, Min(0f)] float gravity = 5f; // can we jump? fall ?
+    [SerializeField, Min(0f)] float gravity = 5f;
 
     [SerializeField] bool debugMode = false;
     #endregion Script Parameters
@@ -16,28 +16,45 @@ public class PlayerMovement : MonoBehaviour
     #region Fields
 
     // direction and rotation
-    private int _moveForward = 0;
-    private int _moveRotation = 0;
-
+    private float dirX = 0;
+    private float dirY = 0;
+    private Camera cam;
+    private CharacterController characterController;
     #endregion Fields
+
+    private void Start()
+    {
+        cam = Camera.main;
+        characterController = GetComponent<CharacterController>();
+    }
 
     void Update()
     {
         if (GameManager.instance._inPause || GameManager.instance.inRockBalancing)
         {
-            _moveForward = 0;
-            _moveRotation = 0;
-            return;
+            dirX = 0;
+            dirY = 0;
+        }
+        Vector3 dir = new Vector3(dirX, 0, dirY);
+        Vector3 moveDir = Vector3.zero;
+        if (dir.magnitude > 0.1f)
+        {
+            Quaternion rot = Quaternion.LookRotation(Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up), Vector3.up) * Quaternion.LookRotation(dir.normalized, Vector3.up);
+            Quaternion rotation = Quaternion.Lerp(transform.rotation, rot, rotationSpeed * Time.deltaTime);
+
+            transform.rotation = rotation;
+            float magnitude = Mathf.Clamp01(dir.sqrMagnitude);
+            moveDir = magnitude * (rot * Vector3.forward).normalized * speed;
         }
 
-        transform.position += _moveForward * transform.forward * speed * Time.deltaTime; // += gravity * 
-        transform.Rotate(Vector3.up, _moveRotation * rotationSpeed * Time.deltaTime);
+        float g = characterController.isGrounded ? 0.1f : gravity;
+        characterController.Move((moveDir + g * Vector3.down) * Time.deltaTime);
     }
 
-    public void SetMovementDirection(float vertical, float rotate)
+    public void SetMovementDirection(float x, float y)
     {
-        _moveForward = (int)vertical;
-        _moveRotation = (int)rotate;
+        dirX = x;
+        dirY = y;
     }
 
     private void OnDrawGizmos()

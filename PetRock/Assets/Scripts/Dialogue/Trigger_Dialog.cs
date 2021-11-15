@@ -17,7 +17,7 @@ public class Trigger_Dialog : MonoBehaviour
             dialogDisplay.DisplayDialog();
             dialogDisplay.NextDialog();
 
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }

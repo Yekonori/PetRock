@@ -45,12 +45,6 @@ public class PlayerInput : MonoBehaviour
         if (GameManager.instance._inPause || GameManager.instance.inRockBalancing)
             return;
 
-        float move = _player.GetAxis("MoveVertical");
-        int moveInt = Mathf.Abs(move) > deadZone ? (int)Mathf.Sign(move) : 0;
-
-        float rotate = _player.GetAxis("Rotate");
-        int rotateInt = Mathf.Abs(rotate) > deadZone ? (int)Mathf.Sign(rotate) : 0;
-
-        playerMovement.SetMovementDirection(moveInt, rotateInt);
+        playerMovement.SetMovementDirection(_player.GetAxis("DirX"), _player.GetAxis("DirY"));
     }
 }

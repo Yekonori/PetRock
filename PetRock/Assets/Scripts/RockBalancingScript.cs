@@ -7,11 +7,7 @@ public class RockBalancingScript : MonoBehaviour
 {
     [HideInInspector]
     public Player player;
-    [Range(0f, 0.5f)] float _deadZone = 0.01f;
-
-    // direction and rotation
-    private int _moveForward = 0;
-    private int _moveRotation = 0;
+    [Range(0f, 0.5f)] public float deadZone = 0.01f;
 
     //Speed rock
     [Header("Speed rock movement")]
@@ -67,15 +63,13 @@ public class RockBalancingScript : MonoBehaviour
             return;
 
         float move = player.GetAxis("MovePetRock");
-        int moveInt = Mathf.Abs(move) > _deadZone ? (int)Mathf.Sign(move) : 0;
+        move = Mathf.Abs(move) > deadZone ? move : 0;
 
         float rotate = player.GetAxis("TiltPetRock");
-        int rotateInt = Mathf.Abs(rotate) > _deadZone ? (int)Mathf.Sign(rotate) : 0;
+        rotate = Mathf.Abs(rotate) > deadZone ? rotate : 0;
 
-        SetMovementDirection(moveInt, rotateInt);
-
-        _theRock.transform.position += _moveForward * transform.forward * _speed * Time.deltaTime; // += gravity * 
-        _theRock.transform.Rotate(Vector3.right, _moveRotation * _rotationSpeed * Time.deltaTime);
+        _theRock.transform.position += move * -transform.forward * _speed * Time.deltaTime; // += gravity * 
+        _theRock.transform.Rotate(Vector3.right, -rotate * _rotationSpeed * Time.deltaTime);
 
         _posVib = Mathf.Clamp(Mathf.Abs(_theRock.transform.position.z - _finalPosRock.position.z), 0f, 0.5f);
         _rotVib = Mathf.Clamp(Mathf.Abs((_theRock.transform.rotation.x - _finalPosRock.rotation.x)), 0f, 0.5f);
@@ -94,12 +88,6 @@ public class RockBalancingScript : MonoBehaviour
             if(!_endRockBalancing)
                 player.SetVibration(0, _posVib + _rotVib);
         }
-    }
-
-    private void SetMovementDirection(float vertical, float rotate)
-    {
-        _moveForward = (int)vertical;
-        _moveRotation = (int)rotate;
     }
 
     private bool ValidatePos()
