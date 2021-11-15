@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{D5218EDB-BC59-4287-9D2C-66C02504EFE4}" SchemaVersion="97">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{D5218EDB-BC59-4287-9D2C-66C02504EFE4}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="Duck" ID="{1C8150A2-E973-45B1-A277-6F026927F2F8}" ShortID="970375852">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="SFX_BT_SQUEAK_Duck_Single" ID="{753503CA-FF78-4E44-8A14-C521903C6295}">
+							<PropertyList>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.00364790239726027"/>
+								<Property Name="FadeOutDuration" Type="Real64" Value="0.0389109589041095"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimEnd" Type="Real64" Value="0.250489297945205"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>SFX_BT_SQUEAK_Duck_Single.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="730859629"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="SFX_BT_SQUEAK_Duck_Single" ID="{753503CA-FF78-4E44-8A14-C521903C6295}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

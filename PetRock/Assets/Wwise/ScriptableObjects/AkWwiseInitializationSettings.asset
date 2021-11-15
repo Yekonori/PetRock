@@ -9,12 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96cce185375d4aa48b031122a39bc2b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d7ef506d75ef1d44aba8b9758c5574a, type: 3}
   m_Name: AkWwiseInitializationSettings
   m_EditorClassIdentifier: 
   PlatformSettingsNameList:
+  - Mac
   - Windows
   PlatformSettingsList:
+  - {fileID: 11400000, guid: f6de16bb3dd382f40a38afc448802dfe, type: 2}
   - {fileID: 11400000, guid: 8c904cb140840e240b7ef47b66e10af0, type: 2}
   InvalidReferencePlatforms: []
   UserSettings:
@@ -37,16 +39,14 @@ MonoBehaviour:
     m_NumberOfRefillsInVoice: 4
     m_SpatialAudioSettings:
       m_MaxSoundPropagationDepth: 8
+      m_DiffractionFlags: -1
       m_MovementThreshold: 1
       m_NumberOfPrimaryRays: 100
       m_MaxReflectionOrder: 1
       m_MaxPathLength: 10000
-      m_CPULimitPercentage: 0
       m_EnableDiffractionOnReflections: 1
-      m_EnableGeometricDiffractionAndTransmission: 1
-      m_CalcEmitterVirtualPosition: 1
-      m_UseObstruction: 1
-      m_UseOcclusion: 1
+      m_EnableDirectPathDiffraction: 1
+      m_EnableTransmission: 1
   AdvancedSettings:
     m_IOMemorySize: 2097152
     m_TargetAutoStreamBufferLengthMs: 380
@@ -54,10 +54,13 @@ MonoBehaviour:
     m_MaximumPinnedBytesInCache: 4294967295
     m_EnableGameSyncPreparation: 0
     m_ContinuousPlaybackLookAhead: 1
-    m_MonitorQueuePoolSize: 1048576
+    m_MonitorQueuePoolSize: 65536
     m_MaximumHardwareTimeoutMs: 1000
     m_DebugOutOfRangeCheckEnabled: 0
     m_DebugOutOfRangeLimit: 16
+    m_SpatialAudioSettings:
+      m_DiffractionShadowAttenuationFactor: 1
+      m_DiffractionShadowDegrees: 30
     m_RenderDuringFocusLoss: 0
     m_SoundBankPersistentDataPath: 
     m_UseAsyncOpen: 0

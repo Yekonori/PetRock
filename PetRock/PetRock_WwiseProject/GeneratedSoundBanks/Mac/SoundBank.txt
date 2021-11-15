@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2611198821	Play_Duck			\Default Work Unit\Play_Duck	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	730859629	Duck	C:\Users\louis\Documents\GIT\PETROCK\PetRock\PetRock_WwiseProject\.cache\Mac\SFX\SFX_BT_SQUEAK_Duck_Single_53D1B465.wem		\Actor-Mixer Hierarchy\Default Work Unit\Duck		48156
+
