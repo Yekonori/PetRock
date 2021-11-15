@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{0A0BE6B5-50DC-44E1-9A94-8EBA46900D28}" SchemaVersion="97">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{0A0BE6B5-50DC-44E1-9A94-8EBA46900D28}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{0A0BE6B5-50DC-44E1-9A94-8EBA46900D28}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="MC_FT_Surface" ID="{60AEA67D-703C-4B13-A152-8C2EB89F8CD6}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="Sand" ID="{1B47189F-4BD8-4D3B-95D9-85D69928A4E2}"/>
+						<Switch Name="Grass" ID="{B7B3688A-225F-4611-8D8D-925F2F772E23}"/>
+						<Switch Name="Water" ID="{A1D86FBF-89E5-4E22-8962-333F7D6541FE}"/>
+						<Switch Name="Marble" ID="{215DE661-B8E9-4D8F-B08A-5F951D390A80}"/>
+						<Switch Name="Stone" ID="{AD0E1671-C978-4E0A-9C36-266B5A5B4B36}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="MC_Type" ID="{2F3176EA-CA31-4578-B38C-B0F5F5A03BBB}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Switch Name="Run" ID="{CE725E72-B316-41E5-96C2-113CA190E663}"/>
+						<Switch Name="Stealth" ID="{19FF9061-8AB2-4786-A804-7547A3A50BFA}"/>
+						<Switch Name="Walk" ID="{1EE8CBBD-F3CF-46F0-B6BF-E873B4BE149C}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>

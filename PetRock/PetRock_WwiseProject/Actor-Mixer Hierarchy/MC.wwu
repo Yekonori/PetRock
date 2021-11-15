@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{B99770E2-7B38-4E27-8906-BCE79C74B4D4}" SchemaVersion="97">
+	<AudioObjects>
+		<WorkUnit Name="MC" ID="{B99770E2-7B38-4E27-8906-BCE79C74B4D4}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="10"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<ActorMixer Name="MC_AM" ID="{2ABDF229-6313-4E07-9957-1CB1AF8FD9D2}" ShortID="647049330">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="MC" ID="{CD90E07E-0C90-41F2-B246-A31006787ADD}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Folder Name="FT" ID="{B887567C-3B51-4AFC-BDD1-FB50F9947D3D}" ShortID="776989355">
+							<ChildrenList>
+								<SwitchContainer Name="MC_FT" ID="{77B3522C-E82E-46F6-AD84-AB7295FFF108}" ShortID="186416022">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="Walk" ID="{1EE8CBBD-F3CF-46F0-B6BF-E873B4BE149C}" WorkUnitID="{0A0BE6B5-50DC-44E1-9A94-8EBA46900D28}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="MC_Type" ID="{2F3176EA-CA31-4578-B38C-B0F5F5A03BBB}" WorkUnitID="{0A0BE6B5-50DC-44E1-9A94-8EBA46900D28}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<SwitchContainer Name="MC_FT_Walk" ID="{E53BF112-50C6-43C4-AFF6-9D0C1AC7C5AD}" ShortID="797250494">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+												</Reference>
+												<Reference Name="DefaultSwitchOrState">
+													<ObjectRef Name="Sand" ID="{1B47189F-4BD8-4D3B-95D9-85D69928A4E2}" WorkUnitID="{0A0BE6B5-50DC-44E1-9A94-8EBA46900D28}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+												</Reference>
+												<Reference Name="SwitchGroupOrStateGroup">
+													<ObjectRef Name="MC_FT_Surface" ID="{60AEA67D-703C-4B13-A152-8C2EB89F8CD6}" WorkUnitID="{0A0BE6B5-50DC-44E1-9A94-8EBA46900D28}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<RandomSequenceContainer Name="MC_FT_Walk_Grass" ID="{247A54B3-5242-4242-9565-0B420DE969E3}" ShortID="181132743">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{48C268D8-61E6-49A0-919B-97384B89610D}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="MC" ID="{CD90E07E-0C90-41F2-B246-A31006787ADD}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="MC_FT_Walk_Stone" ID="{62816C9A-F07A-4C7D-B20E-B0E7A4CAE0B2}" ShortID="266279138">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{5F1007E0-328B-4C2C-BB87-93FE649AD608}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="MC" ID="{CD90E07E-0C90-41F2-B246-A31006787ADD}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="MC_FT_Walk_Marble" ID="{C9B61C86-AAB5-43BF-850B-E78E30DB9A2B}" ShortID="297669162">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{D54CA2D3-379E-4799-A165-330DE6E8D2EF}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="MC" ID="{CD90E07E-0C90-41F2-B246-A31006787ADD}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="MC_FT_Walk_Sand" ID="{9289E2C9-AD15-4E21-B3B5-5899E9249658}" ShortID="390694207">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{62FE3487-9ADF-4824-A443-6026A0C5D309}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="MC" ID="{CD90E07E-0C90-41F2-B246-A31006787ADD}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="MC_FT_Walk_Water" ID="{DBC13210-3B0E-4F2A-A945-1663E6B45171}" ShortID="613060714">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{60AD0C4D-0028-45FC-8E4F-D60A41529DF8}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="MC" ID="{CD90E07E-0C90-41F2-B246-A31006787ADD}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+											</ChildrenList>
+											<GroupingInfo>
+												<GroupingBehaviorList>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Walk_Water" ID="{DBC13210-3B0E-4F2A-A945-1663E6B45171}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Walk_Marble" ID="{C9B61C86-AAB5-43BF-850B-E78E30DB9A2B}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Walk_Stone" ID="{62816C9A-F07A-4C7D-B20E-B0E7A4CAE0B2}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Walk_Grass" ID="{247A54B3-5242-4242-9565-0B420DE969E3}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Walk_Sand" ID="{9289E2C9-AD15-4E21-B3B5-5899E9249658}"/>
+													</GroupingBehavior>
+												</GroupingBehaviorList>
+												<GroupingList>
+													<Grouping>
+														<SwitchRef Name="Marble" ID="{215DE661-B8E9-4D8F-B08A-5F951D390A80}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Walk_Marble" ID="{C9B61C86-AAB5-43BF-850B-E78E30DB9A2B}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Stone" ID="{AD0E1671-C978-4E0A-9C36-266B5A5B4B36}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Walk_Stone" ID="{62816C9A-F07A-4C7D-B20E-B0E7A4CAE0B2}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Grass" ID="{B7B3688A-225F-4611-8D8D-925F2F772E23}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Walk_Grass" ID="{247A54B3-5242-4242-9565-0B420DE969E3}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Sand" ID="{1B47189F-4BD8-4D3B-95D9-85D69928A4E2}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Walk_Sand" ID="{9289E2C9-AD15-4E21-B3B5-5899E9249658}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Water" ID="{A1D86FBF-89E5-4E22-8962-333F7D6541FE}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Walk_Water" ID="{DBC13210-3B0E-4F2A-A945-1663E6B45171}"/>
+														</ItemList>
+													</Grouping>
+												</GroupingList>
+											</GroupingInfo>
+										</SwitchContainer>
+										<SwitchContainer Name="MC_FT_Stealth" ID="{FD758DD8-189A-4E0F-AD3C-E040A38C0A7B}" ShortID="703446193">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+												</Reference>
+												<Reference Name="DefaultSwitchOrState">
+													<ObjectRef Name="Sand" ID="{1B47189F-4BD8-4D3B-95D9-85D69928A4E2}" WorkUnitID="{0A0BE6B5-50DC-44E1-9A94-8EBA46900D28}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+												</Reference>
+												<Reference Name="SwitchGroupOrStateGroup">
+													<ObjectRef Name="MC_FT_Surface" ID="{60AEA67D-703C-4B13-A152-8C2EB89F8CD6}" WorkUnitID="{0A0BE6B5-50DC-44E1-9A94-8EBA46900D28}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<RandomSequenceContainer Name="MC_FT_Stealth_Sand" ID="{5D930F95-09DE-49F7-92B4-9034DF9121B9}" ShortID="317165664">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{40721E68-BA5C-44C7-8E2F-EF98ED66D6F9}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="MC_FT_Stealth_Marble" ID="{6FD91783-B0BE-46EE-9BA4-996A8858087C}" ShortID="444434899">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{63F998DD-DCA1-45AC-A947-1D4CDECF9E64}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="MC_FT_Stealth_Grass" ID="{14B080F8-2DCF-4B82-B250-600D15BE9F8D}" ShortID="722870718">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{2F21C2FD-D5B6-4FF7-92EA-64B357AB0E58}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="MC_FT_Stealth_Stone" ID="{98B7E2A2-2706-48F2-A0DF-D433536C6640}" ShortID="1044864295">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{8C7DC147-FA6F-4F7B-8460-F86757EE1FCE}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="MC_FT_Stealth_Water" ID="{51AE21B4-3A43-473B-B6B4-D563A5B1634C}" ShortID="587419684">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{8E69979E-C0ED-4181-9163-8C9AF0E578E2}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+											</ChildrenList>
+											<GroupingInfo>
+												<GroupingBehaviorList>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Stealth_Marble" ID="{6FD91783-B0BE-46EE-9BA4-996A8858087C}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Stealth_Sand" ID="{5D930F95-09DE-49F7-92B4-9034DF9121B9}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Stealth_Stone" ID="{98B7E2A2-2706-48F2-A0DF-D433536C6640}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Stealth_Water" ID="{51AE21B4-3A43-473B-B6B4-D563A5B1634C}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Stealth_Grass" ID="{14B080F8-2DCF-4B82-B250-600D15BE9F8D}"/>
+													</GroupingBehavior>
+												</GroupingBehaviorList>
+												<GroupingList>
+													<Grouping>
+														<SwitchRef Name="Marble" ID="{215DE661-B8E9-4D8F-B08A-5F951D390A80}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Stealth_Marble" ID="{6FD91783-B0BE-46EE-9BA4-996A8858087C}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Stone" ID="{AD0E1671-C978-4E0A-9C36-266B5A5B4B36}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Stealth_Stone" ID="{98B7E2A2-2706-48F2-A0DF-D433536C6640}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Grass" ID="{B7B3688A-225F-4611-8D8D-925F2F772E23}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Stealth_Grass" ID="{14B080F8-2DCF-4B82-B250-600D15BE9F8D}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Sand" ID="{1B47189F-4BD8-4D3B-95D9-85D69928A4E2}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Stealth_Sand" ID="{5D930F95-09DE-49F7-92B4-9034DF9121B9}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Water" ID="{A1D86FBF-89E5-4E22-8962-333F7D6541FE}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Stealth_Water" ID="{51AE21B4-3A43-473B-B6B4-D563A5B1634C}"/>
+														</ItemList>
+													</Grouping>
+												</GroupingList>
+											</GroupingInfo>
+										</SwitchContainer>
+										<SwitchContainer Name="MC_FT_Run" ID="{2BDB2560-EE6D-46A0-9D99-39CC480D5BE0}" ShortID="1051506499">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+												</Reference>
+												<Reference Name="DefaultSwitchOrState">
+													<ObjectRef Name="Sand" ID="{1B47189F-4BD8-4D3B-95D9-85D69928A4E2}" WorkUnitID="{0A0BE6B5-50DC-44E1-9A94-8EBA46900D28}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+												</Reference>
+												<Reference Name="SwitchGroupOrStateGroup">
+													<ObjectRef Name="MC_FT_Surface" ID="{60AEA67D-703C-4B13-A152-8C2EB89F8CD6}" WorkUnitID="{0A0BE6B5-50DC-44E1-9A94-8EBA46900D28}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<RandomSequenceContainer Name="MC_FT_Run_Grass" ID="{99C0A963-B245-4178-8F54-62EB8BCE78D4}" ShortID="813053529">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{913D06DA-3949-4F2C-9BEB-D03C47C24932}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+														<Property Name="Volume" Type="Real64">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{8F2B3699-9417-461C-996B-FDA697CAAAA4}"/>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="MC" ID="{CD90E07E-0C90-41F2-B246-A31006787ADD}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="MC_FT_Run_Stone" ID="{17DA8ADD-1703-421B-B121-EB05889F27B1}" ShortID="15384412">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{F1D24646-E21D-4593-805F-5BBC1C993C75}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="MC" ID="{CD90E07E-0C90-41F2-B246-A31006787ADD}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="MC_FT_Run_Marble" ID="{20159E73-B4E4-4020-BB96-7E1549D1312F}" ShortID="464120233">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{EAEB7E5E-62E1-4AFF-89B3-A3056EF66316}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="MC" ID="{CD90E07E-0C90-41F2-B246-A31006787ADD}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="MC_FT_Run_Sand" ID="{68D80161-4022-4CA5-80C2-B4CD96866187}" ShortID="453414652">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{0192F232-EE5D-400C-9DE3-DC48EE3E8E92}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="MC" ID="{CD90E07E-0C90-41F2-B246-A31006787ADD}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="MC_FT_Run_Water" ID="{A955DFF4-7E52-4018-AB94-5FEA69D4B591}" ShortID="18914493">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{D4D9D91C-0B49-4854-8022-754F95161A5E}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="200"/>
+																			<Property Name="Min" Type="Real64" Value="-200"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="MC" ID="{CD90E07E-0C90-41F2-B246-A31006787ADD}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+														</Reference>
+													</ReferenceList>
+												</RandomSequenceContainer>
+											</ChildrenList>
+											<GroupingInfo>
+												<GroupingBehaviorList>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Run_Sand" ID="{68D80161-4022-4CA5-80C2-B4CD96866187}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Run_Grass" ID="{99C0A963-B245-4178-8F54-62EB8BCE78D4}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Run_Marble" ID="{20159E73-B4E4-4020-BB96-7E1549D1312F}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Run_Stone" ID="{17DA8ADD-1703-421B-B121-EB05889F27B1}"/>
+													</GroupingBehavior>
+													<GroupingBehavior>
+														<ItemRef Name="MC_FT_Run_Water" ID="{A955DFF4-7E52-4018-AB94-5FEA69D4B591}"/>
+													</GroupingBehavior>
+												</GroupingBehaviorList>
+												<GroupingList>
+													<Grouping>
+														<SwitchRef Name="Marble" ID="{215DE661-B8E9-4D8F-B08A-5F951D390A80}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Run_Marble" ID="{20159E73-B4E4-4020-BB96-7E1549D1312F}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Stone" ID="{AD0E1671-C978-4E0A-9C36-266B5A5B4B36}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Run_Stone" ID="{17DA8ADD-1703-421B-B121-EB05889F27B1}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Grass" ID="{B7B3688A-225F-4611-8D8D-925F2F772E23}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Run_Grass" ID="{99C0A963-B245-4178-8F54-62EB8BCE78D4}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Sand" ID="{1B47189F-4BD8-4D3B-95D9-85D69928A4E2}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Run_Sand" ID="{68D80161-4022-4CA5-80C2-B4CD96866187}"/>
+														</ItemList>
+													</Grouping>
+													<Grouping>
+														<SwitchRef Name="Water" ID="{A1D86FBF-89E5-4E22-8962-333F7D6541FE}"/>
+														<ItemList>
+															<ItemRef Name="MC_FT_Run_Water" ID="{A955DFF4-7E52-4018-AB94-5FEA69D4B591}"/>
+														</ItemList>
+													</Grouping>
+												</GroupingList>
+											</GroupingInfo>
+										</SwitchContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="MC_FT_Walk" ID="{E53BF112-50C6-43C4-AFF6-9D0C1AC7C5AD}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="MC_FT_Run" ID="{2BDB2560-EE6D-46A0-9D99-39CC480D5BE0}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="MC_FT_Stealth" ID="{FD758DD8-189A-4E0F-AD3C-E040A38C0A7B}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Stealth" ID="{19FF9061-8AB2-4786-A804-7547A3A50BFA}"/>
+												<ItemList>
+													<ItemRef Name="MC_FT_Stealth" ID="{FD758DD8-189A-4E0F-AD3C-E040A38C0A7B}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Run" ID="{CE725E72-B316-41E5-96C2-113CA190E663}"/>
+												<ItemList>
+													<ItemRef Name="MC_FT_Run" ID="{2BDB2560-EE6D-46A0-9D99-39CC480D5BE0}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Walk" ID="{1EE8CBBD-F3CF-46F0-B6BF-E873B4BE149C}"/>
+												<ItemList>
+													<ItemRef Name="MC_FT_Walk" ID="{E53BF112-50C6-43C4-AFF6-9D0C1AC7C5AD}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="FOL" ID="{65213E72-B243-4B30-A580-B0574A2739E3}" ShortID="1036083740">
+							<ChildrenList>
+								<SwitchContainer Name="MC_FOL" ID="{4C6C0A38-9A2A-4DA2-A4CA-1CA13332ACD6}" ShortID="535318278">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+										</Reference>
+										<Reference Name="DefaultSwitchOrState">
+											<ObjectRef Name="Walk" ID="{1EE8CBBD-F3CF-46F0-B6BF-E873B4BE149C}" WorkUnitID="{0A0BE6B5-50DC-44E1-9A94-8EBA46900D28}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+										</Reference>
+										<Reference Name="SwitchGroupOrStateGroup">
+											<ObjectRef Name="MC_Type" ID="{2F3176EA-CA31-4578-B38C-B0F5F5A03BBB}" WorkUnitID="{0A0BE6B5-50DC-44E1-9A94-8EBA46900D28}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<RandomSequenceContainer Name="MC_FOL_Stealth" ID="{F0638868-B27F-4864-9EB3-37CEE977EFC0}" ShortID="331115490">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{456B7651-40B5-4164-B4CD-F411468594B1}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="200"/>
+																	<Property Name="Min" Type="Real64" Value="-200"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="MC_FOL_Run" ID="{A480325D-72E0-47B6-95C7-CA7CE6519A86}" ShortID="35457508">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{A14488FF-C043-4FEA-A4BC-66A750255B49}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="200"/>
+																	<Property Name="Min" Type="Real64" Value="-200"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="MC_FOL_Walk" ID="{71C8213C-5380-4472-A92C-1A2E4A9867C0}" ShortID="4577453">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{B3906892-9F4B-463E-B0E8-CE18D26542BF}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="200"/>
+																	<Property Name="Min" Type="Real64" Value="-200"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+												</Reference>
+											</ReferenceList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+									<GroupingInfo>
+										<GroupingBehaviorList>
+											<GroupingBehavior>
+												<ItemRef Name="MC_FOL_Walk" ID="{71C8213C-5380-4472-A92C-1A2E4A9867C0}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="MC_FOL_Run" ID="{A480325D-72E0-47B6-95C7-CA7CE6519A86}"/>
+											</GroupingBehavior>
+											<GroupingBehavior>
+												<ItemRef Name="MC_FOL_Stealth" ID="{F0638868-B27F-4864-9EB3-37CEE977EFC0}"/>
+											</GroupingBehavior>
+										</GroupingBehaviorList>
+										<GroupingList>
+											<Grouping>
+												<SwitchRef Name="Stealth" ID="{19FF9061-8AB2-4786-A804-7547A3A50BFA}"/>
+												<ItemList>
+													<ItemRef Name="MC_FOL_Stealth" ID="{F0638868-B27F-4864-9EB3-37CEE977EFC0}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Run" ID="{CE725E72-B316-41E5-96C2-113CA190E663}"/>
+												<ItemList>
+													<ItemRef Name="MC_FOL_Run" ID="{A480325D-72E0-47B6-95C7-CA7CE6519A86}"/>
+												</ItemList>
+											</Grouping>
+											<Grouping>
+												<SwitchRef Name="Walk" ID="{1EE8CBBD-F3CF-46F0-B6BF-E873B4BE149C}"/>
+												<ItemList>
+													<ItemRef Name="MC_FOL_Walk" ID="{71C8213C-5380-4472-A92C-1A2E4A9867C0}"/>
+												</ItemList>
+											</Grouping>
+										</GroupingList>
+									</GroupingInfo>
+								</SwitchContainer>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

@@ -9,6 +9,50 @@
 							<ObjectRef Name="System" ID="{688F89CF-FF7B-4C89-BC28-123DB2D09BF8}" WorkUnitID="{427CF2CD-62AA-44F7-8E6B-75491E5CCE3F}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="MUSIC" ID="{75EC8F00-B41B-4AD7-A272-71409C15CE97}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="14"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Bus>
+						<Bus Name="MC" ID="{CD90E07E-0C90-41F2-B246-A31006787ADD}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Bus>
+						<Bus Name="PET" ID="{DF2BDEAB-C3B2-4105-ABD0-AC79338A20F6}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="2"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Bus>
+						<Bus Name="UI" ID="{476EC735-A706-4474-ABD4-BDD333DD3EEC}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="19"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Bus>
+						<Bus Name="FDB" ID="{501E7601-F79A-4798-A811-6E9C38A2F9C4}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="11"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Bus>
+						<Bus Name="VOC" ID="{9D28951C-BA05-453F-B901-E178AF5D2E2D}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="23"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Bus>
+						<Bus Name="AMB" ID="{3830F361-FD83-4CB8-A751-BA82B56566E0}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="4"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+						</Bus>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

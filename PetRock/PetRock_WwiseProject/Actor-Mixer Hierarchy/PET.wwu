@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{4FE2B35C-B3E5-4E29-80FC-1198DA4F6F39}" SchemaVersion="97">
+	<AudioObjects>
+		<WorkUnit Name="PET" ID="{4FE2B35C-B3E5-4E29-80FC-1198DA4F6F39}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="2"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<ActorMixer Name="PET_AM" ID="{1122C626-58A5-4C95-86DE-775D90EB4A2C}" ShortID="744746213">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="PET" ID="{DF2BDEAB-C3B2-4105-ABD0-AC79338A20F6}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+						</Reference>
+					</ReferenceList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{1299A17E-C863-45B6-9AAA-B4EC92578E84}" SchemaVersion="97">
+	<AudioObjects>
+		<WorkUnit Name="MUSIC" ID="{1299A17E-C863-45B6-9AAA-B4EC92578E84}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="14"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<ActorMixer Name="MUSIC_AM" ID="{68C22A73-0D63-4ABE-BE33-B8A0FAFFDF89}" ShortID="1054883133">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="MUSIC" ID="{75EC8F00-B41B-4AD7-A272-71409C15CE97}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+						</Reference>
+					</ReferenceList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

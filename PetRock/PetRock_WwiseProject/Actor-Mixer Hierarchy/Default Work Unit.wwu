@@ -3,10 +3,7 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{D5218EDB-BC59-4287-9D2C-66C02504EFE4}" PersistMode="Standalone">
 			<ChildrenList>
-				<Sound Name="Duck" ID="{1C8150A2-E973-45B1-A277-6F026927F2F8}" ShortID="970375852">
-					<PropertyList>
-						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-					</PropertyList>
+				<Sound Name="Test_Duck" ID="{1C8150A2-E973-45B1-A277-6F026927F2F8}" ShortID="970375852">
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>

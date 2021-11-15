@@ -8,12 +8,67 @@
 						<Action Name="" ID="{F0B64690-1E71-49C6-8F4E-51166AE058B9}" ShortID="154885095">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Duck" ID="{1C8150A2-E973-45B1-A277-6F026927F2F8}" WorkUnitID="{D5218EDB-BC59-4287-9D2C-66C02504EFE4}"/>
+									<ObjectRef Name="Test_Duck" ID="{1C8150A2-E973-45B1-A277-6F026927F2F8}" WorkUnitID="{D5218EDB-BC59-4287-9D2C-66C02504EFE4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="FDB" ID="{F70A79B8-BEC5-42B7-8EAE-D8755AA974B2}" ShortID="930928537">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="11"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+				</Folder>
+				<Folder Name="MC" ID="{47F99327-89BA-42DE-85AB-A43E0D3DADA1}" ShortID="644255410">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="Play_MC_FT" ID="{BC2C7ECE-BD3E-4740-A814-1EA2D2D3B9F6}">
+							<ChildrenList>
+								<Action Name="" ID="{1066AC9F-44FF-41F7-AC5E-38832263F71D}" ShortID="1004127112">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MC_FT" ID="{77B3522C-E82E-46F6-AD84-AB7295FFF108}" WorkUnitID="{B99770E2-7B38-4E27-8906-BCE79C74B4D4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="AMB" ID="{69E1686E-1931-4654-BCA4-F8079AF8BE4B}" ShortID="922969327">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+				</Folder>
+				<Folder Name="MUSIC" ID="{B1EB61F4-58AD-4299-B5C8-AF41378F5DBE}" ShortID="490843762">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="14"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+				</Folder>
+				<Folder Name="VOC" ID="{695CD9C3-D59C-40E6-9C16-604FE06479AE}" ShortID="710920725">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="24"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+				</Folder>
+				<Folder Name="UI" ID="{708702A1-7B14-4981-ABED-497D90428D13}" ShortID="1015096960">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="19"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+				</Folder>
+				<Folder Name="PET" ID="{D1835A38-36D9-423C-B6FF-0E8AA76F592B}" ShortID="178827912">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="2"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
