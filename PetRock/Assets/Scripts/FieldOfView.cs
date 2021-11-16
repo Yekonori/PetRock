@@ -7,16 +7,13 @@ public class FieldOfView : MonoBehaviour
     // https://www.youtube.com/watch?v=rQG9aUWarwE  Ep01
     // https://www.youtube.com/watch?v=73Dc5JTCmKI  Ep02
 
-    [Min(0)] public float range = 5f;    
-
-    [Range(0,360)] public float viewAngle = 45f;
+    public EyeVision eyeVision;
+    [Space]
+    [SerializeField] float delayResumeNormalMovement = 2f;
+    private float timerResuming = 0f;
+    private bool resumingtoNormal = false;
+    
     private float currentViewAngle;
-    private bool canFlicker = false;
-    private AnimationCurve flickerCurve;
-    private float timeToStayOpen = 10;
-    private float timeToClose = 1;
-    private float timeToStayClosed = 3;
-    private float timeToOpen = 1;
     private float stayOpenTimer = 0;
     private bool flickering = false;
 
@@ -27,17 +24,28 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] int edgeResolveIteration = 4;
     [SerializeField] float edgeDistanceThreshold = 0.5f;
     [SerializeField] MeshFilter viewMeshFilter;
-    Mesh viewMesh;
+    private Mesh viewMesh;
 
     PlayerParameters _playerParameters;
 
+    private bool playerSpotted = false;
+    private IEnumerator flickerRoutine;
+    private EyeMovement eyeMovement;
+
     private void Start()
     {
+        eyeMovement = GetComponent<EyeMovement>();
+        currentViewAngle = eyeVision.viewAngle;
+        flickerRoutine = Flicker();
+
+        if (eyeVision.seeThroughObstacle)
+            obstableLayerMask = LayerMask.GetMask("Nothing");
+
+        _playerParameters = PlayerParameters.Instance;
+
         viewMesh = new Mesh();
         viewMeshFilter.mesh = viewMesh;
         StartCoroutine(FindVisibleTargetsWithDelay(0.2f)); // J'aime pas le invoke Repeating
-
-        _playerParameters = PlayerParameters.Instance;
     }
 
     private void OnEnable()
@@ -47,15 +55,29 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        if (!canFlicker) return;
+        if (!eyeVision.canFlicker || playerSpotted) return;
+
+        if (resumingtoNormal)
+        {
+            eyeMovement.SetPlayerSpotted(PlayerSpotState.Resuming, timerResuming / delayResumeNormalMovement);
+            timerResuming += Time.deltaTime;
+            if (timerResuming > delayResumeNormalMovement)
+            {
+                timerResuming = 0;
+                resumingtoNormal = false;
+                eyeMovement.SetPlayerSpotted(PlayerSpotState.NotSpoted);
+            }
+            else return;
+        }
 
         stayOpenTimer += Time.deltaTime;
-        if (stayOpenTimer > timeToStayOpen && !flickering)
+        if (stayOpenTimer > eyeVision.timeToStayOpen && !flickering)
         {
             flickering = true;
-            StartCoroutine(Flicker());
+            StartCoroutine(flickerRoutine);
         }
     }
+
     private void LateUpdate()
     {
         DrawFieldOfView();
@@ -81,7 +103,9 @@ public class FieldOfView : MonoBehaviour
 
     void FindVisibleTargets()
     {
-        Collider[] targets = Physics.OverlapSphere(transform.position, range, targetLayerMask);
+        playerSpotted = false;
+
+        Collider[] targets = Physics.OverlapSphere(transform.position, eyeVision.range, targetLayerMask);
         if (targets.Length != 0)
         {
             Transform target = targets[0].transform;
@@ -97,6 +121,10 @@ public class FieldOfView : MonoBehaviour
                     {
                         // TO DO : PLAYER IS SPOTTED
                         Debug.Log("Player is spotted");
+                        playerSpotted = true;
+                        resumingtoNormal = true;
+                        eyeMovement.SetPlayerSpotted(PlayerSpotState.Spoted);
+                        StopFlicker();
                         _playerParameters.UpdatePlayerState(PlayerParameters.PlayerStates.GiantZone);
                     }
                 }
@@ -174,9 +202,9 @@ public class FieldOfView : MonoBehaviour
         Vector3 dir = DirFromAngle(globalAngle, true);
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, dir, out hit, range, obstableLayerMask))
+        if (Physics.Raycast(transform.position, dir, out hit, eyeVision.range, obstableLayerMask))
             return new ViewCastInfo(true, hit.point, hit.distance, globalAngle);
-        else return new ViewCastInfo(false, transform.position + dir * range, range, globalAngle);
+        else return new ViewCastInfo(false, transform.position + dir * eyeVision.range, eyeVision.range, globalAngle);
     }
 
     public struct ViewCastInfo
@@ -194,23 +222,6 @@ public class FieldOfView : MonoBehaviour
             angle = _angle;
         }
     }
-
-    public void Init(EyeVision eyeVision, AnimationCurve curve)
-    {
-        range = eyeVision.range;
-        viewAngle = eyeVision.viewAngle;
-        currentViewAngle = viewAngle;
-        canFlicker = eyeVision.closingActivated;
-        flickerCurve = curve;
-
-        timeToStayOpen = eyeVision.timeToStayOpen;
-        timeToClose = eyeVision.timeToClose;
-        timeToStayClosed = eyeVision.timeToStayClosed;
-        timeToOpen = eyeVision.timeToOpen;
-
-        if (eyeVision.seeThroughObstacle)
-            obstableLayerMask = LayerMask.GetMask("Nothing");
-}
 
     public struct EdgeInfo
     {
@@ -258,9 +269,9 @@ public class FieldOfView : MonoBehaviour
         float timer = 0f;
 
         // CLose
-        while (timer < timeToClose)
+        while (timer < eyeVision.timeToClose)
         {
-            currentViewAngle = Mathf.Lerp(viewAngle, 0, flickerCurve.Evaluate(timer / timeToClose));
+            currentViewAngle = Mathf.Lerp(eyeVision.viewAngle, 0, eyeVision.flickerCurve.Evaluate(timer / eyeVision.timeToClose));
             timer += Time.deltaTime;
             yield return null;
         }
@@ -268,17 +279,28 @@ public class FieldOfView : MonoBehaviour
         // CLosed
         timer = 0;
         currentViewAngle = 0;
-        yield return new WaitForSeconds(timeToStayClosed);
+        yield return new WaitForSeconds(eyeVision.timeToStayClosed);
 
         // Open
-        while (timer < timeToOpen)
+        while (timer < eyeVision.timeToOpen)
         {
-            currentViewAngle = Mathf.Lerp(0, viewAngle, timer / timeToOpen);
+            currentViewAngle = Mathf.Lerp(0, eyeVision.viewAngle, timer / eyeVision.timeToOpen);
             timer += Time.deltaTime;
             yield return null;
         }
-        currentViewAngle = viewAngle;
+        currentViewAngle = eyeVision.viewAngle;
         stayOpenTimer = 0;
         flickering = false;
+    }
+
+    private void StopFlicker()
+    {
+        if (flickerRoutine != null)
+        {
+            StopCoroutine(flickerRoutine);
+            currentViewAngle = eyeVision.viewAngle;
+            stayOpenTimer = 0;
+            flickering = false;
+        }
     }
 }
