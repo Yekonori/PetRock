@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
+using DG.Tweening;
 
 public class RockBalancingScript : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class RockBalancingScript : MonoBehaviour
     private Transform _finalB;
     [SerializeField]
     private  float _margeRot;
+    [SerializeField]
+    private float _endZoomCamera;
 
     private float _posVib;
     private float _rotVib;
@@ -44,6 +47,8 @@ public class RockBalancingScript : MonoBehaviour
     private TriggeredViewVolume _triggeredViewVolume;
     [SerializeField]
     private DollyViewAutoCircle _dollyView;
+    [SerializeField]
+    private FixedView _fixedView;
 
     private void OnEnable()
     {
@@ -74,11 +79,26 @@ public class RockBalancingScript : MonoBehaviour
         _posVib = Mathf.Clamp(Mathf.Abs(_theRock.transform.position.z - _finalPosRock.position.z), 0f, 0.5f);
         _rotVib = Mathf.Clamp(Mathf.Abs((_theRock.transform.rotation.x - _finalPosRock.rotation.x)), 0f, 0.5f);
 
-
-        if (ValidateRot() == true && ValidatePos() == true && player.GetButton("ValidatePetRockPos"))
+        if(!_endRockBalancing)
         {
-            _endRockBalancing = true;
+            if(ValidateRot() && ValidatePos())
+            {
+                if (player.GetButton("ValidatePetRockPos"))
+                {
+                    if (_fixedView.fov >= _endZoomCamera)
+                        _fixedView.fov -= Time.deltaTime * 10;
+                    else
+                        _endRockBalancing = true;
+                }
+                else if (player.GetButtonUp("ValidatePetRockPos"))
+                {
+                    DOTween.To(() => _fixedView.fov, x => _fixedView.fov = x, 75, 1.5f);
+                }
+            }
+        }
 
+        if (_endRockBalancing)
+        {
             player.SetVibration(0, 0);
             player.StopVibration();
             EndRockBalancing();
