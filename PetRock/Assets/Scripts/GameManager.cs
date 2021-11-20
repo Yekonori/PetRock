@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 using Rewired;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class GameManager : MonoBehaviour
     private Volume volumePostProcessing;
     [HideInInspector]
     public Vignette vignettePostProcessing;
+
+    [TitleGroup("Canvas")]
+    [SerializeField]
+    private CanvasGroup _transitionCanvas;
 
     [HideInInspector]
     public Player player;
@@ -39,6 +44,22 @@ public class GameManager : MonoBehaviour
         }
 
         SetVignettePostProcess();
+    }
+
+    public DG.Tweening.Core.TweenerCore<float, float, DG.Tweening.Plugins.Options.FloatOptions> TransitionCanvas(float goTo)
+    {
+        return _transitionCanvas.DOFade(goTo, 2f);
+    }
+
+    public void StartTransitionRockBalancing(GameObject go)
+    {
+        TransitionCanvas(1).OnComplete(() =>
+        {
+            go.GetComponent<TriggeredViewVolume>().ActiveView(true);
+            inRockBalancing = true;
+            go.GetComponent<RockBalancingScript>().enabled = true;
+            TransitionCanvas(0).SetDelay(1);
+        });
     }
 
     #region MenuManager

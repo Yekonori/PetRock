@@ -120,12 +120,17 @@ public class RockBalancingScript : MonoBehaviour
 
     private void EndRockBalancing()
     {
-        _dollyView.SetActive(true);
         StartCoroutine(finishRockBalancing());
     }
 
     private IEnumerator finishRockBalancing()
     {
+        _theRock.GetComponent<Rigidbody>().isKinematic = false;
+
+        yield return new WaitForSeconds(1);
+
+        _dollyView.SetActive(true);
+
         yield return new WaitForSeconds(_dollyView.getTimeToRotate + 1);
 
         GetComponent<Collider>().enabled = false;
