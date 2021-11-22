@@ -47,13 +47,16 @@ public class DialogDisplay : MonoBehaviour
 
     private void Update()
     {
-        if(activeDialog)
+        if (!conversation.automatic)
         {
-            player.SetInDialog(true);
-        }
-        else
-        {
-            player.SetInDialog(false);
+            if (activeDialog)
+            {
+                player.SetInDialog(true);
+            }
+            else
+            {
+                player.SetInDialog(false);
+            }
         }
 
         if (conversation.automatic)
