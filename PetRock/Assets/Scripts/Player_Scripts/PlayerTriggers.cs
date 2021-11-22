@@ -17,7 +17,7 @@ public class PlayerTriggers : MonoBehaviour
                 break;
 
             case _rockBalancingZoneTag:
-                GameManager.instance.StartTransitionRockBalancing(other.gameObject);
+                StartCoroutine(GameManager.instance.startRB(other.gameObject));
                 break;
 
             default:

@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public bool inRockBalancing = false;
+    [HideInInspector]
+    public bool startDialogueRB = false;
 
     [TitleGroup("Post-Processing")]
     [SerializeField]
@@ -51,12 +53,13 @@ public class GameManager : MonoBehaviour
         return _transitionCanvas.DOFade(goTo, 2f);
     }
 
-    public void StartTransitionRockBalancing(GameObject go)
+    public IEnumerator startRB(GameObject go)
     {
+        go.GetComponent<RockBalancing_Dialogue>().StartDialogue();
+        yield return new WaitWhile(() => go.GetComponent<RockBalancing_Dialogue>().CheckEndDialogue());
         TransitionCanvas(1).OnComplete(() =>
         {
             go.GetComponent<TriggeredViewVolume>().ActiveView(true);
-            inRockBalancing = true;
             go.GetComponent<RockBalancingScript>().enabled = true;
             TransitionCanvas(0).SetDelay(1);
         });

@@ -158,6 +158,9 @@ public class RockBalancingScript : MonoBehaviour
         _dollyView.SetActive(false);
         _triggeredViewVolume.ActiveView(false);
 
+        GetComponent<RockBalancing_Dialogue>().EndDialogue();
+        yield return new WaitWhile(() => GetComponent<RockBalancing_Dialogue>().CheckEndDialogue());
+
         Destroy(_theRock);
 
         enabled = false;

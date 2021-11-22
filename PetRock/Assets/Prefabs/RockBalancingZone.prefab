@@ -399,6 +399,7 @@ GameObject:
   - component: {fileID: 1706345123641779283}
   - component: {fileID: 1706345123641779284}
   - component: {fileID: 1706345123641779285}
+  - component: {fileID: 5220310121666944752}
   m_Layer: 0
   m_Name: RockBalancingZone
   m_TagString: RockBalancing
@@ -478,6 +479,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.7356987, y: 2.29874, z: 4.6322393}
   m_Center: {x: -0.022418499, y: 0.64936996, z: 0.0151124}
+--- !u!114 &5220310121666944752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706345123641779281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f36d2e119f3c3342bb24a6d6c0448e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startConversationRB: {fileID: 11400000, guid: 1208b21d7d907e94fb82d0c0485cef61,
+    type: 2}
+  endConversationRB: {fileID: 11400000, guid: c752a14a94d2df6428031d07064e4bdb, type: 2}
+  dialogDisplay: {fileID: 0}
 --- !u!1 &1706345123744302596
 GameObject:
   m_ObjectHideFlags: 0
