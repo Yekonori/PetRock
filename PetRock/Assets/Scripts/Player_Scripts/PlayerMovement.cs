@@ -20,12 +20,14 @@ public class PlayerMovement : MonoBehaviour
     private float dirY = 0;
     private Camera cam;
     private CharacterController characterController;
+    private Animator anim;
     #endregion Fields
 
     private void Start()
     {
         cam = Camera.main;
         characterController = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -49,6 +51,19 @@ public class PlayerMovement : MonoBehaviour
 
         float g = characterController.isGrounded ? 0.1f : gravity;
         characterController.Move((moveDir + g * Vector3.down) * Time.deltaTime);
+
+        if(anim != null)
+        {
+            if(moveDir == Vector3.zero)
+            {
+                anim.SetBool("moving", false);
+            }
+            else
+            {
+                anim.SetBool("moving", true);
+            }
+        }
+
     }
 
     public void SetMovementDirection(float x, float y)
