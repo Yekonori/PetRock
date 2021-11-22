@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 5003897918810798639}
   - component: {fileID: 5003897918810798638}
   - component: {fileID: 5003897918810798625}
+  - component: {fileID: 1335737211496091878}
   m_Layer: 0
   m_Name: TransitionCanvas
   m_TagString: Untagged
@@ -173,3 +174,15 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 3895
+--- !u!225 &1335737211496091878
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5003897918810798627}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

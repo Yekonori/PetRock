@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using DG.Tweening;
+using Sirenix.OdinInspector;
+using UnityEngine.SceneManagement;
 
 public class RockBalancingScript : MonoBehaviour
 {
@@ -28,6 +30,13 @@ public class RockBalancingScript : MonoBehaviour
     private  float _margeRot;
     [SerializeField]
     private float _endZoomCamera;
+    [SerializeField]
+    private float _multiplicatorSpeedZoom;
+    [SerializeField]
+    private bool _loadNewScene = false;
+    [ShowIf("@_loadNewScene == true"), SerializeField]
+    private string nextScene;
+
 
     private float _posVib;
     private float _rotVib;
@@ -41,6 +50,7 @@ public class RockBalancingScript : MonoBehaviour
     private bool _goodPlace = false;
     private bool _goodRot = false;
     private bool _endRockBalancing = false;
+    private bool _onceEnd = false;
 
     [Header("Camera views")]
     [SerializeField]
@@ -86,9 +96,9 @@ public class RockBalancingScript : MonoBehaviour
             {
                 if (player.GetButton("ValidatePetRockPos"))
                 {
-                    /*if (_fixedView.fov >= _endZoomCamera)
-                        _fixedView.fov -= Time.deltaTime * 10;
-                    else*/
+                    if (_fixedView.fov >= _endZoomCamera)
+                        _fixedView.fov -= Time.deltaTime * (_multiplicatorSpeedZoom * 10);
+                    else
                         _endRockBalancing = true;
                 }
                 else if (player.GetButtonUp("ValidatePetRockPos"))
@@ -141,7 +151,11 @@ public class RockBalancingScript : MonoBehaviour
 
     private void EndRockBalancing()
     {
-        StartCoroutine(finishRockBalancing());
+        if (!_onceEnd)
+        {
+            StartCoroutine(finishRockBalancing());
+            _onceEnd = true;
+        }
     }
 
     private IEnumerator finishRockBalancing()
@@ -156,15 +170,25 @@ public class RockBalancingScript : MonoBehaviour
 
         GetComponent<Collider>().enabled = false;
 
-        _dollyView.SetActive(false);
-        _triggeredViewVolume.ActiveView(false);
-
         GetComponent<RockBalancing_Dialogue>().EndDialogue();
         yield return new WaitWhile(() => GetComponent<RockBalancing_Dialogue>().CheckEndDialogue());
 
-        Destroy(_theRock);
+        if (_loadNewScene)
+        {
+            GameManager.instance.TransitionCanvas(1).OnComplete(() =>
+            {
+                SceneManager.LoadScene(nextScene);
+            });
+        }
+        else
+        {
+            _dollyView.SetActive(false);
+            _triggeredViewVolume.ActiveView(false);
 
-        enabled = false;
-        GameManager.instance.inRockBalancing = false;
+            Destroy(_theRock);
+
+            enabled = false;
+            GameManager.instance.inRockBalancing = false;
+        }
     }
 }

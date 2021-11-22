@@ -446,6 +446,7 @@ MonoBehaviour:
   _finalPosRock: {fileID: 1706345123540692047}
   _margeRot: 5
   _endZoomCamera: 30
+  _multiplicatorSpeedZoom: 2
   _prefabRock: {fileID: 639969987513982064, guid: 8e45ba70ab3f5204bb30bcd2487c964a,
     type: 3}
   _triggeredViewVolume: {fileID: 1706345123641779284}
