@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class Trigger_Dialog : MonoBehaviour
 {
-
     public DialogueScript conversation;
     public DialogDisplay dialogDisplay;
 
+    [Header("Positions")]
+    [SerializeField] Transform posPlayer;
+    [SerializeField] Transform posRock;
+
+    private TriggeredViewVolume volume;
+
+    private void Start()
+    {
+        volume = GetComponent<TriggeredViewVolume>();
+        volume.enabled = false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +27,19 @@ public class Trigger_Dialog : MonoBehaviour
             dialogDisplay.DisplayDialog();
             dialogDisplay.NextDialog();
 
-            Destroy(this.gameObject);
+            if (conversation.automatic)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                other.transform.position = posPlayer.position;
+                other.transform.rotation = posPlayer.rotation;
+                posRock.gameObject.SetActive(true);
+                volume.ActiveView(true);
+                //dialogDisplay.SetEndAction(() => volume.ActiveView(false));
+                //dialogDisplay.SetEndAction(() => Destroy(this.gameObject));
+            }
         }
     }
 }
