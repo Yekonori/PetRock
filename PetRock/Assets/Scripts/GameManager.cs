@@ -55,7 +55,10 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator startRB(GameObject go)
     {
+        inRockBalancing = true;
+
         go.GetComponent<RockBalancing_Dialogue>().StartDialogue();
+
         yield return new WaitWhile(() => go.GetComponent<RockBalancing_Dialogue>().CheckEndDialogue());
         TransitionCanvas(1).OnComplete(() =>
         {

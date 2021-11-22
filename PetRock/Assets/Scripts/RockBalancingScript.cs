@@ -67,27 +67,28 @@ public class RockBalancingScript : MonoBehaviour
         if (!_canRockBalance)
             return;
 
-        float move = player.GetAxis("MovePetRock");
-        move = Mathf.Abs(move) > deadZone ? move : 0;
-
-        float rotate = player.GetAxis("TiltPetRock");
-        rotate = Mathf.Abs(rotate) > deadZone ? rotate : 0;
-
-        _theRock.transform.position += move * -transform.forward * _speed * Time.deltaTime; // += gravity * 
-        _theRock.transform.Rotate(Vector3.right, -rotate * _rotationSpeed * Time.deltaTime);
-
-        _posVib = Mathf.Clamp(Mathf.Abs(_theRock.transform.position.z - _finalPosRock.position.z), 0f, 0.5f);
-        _rotVib = Mathf.Clamp(Mathf.Abs((_theRock.transform.rotation.x - _finalPosRock.rotation.x)), 0f, 0.5f);
-
-        if(!_endRockBalancing)
+        if (!_endRockBalancing)
         {
+            float move = player.GetAxis("MovePetRock");
+            move = Mathf.Abs(move) > deadZone ? move : 0;
+
+            float rotate = player.GetAxis("TiltPetRock");
+            rotate = Mathf.Abs(rotate) > deadZone ? rotate : 0;
+
+            _theRock.transform.position += move * -transform.forward * _speed * Time.deltaTime; // += gravity * 
+            _theRock.transform.Rotate(Vector3.right, -rotate * _rotationSpeed * Time.deltaTime);
+
+            _posVib = Mathf.Clamp(Mathf.Abs(_theRock.transform.position.z - _finalPosRock.position.z), 0f, 0.5f);
+            _rotVib = Mathf.Clamp(Mathf.Abs((_theRock.transform.rotation.x - _finalPosRock.rotation.x)), 0f, 0.5f);
+
+        
             if(ValidateRot() && ValidatePos())
             {
                 if (player.GetButton("ValidatePetRockPos"))
                 {
-                    if (_fixedView.fov >= _endZoomCamera)
+                    /*if (_fixedView.fov >= _endZoomCamera)
                         _fixedView.fov -= Time.deltaTime * 10;
-                    else
+                    else*/
                         _endRockBalancing = true;
                 }
                 else if (player.GetButtonUp("ValidatePetRockPos"))
