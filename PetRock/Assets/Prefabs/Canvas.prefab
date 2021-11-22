@@ -848,6 +848,7 @@ MonoBehaviour:
   speakerRight: {fileID: 4970839941537528359}
   textDuration: 1
   timeBeforeNextPanel: 3
+  player: {fileID: 0}
   activeDialog: 0
 --- !u!1 &5423105386730176708
 GameObject:

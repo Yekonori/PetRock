@@ -14,6 +14,8 @@ public class DialogDisplay : MonoBehaviour
 
     public float timeBeforeNextPanel = 3;
 
+    public PlayerMovement player;
+
     private int activeLineIndex = 0;
    
     private DialogueUI speakerUILeft;
@@ -25,6 +27,7 @@ public class DialogDisplay : MonoBehaviour
     private Player _player;
 
     private bool canNextDialogue = true;
+
 
     private void Start()
     {
@@ -44,6 +47,15 @@ public class DialogDisplay : MonoBehaviour
 
     private void Update()
     {
+        if(activeDialog)
+        {
+            player.SetInDialog(true);
+        }
+        else
+        {
+            player.SetInDialog(false);
+        }
+
         if (conversation.automatic)
         {
             if(t >= timeBeforeNextPanel)
