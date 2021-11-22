@@ -55,7 +55,7 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        if (!eyeVision.canFlicker || playerSpotted) return;
+        if (playerSpotted) return;
 
         if (resumingtoNormal)
         {
@@ -70,11 +70,14 @@ public class FieldOfView : MonoBehaviour
             else return;
         }
 
-        stayOpenTimer += Time.deltaTime;
-        if (stayOpenTimer > eyeVision.timeToStayOpen && !flickering)
+        if (eyeVision.canFlicker)
         {
-            flickering = true;
-            StartCoroutine(flickerRoutine);
+            stayOpenTimer += Time.deltaTime;
+            if (stayOpenTimer > eyeVision.timeToStayOpen && !flickering)
+            {
+                flickering = true;
+                StartCoroutine(flickerRoutine);
+            }
         }
     }
 
