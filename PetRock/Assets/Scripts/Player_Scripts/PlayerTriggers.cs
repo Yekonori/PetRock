@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerTriggers : MonoBehaviour
 {
@@ -16,9 +17,7 @@ public class PlayerTriggers : MonoBehaviour
                 break;
 
             case _rockBalancingZoneTag:
-                GameManager.instance.inRockBalancing = true;
-                other.gameObject.GetComponent<RockBalancingScript>().enabled = true;
-                Debug.LogError("RB Zone");
+                StartCoroutine(GameManager.instance.startRB(other.gameObject));
                 break;
 
             default:

@@ -22,7 +22,7 @@ public class EyeParam
 {
     [Header("Movement")]
     public MovementType movementType;
-    public Transform startPos;
+    [ShowIf("movementType", MovementType.Moving)] public Transform startPos;
     [ShowIf("movementType", MovementType.Moving)] public Transform endPos;
     [ShowIf("movementType", MovementType.Moving)] public float timeToMove = 5;
 
@@ -42,13 +42,14 @@ public class EyeVision
     public bool seeThroughObstacle = false;
 
     [Header("Closing")]
-    public bool closingActivated = false;
-    [ShowIf("closingActivated", true), Min(0)] public float timeToStayOpen = 10;
-    [ShowIf("closingActivated", true), Min(0)] public float timeToClose = 1;
-    [ShowIf("closingActivated", true), Min(0)] public float timeToStayClosed = 3;
-    [ShowIf("closingActivated", true), Min(0)] public float timeToOpen = 1;
+    public bool canFlicker = false;
+    [ShowIf("canFlicker", true)] public AnimationCurve flickerCurve;
+    [ShowIf("canFlicker", true), Min(0)] public float timeToStayOpen = 10;
+    [ShowIf("canFlicker", true), Min(0)] public float timeToClose = 1;
+    [ShowIf("canFlicker", true), Min(0)] public float timeToStayClosed = 3;
+    [ShowIf("canFlicker", true), Min(0)] public float timeToOpen = 1;
 }
-
+/*
 [Serializable]
 public class EyeInfo
 {
@@ -172,3 +173,4 @@ public class EyeManager : MonoBehaviour
         }
     }
 }
+*/
