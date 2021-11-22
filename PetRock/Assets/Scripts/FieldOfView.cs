@@ -29,14 +29,13 @@ public class FieldOfView : MonoBehaviour
     PlayerParameters _playerParameters;
 
     private bool playerSpotted = false;
-    private IEnumerator flickerRoutine;
+    private Coroutine flickerRoutine;
     private EyeMovement eyeMovement;
 
     private void Start()
     {
         eyeMovement = GetComponent<EyeMovement>();
         currentViewAngle = eyeVision.viewAngle;
-        flickerRoutine = Flicker();
 
         if (eyeVision.seeThroughObstacle)
             obstableLayerMask = LayerMask.GetMask("Nothing");
@@ -76,7 +75,7 @@ public class FieldOfView : MonoBehaviour
             if (stayOpenTimer > eyeVision.timeToStayOpen && !flickering)
             {
                 flickering = true;
-                StartCoroutine(flickerRoutine);
+                flickerRoutine = StartCoroutine(Flicker());
             }
         }
     }
