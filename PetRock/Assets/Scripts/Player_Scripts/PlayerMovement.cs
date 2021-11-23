@@ -20,12 +20,14 @@ public class PlayerMovement : MonoBehaviour
     private float dirY = 0;
     private Camera cam;
     private CharacterController characterController;
+    private bool inDialog = false;
     #endregion Fields
 
     private void Start()
     {
         cam = Camera.main;
         characterController = GetComponent<CharacterController>();
+        inDialog = false;
     }
 
     void Update()
@@ -44,7 +46,14 @@ public class PlayerMovement : MonoBehaviour
 
             transform.rotation = rotation;
             float magnitude = Mathf.Clamp01(dir.sqrMagnitude);
-            moveDir = magnitude * (rot * Vector3.forward).normalized * speed;
+            if (!inDialog)
+            {
+                moveDir = magnitude * (rot * Vector3.forward).normalized * speed;
+            }
+            else
+            {
+                moveDir = Vector3.zero;
+            }
         }
 
         float g = characterController.isGrounded ? 0.1f : gravity;
@@ -57,10 +66,16 @@ public class PlayerMovement : MonoBehaviour
         dirY = y;
     }
 
+    public void SetInDialog(bool bol)
+    {
+        inDialog = bol;
+    }
+
     private void OnDrawGizmos()
     {
         if (!debugMode) return;
 
         Gizmos.DrawLine(transform.position, transform.position + transform.forward);
     }
+
 }
