@@ -99,7 +99,10 @@ public class RockBalancingScript : MonoBehaviour
                     if (_fixedView.fov >= _endZoomCamera)
                         _fixedView.fov -= Time.deltaTime * (_multiplicatorSpeedZoom * 10);
                     else
-                        _endRockBalancing = true;
+                    {
+                        DOTween.To(() => _fixedView.fov, x => _fixedView.fov = x, 75, 0.5f).SetDelay(1).OnComplete(() =>
+                        _endRockBalancing = true);
+                    }
                 }
                 else if (player.GetButtonUp("ValidatePetRockPos"))
                 {
@@ -166,8 +169,6 @@ public class RockBalancingScript : MonoBehaviour
 
         _dollyView.SetActive(true);
 
-        yield return new WaitForSeconds(_dollyView.getTimeToRotate + 1);
-
         GetComponent<Collider>().enabled = false;
 
         GetComponent<RockBalancing_Dialogue>().EndDialogue();
@@ -175,6 +176,8 @@ public class RockBalancingScript : MonoBehaviour
 
         if (_loadNewScene)
         {
+            yield return new WaitUntil(() => player.GetButton("ValidateEndRockBalancing"));
+
             GameManager.instance.TransitionCanvas(1).OnComplete(() =>
             {
                 SceneManager.LoadScene(nextScene);
