@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger_Dialog : MonoBehaviour
+public class Trigger_Dialog : TriggeredViewVolume
 {
     public DialogueScript conversation;
     public DialogDisplay dialogDisplay;
@@ -11,13 +11,6 @@ public class Trigger_Dialog : MonoBehaviour
     [SerializeField] Transform posPlayer;
     [SerializeField] Transform posRock;
 
-    private TriggeredViewVolume volume;
-
-    private void Start()
-    {
-        volume = GetComponent<TriggeredViewVolume>();
-        volume.enabled = false;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -35,11 +28,20 @@ public class Trigger_Dialog : MonoBehaviour
             {
                 other.transform.position = posPlayer.position;
                 other.transform.rotation = posPlayer.rotation;
+                Physics.SyncTransforms();
+
                 posRock.gameObject.SetActive(true);
-                volume.ActiveView(true);
-                //dialogDisplay.SetEndAction(() => volume.ActiveView(false));
-                //dialogDisplay.SetEndAction(() => Destroy(this.gameObject));
+
+                SetActive(true);
+
+                dialogDisplay.SetEndAction(() => SetActive(false));
+                dialogDisplay.SetEndAction(() => Destroy(this.gameObject));
             }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        
     }
 }
