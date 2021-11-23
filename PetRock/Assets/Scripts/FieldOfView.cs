@@ -29,14 +29,13 @@ public class FieldOfView : MonoBehaviour
     PlayerParameters _playerParameters;
 
     private bool playerSpotted = false;
-    private IEnumerator flickerRoutine;
+    private Coroutine flickerRoutine;
     private EyeMovement eyeMovement;
 
     private void Start()
     {
         eyeMovement = GetComponent<EyeMovement>();
         currentViewAngle = eyeVision.viewAngle;
-        flickerRoutine = Flicker();
 
         if (eyeVision.seeThroughObstacle)
             obstableLayerMask = LayerMask.GetMask("Nothing");
@@ -55,7 +54,7 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        if (!eyeVision.canFlicker || playerSpotted) return;
+        if (playerSpotted) return;
 
         if (resumingtoNormal)
         {
@@ -70,11 +69,14 @@ public class FieldOfView : MonoBehaviour
             else return;
         }
 
-        stayOpenTimer += Time.deltaTime;
-        if (stayOpenTimer > eyeVision.timeToStayOpen && !flickering)
+        if (eyeVision.canFlicker)
         {
-            flickering = true;
-            StartCoroutine(flickerRoutine);
+            stayOpenTimer += Time.deltaTime;
+            if (stayOpenTimer > eyeVision.timeToStayOpen && !flickering)
+            {
+                flickering = true;
+                flickerRoutine = StartCoroutine(Flicker());
+            }
         }
     }
 
