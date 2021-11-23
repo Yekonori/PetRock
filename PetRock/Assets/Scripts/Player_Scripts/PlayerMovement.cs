@@ -20,14 +20,14 @@ public class PlayerMovement : MonoBehaviour
     private float dirY = 0;
     private Camera cam;
     private CharacterController characterController;
-    private Animator anim;
+    private bool inDialog = false;
     #endregion Fields
 
     private void Start()
     {
         cam = Camera.main;
         characterController = GetComponent<CharacterController>();
-        anim = GetComponent<Animator>();
+        inDialog = false;
     }
 
     void Update()
@@ -46,24 +46,18 @@ public class PlayerMovement : MonoBehaviour
 
             transform.rotation = rotation;
             float magnitude = Mathf.Clamp01(dir.sqrMagnitude);
-            moveDir = magnitude * (rot * Vector3.forward).normalized * speed;
+            if (!inDialog)
+            {
+                moveDir = magnitude * (rot * Vector3.forward).normalized * speed;
+            }
+            else
+            {
+                moveDir = Vector3.zero;
+            }
         }
 
         float g = characterController.isGrounded ? 0.1f : gravity;
         characterController.Move((moveDir + g * Vector3.down) * Time.deltaTime);
-
-        if(anim != null)
-        {
-            if(moveDir == Vector3.zero)
-            {
-                anim.SetBool("moving", false);
-            }
-            else
-            {
-                anim.SetBool("moving", true);
-            }
-        }
-
     }
 
     public void SetMovementDirection(float x, float y)
@@ -72,10 +66,16 @@ public class PlayerMovement : MonoBehaviour
         dirY = y;
     }
 
+    public void SetInDialog(bool bol)
+    {
+        inDialog = bol;
+    }
+
     private void OnDrawGizmos()
     {
         if (!debugMode) return;
 
         Gizmos.DrawLine(transform.position, transform.position + transform.forward);
     }
+
 }
