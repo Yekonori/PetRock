@@ -447,6 +447,8 @@ MonoBehaviour:
   _margeRot: 5
   _endZoomCamera: 30
   _multiplicatorSpeedZoom: 2
+  _loadNewScene: 0
+  nextScene: 
   _prefabRock: {fileID: 639969987513982064, guid: 8e45ba70ab3f5204bb30bcd2487c964a,
     type: 3}
   _triggeredViewVolume: {fileID: 1706345123641779284}
@@ -544,7 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2376e566565fd4eae91ae41a368b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoop: 0
+  isLoop: 1
   nodes:
   - {fileID: 1706345122227006265}
   - {fileID: 1706345121812158168}
