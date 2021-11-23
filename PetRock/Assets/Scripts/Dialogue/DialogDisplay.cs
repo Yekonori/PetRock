@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Rewired;
 using UnityEngine;
@@ -27,9 +28,8 @@ public class DialogDisplay : MonoBehaviour
     private Player _player;
 
     private bool canNextDialogue = true;
-
     private IEnumerator currentRoutine = null;
-
+    private List<Action> actionWhenDialogEnd = new List<Action>();
 
     private void Start()
     {
@@ -95,6 +95,15 @@ public class DialogDisplay : MonoBehaviour
 
             activeDialog = false;
             activeLineIndex = 0;
+
+            if (actionWhenDialogEnd.Count > 0)
+            {
+                foreach (Action action in actionWhenDialogEnd)
+                {
+                    action.Invoke();
+                }
+                actionWhenDialogEnd.Clear();
+            }
         }
     }
 
@@ -140,8 +149,6 @@ public class DialogDisplay : MonoBehaviour
         conversation = dialogText;
     }
 
-
-
     //Défilement du texte
     private IEnumerator StartSpeaking(DialogueUI active,  string text)
     {
@@ -161,4 +168,8 @@ public class DialogDisplay : MonoBehaviour
         }
     }
 
+    public void SetEndAction(Action action)
+    {
+        actionWhenDialogEnd.Add(action);
+    }
 }
