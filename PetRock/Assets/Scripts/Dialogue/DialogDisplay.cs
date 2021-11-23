@@ -28,6 +28,8 @@ public class DialogDisplay : MonoBehaviour
 
     private bool canNextDialogue = true;
 
+    private IEnumerator currentRoutine = null;
+
 
     private void Start()
     {
@@ -81,7 +83,7 @@ public class DialogDisplay : MonoBehaviour
     //Passe au texte suivant
     public void NextDialog()
     {
-        if(activeLineIndex < conversation.lines.Length && activeDialog)
+        if (activeLineIndex < conversation.lines.Length && activeDialog)
         {
             DisplayLine();
             activeLineIndex += 1;
@@ -117,7 +119,14 @@ public class DialogDisplay : MonoBehaviour
         activeSpeakerUI.Show();
         inactiveSpeakerUI.Hide();
 
-        StartCoroutine(StartSpeaking(activeSpeakerUI, text));
+        if (currentRoutine != null)
+        {
+            StopCoroutine(currentRoutine);
+        }
+
+        currentRoutine = StartSpeaking(activeSpeakerUI, text);
+
+        StartCoroutine(currentRoutine);
     }
 
     //Active la boîte de dialogue
@@ -142,8 +151,10 @@ public class DialogDisplay : MonoBehaviour
         int textLength = text.Length;
         float textSpeedRatio = textDuration / textLength;
 
+        active.dialog.text = "";
+
         foreach (char character in text)
-        {
+        {            
             active.dialog.text += character;
 
             yield return new WaitForSeconds(textSpeedRatio);
