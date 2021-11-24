@@ -17,7 +17,7 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="User Interface, Beep, Error Tone, Soft SND57541 reversed 001" ID="{3EB4200D-22DA-4A0E-990F-09E18CE1F21D}" ShortID="353382486">
+						<Sound Name="Print_Piste_M_03" ID="{3F5D826E-84C9-4D71-939F-E1333D36330A}" ShortID="326137869">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
@@ -27,16 +27,16 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="User Interface, Beep, Error Tone, Soft SND57541 reversed 001" ID="{239CF69E-05E2-4801-8CBD-474CA1053098}">
+								<AudioFileSource Name="Print_Piste_M_03" ID="{E41D3AD0-4EAF-447E-84A5-170149A16D7D}">
 									<Language>SFX</Language>
-									<AudioFile>User Interface, Beep, Error Tone, Soft SND57541 reversed 001.wav</AudioFile>
+									<AudioFile>Print_Piste_M_03.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="814282969"/>
+										<MediaID ID="425127533"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="User Interface, Beep, Error Tone, Soft SND57541 reversed 001" ID="{239CF69E-05E2-4801-8CBD-474CA1053098}" Platform="Linked"/>
+								<ActiveSource Name="Print_Piste_M_03" ID="{E41D3AD0-4EAF-447E-84A5-170149A16D7D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
