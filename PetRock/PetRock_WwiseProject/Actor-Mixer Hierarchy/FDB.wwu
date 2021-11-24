@@ -16,6 +16,30 @@
 							<ObjectRef Name="FDB" ID="{501E7601-F79A-4798-A811-6E9C38A2F9C4}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Print_Piste_M_03" ID="{3F5D826E-84C9-4D71-939F-E1333D36330A}" ShortID="326137869">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{098976D7-5378-4EE0-93A2-892969B240F4}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{E46FB4E1-7FD6-4143-AD7E-6C8218E66C50}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Print_Piste_M_03" ID="{E41D3AD0-4EAF-447E-84A5-170149A16D7D}">
+									<Language>SFX</Language>
+									<AudioFile>Print_Piste_M_03.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="425127533"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Print_Piste_M_03" ID="{E41D3AD0-4EAF-447E-84A5-170149A16D7D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
