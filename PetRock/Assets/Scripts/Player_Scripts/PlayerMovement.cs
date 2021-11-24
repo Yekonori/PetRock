@@ -20,17 +20,24 @@ public class PlayerMovement : MonoBehaviour
     private float dirY = 0;
     private Camera cam;
     private CharacterController characterController;
+    private bool inDialog = false;
+    private bool isMoving;
+
+    private Animator anim;
     #endregion Fields
 
     private void Start()
     {
         cam = Camera.main;
         characterController = GetComponent<CharacterController>();
+        inDialog = false;
+        anim = GetComponent<Animator>();
+        isMoving = false;
     }
 
     void Update()
     {
-        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing)
+        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing || inDialog)
         {
             dirX = 0;
             dirY = 0;
@@ -44,17 +51,49 @@ public class PlayerMovement : MonoBehaviour
 
             transform.rotation = rotation;
             float magnitude = Mathf.Clamp01(dir.sqrMagnitude);
-            moveDir = magnitude * (rot * Vector3.forward).normalized * speed;
+            if (!inDialog)
+            {
+                moveDir = magnitude * (rot * Vector3.forward).normalized * speed;
+            }
+            else
+            {
+                moveDir = Vector3.zero;
+                anim.SetBool("talking", true);
+            }
+        }
+        
+        if(!inDialog && moveDir == Vector3.zero)
+        {
+            anim.SetBool("talking", false);
         }
 
+        
+        if (!isMoving && moveDir != Vector3.zero)
+        {
+            anim.SetBool("isMoving", true);
+            isMoving = true;
+        }
+        else if (isMoving && moveDir == Vector3.zero)
+        {
+            anim.SetBool("isMoving", false);
+            isMoving = false;
+        }
+        
         float g = characterController.isGrounded ? 0.1f : gravity;
         characterController.Move((moveDir + g * Vector3.down) * Time.deltaTime);
+
+        
     }
 
     public void SetMovementDirection(float x, float y)
     {
         dirX = x;
         dirY = y;
+    }
+
+    public void SetInDialog(bool value)
+    {
+        inDialog = value;
     }
 
     private void OnDrawGizmos()

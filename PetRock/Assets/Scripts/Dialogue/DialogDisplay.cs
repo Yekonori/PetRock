@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Rewired;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class DialogDisplay : MonoBehaviour
 
     public float timeBeforeNextPanel = 3;
 
+    public PlayerMovement player;
+
     private int activeLineIndex = 0;
    
     private DialogueUI speakerUILeft;
@@ -25,6 +28,8 @@ public class DialogDisplay : MonoBehaviour
     private Player _player;
 
     private bool canNextDialogue = true;
+    private IEnumerator currentRoutine = null;
+    private List<Action> actionWhenDialogEnd = new List<Action>();
 
     private void Start()
     {
@@ -44,6 +49,18 @@ public class DialogDisplay : MonoBehaviour
 
     private void Update()
     {
+        if (!conversation.automatic)
+        {
+            if (activeDialog)
+            {
+                player.SetInDialog(true);
+            }
+            else
+            {
+                player.SetInDialog(false);
+            }
+        }
+
         if (conversation.automatic)
         {
             if(t >= timeBeforeNextPanel)
@@ -66,7 +83,7 @@ public class DialogDisplay : MonoBehaviour
     //Passe au texte suivant
     public void NextDialog()
     {
-        if(activeLineIndex < conversation.lines.Length && activeDialog)
+        if (activeLineIndex < conversation.lines.Length && activeDialog)
         {
             DisplayLine();
             activeLineIndex += 1;
@@ -78,6 +95,15 @@ public class DialogDisplay : MonoBehaviour
 
             activeDialog = false;
             activeLineIndex = 0;
+
+            if (actionWhenDialogEnd.Count > 0)
+            {
+                foreach (Action action in actionWhenDialogEnd)
+                {
+                    action.Invoke();
+                }
+                actionWhenDialogEnd.Clear();
+            }
         }
     }
 
@@ -102,7 +128,14 @@ public class DialogDisplay : MonoBehaviour
         activeSpeakerUI.Show();
         inactiveSpeakerUI.Hide();
 
-        StartCoroutine(StartSpeaking(activeSpeakerUI, text));
+        if (currentRoutine != null)
+        {
+            StopCoroutine(currentRoutine);
+        }
+
+        currentRoutine = StartSpeaking(activeSpeakerUI, text);
+
+        StartCoroutine(currentRoutine);
     }
 
     //Active la boîte de dialogue
@@ -116,8 +149,6 @@ public class DialogDisplay : MonoBehaviour
         conversation = dialogText;
     }
 
-
-
     //Défilement du texte
     private IEnumerator StartSpeaking(DialogueUI active,  string text)
     {
@@ -127,12 +158,18 @@ public class DialogDisplay : MonoBehaviour
         int textLength = text.Length;
         float textSpeedRatio = textDuration / textLength;
 
+        active.dialog.text = "";
+
         foreach (char character in text)
-        {
+        {            
             active.dialog.text += character;
 
             yield return new WaitForSeconds(textSpeedRatio);
         }
     }
 
+    public void SetEndAction(Action action)
+    {
+        actionWhenDialogEnd.Add(action);
+    }
 }

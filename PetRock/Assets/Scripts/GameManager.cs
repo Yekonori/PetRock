@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 using Rewired;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,12 +16,18 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public bool inRockBalancing = false;
+    [HideInInspector]
+    public bool startDialogueRB = false;
 
     [TitleGroup("Post-Processing")]
     [SerializeField]
     private Volume volumePostProcessing;
     [HideInInspector]
     public Vignette vignettePostProcessing;
+
+    [TitleGroup("Canvas")]
+    [SerializeField]
+    private CanvasGroup _transitionCanvas;
 
     [HideInInspector]
     public Player player;
@@ -39,6 +46,26 @@ public class GameManager : MonoBehaviour
         }
 
         SetVignettePostProcess();
+    }
+
+    public DG.Tweening.Core.TweenerCore<float, float, DG.Tweening.Plugins.Options.FloatOptions> TransitionCanvas(float goTo)
+    {
+        return _transitionCanvas.DOFade(goTo, 2f);
+    }
+
+    public IEnumerator startRB(GameObject go)
+    {
+        inRockBalancing = true;
+
+        go.GetComponent<RockBalancing_Dialogue>().StartDialogue();
+
+        yield return new WaitWhile(() => go.GetComponent<RockBalancing_Dialogue>().CheckEndDialogue());
+        TransitionCanvas(1).OnComplete(() =>
+        {
+            go.GetComponent<TriggeredViewVolume>().ActiveView(true);
+            go.GetComponent<RockBalancingScript>().enabled = true;
+            TransitionCanvas(0).SetDelay(1);
+        });
     }
 
     #region MenuManager

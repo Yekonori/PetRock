@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
+using DG.Tweening;
+using Sirenix.OdinInspector;
+using UnityEngine.SceneManagement;
 
 public class RockBalancingScript : MonoBehaviour
 {
@@ -25,6 +28,15 @@ public class RockBalancingScript : MonoBehaviour
     private Transform _finalB;
     [SerializeField]
     private  float _margeRot;
+    [SerializeField]
+    private float _endZoomCamera;
+    [SerializeField]
+    private float _multiplicatorSpeedZoom;
+    [SerializeField]
+    private bool _loadNewScene = false;
+    [ShowIf("@_loadNewScene == true"), SerializeField]
+    private string nextScene;
+
 
     private float _posVib;
     private float _rotVib;
@@ -38,12 +50,15 @@ public class RockBalancingScript : MonoBehaviour
     private bool _goodPlace = false;
     private bool _goodRot = false;
     private bool _endRockBalancing = false;
+    private bool _onceEnd = false;
 
     [Header("Camera views")]
     [SerializeField]
     private TriggeredViewVolume _triggeredViewVolume;
     [SerializeField]
     private DollyViewAutoCircle _dollyView;
+    [SerializeField]
+    private FixedView _fixedView;
 
     private void OnEnable()
     {
@@ -62,23 +77,42 @@ public class RockBalancingScript : MonoBehaviour
         if (!_canRockBalance)
             return;
 
-        float move = player.GetAxis("MovePetRock");
-        move = Mathf.Abs(move) > deadZone ? move : 0;
-
-        float rotate = player.GetAxis("TiltPetRock");
-        rotate = Mathf.Abs(rotate) > deadZone ? rotate : 0;
-
-        _theRock.transform.position += move * -transform.forward * _speed * Time.deltaTime; // += gravity * 
-        _theRock.transform.Rotate(Vector3.right, -rotate * _rotationSpeed * Time.deltaTime);
-
-        _posVib = Mathf.Clamp(Mathf.Abs(_theRock.transform.position.z - _finalPosRock.position.z), 0f, 0.5f);
-        _rotVib = Mathf.Clamp(Mathf.Abs((_theRock.transform.rotation.x - _finalPosRock.rotation.x)), 0f, 0.5f);
-
-
-        if (ValidateRot() == true && ValidatePos() == true && player.GetButton("ValidatePetRockPos"))
+        if (!_endRockBalancing)
         {
-            _endRockBalancing = true;
+            float move = player.GetAxis("MovePetRock");
+            move = Mathf.Abs(move) > deadZone ? move : 0;
 
+            float rotate = player.GetAxis("TiltPetRock");
+            rotate = Mathf.Abs(rotate) > deadZone ? rotate : 0;
+
+            _theRock.transform.position += move * -transform.forward * _speed * Time.deltaTime; // += gravity * 
+            _theRock.transform.Rotate(Vector3.right, -rotate * _rotationSpeed * Time.deltaTime);
+
+            _posVib = Mathf.Clamp(Mathf.Abs(_theRock.transform.position.z - _finalPosRock.position.z), 0f, 0.5f);
+            _rotVib = Mathf.Clamp(Mathf.Abs((_theRock.transform.rotation.x - _finalPosRock.rotation.x)), 0f, 0.5f);
+
+        
+            if(ValidateRot() && ValidatePos())
+            {
+                if (player.GetButton("ValidatePetRockPos"))
+                {
+                    if (_fixedView.fov >= _endZoomCamera)
+                        _fixedView.fov -= Time.deltaTime * (_multiplicatorSpeedZoom * 10);
+                    else
+                    {
+                        DOTween.To(() => _fixedView.fov, x => _fixedView.fov = x, 75, 0.5f).SetDelay(1).OnComplete(() =>
+                        _endRockBalancing = true);
+                    }
+                }
+                else if (player.GetButtonUp("ValidatePetRockPos"))
+                {
+                    DOTween.To(() => _fixedView.fov, x => _fixedView.fov = x, 75, 1.5f);
+                }
+            }
+        }
+
+        if (_endRockBalancing)
+        {
             player.SetVibration(0, 0);
             player.StopVibration();
             EndRockBalancing();
@@ -120,22 +154,44 @@ public class RockBalancingScript : MonoBehaviour
 
     private void EndRockBalancing()
     {
-        _dollyView.SetActive(true);
-        StartCoroutine(finishRockBalancing());
+        if (!_onceEnd)
+        {
+            StartCoroutine(finishRockBalancing());
+            _onceEnd = true;
+        }
     }
 
     private IEnumerator finishRockBalancing()
     {
-        yield return new WaitForSeconds(_dollyView.getTimeToRotate + 1);
+        _theRock.GetComponent<Rigidbody>().isKinematic = false;
+
+        yield return new WaitForSeconds(1);
+
+        _dollyView.SetActive(true);
 
         GetComponent<Collider>().enabled = false;
 
-        _dollyView.SetActive(false);
-        _triggeredViewVolume.ActiveView(false);
+        GetComponent<RockBalancing_Dialogue>().EndDialogue();
+        yield return new WaitWhile(() => GetComponent<RockBalancing_Dialogue>().CheckEndDialogue());
 
-        Destroy(_theRock);
+        if (_loadNewScene)
+        {
+            yield return new WaitUntil(() => player.GetButton("ValidateEndRockBalancing"));
 
-        enabled = false;
-        GameManager.instance.inRockBalancing = false;
+            GameManager.instance.TransitionCanvas(1).OnComplete(() =>
+            {
+                SceneManager.LoadScene(nextScene);
+            });
+        }
+        else
+        {
+            _dollyView.SetActive(false);
+            _triggeredViewVolume.ActiveView(false);
+
+            Destroy(_theRock);
+
+            enabled = false;
+            GameManager.instance.inRockBalancing = false;
+        }
     }
 }

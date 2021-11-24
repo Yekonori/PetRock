@@ -19,6 +19,7 @@ public class PlayerParameters : MonoBehaviour
     private bool doRockBalancing = false;
     private bool inSafeZone = false;
     private float t = 0;
+    private Animator anim;
 
     public enum PlayerStates
     {
@@ -33,6 +34,7 @@ public class PlayerParameters : MonoBehaviour
 
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         if (Instance == null)
             Instance = this;
         else
@@ -47,6 +49,7 @@ public class PlayerParameters : MonoBehaviour
             if (stateTimer > timeFromGiantToStressed)
             {
                 UpdatePlayerState(PlayerStates.Stressed);
+                anim.SetBool("isStressed", true);
             }
         }
         else if (playerStates == PlayerStates.Stressed)
@@ -55,6 +58,7 @@ public class PlayerParameters : MonoBehaviour
             if (stateTimer > timeFromStressedToRegular)
             {
                 UpdatePlayerState(PlayerStates.Regular);
+                anim.SetBool("isStressed", false);
             }
         }
 

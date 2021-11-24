@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerTriggers : MonoBehaviour
 {
     private const string _safeZoneTag = "SafeZone";
     private const string _rockBalancingZoneTag = "RockBalancing";
+    private Animator anim;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,9 +18,9 @@ public class PlayerTriggers : MonoBehaviour
                 break;
 
             case _rockBalancingZoneTag:
-                GameManager.instance.inRockBalancing = true;
-                other.gameObject.GetComponent<RockBalancingScript>().enabled = true;
-                Debug.LogError("RB Zone");
+                StartCoroutine(GameManager.instance.startRB(other.gameObject));
+                anim = this.GetComponent<Animator>();
+                anim.SetBool("rockBalance", true);
                 break;
 
             default:
