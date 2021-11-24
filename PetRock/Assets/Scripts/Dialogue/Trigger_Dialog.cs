@@ -30,11 +30,13 @@ public class Trigger_Dialog : TriggeredViewVolume
                 other.transform.rotation = posPlayer.rotation;
                 Physics.SyncTransforms();
 
-                posRock.gameObject.SetActive(true);
+                RockScript rock = other.GetComponentInChildren<RockScript>();
+                rock.MoveTotarget(posRock);
 
                 SetActive(true);
 
                 dialogDisplay.SetEndAction(() => SetActive(false));
+                dialogDisplay.SetEndAction(() => rock.ResetPosition());
                 dialogDisplay.SetEndAction(() => Destroy(this.gameObject));
             }
         }

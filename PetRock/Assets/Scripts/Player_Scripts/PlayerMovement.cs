@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing)
+        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing || inDialog)
         {
             dirX = 0;
             dirY = 0;
@@ -46,14 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
             transform.rotation = rotation;
             float magnitude = Mathf.Clamp01(dir.sqrMagnitude);
-            if (!inDialog)
-            {
-                moveDir = magnitude * (rot * Vector3.forward).normalized * speed;
-            }
-            else
-            {
-                moveDir = Vector3.zero;
-            }
+            moveDir = magnitude * (rot * Vector3.forward).normalized * speed;
         }
 
         float g = characterController.isGrounded ? 0.1f : gravity;
@@ -66,9 +59,9 @@ public class PlayerMovement : MonoBehaviour
         dirY = y;
     }
 
-    public void SetInDialog(bool bol)
+    public void SetInDialog(bool value)
     {
-        inDialog = bol;
+        inDialog = value;
     }
 
     private void OnDrawGizmos()
@@ -77,5 +70,4 @@ public class PlayerMovement : MonoBehaviour
 
         Gizmos.DrawLine(transform.position, transform.position + transform.forward);
     }
-
 }
