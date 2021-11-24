@@ -18,7 +18,7 @@ public class ActivateObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Plaayer"))
+        if (other.CompareTag("Player"))
         {
             objectToActivate.SetActive(true);
             Destroy(this.gameObject);
