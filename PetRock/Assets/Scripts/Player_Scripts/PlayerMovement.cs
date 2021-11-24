@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour
     private Camera cam;
     private CharacterController characterController;
     private bool inDialog = false;
+    private bool isMoving;
+
+    private Animator anim;
     #endregion Fields
 
     private void Start()
@@ -28,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
         cam = Camera.main;
         characterController = GetComponent<CharacterController>();
         inDialog = false;
+        anim = GetComponent<Animator>();
+        isMoving = false;
     }
 
     void Update()
@@ -53,11 +58,31 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 moveDir = Vector3.zero;
+                anim.SetBool("talking", true);
             }
         }
+        
+        if(!inDialog && moveDir == Vector3.zero)
+        {
+            anim.SetBool("talking", false);
+        }
 
+        
+        if (!isMoving && moveDir != Vector3.zero)
+        {
+            anim.SetBool("isMoving", true);
+            isMoving = true;
+        }
+        else if (isMoving && moveDir == Vector3.zero)
+        {
+            anim.SetBool("isMoving", false);
+            isMoving = false;
+        }
+        
         float g = characterController.isGrounded ? 0.1f : gravity;
         characterController.Move((moveDir + g * Vector3.down) * Time.deltaTime);
+
+        
     }
 
     public void SetMovementDirection(float x, float y)

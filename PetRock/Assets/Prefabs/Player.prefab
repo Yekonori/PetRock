@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 944047243}
   - component: {fileID: 944047244}
   - component: {fileID: 944047245}
+  - component: {fileID: 1037300721}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -113,6 +114,25 @@ MonoBehaviour:
   rotationSpeed: 90
   gravity: 5
   debugMode: 0
+--- !u!95 &1037300721
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4373567877735034328}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 018be39a36b28244d96363f54179d838, type: 3}
+  m_Controller: {fileID: 9100000, guid: af7241f006c1cd54dbacb42fa3fff497, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4373567878519657861
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +315,8 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: af7241f006c1cd54dbacb42fa3fff497, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 018be39a36b28244d96363f54179d838, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 018be39a36b28244d96363f54179d838, type: 3}
 --- !u!4 &1749453710996810835 stripped
 Transform:
