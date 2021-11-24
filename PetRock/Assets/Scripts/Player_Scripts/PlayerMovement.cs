@@ -32,11 +32,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing)
+        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing || PlayerParameters.Instance.IsOnTimeOut())
         {
             dirX = 0;
             dirY = 0;
         }
+
         Vector3 dir = new Vector3(dirX, 0, dirY);
         Vector3 moveDir = Vector3.zero;
         if (dir.magnitude > 0.1f)

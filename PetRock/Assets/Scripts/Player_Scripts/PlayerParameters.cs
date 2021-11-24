@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using UnityEngine.SceneManagement;
 
 public class PlayerParameters : MonoBehaviour
 {
@@ -24,7 +23,8 @@ public class PlayerParameters : MonoBehaviour
     {
         Regular,
         GiantZone,
-        Stressed
+        Stressed,
+        TimeOut
     }
 
     public PlayerStates playerStates = PlayerStates.Regular;
@@ -57,11 +57,16 @@ public class PlayerParameters : MonoBehaviour
                 UpdatePlayerState(PlayerStates.Regular);
             }
         }
+        if(playerStates != PlayerStates.TimeOut)
+        {
+            if (panicGauge >= 100)
+            {
+                StartCoroutine(TimeOutManager.instance.TimeOut());
+                UpdatePlayerState(PlayerStates.TimeOut);
+            }
+        }
 
-        if (panicGauge >= 100)
-            SceneManager.LoadScene("Defeat_Scene");
-
-        if(inSafeZone)
+        if (inSafeZone)
         {
             t += Time.deltaTime;
             if(t>= 1)
@@ -96,6 +101,11 @@ public class PlayerParameters : MonoBehaviour
         inSafeZone = active;
     }
 
+    public void UpdateStateGauge(float value)
+    {
+        panicGauge = value;
+    }
+
     #endregion Update states
 
     #region Bool
@@ -118,6 +128,11 @@ public class PlayerParameters : MonoBehaviour
     public bool HasBeenOnStressed()
     {
         return playerStates == PlayerStates.Stressed;
+    }
+
+    public bool IsOnTimeOut()
+    {
+        return playerStates == PlayerStates.TimeOut;
     }
 
     #endregion Bool
