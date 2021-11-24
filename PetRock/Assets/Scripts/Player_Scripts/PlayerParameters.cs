@@ -18,7 +18,8 @@ public class PlayerParameters : MonoBehaviour
     private bool doRockBalancing = false;
     private bool inSafeZone = false;
     private float t = 0;
-    private Animator anim;
+    [HideInInspector]
+    public Animator anim;
 
     public enum PlayerStates
     {

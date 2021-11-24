@@ -40,6 +40,8 @@ public class TimeOutManager : MonoBehaviour
 
     public IEnumerator TimeOut() 
     {
+        PlayerParameters.Instance.anim.SetBool("InTimeOut", true);
+
         GameManager.instance.TransitionCanvas(1).OnComplete(() =>
         {
             _timeOutCam.SetActive(true);
@@ -62,6 +64,7 @@ public class TimeOutManager : MonoBehaviour
     {
         GameManager.instance.TransitionCanvas(1).OnComplete(() =>
         {
+            PlayerParameters.Instance.anim.SetBool("InTimeOut", false);
             _timeOutCam.SetActive(false);
             GameManager.instance.TransitionCanvas(0);
             PlayerParameters.Instance.UpdateStateGauge(backToTimeOutValue);

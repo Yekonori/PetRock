@@ -16,7 +16,7 @@ MonoBehaviour:
   rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
   lines:
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: Courp dur...
+    text: Coup dur...
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: "Tkt bg \xE7a va aller"
   automatic: 1
