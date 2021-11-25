@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfda5e4a1e9ab58429616bafaa2845cf, type: 3}
+  m_Name: Diag2-5
+  m_EditorClassIdentifier: 
+  leftCharacter: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+  rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "What the\u2026fuck was that?! It felt like\u2026my bones were being drenched
+      in cold water\u2026My heart feels like it\u2019s gonna explode\u2026"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: ...You are safe now, take a breather, it cannot see you here.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "...Huff\u2026\u2026 huff\u2026"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "It really did a number on us\u2026You look like you're drenched in sweat,
+      let us take a small break."
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "A break?! We\u2019re going back to the beach, whether you like it or not.
+      I\u2019m not taking another step into this hellhole."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Oh? Are you that eager to cross this eye again?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: 'What, no?! But there are going to be more of them deeper inside, right? '
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "No, no, no, I\u2019m in way over my head, I can\u2019t do this, I can\u2019t
+      deal with this stuff, I can't deal with this crap, I\u2019m just gonna go back
+      to the beach and wait."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Do not even think about going back. Are you going to choose certain death
+      when you have a chance at survival?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "A chance?! This place is infested with those\u2026things! You can\u2019t
+      be serious!"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Lis-ten. There should be a place nearby in which rainwater often stays
+      stuck, at least we should go up there, okay?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "I-\u2026Mmh\u2026.just a little more then. And there better not be any
+      other one of those things."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: There will not be. Let us depart.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "...Let\u2019s go."
+  automatic: 0
