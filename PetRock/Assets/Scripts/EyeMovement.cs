@@ -37,6 +37,9 @@ public class EyeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerParameters.Instance.IsOnTimeOut())
+            return;
+
         switch (spotState)
         {
             case PlayerSpotState.NotSpoted:

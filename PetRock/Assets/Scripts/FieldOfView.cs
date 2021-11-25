@@ -54,7 +54,7 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        if (playerSpotted) return;
+        if (playerSpotted || _playerParameters.IsOnTimeOut()) return;
 
         if (resumingtoNormal)
         {
@@ -105,29 +105,32 @@ public class FieldOfView : MonoBehaviour
 
     void FindVisibleTargets()
     {
-        playerSpotted = false;
-
-        Collider[] targets = Physics.OverlapSphere(transform.position, eyeVision.range, targetLayerMask);
-        if (targets.Length != 0)
+        if (!_playerParameters.IsOnTimeOut())
         {
-            Transform target = targets[0].transform;
-            Vector3 dirToTarget = (target.position - transform.position).normalized;
-            
-            if (Vector3.Angle(transform.forward, dirToTarget) < currentViewAngle / 2)
-            {
-                float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            playerSpotted = false;
 
-                if (!Physics.Raycast(transform.position, dirToTarget, distanceToTarget, obstableLayerMask))
+            Collider[] targets = Physics.OverlapSphere(transform.position, eyeVision.range, targetLayerMask);
+            if (targets.Length != 0)
+            {
+                Transform target = targets[0].transform;
+                Vector3 dirToTarget = (target.position - transform.position).normalized;
+
+                if (Vector3.Angle(transform.forward, dirToTarget) < currentViewAngle / 2)
                 {
-                    if (!_playerParameters.IsOnSafeZone())
+                    float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+                    if (!Physics.Raycast(transform.position, dirToTarget, distanceToTarget, obstableLayerMask))
                     {
-                        // TO DO : PLAYER IS SPOTTED
-                        Debug.Log("Player is spotted");
-                        playerSpotted = true;
-                        resumingtoNormal = true;
-                        eyeMovement.SetPlayerSpotted(PlayerSpotState.Spoted);
-                        StopFlicker();
-                        _playerParameters.UpdatePlayerState(PlayerParameters.PlayerStates.GiantZone);
+                        if (!_playerParameters.IsOnSafeZone())
+                        {
+                            // TO DO : PLAYER IS SPOTTED
+                            Debug.Log("Player is spotted");
+                            playerSpotted = true;
+                            resumingtoNormal = true;
+                            eyeMovement.SetPlayerSpotted(PlayerSpotState.Spoted);
+                            StopFlicker();
+                            _playerParameters.UpdatePlayerState(PlayerParameters.PlayerStates.GiantZone);
+                        }
                     }
                 }
             }

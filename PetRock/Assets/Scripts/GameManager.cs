@@ -56,12 +56,19 @@ public class GameManager : MonoBehaviour
     public IEnumerator startRB(GameObject go)
     {
         inRockBalancing = true;
+        PlayerParameters.Instance.UpdateRockBalancing(inRockBalancing);
 
         go.GetComponent<RockBalancing_Dialogue>().StartDialogue();
 
         yield return new WaitWhile(() => go.GetComponent<RockBalancing_Dialogue>().CheckEndDialogue());
         TransitionCanvas(1).OnComplete(() =>
         {
+            PlayerParameters.Instance.gameObject.transform.parent = go.GetComponent<RockBalancingScript>().transform;
+
+            PlayerParameters.Instance.gameObject.transform.localPosition = go.GetComponent<RockBalancingScript>().startPlayerPos.localPosition;
+            PlayerParameters.Instance.gameObject.transform.rotation = go.GetComponent<RockBalancingScript>().startPlayerPos.rotation;
+
+            PlayerParameters.Instance.anim.SetBool("rockBalance", true);
             go.GetComponent<TriggeredViewVolume>().ActiveView(true);
             go.GetComponent<RockBalancingScript>().enabled = true;
             TransitionCanvas(0).SetDelay(1);
