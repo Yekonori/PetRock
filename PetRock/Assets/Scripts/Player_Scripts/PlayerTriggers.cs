@@ -19,8 +19,6 @@ public class PlayerTriggers : MonoBehaviour
 
             case _rockBalancingZoneTag:
                 StartCoroutine(GameManager.instance.startRB(other.gameObject));
-                anim = this.GetComponent<Animator>();
-                anim.SetBool("rockBalance", true);
                 break;
 
             default:

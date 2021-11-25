@@ -17,9 +17,10 @@ public class RockBalancingScript : MonoBehaviour
     [SerializeField, Min(0f)] float _speed = 5f;
     [SerializeField, Min(0f)] float _rotationSpeed = 90f;
 
-    [Header("Start rock position")]
+    [Header("Start position")]
     [SerializeField]
     private Transform _startPosRock;
+    public Transform startPlayerPos;
 
     [Header("Validate position rock")]
     [SerializeField]
