@@ -1477,7 +1477,7 @@ Transform:
   - {fileID: 1834222346}
   - {fileID: 1589727712}
   m_Father: {fileID: 1318046752}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &465374706
 PrefabInstance:
@@ -3146,7 +3146,7 @@ PrefabInstance:
     - target: {fileID: 4373567877735034330, guid: 4432506f45877c64c8dc7494a2eb438d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.3
+      value: 2.41
       objectReference: {fileID: 0}
     - target: {fileID: 4373567877735034330, guid: 4432506f45877c64c8dc7494a2eb438d,
         type: 3}
@@ -3192,7 +3192,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 4432506f45877c64c8dc7494a2eb438d, type: 3}
 --- !u!4 &944047241 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4373567878519657857, guid: 4432506f45877c64c8dc7494a2eb438d,
+  m_CorrespondingSourceObject: {fileID: 2356996587708178649, guid: 4432506f45877c64c8dc7494a2eb438d,
     type: 3}
   m_PrefabInstance: {fileID: 944047240}
   m_PrefabAsset: {fileID: 0}
@@ -3968,7 +3968,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 332227932}
   - {fileID: 1589389121}
   - {fileID: 455054392}
   - {fileID: 853733355}
@@ -5027,7 +5026,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 1318046752}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1589389122
 MeshCollider:
@@ -5354,7 +5353,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1704317086}
-  - component: {fileID: 1704317085}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -5362,32 +5360,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1704317085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704317084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f5ce0dfbf0460b48bae8911b889e603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: 6ac6a7092ed43fb46a7fcc1bb7db2197,
-    type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
 --- !u!4 &1704317086
 Transform:
   m_ObjectHideFlags: 0

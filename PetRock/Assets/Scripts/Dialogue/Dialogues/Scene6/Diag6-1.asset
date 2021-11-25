@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfda5e4a1e9ab58429616bafaa2845cf, type: 3}
+  m_Name: Diag6-1
+  m_EditorClassIdentifier: 
+  leftCharacter: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+  rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Here we are.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Yeah\u2026here we are. Geez, I guess I don\u2019t have to worry about
+      water anymore then."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: That is right. Though I feel like you already found, or maybe remembered,
+      the water you really needed most.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Mmh\u2026Maybe I just might have."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "So\u2026Have you thought about what is next?"
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "....Mmh\u2026I can\u2019t say I entirely haven\u2019t."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: You could answer by the affirmative, instead of making it a double-negative.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Don\u2019t ask too much out of me all at once."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "That is quite fair\u2026So, what do you plan on doing now?"
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Well\u2026I have water, and next to a lake, food is sure to be plentiful.
+      To be fair, I\u2019m pretty much set about survival, which means\u2026."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: '? '
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: I can start thinking about going back.
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Going back?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Up there, I mean. Maybe, I\u2019m saying just maybe, if I spend a lot
+      of time on it, a lot of trial and error and have someone to cheer me up when
+      things don\u2019t work, then maybe, just maybe\u2026I can fix the ship back
+      up."
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "For sure, some pieces are toast and will need to be built again but\u2026maybe
+      I can do it."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "And here you were telling me not to ask too much of you\u2026And yet you
+      blurt out something like this all of a sudden. Did you grow up when I was looking
+      away?"
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Geez, you\u2019re embarrassing me again. But\u2026"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Yes?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "You\u2019ll come with me, right? I mean, when I have the ship fixed back
+      up and running."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "Mmh\u2026I would not say I dislike the idea but\u2026"
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: But? Come on, now!
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: The thing is, when that day will come, I will have done my part. My role
+      will be complete.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Quit spouting nonsense already. I\u2019ll need you up there."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Aha, if you get this ship working, then you will not need me anymore. You
+      will only need the fire you showed me yesterday. That should be more than enough.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Don\u2019t be like that. Then, I want to do it to thank you, for having
+      helped me thus far. I couldn\u2019t have done it without you."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "You give me too much credit. After all, you are the one walked thus far.
+      And who made every decision on the way. I only\u2026gave you a light push."
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "You\u2019re really something else\u2026Please think it over, at the very
+      least. About my offer I mean."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "Alright, I can do that at the very least\u2026"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Though I do suppose in a way, I will always be with you.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: Did you say something?
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: You must have misheard. You sure have a bad hearing.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Uh, okay\u2026I\u2019ll ignore the comment on my hearing and\u2026Thank
+      you for being with me."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "Thank you for being with me as well. It really was\u2026a most enjoyable
+      journey."
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "I\u2019m glad to have met ya."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Me too, lad.
+  automatic: 0

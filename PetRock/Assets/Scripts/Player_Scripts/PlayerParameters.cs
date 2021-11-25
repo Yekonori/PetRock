@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using UnityEngine.SceneManagement;
 
 public class PlayerParameters : MonoBehaviour
 {
@@ -19,12 +18,15 @@ public class PlayerParameters : MonoBehaviour
     private bool doRockBalancing = false;
     private bool inSafeZone = false;
     private float t = 0;
+    [HideInInspector]
+    public Animator anim;
 
     public enum PlayerStates
     {
         Regular,
         GiantZone,
-        Stressed
+        Stressed,
+        TimeOut
     }
 
     public PlayerStates playerStates = PlayerStates.Regular;
@@ -33,6 +35,7 @@ public class PlayerParameters : MonoBehaviour
 
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         if (Instance == null)
             Instance = this;
         else
@@ -47,6 +50,7 @@ public class PlayerParameters : MonoBehaviour
             if (stateTimer > timeFromGiantToStressed)
             {
                 UpdatePlayerState(PlayerStates.Stressed);
+                anim.SetBool("isStressed", true);
             }
         }
         else if (playerStates == PlayerStates.Stressed)
@@ -55,13 +59,19 @@ public class PlayerParameters : MonoBehaviour
             if (stateTimer > timeFromStressedToRegular)
             {
                 UpdatePlayerState(PlayerStates.Regular);
+                anim.SetBool("isStressed", false);
+            }
+        }
+        if(playerStates != PlayerStates.TimeOut)
+        {
+            if (panicGauge >= 100)
+            {
+                StartCoroutine(TimeOutManager.instance.TimeOut());
+                UpdatePlayerState(PlayerStates.TimeOut);
             }
         }
 
-        if (panicGauge >= 100)
-            SceneManager.LoadScene("Defeat_Scene");
-
-        if(inSafeZone)
+        if (inSafeZone)
         {
             t += Time.deltaTime;
             if(t>= 1)
@@ -96,6 +106,11 @@ public class PlayerParameters : MonoBehaviour
         inSafeZone = active;
     }
 
+    public void UpdateStateGauge(float value)
+    {
+        panicGauge = value;
+    }
+
     #endregion Update states
 
     #region Bool
@@ -118,6 +133,11 @@ public class PlayerParameters : MonoBehaviour
     public bool HasBeenOnStressed()
     {
         return playerStates == PlayerStates.Stressed;
+    }
+
+    public bool IsOnTimeOut()
+    {
+        return playerStates == PlayerStates.TimeOut;
     }
 
     #endregion Bool
