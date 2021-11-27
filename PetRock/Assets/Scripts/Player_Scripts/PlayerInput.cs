@@ -37,7 +37,7 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        if (_player.GetButton("Pause"))
+        if (_player.GetButton("Pause") && !GameManager.instance._inPause)
         {
             GameManager.instance.PauseGame();
         }

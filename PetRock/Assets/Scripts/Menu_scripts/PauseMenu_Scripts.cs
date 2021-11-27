@@ -49,11 +49,6 @@ public class PauseMenu_Scripts : MonoBehaviour
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void BackMainMenu(int index)
-    {
-        SceneManager.LoadScene(index);
-    }
-
     private void QuitGame()
     {
 
@@ -75,8 +70,7 @@ public class PauseMenu_Scripts : MonoBehaviour
 
         _menuPauseButtons[0].onClick.AddListener(ClosePauseMenu); //Resume button
         _menuPauseButtons[1].onClick.AddListener(RestartLevel); //Restart button
-        _menuPauseButtons[2].onClick.AddListener(delegate { BackMainMenu(1); }); //Back button
-        _menuPauseButtons[3].onClick.AddListener(QuitGame); //Quit button
+        _menuPauseButtons[2].onClick.AddListener(QuitGame); //Quit button
     }
 
     private void Update()
