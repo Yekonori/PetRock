@@ -32,6 +32,7 @@ public class MainMenuManager : MonoBehaviour
 
     private GameObject _lastButtonSelected;
     private Image _backgroundMainMenu;
+    private CanvasGroup _menuPanels;
 
     public static MainMenuManager instance;
 
@@ -47,6 +48,7 @@ public class MainMenuManager : MonoBehaviour
         }
 
         _backgroundMainMenu = GetComponent<Image>();
+        _menuPanels = GetComponent<CanvasGroup>();
     }
 
     private void Start()
@@ -59,7 +61,11 @@ public class MainMenuManager : MonoBehaviour
 
     void PlayGame()
     {
-        Debug.LogError("Play game");
+        _menuPanels.DOFade(0, 1).OnComplete(() =>
+        {
+            GameManager.instance.inMainMenu = false;
+            Destroy(gameObject);
+        });
     }
 
     void OptionsGame()
