@@ -42,7 +42,7 @@ public class PlayerInput : MonoBehaviour
             GameManager.instance.PauseGame();
         }
 
-        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing || PlayerParameters.Instance.IsOnTimeOut())
+        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing || PlayerParameters.Instance.IsOnTimeOut() || GameManager.instance.inMainMenu)
             return;
 
         playerMovement.SetMovementDirection(_player.GetAxis("DirX"), _player.GetAxis("DirY"));

@@ -10,17 +10,28 @@ public class MainMenuManager : MonoBehaviour
 {
     #region Script parameters
 
+    [Header("Buttons")]
     [SerializeField]
     private List<Button> _menuButtons = new List<Button>();
+    [SerializeField]
+    private List<Button> _backMenuButtons = new List<Button>();
 
     #endregion
 
+    [Header("Panels")]
     [SerializeField]
     private CanvasGroup _mainMenuPanel;
     [SerializeField]
+    private CanvasGroup _optionsPanel;
+    [SerializeField]
     private CanvasGroup _creditsPanel;
 
+    [Header("Animator")]
+    [SerializeField]
+    private Animator _creditsAnim;
+
     private GameObject _lastButtonSelected;
+    private Image _backgroundMainMenu;
 
     public static MainMenuManager instance;
 
@@ -35,42 +46,50 @@ public class MainMenuManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        SetMainMenu();
+        _backgroundMainMenu = GetComponent<Image>();
     }
 
     private void Start()
     {
         SetMenuButtons();
+        SetBackMenuButtons();
     }
 
     #region Buttons function
 
-    public void PlayGame()
+    void PlayGame()
     {
-        SceneManager.LoadScene(2);
+        Debug.LogError("Play game");
     }
 
-    public void CreditsGame()
+    void OptionsGame()
     {
-        _mainMenuPanel.DOFade(0.0f, 1.0f).OnComplete(() =>
+        PanelSwitch(_mainMenuPanel, _optionsPanel);
+    }
+
+    void CreditsGame()
+    {
+        PanelSwitch(_mainMenuPanel, _creditsPanel);
+        _backgroundMainMenu.DOFade(1, 1).OnComplete(() => _creditsAnim.SetBool("PlayCredits", true));
+    }
+
+    void BackCredits()
+    {
+        PanelSwitch(_creditsPanel, _mainMenuPanel);
+        _backgroundMainMenu.DOFade(0.5f, 1);
+    }
+
+    DG.Tweening.Core.TweenerCore<float, float, DG.Tweening.Plugins.Options.FloatOptions> PanelSwitch(CanvasGroup firstPanel, CanvasGroup secondPanel)
+    {
+        return firstPanel.DOFade(0.0f, 1.0f).OnComplete(() =>
         {
-            _mainMenuPanel.gameObject.SetActive(false);
-            _creditsPanel.gameObject.SetActive(true);
-            _creditsPanel.DOFade(1.0f, 1.0f);
+            firstPanel.gameObject.SetActive(false);
+            secondPanel.gameObject.SetActive(true);
+            secondPanel.DOFade(1.0f, 1.0f);
         });
     }
 
-    public void Back()
-    {
-        _creditsPanel.DOFade(0.0f, 1.0f).OnComplete(() =>
-        {
-            _creditsPanel.gameObject.SetActive(false);
-            _mainMenuPanel.gameObject.SetActive(true);
-            _mainMenuPanel.DOFade(1.0f, 1.0f);
-        });
-    }
-
-    public void QuitGame()
+    void QuitGame()
     {
        #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
@@ -82,11 +101,6 @@ public class MainMenuManager : MonoBehaviour
     #endregion
 
     #region Menu functions
-    private void SetMainMenu()
-    {
-        _mainMenuPanel.DOFade(1f, 0.1f);
-        _creditsPanel.DOFade(0f, 0.1f);
-    }
 
     private void SetMenuButtons()
     {
@@ -94,9 +108,18 @@ public class MainMenuManager : MonoBehaviour
             button.onClick.RemoveAllListeners();
 
         _menuButtons[0].onClick.AddListener(PlayGame); //Play button
-        _menuButtons[1].onClick.AddListener(CreditsGame); //Credits button
-        _menuButtons[2].onClick.AddListener(QuitGame); //Quit button
-        _menuButtons[3].onClick.AddListener(Back); //Back button
+        _menuButtons[1].onClick.AddListener(OptionsGame); //Options button
+        _menuButtons[2].onClick.AddListener(CreditsGame); //Credits button
+        _menuButtons[3].onClick.AddListener(QuitGame); //Quit button
+    }
+
+    private void SetBackMenuButtons()
+    {
+        foreach(Button button in _backMenuButtons)
+            button.onClick.RemoveAllListeners();
+
+        _backMenuButtons[0].onClick.AddListener(BackCredits); //Credits button
+       // _backMenuButtons[1].onClick.AddListener(); //Options Button
     }
 
     private void Update()

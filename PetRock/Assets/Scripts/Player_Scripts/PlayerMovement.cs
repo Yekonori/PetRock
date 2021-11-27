@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing || PlayerParameters.Instance.IsOnTimeOut() || inDialog)
+        if (GameManager.instance._inPause || GameManager.instance.inMainMenu || GameManager.instance.inRockBalancing || PlayerParameters.Instance.IsOnTimeOut() || inDialog)
         {
             dirX = 0;
             dirY = 0;

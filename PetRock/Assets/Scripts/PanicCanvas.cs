@@ -63,7 +63,7 @@ public class PanicCanvas : MonoBehaviour
 
     private void Update()
     {
-        if (_playerParameters.IsOnTimeOut())
+        if (_playerParameters.IsOnTimeOut() || GameManager.instance.inMainMenu)
             return;
 
         if (!_playerParameters.IsOnRockBalancing())
