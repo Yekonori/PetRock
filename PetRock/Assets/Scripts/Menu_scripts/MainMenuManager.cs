@@ -85,9 +85,14 @@ public class MainMenuManager : MonoBehaviour
         _backgroundMainMenu.DOFade(0.5f, 1);
     }
 
-    DG.Tweening.Core.TweenerCore<float, float, DG.Tweening.Plugins.Options.FloatOptions> PanelSwitch(CanvasGroup firstPanel, CanvasGroup secondPanel)
+    void BackOptions()
     {
-        return firstPanel.DOFade(0.0f, 1.0f).OnComplete(() =>
+        PanelSwitch(_optionsPanel, _mainMenuPanel);
+    }
+
+    void PanelSwitch(CanvasGroup firstPanel, CanvasGroup secondPanel)
+    {
+        firstPanel.DOFade(0.0f, 1.0f).OnComplete(() =>
         {
             firstPanel.gameObject.SetActive(false);
             secondPanel.gameObject.SetActive(true);
@@ -124,8 +129,8 @@ public class MainMenuManager : MonoBehaviour
         foreach(Button button in _backMenuButtons)
             button.onClick.RemoveAllListeners();
 
-        _backMenuButtons[0].onClick.AddListener(BackCredits); //Credits button
-       // _backMenuButtons[1].onClick.AddListener(); //Options Button
+        _backMenuButtons[0].onClick.AddListener(BackOptions); //Options Button
+        _backMenuButtons[1].onClick.AddListener(BackCredits); //Credits button
     }
 
     private void Update()
