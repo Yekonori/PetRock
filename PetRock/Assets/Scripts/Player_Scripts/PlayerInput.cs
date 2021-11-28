@@ -24,6 +24,9 @@ public class PlayerInput : MonoBehaviour
 
         GameManager.instance.player = _player;
 
+        foreach (Joystick joystick in _player.controllers.Joysticks)
+            ControllerType.Instance._GetInputTypeFromGUID(joystick.hardwareTypeGuid);
+
         if (playerMovement == null)
         {
             playerMovement = GetComponentInChildren<PlayerMovement>();

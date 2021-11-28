@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class Button_Script : MonoBehaviour
 {
@@ -10,8 +11,18 @@ public class Button_Script : MonoBehaviour
     void Update()
     {
         if (EventSystem.current.currentSelectedGameObject == gameObject)
-            GetComponent<Image>().color = GetComponent<Button>().colors.selectedColor;
+        {
+            if (GetComponent<Image>() != null)
+                GetComponent<Image>().color = GetComponent<Button>().colors.selectedColor;
+            else
+                GetComponent<TextMeshProUGUI>().color = GetComponent<Button>().colors.selectedColor;
+        }
         else
-            GetComponent<Image>().color = GetComponent<Button>().colors.normalColor;
+        {
+            if (GetComponent<Image>() != null)
+                GetComponent<Image>().color = GetComponent<Button>().colors.normalColor;
+            else
+                GetComponent<TextMeshProUGUI>().color = GetComponent<Button>().colors.normalColor;
+        }
     }
 }
