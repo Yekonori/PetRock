@@ -4160,6 +4160,7 @@ MonoBehaviour:
   _settingsPanels:
   - {fileID: 298857971}
   - {fileID: 2846640411644688982}
+  _titleSettings: {fileID: 2846640411497858023}
   _creditsAnim: {fileID: 991046966}
 --- !u!225 &642478755
 CanvasGroup:

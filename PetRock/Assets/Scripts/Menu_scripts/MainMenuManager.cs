@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -29,6 +29,10 @@ public class MainMenuManager : MonoBehaviour
     [Header("Settings Panel")]
     [SerializeField]
     private List<GameObject> _settingsPanels = new List<GameObject>();
+    [SerializeField]
+    private TextMeshProUGUI _titleSettings;
+    private const string _titleGraphics = "Graphics settings";
+    private const string _titleAudio = "Audio settings";
     private int _indexSettingsPanel = 0;
 
     [Header("Animator")]
@@ -54,6 +58,8 @@ public class MainMenuManager : MonoBehaviour
 
         _backgroundMainMenu = GetComponent<Image>();
         _menuPanels = GetComponent<CanvasGroup>();
+
+        _titleSettings.text = _titleGraphics;
     }
 
     private void Start()
@@ -189,11 +195,13 @@ public class MainMenuManager : MonoBehaviour
 
             if (_indexSettingsPanel == 0)
             {
+                _titleSettings.text = _titleGraphics;
                 currentSelected = GetComponent<GraphicSettings_Script>().firstSelectedObject;
                 navigation.selectOnDown = currentSelected.GetComponent<Button>();
             }
             else
             {
+                _titleSettings.text = _titleAudio;
                 currentSelected = GetComponent<MainMenu_Audio>().firstSelectedObject;
                 navigation.selectOnDown = currentSelected.GetComponent<Slider>();
             }
