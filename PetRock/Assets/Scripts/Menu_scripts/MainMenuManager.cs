@@ -26,6 +26,11 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private CanvasGroup _creditsPanel;
 
+    [Header("Settings Panel")]
+    [SerializeField]
+    private List<GameObject> _settingsPanels = new List<GameObject>();
+    private int _indexSettingsPanel = 0;
+
     [Header("Animator")]
     [SerializeField]
     private Animator _creditsAnim;
@@ -129,8 +134,8 @@ public class MainMenuManager : MonoBehaviour
         foreach(Button button in _backMenuButtons)
             button.onClick.RemoveAllListeners();
 
-        _backMenuButtons[0].onClick.AddListener(BackOptions); //Options Button
-        _backMenuButtons[1].onClick.AddListener(BackCredits); //Credits button
+        _backMenuButtons[0].onClick.AddListener(BackOptions); //Options back Button
+        _backMenuButtons[1].onClick.AddListener(BackCredits); //Credits back button
     }
 
     private void Update()
@@ -142,13 +147,60 @@ public class MainMenuManager : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(_lastButtonSelected);
 
         PressedSelectedButton();
+        ChangeSettingsPanel();
     }
 
-    private void PressedSelectedButton()
+    void PressedSelectedButton()
     {
-        if (Input.GetKeyUp("joystick button 1"))
+        if (GameManager.instance.player.GetButtonDown("PressButton"))
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+        }
+    }
+
+    void ChangeSettingsPanel() 
+    {
+        if(_optionsPanel.gameObject.activeSelf && (GameManager.instance.player.GetButtonDown("PreviousSettingsPanel") || GameManager.instance.player.GetButtonDown("NextSettingsPanel")))
+        {
+            _settingsPanels[_indexSettingsPanel].SetActive(false);
+
+            if (GameManager.instance.player.GetButtonDown("PreviousSettingsPanel"))
+            {
+                if (_indexSettingsPanel == 0)
+                    _indexSettingsPanel = 1;
+                else
+                    _indexSettingsPanel = 0;
+            }
+            else if (GameManager.instance.player.GetButtonDown("NextSettingsPanel"))
+            {
+                if (_indexSettingsPanel == 1)
+                    _indexSettingsPanel = 0;
+                else
+                    _indexSettingsPanel = 1;
+            }
+
+            _settingsPanels[_indexSettingsPanel].SetActive(true);
+
+            GameObject currentSelected;
+
+            Navigation navigation = new Navigation();
+
+            navigation.mode = Navigation.Mode.Explicit;
+
+            if (_indexSettingsPanel == 0)
+            {
+                currentSelected = GetComponent<GraphicSettings_Script>().firstSelectedObject;
+                navigation.selectOnDown = currentSelected.GetComponent<Button>();
+            }
+            else
+            {
+                currentSelected = GetComponent<MainMenu_Audio>().firstSelectedObject;
+                navigation.selectOnDown = currentSelected.GetComponent<Slider>();
+            }
+
+            _backMenuButtons[0].navigation = navigation;
+
+            EventSystem.current.SetSelectedGameObject(currentSelected);
         }
     }
     #endregion

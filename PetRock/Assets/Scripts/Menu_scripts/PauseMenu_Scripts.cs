@@ -89,7 +89,7 @@ public class PauseMenu_Scripts : MonoBehaviour
 
     private void PressedSelectedButton()
     {
-        if (Input.GetKeyUp("joystick button 1"))
+        if (GameManager.instance.player.GetButton("PressButton"))
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }

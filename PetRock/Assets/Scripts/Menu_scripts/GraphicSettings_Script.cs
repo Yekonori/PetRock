@@ -6,6 +6,9 @@ using TMPro;
 
 public class GraphicSettings_Script : MonoBehaviour
 {
+    [Header("First selected object")]
+    public GameObject firstSelectedObject;
+
     [Header("Graphics settings buttons")]
     [SerializeField]
     private List<Button> _graphicSettingsButtons = new List<Button>();
@@ -67,8 +70,6 @@ public class GraphicSettings_Script : MonoBehaviour
 
     void ChangeResolution()
     {
-        Debug.LogError("here");
-
         if (_indexRes == 3)
             _indexRes = 0;
         else

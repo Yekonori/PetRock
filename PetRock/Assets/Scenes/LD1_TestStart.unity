@@ -2015,7 +2015,7 @@ RectTransform:
   - {fileID: 2101610627}
   - {fileID: 634942037}
   m_Father: {fileID: 962711835}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -4157,6 +4157,9 @@ MonoBehaviour:
   _mainMenuPanel: {fileID: 1649344439}
   _optionsPanel: {fileID: 962711836}
   _creditsPanel: {fileID: 193037090}
+  _settingsPanels:
+  - {fileID: 298857971}
+  - {fileID: 2846640411644688982}
   _creditsAnim: {fileID: 991046966}
 --- !u!225 &642478755
 CanvasGroup:
@@ -4182,6 +4185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6957ce86ed00004f97e7503fb3648b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstSelectedObject: {fileID: 1533079918}
   _graphicSettingsButtons:
   - {fileID: 1533079922}
   - {fileID: 1323626305}
@@ -7392,8 +7396,8 @@ RectTransform:
   m_Children:
   - {fileID: 2846640411497858022}
   - {fileID: 189517778}
-  - {fileID: 2846640411644688983}
   - {fileID: 298857972}
+  - {fileID: 2846640411644688983}
   - {fileID: 2846640410790342227}
   m_Father: {fileID: 642478751}
   m_RootOrder: 1
@@ -19556,6 +19560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9da8988529cbf47a92566a99be25fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstSelectedObject: {fileID: 2846640411241888638}
   _globalSlider: {fileID: 2846640411241888608}
   _sfxSlider: {fileID: 2846640411784556600}
   _musicSlider: {fileID: 2846640411549027284}
@@ -20160,7 +20165,7 @@ RectTransform:
   - {fileID: 2846640412407619318}
   - {fileID: 2846640410474335379}
   m_Father: {fileID: 962711835}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -21279,7 +21284,7 @@ MonoBehaviour:
     m_Top: 100
     m_Bottom: 100
   m_ChildAlignment: 0
-  m_Spacing: 30
+  m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
