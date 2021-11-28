@@ -1,17 +1,12 @@
 fileFormatVersion: 2
-guid: 018be39a36b28244d96363f54179d838
+guid: 2c9e19219d732234195d250169998890
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: 1827226128182048838
-    second: Take 001
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material #153
-    second: {fileID: 2100000, guid: 710db807bdd90a74fa6c412c9fd35d5f, type: 2}
+      74: -203655887218126122
+    second: WakeUpIdle
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -38,7 +33,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: WakeUpIdle
+      takeName: mixamo.com
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -76,17 +100,8 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - b8c75c22439c26e48bb5c38bee5f6116
-  - ce2f81dd1b8704c4e983c5b7d527b091
-  - ec3202a3397e7a34181cc064fb94d449
-  - 287617f1fbf4a1e46bb07e1093c01e18
-  - 9776d05b94e341246ac0e094a78e6906
-  - 6eb33c0db99cbcd438e3c3451e306ea9
-  - 3a6907502a69d37459aae2ff7bce76bf
-  - 2c9e19219d732234195d250169998890
-  - 01aa2fab556f6d24abff8004fca64aa7
-  importAnimation: 0
+  referencedClips: []
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
@@ -498,11 +513,12 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 018be39a36b28244d96363f54179d838,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

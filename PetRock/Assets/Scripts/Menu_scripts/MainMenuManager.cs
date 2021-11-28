@@ -38,6 +38,14 @@ public class MainMenuManager : MonoBehaviour
     [Header("Animator")]
     [SerializeField]
     private Animator _creditsAnim;
+    [SerializeField]
+    private Animator _playerStartAnimator;
+
+    [Header("Camera")]
+    [SerializeField]
+    private FreeFollowView _cam;
+    [SerializeField]
+    private Transform _rock;
 
     private GameObject _lastButtonSelected;
     private Image _backgroundMainMenu;
@@ -66,6 +74,8 @@ public class MainMenuManager : MonoBehaviour
     {
         SetMenuButtons();
         SetBackMenuButtons();
+
+        GameManager.instance.TransitionCanvas(0).SetDelay(1);
     }
 
     #region Buttons function
@@ -74,9 +84,17 @@ public class MainMenuManager : MonoBehaviour
     {
         _menuPanels.DOFade(0, 1).OnComplete(() =>
         {
-            GameManager.instance.inMainMenu = false;
-            Destroy(gameObject);
+            _playerStartAnimator.SetBool("WakeUp", true);
+            StartCoroutine(StartGame());
         });
+    }
+
+    IEnumerator StartGame()
+    {
+        yield return new WaitUntil(() => _playerStartAnimator.GetCurrentAnimatorStateInfo(0).IsName("StandingIdle"));
+        _cam.ChangeTargetCam(_rock);
+        GameManager.instance.inMainMenu = false;
+        Destroy(gameObject);
     }
 
     void OptionsGame()
