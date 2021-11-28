@@ -72,8 +72,8 @@ public class AudioManager : MonoBehaviour
         foreach (AudioType sfx in _sfxAudios)
         {
             sfx.ChangeVolume(_sfxVolume);
-            PlayerPrefs.SetFloat("SfxVolume", _sfxVolume);
         }
+        PlayerPrefs.SetFloat("SfxVolume", _sfxVolume);
     }
 
     void ChangeMusicVolume()
@@ -81,8 +81,8 @@ public class AudioManager : MonoBehaviour
         foreach (AudioType music in _musicAudios)
         {
             music.ChangeVolume(_musicVolume);
-            PlayerPrefs.SetFloat("MusicVolume", _musicVolume);
         }
+        PlayerPrefs.SetFloat("MusicVolume", _musicVolume);
     }
 
     void ChangeGlobalVolume()

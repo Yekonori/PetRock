@@ -38,9 +38,15 @@ public class MainMenu_Audio : MonoBehaviour
 
     private void Start()
     {
-        ChangeGlobalVolume();
-        ChangeSfxVolume();
-        ChangeMusicVolume();
+        InitSlider(_globalSlider, _globalVolumeText, "GlobalVolume");
+        InitSlider(_sfxSlider, _sfxVolumeText, "SfxVolume");
+        InitSlider(_musicSlider, _musicVolumeText, "MusicVolume");
+    }
+
+    void InitSlider(Slider slider, TextMeshProUGUI text, string PlayerPrefKey)
+    {
+        slider.value = PlayerPrefs.GetFloat(PlayerPrefKey, 1);
+        text.text = ((int)(slider.value * 100)).ToString();
     }
 
     public void ChangeGlobalVolume()
