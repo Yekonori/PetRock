@@ -47,6 +47,10 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private Transform _rock;
 
+    [Header("Tutorial")]
+    [SerializeField]
+    private GameObject _tutoCanvas;
+
     private GameObject _lastButtonSelected;
     private Image _backgroundMainMenu;
     private CanvasGroup _menuPanels;
@@ -100,6 +104,10 @@ public class MainMenuManager : MonoBehaviour
         yield return new WaitWhile(() => GetComponent<StartDialogue_Script>().CheckEndDialogue());
 
         GameManager.instance.inMainMenu = false;
+
+        _tutoCanvas.SetActive(true);
+        _tutoCanvas.GetComponent<Tutorial_Script>().IsFirstPlayerMovement();
+
         Destroy(gameObject);
     }
 
