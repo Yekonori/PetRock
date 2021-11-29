@@ -92,7 +92,13 @@ public class MainMenuManager : MonoBehaviour
     IEnumerator StartGame()
     {
         yield return new WaitUntil(() => _playerStartAnimator.GetCurrentAnimatorStateInfo(0).IsName("StandingIdle"));
+
+        GetComponent<StartDialogue_Script>().StartDialogue();
+
         _cam.ChangeTargetCam(_rock);
+
+        yield return new WaitWhile(() => GetComponent<StartDialogue_Script>().CheckEndDialogue());
+
         GameManager.instance.inMainMenu = false;
         Destroy(gameObject);
     }

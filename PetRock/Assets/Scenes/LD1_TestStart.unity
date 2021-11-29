@@ -2134,12 +2134,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 434448604}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &445590308 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3500735418753207497, guid: 4432506f45877c64c8dc7494a2eb438d,
-    type: 3}
-  m_PrefabInstance: {fileID: 944047240}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &446738246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2453,6 +2447,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63b5e3a0ad70cce42ad5abf878aa3ab7, type: 3}
+--- !u!4 &500467686 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5681673503359667183, guid: 4432506f45877c64c8dc7494a2eb438d,
+    type: 3}
+  m_PrefabInstance: {fileID: 944047240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &504171540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3a2bcf759f34894468d82041506ececd,
@@ -4544,6 +4544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.0135870455
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630813003549073569, guid: 4432506f45877c64c8dc7494a2eb438d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4749087573032348762, guid: 4432506f45877c64c8dc7494a2eb438d,
         type: 3}
@@ -7392,6 +7397,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1560194882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3816904191533415325, guid: d2f253b79e7dacf4caee5c91c9660193,
+    type: 3}
+  m_PrefabInstance: {fileID: 3816904190899718406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1560194883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560194882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec74f7a40c2c2ae44855ddbc92938c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startGameDialogue: {fileID: 11400000, guid: bd94f34fa94facb44bfedd5eed9c1603, type: 2}
+  _dialogDisplay: {fileID: 820859624}
 --- !u!1001 &1577374151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10956,7 +10981,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _rock
       value: 
-      objectReference: {fileID: 445590308}
+      objectReference: {fileID: 500467686}
     - target: {fileID: 3816904191533415332, guid: d2f253b79e7dacf4caee5c91c9660193,
         type: 3}
       propertyPath: _playerStartAnimator
