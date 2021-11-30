@@ -25,6 +25,10 @@ public class MainMenu_Audio : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _sfxVolumeText;
 
+    private float startGlobalValue;
+    private float startSfxValue;
+    private float startMusicValue;
+
     public static MainMenu_Audio instance;
 
     private void Awake()
@@ -37,18 +41,22 @@ public class MainMenu_Audio : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        startGlobalValue = PlayerPrefs.GetFloat("GlobalVolume", 100.0f);
+        startSfxValue = PlayerPrefs.GetFloat("SfxVolume", 100.0f);
+        startMusicValue = PlayerPrefs.GetFloat("MusicVolume", 100.0f);
     }
 
     private void Start()
     {
-        InitSlider(_globalSlider, _globalVolumeText, "GlobalVolume");
-        InitSlider(_sfxSlider, _sfxVolumeText, "SfxVolume");
-        InitSlider(_musicSlider, _musicVolumeText, "MusicVolume");
+        InitSlider(_globalSlider, _globalVolumeText, startGlobalValue);
+        InitSlider(_sfxSlider, _sfxVolumeText, startSfxValue);
+        InitSlider(_musicSlider, _musicVolumeText, startMusicValue);
     }
 
-    void InitSlider(Slider slider, TextMeshProUGUI text, string PlayerPrefKey)
+    void InitSlider(Slider slider, TextMeshProUGUI text, float value)
     {
-        slider.value = PlayerPrefs.GetFloat(PlayerPrefKey, 100.0f);
+        slider.value = value;
         text.text = ((int)(slider.value)).ToString();
     }
 
