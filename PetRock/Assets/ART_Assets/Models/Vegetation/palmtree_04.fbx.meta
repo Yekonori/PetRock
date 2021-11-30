@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3f16fa6b3ead2f746bee8e14f01bb6bc
+guid: e788b3de9e4961d4aa5749d65c9040e1
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_palmtree_01
+      name: Material #25
     second: {fileID: 2100000, guid: 2541d5b484201754797741e8e0642bc3, type: 2}
   materials:
     materialImportMode: 1
@@ -86,7 +86,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 3
+    globalScale: 0.03
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
