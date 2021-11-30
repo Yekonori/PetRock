@@ -22,7 +22,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 4
     min: 0
     max: 4
   directLightingStrength:
@@ -183,6 +183,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 --- !u!114 &-2682151533966027737
 MonoBehaviour:
@@ -257,6 +258,8 @@ MonoBehaviour:
     m_Value: 1
     min: 0.001
 >>>>>>> main
+=======
+>>>>>>> 8da908c062e10581294761d95dd858f1a3d5491f
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,12 +299,12 @@ MonoBehaviour:
     max: 360
   skyIntensityMode:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
   exposure:
     m_OverrideState: 0
     m_Value: 0
   multiplier:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1
     min: 0
   upperHemisphereLuxValue:
