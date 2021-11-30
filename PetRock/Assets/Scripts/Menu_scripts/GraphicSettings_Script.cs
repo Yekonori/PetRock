@@ -30,7 +30,6 @@ public class GraphicSettings_Script : MonoBehaviour
     [Header("Quality levels")]
     [SerializeField]
     private TextMeshProUGUI _qualityFxTextValue;
-    private string[] _qualityFxTexts = new string[] { "LOW", "NORMAL", "HIGH", "ULTRA" };
     private int _indexEffets;
 
     // Start is called before the first frame update
@@ -42,9 +41,9 @@ public class GraphicSettings_Script : MonoBehaviour
     void InitGraphicsSettings()
     {
         //Quality levels
-        _indexEffets = PlayerPrefs.GetInt("QualityFx", 3);
+        _indexEffets = PlayerPrefs.GetInt("QualityFx", 5);
         QualitySettings.SetQualityLevel(_indexEffets);
-        _qualityFxTextValue.text = _qualityFxTexts[_indexEffets];
+        _qualityFxTextValue.text = QualitySettings.names[_indexEffets];
 
         //Windows mode
         _indexWindowsMode = PlayerPrefs.GetInt("WindowsMode", 0);
@@ -97,13 +96,13 @@ public class GraphicSettings_Script : MonoBehaviour
     void ChangeQualityFx()
     {
 
-        if (_indexEffets == 3)
+        if (_indexEffets == QualitySettings.names.Length - 1)
             _indexEffets = 0;
         else
             _indexEffets++;
 
         QualitySettings.SetQualityLevel(_indexEffets);
-        _qualityFxTextValue.text = _qualityFxTexts[_indexEffets];
+        _qualityFxTextValue.text = QualitySettings.names[_indexEffets];
 
         PlayerPrefs.SetInt("QualityFx", _indexEffets);
     }

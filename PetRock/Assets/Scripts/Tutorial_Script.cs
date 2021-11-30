@@ -41,8 +41,6 @@ public class Tutorial_Script : MonoBehaviour
             _moveLeft = false;
             _moveRight = false;
 
-            Debug.LogError("tuto validate");
-
             GetComponent<CanvasGroup>().DOFade(0, 1).OnComplete(() => gameObject.SetActive(false));
         }
     }
