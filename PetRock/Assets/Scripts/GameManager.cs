@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
     public bool inRockBalancing = false;
     [HideInInspector]
     public bool startDialogueRB = false;
-    [HideInInspector]
-    public bool inMainMenu = true;
+    //[HideInInspector]
+    public bool inMainMenu = false;
 
     [TitleGroup("Post-Processing")]
     [SerializeField]

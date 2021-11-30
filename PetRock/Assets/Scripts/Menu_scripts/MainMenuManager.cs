@@ -68,6 +68,8 @@ public class MainMenuManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        GameManager.instance.inMainMenu = true;
+
         _backgroundMainMenu = GetComponent<Image>();
         _menuPanels = GetComponent<CanvasGroup>();
 

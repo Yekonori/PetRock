@@ -77,21 +77,33 @@ public class ControllerType : MonoBehaviour
     void SetSwtich()
     {
         typeController = TypeController.Switch;
-        settingsPreviousPanel.text = L;
-        settingsNextPanel.text = R;
+
+        if(MainMenuManager.instance != null)
+        {
+            settingsPreviousPanel.text = L;
+            settingsNextPanel.text = R;
+        }
     }
 
     void SetPlaystation()
     {
         typeController = TypeController.Playstation;
-        settingsPreviousPanel.text = L1;
-        settingsNextPanel.text = R1;
+
+        if (MainMenuManager.instance != null)
+        {
+            settingsPreviousPanel.text = L1;
+            settingsNextPanel.text = R1;
+        }
     }
 
     void SetXbox()
     {
         typeController = TypeController.XBox;
-        settingsPreviousPanel.text = LB;
-        settingsNextPanel.text = RB;
+
+        if (MainMenuManager.instance != null)
+        {
+            settingsPreviousPanel.text = LB;
+            settingsNextPanel.text = RB;
+        }
     }
 }
