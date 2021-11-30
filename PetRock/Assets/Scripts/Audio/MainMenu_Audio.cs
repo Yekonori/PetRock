@@ -48,25 +48,25 @@ public class MainMenu_Audio : MonoBehaviour
 
     void InitSlider(Slider slider, TextMeshProUGUI text, string PlayerPrefKey)
     {
-        slider.value = PlayerPrefs.GetFloat(PlayerPrefKey, 1);
-        text.text = ((int)(slider.value * 100)).ToString();
+        slider.value = PlayerPrefs.GetFloat(PlayerPrefKey, 100.0f);
+        text.text = ((int)(slider.value)).ToString();
     }
 
     public void ChangeGlobalVolume()
     {
         AudioManager.instance.SetGlobalVolume(_globalSlider);
-        _globalVolumeText.text = ((int)(_globalSlider.value * 100)).ToString();
+        _globalVolumeText.text = ((int)(_globalSlider.value)).ToString();
     }
 
     public void ChangeSfxVolume()
     {
         AudioManager.instance.SetSfxVolume(_sfxSlider);
-        _sfxVolumeText.text = ((int)(_sfxSlider.value * 100)).ToString();
+        _sfxVolumeText.text = ((int)(_sfxSlider.value)).ToString();
     }
 
     public void ChangeMusicVolume()
     {
         AudioManager.instance.SetMusicVolume(_musicSlider);
-        _musicVolumeText.text = ((int)(_musicSlider.value * 100)).ToString();
+        _musicVolumeText.text = ((int)(_musicSlider.value)).ToString();
     }
 }

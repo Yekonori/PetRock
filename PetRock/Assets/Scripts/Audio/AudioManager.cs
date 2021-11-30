@@ -44,9 +44,9 @@ public class AudioManager : MonoBehaviour
 
     void SetVolumes()
     {
-        _globalVolume = PlayerPrefs.GetFloat("GlobalVolume", 1);
-        _sfxVolume = PlayerPrefs.GetFloat("SfxVolume", 1);
-        _musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1);
+        _globalVolume = PlayerPrefs.GetFloat("GlobalVolume",  100.0f);
+        _sfxVolume = PlayerPrefs.GetFloat("SfxVolume",  100.0f);
+        _musicVolume = PlayerPrefs.GetFloat("MusicVolume",  100.0f);
     }
 
     public void SetGlobalVolume(Slider globalSlider)
@@ -71,7 +71,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (AudioType sfx in _sfxAudios)
         {
-            sfx.ChangeVolume(_sfxVolume);
+            sfx.ChangeVolume(_sfxVolume / 100.0f);
         }
         PlayerPrefs.SetFloat("SfxVolume", _sfxVolume);
     }
@@ -80,14 +80,14 @@ public class AudioManager : MonoBehaviour
     {
         foreach (AudioType music in _musicAudios)
         {
-            music.ChangeVolume(_musicVolume);
+            music.ChangeVolume(_musicVolume / 100.0f);
         }
         PlayerPrefs.SetFloat("MusicVolume", _musicVolume);
     }
 
     void ChangeGlobalVolume()
     {
-        AudioListener.volume = _globalVolume;
+        AudioListener.volume = _globalVolume / 100.0f;
         PlayerPrefs.SetFloat("GlobalVolume", _globalVolume);
     }
 }
