@@ -3,7 +3,12 @@ guid: e30ec231b31ef0a40bcc23c5524d0ab6
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Character_Cthulhu
+    second: {fileID: 2100000, guid: 5e729f7aed283ae4bbc895b975688f9b, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
