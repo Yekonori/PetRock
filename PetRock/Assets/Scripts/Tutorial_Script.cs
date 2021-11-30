@@ -2,9 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class Tutorial_Script : MonoBehaviour
 {
+    [SerializeField]
+    private TextMeshProUGUI _leftText;
+    [SerializeField]
+    private TextMeshProUGUI _rightText;
+
+    private const string _leftFirstMovementPlayerText = "Player movement";
+    private const string _rightFirstMovementPlayerText = "Camera movement";
+
+    private const string _leftFirstRockBalancingText = "Rock transalation";
+    private const string _rightFirstRockBalancingText = "Rock rotation";
+
     private bool _firstMovementPlayer = false;
     private bool _firstRockBalancing = false;
 
@@ -23,12 +35,22 @@ public class Tutorial_Script : MonoBehaviour
     {
         _firstRockBalancing = false;
         _firstMovementPlayer = true;
+
+        ChangeTextTuto(_leftFirstMovementPlayerText, _rightFirstMovementPlayerText);
     }
 
     public void IsFirstRockBalancing()
     {
         _firstMovementPlayer = false;
         _firstRockBalancing = true;
+
+        ChangeTextTuto(_leftFirstRockBalancingText, _rightFirstRockBalancingText);
+    }
+
+    void ChangeTextTuto(string leftText, string rightText)
+    {
+        _leftText.text = leftText;
+        _rightText.text = rightText;
     }
 
     private void Update()
