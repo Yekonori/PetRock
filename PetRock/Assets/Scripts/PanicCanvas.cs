@@ -63,6 +63,9 @@ public class PanicCanvas : MonoBehaviour
 
     private void Update()
     {
+        if (_playerParameters.IsOnTimeOut())
+            return;
+
         if (!_playerParameters.IsOnRockBalancing())
         {
             if (!_playerParameters.IsOnSafeZone())

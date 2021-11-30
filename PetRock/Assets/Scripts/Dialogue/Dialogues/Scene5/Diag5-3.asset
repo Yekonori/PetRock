@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfda5e4a1e9ab58429616bafaa2845cf, type: 3}
+  m_Name: Diag5-3
+  m_EditorClassIdentifier: 
+  leftCharacter: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+  rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: ...Oh?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Mmmh\u2026"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "Most interesting\u2026"
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Oh, did you say something? I was\u2026"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Lost in thoughts, yes, I saw that. But it was different than last time.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: ...How so?
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Your eyes used to be hollow. Like you were gazing at the world really without
+      seeing it.
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: But just now there was a glimmer in this void. A light I had not seen before
+      in your eyes.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: It was your imagination.
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: 'No, I do not think it was. '
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "Say\u2026That is quite a view, is it not? Though it seems to me you were
+      looking at the sky more than at the scenery."
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "I could tell you I\u2019m looking at where I came from, but that would
+      be a lie you would pick up on, right?"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Yes, I am not that hard-headed.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "*Chuckle* Is that so? So Beaumont the Rock isn\u2019t hardheaded\u2026"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: 'Do not try to get on my nerves, lad. '
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: Yes, sorry, sorry.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "But yes. The sky. I\u2019ve always been fascinated by it ever since I
+      was a kid. "
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Oh? That is the first time I have seen you showing much interest in anything
+      beyond mere survival. What did have the sky have so special?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Well, you know, it\u2019s kind of the old dream. It\u2019s vastness, infinity.
+      Watching it always made my mind go full throttle. "
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "But it\u2019s even better at night. Then, you truly realize how big the
+      world is. Yeah, endless immensity. Everything\u2019s out there somewhere. "
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: I suppose it must be.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "And well, they used to say \u201CSky is the limit\u201D. But was it ever
+      truly the case? Humankind never liked limits to begin with. "
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: It only thought of them as challenges, something that they had yet to conquer.
+      Shackles they had to break.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "The gigantic oceans that ancient scholars thought could lead to the world\u2019s
+      edge and to the Abyss."
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: The dryest deserts, impossibly harsh on life itself,
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: 'The tallest mountain of Earth, Everest, or as it was once called Sagarmatha,
+      or even Chomolungma, that too was seen as a limit, a barrier, an unreachable
+      frontier. '
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: 'And yet humankind conquered every single one of them. And for what reason?
+      To see for themselves what lied beyond. '
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "To be able to say: \u201CWe did it, we did what was thought impossible\u201D.
+      For the sake of dreams. "
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "For sure, there were more worldly benefits in those quests. But they weren\u2019t
+      the thing that drove them to such lengths. "
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Certainly, the great navigators of old were tasked with starting new trade
+      routes, but money wasn\u2019t what motivated them. "
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: 'It was seeing, discovering, being the first to cross a point that was
+      thought impossible to pass, being the first to cycle the globe, pushing back
+      against the impossible, defying fate and coming out on top. '
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: 'And then they broke through the sky itself. '
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: To the moon, and beyond.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Always looking further away. Into the everchanging distance. Always seeking
+      new barriers, new limits to break. And pursuing the dream of what lies beyond\u2026"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "Aha, your eyes are sparkling again. I had not seen you like this yet\u2026I
+      quite like this side of you, sulking all the time was getting tiring, even
+      for me."
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Shush, I\u2019m getting embarrassed."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Do not be. Oh, it seems the clouds are floating away.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Yes\u2026Oh, wait! "
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: What is it?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: You were right! I can see it!
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Oh?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "The lake! Let\u2019s go, come on!"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "Yes, yes, do not trip and fall now\u2026"
+  automatic: 0

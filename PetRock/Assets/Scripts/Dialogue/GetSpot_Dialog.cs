@@ -37,6 +37,9 @@ public class GetSpot_Dialog : MonoBehaviour
 
     void Update()
     {
+        if (_playerParameters.IsOnTimeOut())
+            return;
+
         if (_playerParameters.HasBeenOnGiantZone() && !dialogDisplay.activeDialog)
         {
             if (canDisplaySpotedDialog)

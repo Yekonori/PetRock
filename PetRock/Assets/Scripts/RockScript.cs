@@ -4,54 +4,67 @@ using UnityEngine;
 
 public class RockScript : MonoBehaviour
 {
-    public Transform player;
-    public float distanceDetection = 2f;
+    private bool onPlayer = true;
 
-    private bool hasPlayer = false;
-    private bool beingCarried = false;
+    [Header("Up and Down")]
+    [SerializeField, Min(0)] float maxYmovement = 0.1f;
+    [SerializeField, Min(0)] float yMovementTime = 3;
+    private float yCurrent = 0;
+    private float yTimer = 0;
+    private float omega = 0;
 
+    [Header("Rotation")]
+    [SerializeField, Min(0)] float rotationSpeed = 10f;
 
+    [Header("MoveToGround")]
+    [SerializeField] float timeToMove = 1.5f;
+    private float moveTimer = 0;
+    private bool moving = false;
+    private Vector3 startPos;
+    private Transform targetPos;
 
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        //Calcule la distance entre Pierre et joueur
-        float dist = Vector3.Distance(gameObject.transform.position, player.position);
+        omega = Mathf.PI * 2 / yMovementTime;
+        ResetPosition();
+    }
 
-
-        //Distance de ramassage
-        if (dist <= distanceDetection)
+    private void Update()
+    {
+        if (onPlayer)
         {
-            hasPlayer = true;
+            yTimer += Time.deltaTime;
+            yCurrent = maxYmovement * Mathf.Sin(yTimer * omega);
+            transform.localPosition = new Vector3(0, yCurrent, 0);
+
+            transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
         }
-        else
+        else if (moving)
         {
-            hasPlayer = false;
-        }
-
-        // si on peut ramasser et qu'on appuie sur A
-        if (hasPlayer && Input.GetKeyDown(KeyCode.A))
-        {
-            if (!beingCarried)
+            moveTimer += Time.deltaTime;
+            transform.position = Vector3.Lerp(startPos, targetPos.position, moveTimer/timeToMove);
+            if (moveTimer > timeToMove)
             {
-                GetComponent<Rigidbody>().isKinematic = true;
-                transform.parent = player;
-                beingCarried = true;
-            }
-            else
-            {
-                GetComponent<Rigidbody>().isKinematic = false;
-                transform.parent = null;
-                beingCarried = false;
+                transform.position = targetPos.position;
+                moving = false;
             }
         }
+    }
 
-        if (beingCarried)
-        {
-            transform.position = player.transform.position;
+    public void ResetPosition()
+    {
+        onPlayer = true;
+        transform.localPosition = Vector3.zero;
+        yCurrent = 0;
+        yTimer = 0;
+    }
 
-        }
-
+    public void MoveTotarget(Transform target)
+    {
+        moveTimer = 0;
+        startPos = transform.position;
+        moving = true;
+        onPlayer = false;
+        targetPos = target;
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - RockBalancing
   - SafeZone
   - Sculpture
+  - TimeOutCamera
   layers:
   - Default
   - TransparentFX

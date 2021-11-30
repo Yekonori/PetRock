@@ -24,6 +24,7 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] int edgeResolveIteration = 4;
     [SerializeField] float edgeDistanceThreshold = 0.5f;
     [SerializeField] MeshFilter viewMeshFilter;
+    [SerializeField, Range(0, 10)] int decoupage = 0;
     private Mesh viewMesh;
 
     PlayerParameters _playerParameters;
@@ -54,7 +55,7 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        if (playerSpotted) return;
+        if (playerSpotted || _playerParameters.IsOnTimeOut()) return;
 
         if (resumingtoNormal)
         {
@@ -105,29 +106,32 @@ public class FieldOfView : MonoBehaviour
 
     void FindVisibleTargets()
     {
-        playerSpotted = false;
-
-        Collider[] targets = Physics.OverlapSphere(transform.position, eyeVision.range, targetLayerMask);
-        if (targets.Length != 0)
+        if (!_playerParameters.IsOnTimeOut())
         {
-            Transform target = targets[0].transform;
-            Vector3 dirToTarget = (target.position - transform.position).normalized;
-            
-            if (Vector3.Angle(transform.forward, dirToTarget) < currentViewAngle / 2)
-            {
-                float distanceToTarget = Vector3.Distance(transform.position, target.position);
+            playerSpotted = false;
 
-                if (!Physics.Raycast(transform.position, dirToTarget, distanceToTarget, obstableLayerMask))
+            Collider[] targets = Physics.OverlapSphere(transform.position, eyeVision.range, targetLayerMask);
+            if (targets.Length != 0)
+            {
+                Transform target = targets[0].transform;
+                Vector3 dirToTarget = (target.position - transform.position).normalized;
+
+                if (Vector3.Angle(transform.forward, dirToTarget) < currentViewAngle / 2)
                 {
-                    if (!_playerParameters.IsOnSafeZone())
+                    float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+                    if (!Physics.Raycast(transform.position, dirToTarget, distanceToTarget, obstableLayerMask))
                     {
-                        // TO DO : PLAYER IS SPOTTED
-                        Debug.Log("Player is spotted");
-                        playerSpotted = true;
-                        resumingtoNormal = true;
-                        eyeMovement.SetPlayerSpotted(PlayerSpotState.Spoted);
-                        StopFlicker();
-                        _playerParameters.UpdatePlayerState(PlayerParameters.PlayerStates.GiantZone);
+                        if (!_playerParameters.IsOnSafeZone())
+                        {
+                            // TO DO : PLAYER IS SPOTTED
+                            Debug.Log("Player is spotted");
+                            playerSpotted = true;
+                            resumingtoNormal = true;
+                            eyeMovement.SetPlayerSpotted(PlayerSpotState.Spoted);
+                            StopFlicker();
+                            _playerParameters.UpdatePlayerState(PlayerParameters.PlayerStates.GiantZone);
+                        }
                     }
                 }
             }
@@ -137,7 +141,7 @@ public class FieldOfView : MonoBehaviour
     void DrawFieldOfView()
     {
         int stepCount = Mathf.RoundToInt(meshResolution * currentViewAngle);
-        if (stepCount == 0)
+        if (stepCount < 2)
         {
             viewMesh.Clear();
         }
@@ -147,6 +151,7 @@ public class FieldOfView : MonoBehaviour
             List<Vector3> viewPoints = new List<Vector3>();
             ViewCastInfo oldViewCast = new ViewCastInfo();
 
+            //Calcul des points les plus distants
             for (int i = 0; i < stepCount; ++i)
             {
                 float angle = transform.eulerAngles.y - currentViewAngle / 2 + i * stepAngleSize;
@@ -170,31 +175,67 @@ public class FieldOfView : MonoBehaviour
                         }
                     }
                 }
-
                 viewPoints.Add(newViewCast.point);
                 oldViewCast = newViewCast;
             }
 
-            int vertexCount = stepCount + 1;
-            Vector3[] vertices = new Vector3[vertexCount];
-            int[] triangles = new int[(vertexCount - 2) * 3];
+            List<Vector3>[] allPoints = new List<Vector3>[decoupage + 1];
+            allPoints[0] = viewPoints;
 
-            vertices[0] = Vector3.zero;
+            //Creation de points intermediaires à partir des points distants
+            for (int i = 1; i <= decoupage; ++i)
+            {
+                allPoints[i] = new List<Vector3>();
+                for (int j = 0; j < viewPoints.Count; ++j)
+                {
+                    Vector3 point = Vector3.Lerp(viewPoints[j], transform.position, (float)i / (float)(decoupage + 1));
+                    point.y = GetHeight(point);
+                    allPoints[i].Add(point);
+                }
+            }
+
+            int vertexCount = 1 + stepCount * (decoupage + 1);
+            //int trianglesCount = (stepCount - 1) * (2 * decoupage + 1);
+            Vector3[] vertices = new Vector3[vertexCount];
+            //int[] triangles = new int[(trianglesCount) * 3];
+            List<int> triangles = new List<int>();
+
+            Vector3 posGround = new Vector3(transform.position.x, GetHeight(transform.position), transform.position.z);
+            vertices[0] = transform.InverseTransformPoint(posGround);
+
             for (int i = 0; i < stepCount; ++i)
             {
-                vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]);
+                allPoints[0][i] = new Vector3(viewPoints[i].x, GetHeight(viewPoints[i]), viewPoints[i].z);
 
-                if (i < vertexCount - 2)
+                for (int j = 0; j < decoupage + 1; ++j)
                 {
-                    triangles[i * 3] = 0;
-                    triangles[i * 3 + 1] = i + 1;
-                    triangles[i * 3 + 2] = i + 2;
+                    vertices[1 + j * stepCount + i] = transform.InverseTransformPoint(allPoints[j][i]);
+
+                    if (i < stepCount - 1)
+                    {
+                        if (j == decoupage)
+                        {
+                            triangles.Add(0);
+                            triangles.Add(1 + j * stepCount + i);
+                            triangles.Add(1 + j * stepCount + i + 1);
+                        }
+                        else
+                        {
+                            triangles.Add(1 + j * stepCount + i);
+                            triangles.Add(1 + j * stepCount + i + 1);
+                            triangles.Add(1 + (j + 1) * stepCount + i);
+
+                            triangles.Add(1 + j * stepCount + i + 1);
+                            triangles.Add(1 + (j + 1) * stepCount + i + 1);
+                            triangles.Add(1 + (j + 1) * stepCount + i);
+                        }
+                    }
                 }
             }
 
             viewMesh.Clear();
             viewMesh.vertices = vertices;
-            viewMesh.triangles = triangles;
+            viewMesh.triangles = triangles.ToArray();
             viewMesh.RecalculateNormals();
         }
     }
@@ -304,5 +345,15 @@ public class FieldOfView : MonoBehaviour
             stayOpenTimer = 0;
             flickering = false;
         }
+    }
+
+    private float GetHeight(Vector3 pos)
+    {
+        return Terrain.activeTerrain.GetPosition().y + Terrain.activeTerrain.SampleHeight(pos) + 0.05f;
+    }
+
+    private void OnValidate()
+    {
+        currentViewAngle = eyeVision.viewAngle;
     }
 }

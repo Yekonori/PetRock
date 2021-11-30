@@ -7,6 +7,7 @@ public class PlayerTriggers : MonoBehaviour
 {
     private const string _safeZoneTag = "SafeZone";
     private const string _rockBalancingZoneTag = "RockBalancing";
+    private Animator anim;
 
     private void OnTriggerEnter(Collider other)
     {
