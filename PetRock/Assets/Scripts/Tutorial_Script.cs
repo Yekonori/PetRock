@@ -17,9 +17,6 @@ public class Tutorial_Script : MonoBehaviour
     private const string _leftFirstRockBalancingText = "Rock transalation";
     private const string _rightFirstRockBalancingText = "Rock rotation";
 
-    private bool _firstMovementPlayer = false;
-    private bool _firstRockBalancing = false;
-
     bool _canTuto = false;
 
     bool _moveLeft = false;
@@ -33,17 +30,11 @@ public class Tutorial_Script : MonoBehaviour
 
     public void IsFirstPlayerMovement()
     {
-        _firstRockBalancing = false;
-        _firstMovementPlayer = true;
-
         ChangeTextTuto(_leftFirstMovementPlayerText, _rightFirstMovementPlayerText);
     }
 
     public void IsFirstRockBalancing()
     {
-        _firstMovementPlayer = false;
-        _firstRockBalancing = true;
-
         ChangeTextTuto(_leftFirstRockBalancingText, _rightFirstRockBalancingText);
     }
 
@@ -78,11 +69,11 @@ public class Tutorial_Script : MonoBehaviour
 
     bool MoveLeftJoystick()
     {
-        return (GameManager.instance.player.GetAxis("DirX") > 0.01f || GameManager.instance.player.GetAxis("DirY") > 0.01f);
+        return (GameManager.instance.player.GetAxis("DirX") != 0.0f || GameManager.instance.player.GetAxis("DirY") != 0.0f);
     }
 
     bool MoveRightJoystock()
     {
-        return GameManager.instance.player.GetAxis("MoveFreeFollowCameraAround") > 0.01f;
+        return GameManager.instance.player.GetAxis("MoveFreeFollowCameraAround") != 0.0f;
     }
 }
