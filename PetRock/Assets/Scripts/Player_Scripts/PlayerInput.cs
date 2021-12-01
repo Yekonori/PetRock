@@ -24,6 +24,9 @@ public class PlayerInput : MonoBehaviour
 
         GameManager.instance.player = _player;
 
+        foreach (Joystick joystick in _player.controllers.Joysticks)
+            ControllerType.Instance._GetInputTypeFromGUID(joystick.hardwareTypeGuid);
+
         if (playerMovement == null)
         {
             playerMovement = GetComponentInChildren<PlayerMovement>();
@@ -37,12 +40,12 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        if (_player.GetButton("Pause"))
+        if (_player.GetButton("Pause") && !GameManager.instance._inPause)
         {
             GameManager.instance.PauseGame();
         }
 
-        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing || PlayerParameters.Instance.IsOnTimeOut())
+        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing || PlayerParameters.Instance.IsOnTimeOut() || GameManager.instance.inMainMenu)
             return;
 
         playerMovement.SetMovementDirection(_player.GetAxis("DirX"), _player.GetAxis("DirY"));
