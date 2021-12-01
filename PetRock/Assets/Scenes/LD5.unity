@@ -1976,6 +1976,11 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6037377252720073357, guid: 31b716942e3788d46a6ab4a8915bfe87,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 43ee9aa7f15ff574db0f63b98e48bb2c, type: 2}
     - target: {fileID: 9125270388973183334, guid: 31b716942e3788d46a6ab4a8915bfe87,
         type: 3}
       propertyPath: m_AnchorMax.y
