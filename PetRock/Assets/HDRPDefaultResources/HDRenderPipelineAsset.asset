@@ -349,4 +349,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9f8094ece94bd147a297cd1e3ccd96a, type: 2}
   beforeTransparentCustomPostProcesses: []
   beforePostProcessCustomPostProcesses: []
-  afterPostProcessCustomPostProcesses: []
+  afterPostProcessCustomPostProcesses:
+  - GrayScale, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
