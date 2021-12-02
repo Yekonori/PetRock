@@ -177,6 +177,7 @@ MonoBehaviour:
   timeFromStressedToRegular: 3
   timeFromGiantToStressed: 0.3
   decreaseStressValuePerSecond: 20
+  anim: {fileID: 0}
   playerStates: 0
 --- !u!143 &944047243
 CharacterController:
@@ -234,7 +235,7 @@ Animator:
   m_GameObject: {fileID: 4373567877735034328}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 018be39a36b28244d96363f54179d838, type: 3}
-  m_Controller: {fileID: 9100000, guid: af7241f006c1cd54dbacb42fa3fff497, type: 2}
+  m_Controller: {fileID: 9100000, guid: 33b5d034f11fd7f44ad2e891c7686942, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -345,7 +346,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: af7241f006c1cd54dbacb42fa3fff497, type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: 018be39a36b28244d96363f54179d838, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 018be39a36b28244d96363f54179d838, type: 3}

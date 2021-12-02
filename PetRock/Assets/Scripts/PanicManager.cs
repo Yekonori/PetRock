@@ -4,7 +4,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using DG.Tweening;
 
-public class PanicCanvas : MonoBehaviour
+public class PanicManager : MonoBehaviour
 {
     [TitleGroup("Increase Panic Gauge")]
     [PropertyTooltip("Sets the number of seconds before the panic gauge increments")]
@@ -38,18 +38,11 @@ public class PanicCanvas : MonoBehaviour
     [SerializeField]
     private float afterDialogueValue = 0;
 
-    [TitleGroup("Canvas effect")]
-    [SerializeField]
-    private CanvasGroup _largePanicEffect;
-    [TitleGroup("Canvas effect")]
-    [SerializeField]
-    private CanvasGroup _smallPanicEffect;
-
     private bool _tweenIsPlaying = false;
     
     private PlayerParameters _playerParameters;
 
-    public static PanicCanvas Instance;
+    public static PanicManager Instance;
 
     private void Awake()
     {
@@ -63,7 +56,7 @@ public class PanicCanvas : MonoBehaviour
 
     private void Update()
     {
-        if (_playerParameters.IsOnTimeOut())
+        if (_playerParameters.IsOnTimeOut() || GameManager.instance.inMainMenu)
             return;
 
         if (!_playerParameters.IsOnRockBalancing())
