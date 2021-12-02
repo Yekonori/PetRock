@@ -44,7 +44,9 @@ public class RockBalancingScript : MonoBehaviour
     [SerializeField]
     private bool _loadNewScene = false;
     [ShowIf("@_loadNewScene == true"), SerializeField]
-    private string nextScene;
+    private string _nextScene;
+    [SerializeField]
+    private float _timerDisplayText = 0.0f;
 
 
     private float _posVib;
@@ -202,7 +204,7 @@ public class RockBalancingScript : MonoBehaviour
         GetComponent<RockBalancing_Dialogue>().EndDialogue();
         yield return new WaitWhile(() => GetComponent<RockBalancing_Dialogue>().CheckEndDialogue());
 
-        _textToContinue.DOFade(1, 1).SetDelay(5);
+        _textToContinue.DOFade(1, 1).SetDelay(_timerDisplayText);
 
         if (_loadNewScene)
         {
@@ -210,7 +212,7 @@ public class RockBalancingScript : MonoBehaviour
 
             GameManager.instance.TransitionCanvas(1).OnComplete(() =>
             {
-                SceneManager.LoadScene(nextScene);
+                SceneManager.LoadScene(_nextScene);
             });
         }
         else
