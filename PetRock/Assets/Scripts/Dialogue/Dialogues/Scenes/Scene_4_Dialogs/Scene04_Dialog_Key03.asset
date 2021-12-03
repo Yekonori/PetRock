@@ -10,18 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda5e4a1e9ab58429616bafaa2845cf, type: 3}
-  m_Name: Scene4_Dialog_Key2
+  m_Name: Scene04_Dialog_Key03
   m_EditorClassIdentifier: 
   leftCharacter: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
   rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
   lines:
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "Huff\u2026Puff\u2026This is tough\u2026"
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: There is a spot where we can take a break soon. Think you can hold on a
-      bit?
+    text: We're almost there. Keep strong.
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "I have no choice, right\u2026?"
+    text: "Those things\u2026.They were\u2026."
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: "Focus on walking then.\r"
+    text: Terrifying, yes. You did well.
   automatic: 1

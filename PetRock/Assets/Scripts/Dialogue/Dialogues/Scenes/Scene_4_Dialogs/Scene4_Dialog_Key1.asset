@@ -12,25 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfda5e4a1e9ab58429616bafaa2845cf, type: 3}
   m_Name: Scene4_Dialog_Key1
   m_EditorClassIdentifier: 
-  leftCharacter: {fileID: 0}
-  rightCharacter: {fileID: 0}
+  leftCharacter: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+  rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
   lines:
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "We\u2019ve sure been walking a while\u2026"
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Are you getting tired?
+    text: Look! Can you see the Dowsing Stone back there?
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: 'I can still keep going. '
+    text: "I'm mostly seeing all the eyes in the way\u2026"
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Great, it would not do to stop in such a place.
+    text: "I know, they sure are terrifying\u2026But we have no choice but to keep
+      going! So hold strong!"
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "Mmh\u2026Seems like we got company\u2026"
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "I guess it\u2019s the hiding game again\u2026"
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: That is right. I am sure I do not need to tell you to be careful.
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "Yeah\u2026Whatever you tell me, I don\u2019t wanna be seen by those."
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Good.
+    text: "I'll do what I can\u2026Just don't get your hopes up too much."
   automatic: 0
