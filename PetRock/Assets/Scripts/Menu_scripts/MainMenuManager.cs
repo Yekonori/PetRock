@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 using DG.Tweening;
 using UnityEngine.EventSystems;
 using TMPro;
@@ -55,6 +56,10 @@ public class MainMenuManager : MonoBehaviour
     private Image _backgroundMainMenu;
     private CanvasGroup _menuPanels;
 
+    [Header("Cinematic")]
+    [SerializeField]
+    private PlayableDirector _introCinematic;
+
     public static MainMenuManager instance;
 
     private void Awake()
@@ -74,6 +79,9 @@ public class MainMenuManager : MonoBehaviour
         _menuPanels = GetComponent<CanvasGroup>();
 
         _titleSettings.text = _titleGraphics;
+
+        _introCinematic.played += Director_Played;
+        _introCinematic.stopped += Director_Stopped;
     }
 
     private void Start()
@@ -84,15 +92,26 @@ public class MainMenuManager : MonoBehaviour
         GameManager.instance.TransitionCanvas(0).SetDelay(1);
     }
 
+    private void Director_Played(PlayableDirector obj)
+    {
+        _menuPanels.DOFade(0, 1);
+    }
+
+    private void Director_Stopped(PlayableDirector obj)
+    {
+        StartCoroutine(StartGame());
+    }
+
     #region Buttons function
 
     void PlayGame()
     {
-        _menuPanels.DOFade(0, 1).OnComplete(() =>
+        _introCinematic.Play();
+        /*_menuPanels.DOFade(0, 1).OnComplete(() =>
         {
             _playerStartAnimator.SetBool("WakeUp", true);
             StartCoroutine(StartGame());
-        });
+        });*/
     }
 
     IEnumerator StartGame()
