@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Trigger_Dialog : TriggeredViewVolume
 {
@@ -10,6 +12,9 @@ public class Trigger_Dialog : TriggeredViewVolume
     [Header("Positions")]
     [SerializeField] Transform posPlayer;
     [SerializeField] Transform posRock;
+
+    [Header("Next Scene")]
+    [SerializeField] int nextScene = -1;
 
 
     private void OnTriggerEnter(Collider other)
@@ -38,6 +43,17 @@ public class Trigger_Dialog : TriggeredViewVolume
                 dialogDisplay.SetEndAction(() => SetActive(false));
                 dialogDisplay.SetEndAction(() => rock.ResetPosition());
                 dialogDisplay.SetEndAction(() => Destroy(this.gameObject));
+
+                if (nextScene != -1)
+                {
+                    dialogDisplay.SetEndAction(() =>
+                    {
+                        GameManager.instance.TransitionCanvas(1).OnComplete(() =>
+                        {
+                            SceneManager.LoadScene(nextScene);
+                        });
+                    });
+                }
             }
         }
     }
