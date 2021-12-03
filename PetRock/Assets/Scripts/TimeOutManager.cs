@@ -42,6 +42,8 @@ public class TimeOutManager : MonoBehaviour
     {
         PlayerParameters.Instance.anim.SetBool("InTimeOut", true);
 
+        yield return new WaitForSeconds(1.5f);
+
         GameManager.instance.TransitionCanvas(1).OnComplete(() =>
         {
             _timeOutCam.SetActive(true);
@@ -53,7 +55,7 @@ public class TimeOutManager : MonoBehaviour
             });
         });
 
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(6);
 
         yield return new WaitWhile(() => _dialogDisplay.activeDialog);
 
@@ -66,9 +68,11 @@ public class TimeOutManager : MonoBehaviour
         {
             PlayerParameters.Instance.anim.SetBool("InTimeOut", false);
             _timeOutCam.SetActive(false);
-            GameManager.instance.TransitionCanvas(0);
-            PlayerParameters.Instance.UpdateStateGauge(backToTimeOutValue);
-            PlayerParameters.Instance.UpdatePlayerState(PlayerParameters.PlayerStates.Regular);
+            GameManager.instance.TransitionCanvas(0).SetDelay(1).OnComplete(()=>
+            {
+                PlayerParameters.Instance.UpdateStateGauge(backToTimeOutValue);
+                PlayerParameters.Instance.UpdatePlayerState(PlayerParameters.PlayerStates.Regular);
+            });
         });
     }
 }
