@@ -8459,7 +8459,7 @@ PrefabInstance:
     - target: {fileID: 4439541857085846024, guid: cf5398cc4e0a4e543ae8942b4626a680,
         type: 3}
       propertyPath: m_Name
-      value: Dialog_Key_2
+      value: Dialog_Key_1
       objectReference: {fileID: 0}
     - target: {fileID: 4439541857085846025, guid: cf5398cc4e0a4e543ae8942b4626a680,
         type: 3}
@@ -28541,7 +28541,7 @@ PrefabInstance:
     - target: {fileID: 4439541857085846024, guid: cf5398cc4e0a4e543ae8942b4626a680,
         type: 3}
       propertyPath: m_Name
-      value: Dialog_Key_3
+      value: Dialog_Key_2
       objectReference: {fileID: 0}
     - target: {fileID: 4439541857085846025, guid: cf5398cc4e0a4e543ae8942b4626a680,
         type: 3}
