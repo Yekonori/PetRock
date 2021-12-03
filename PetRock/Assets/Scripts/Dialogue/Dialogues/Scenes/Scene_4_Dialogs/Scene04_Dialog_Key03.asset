@@ -10,19 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda5e4a1e9ab58429616bafaa2845cf, type: 3}
-  m_Name: Scene4_Dialog_Key1
+  m_Name: Scene04_Dialog_Key03
   m_EditorClassIdentifier: 
   leftCharacter: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
   rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
   lines:
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Look! There is a path right there, can you see it? It seems like it goes
-      up.
+    text: We're almost there. Keep strong.
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "I'm mostly seeing all the eyes in the way\u2026"
+    text: "Those things\u2026.They were\u2026."
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: "I know, they sure are terrifying\u2026But we have no choice but to keep
-      going! So hold strong!"
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "I'll do what I can\u2026Just don't get your hopes up too much."
-  automatic: 0
+    text: Terrifying, yes. You did well.
+  automatic: 1

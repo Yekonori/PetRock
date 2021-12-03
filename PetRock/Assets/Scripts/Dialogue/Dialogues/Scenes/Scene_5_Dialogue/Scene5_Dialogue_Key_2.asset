@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfda5e4a1e9ab58429616bafaa2845cf, type: 3}
+  m_Name: Scene5_Dialogue_Key_2
+  m_EditorClassIdentifier: 
+  leftCharacter: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+  rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: Did you find something?
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Well, yes. I am suprised but the lake is much closer than expected. We
+      should be able to see it from the cliff once the clouds spread out.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: Wow, are you for real? How about we take a break by the cliff then, and
+      wait to see it?
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: It is fine by me. It does seem like you are getting tired, so it would
+      do us good to rest a little.
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: It is quite a view, is it not?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Mmmh\u2026"
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Oh, did you say something? I was\u2026"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Lost in thoughts, yes, I saw that. And there was a light in your eyes.
+      A new light.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: I'm sure there was nothing of the sort...
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Come on, lad, do not be embarassed. What could you have been watching that
+      made your eyes sparkle so?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Mmh\u2026Guess I can tell ya. I was looking at the sky. Been fascinated
+      by it ever since I was a kid."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Oh? What could the sky have that is so special?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Well, you know, it\u2019s kind of the old dream. It\u2019s vastness, infinity.
+      Watching it always made my mind go full throttle."
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "But it\u2019s even better at night. Then, you truly realize how big the
+      world is. Yeah, endless immensity. Everything\u2019s out there somewhere."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: I suppose it must be.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "And well, they used to say \u201CSky is the limit\u201D. But was it ever
+      truly the case? Humankind never liked limits to begin with. It only thought
+      of them as challenges, something that they had yet to overcome."
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: Gigantic oceans thought to lead to the Abyss, the harshest deserts, the
+      tallest mountains.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: Each of them was a limit. Something in the way. That humankind wanted to
+      - no, had to cross. And for what reason?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: To see what lied beyond. To discover, learn, push back against common sense
+      and impossibility. To challenge fate and come back on top.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: And then they broke through the sky itself. To the moon, and beyond. Always
+      further, always pursuing an everdistant dream.
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Aha, your eyes are sparkling again. I quite enjoy this expression on your
+      face.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Shush, I\u2019m getting embarrassed."
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: 'Do not be. Oh, it seems the clouds are floating away. '
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Yes\u2026Oh, I can see the lake!"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Oh?
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Let\u2019s go, come on!"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "Yes, yes, do not trip and fall now\u2026"
+  automatic: 0
