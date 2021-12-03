@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda5e4a1e9ab58429616bafaa2845cf, type: 3}
-  m_Name: Scene4_Dialog_Key1
+  m_Name: Scene5_Dialogue_Key_1
   m_EditorClassIdentifier: 
   leftCharacter: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
   rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
   lines:
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Look! There is a path right there, can you see it? It seems like it goes
-      up.
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "I'm mostly seeing all the eyes in the way\u2026"
+    text: Hey, isn't that what you called a Dowsing Stone?
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: "I know, they sure are terrifying\u2026But we have no choice but to keep
-      going! So hold strong!"
+    text: That it is right. We can use it to detect the flow of underground water
+      and use it to find a lake.
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "I'll do what I can\u2026Just don't get your hopes up too much."
+    text: "Mmhh\u2026So we should probably use it, is that right?"
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Very right indeed. And what a place for it to be! In any case, let us get
+      on with the Dowsing then!
   automatic: 0
