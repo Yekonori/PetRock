@@ -12556,6 +12556,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2827978209441939660, guid: f64b3c123b1ba1d488b8225c576a52d1,
         type: 3}
+      propertyPath: _maxValueVignette
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827978209441939660, guid: f64b3c123b1ba1d488b8225c576a52d1,
+        type: 3}
       propertyPath: afterDialogueValue
       value: 70
       objectReference: {fileID: 0}
