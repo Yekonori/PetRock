@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 4439541857085846026}
   - component: {fileID: 4439541857085846025}
   - component: {fileID: 4439541857085846021}
-  - component: {fileID: 2094382825957240026}
   m_Layer: 0
   m_Name: Trigger_Dialog
   m_TagString: Untagged
@@ -150,19 +149,6 @@ MonoBehaviour:
   posRock: {fileID: 3316118679534153448}
   nextScene: -1
   _startTransition: 0
---- !u!114 &2094382825957240026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4439541857085846024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d332977dfeb3e264aa96b9ad9af58811, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 0
 --- !u!1 &7137129063045094931
 GameObject:
   m_ObjectHideFlags: 0
