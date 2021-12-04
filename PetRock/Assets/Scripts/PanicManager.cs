@@ -38,6 +38,8 @@ public class PanicManager : MonoBehaviour
     [SerializeField]
     private float afterDialogueValue = 0;
 
+    private bool _canPanic = false;
+
     private bool _tweenIsPlaying = false;
     
     private PlayerParameters _playerParameters;
@@ -52,11 +54,12 @@ public class PanicManager : MonoBehaviour
             Destroy(gameObject);
 
         _playerParameters = PlayerParameters.Instance;
+        _canPanic = false;
     }
 
     private void Update()
     {
-        if (_playerParameters.IsOnTimeOut() || GameManager.instance.inMainMenu)
+        if (_playerParameters.IsOnTimeOut() || GameManager.instance.inMainMenu || !_canPanic)
             return;
 
         if (!_playerParameters.IsOnRockBalancing())
@@ -89,6 +92,11 @@ public class PanicManager : MonoBehaviour
         }
 
         GameManager.instance.vignettePostProcessing.intensity.value = _playerParameters.panicGauge / 100;
+    }
+
+    public void PlayerCanPanic(bool can)
+    {
+        _canPanic = can;
     }
 
     #region Gauge
