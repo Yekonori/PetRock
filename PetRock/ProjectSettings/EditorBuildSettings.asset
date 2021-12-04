@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LD4.unity
     guid: 224bd5a508fe06f4b80d544bb9b4568b
+  - enabled: 1
+    path: Assets/Scenes/LD5.unity
+    guid: b1f5dcfd44f7b9341bf24c34e5cd2474
   m_configObjects: {}
