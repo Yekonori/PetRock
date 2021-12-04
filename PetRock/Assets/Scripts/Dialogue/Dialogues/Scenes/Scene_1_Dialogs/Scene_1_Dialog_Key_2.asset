@@ -10,13 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda5e4a1e9ab58429616bafaa2845cf, type: 3}
-  m_Name: Scene_1_Dialog_Key_3
+  m_Name: Scene_1_Dialog_Key_2
   m_EditorClassIdentifier: 
   leftCharacter: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
   rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
   lines:
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "Wait...Is this rock\u2026moving?!"
+    text: No...! It can't be real! How could that happen to me?!
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: "There's no way I'll find anyone to help me out there\u2026Oh no, no, no!"
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "This is so bad\u2026it\u2019s awful\u2026I'm dead, I'm toast, I'm done
+      for, this it\u2026"
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Uh?! ...Is this rock\u2026moving?!"
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: Ah, that was a good rest! Hello, friend!
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
@@ -25,67 +32,42 @@ MonoBehaviour:
     text: "Now now, do not make such a face\u2026My\u2026Oh my, looking at your expression,
       I must look quite terrible!"
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "Uh, no, that\u2019s not it\u2026"
+    text: "Uh, no, that\u2019s not it\u2026You're\u2026You're talking? You're a talking
+      rock?!"
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Oh? Well then, what is wrong?
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "Uh\u2026Well...You\u2026you\u2019re a rock, right?"
+    text: Did you just--?! I have never been unsulted in such a manner! I'm the great
+      Beaumont, and you should do well to remember this name!
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: 'What did you just-- A rock?! Me, simply calling me a rock?! How rude!
-      Did I give you the cold shoulder just because you were a human?! At least call
-      me by my name, I am the great [Insert name] and you should be honored to have
-      met me! '
+    text: In my great generosity, I will forgive this slander, but once, only once!
+      Now, please, tell me what could you be doing here?
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: But you can talk-
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: What of it?! Would you rather I just close my mouth and pretend you do
-      not exist?
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "No no no no, I, I\u2026"
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: You?
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "Okay, I get it, I\u2019m sorry, I\u2019m sorry!"
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Good, good. Now, pray tell, what are you doing here?
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "My\u2026My ship has crashed\u2026I was flying over the planet and something
-      terrible happened\u2026 Next thing I knew\u2026I was waking up down here and
-      my ship was\u2026Well\u2026"
+    text: "I-I\u2026 was flying over the planet and something terrible happened\u2026
+      Next thing I knew\u2026I was waking up down here and my ship was\u2026Well\u2026"
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: "I see, so that explains the ruckus I heard\u2026"
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "So as it appears, I\u2026am\u2026stranded here, without any way to fix
-      my ship, and talking to a rock of all things\u2026"
+    text: "So I'm stuck down here\u2026Without being able to fix my ship\u2026Talking
+      to a rock\u2026."
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: I am still there.
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "I\u2019m sorry, really! This is just\u2026a bit much for me\u2026No, oh
-      what am I saying\u2026I am in waaaay over my head\u2026 "
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Well, it does seem like you are in a bit of a pickle indeed.
+    text: I am still there. In any case, it does seem like you're in a bit of a pickle
+      indeed.
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "Understatement of the century\u2026But\u2026"
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "I can\u2019t really do much about it, right? Might as well just wait here,
-      and if I\u2019m lucky\u2026No, no, surely someone will realize I\u2019m missing
-      and come to find me\u2026As long as I keep by what\u2019s left of my ship\u2026Right?"
+    text: "I can't do anything about it\u2026right? So I might as well stay put right
+      here and wait for help. Yes, that's a good idea!"
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: That is a fair assumption, but what if they do not find you? What if they
-      cannot locate you?
+    text: You do know the odds that help arrives before you dehydrate entirely are
+      awfully low, right?
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "Well\u2026Guess I\u2019ll die then? "
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: 'That simply will not do! '
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "Well, what do you want me to do about it?! I don\u2019t know this place! "
+    text: "Well, what do you want me to do about it?! I don\u2019t know this place!"
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: Do you really need me to tell you everything? Use your brain!
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "I\u2019m getting called out by a rock, this is ridiculous."
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: I have a name, I will remind you, and it is [Insert name], make sure you
-      do not forget it again!
+    text: I have a name, I will remind you, and it is Beaumont, make sure you do
+      not forget it again!
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: Sure, sure, if I go look for water or something, will you stop berating
       me?
