@@ -9297,11 +9297,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3816904191533415325, guid: d2f253b79e7dacf4caee5c91c9660193,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3816904191533415332, guid: d2f253b79e7dacf4caee5c91c9660193,
         type: 3}
       propertyPath: _cam

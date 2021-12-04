@@ -107,11 +107,6 @@ public class MainMenuManager : MonoBehaviour
     void PlayGame()
     {
         _introCinematic.Play();
-        /*_menuPanels.DOFade(0, 1).OnComplete(() =>
-        {
-            _playerStartAnimator.SetBool("WakeUp", true);
-            StartCoroutine(StartGame());
-        });*/
     }
 
     IEnumerator StartGame()
