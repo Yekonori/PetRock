@@ -59,6 +59,7 @@ public class MainMenuManager : MonoBehaviour
     [Header("Cinematic")]
     [SerializeField]
     private PlayableDirector _introCinematic;
+    private bool _inCinematic = false;
 
     public static MainMenuManager instance;
 
@@ -88,12 +89,11 @@ public class MainMenuManager : MonoBehaviour
     {
         SetMenuButtons();
         SetBackMenuButtons();
-
-        GameManager.instance.TransitionCanvas(0).SetDelay(1);
     }
 
     private void Director_Played(PlayableDirector obj)
     {
+        _inCinematic = true;
         _menuPanels.DOFade(0, 1);
     }
 
@@ -107,11 +107,6 @@ public class MainMenuManager : MonoBehaviour
     void PlayGame()
     {
         _introCinematic.Play();
-        /*_menuPanels.DOFade(0, 1).OnComplete(() =>
-        {
-            _playerStartAnimator.SetBool("WakeUp", true);
-            StartCoroutine(StartGame());
-        });*/
     }
 
     IEnumerator StartGame()
@@ -211,7 +206,7 @@ public class MainMenuManager : MonoBehaviour
 
     void PressedSelectedButton()
     {
-        if (GameManager.instance.player.GetButtonDown("PressButton"))
+        if (GameManager.instance.player.GetButtonDown("PressButton") && !_inCinematic)
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
