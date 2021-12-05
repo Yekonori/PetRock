@@ -166,7 +166,7 @@ public class MainMenuManager : MonoBehaviour
     void BackCredits()
     {
         PanelSwitch(_creditsPanel, _mainMenuPanel);
-        _backgroundMainMenu.DOFade(0.5f, 1);
+        _backgroundMainMenu.DOFade(0, 1);
     }
 
     void BackOptions()
