@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Sirenix.OdinInspector;
 using DG.Tweening;
 
@@ -52,6 +53,11 @@ public class PanicManager : MonoBehaviour
         else
             Destroy(gameObject);
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         _playerParameters = PlayerParameters.Instance;
         _canPanic = false;
     }
