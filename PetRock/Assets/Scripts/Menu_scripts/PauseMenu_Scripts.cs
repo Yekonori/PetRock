@@ -50,7 +50,12 @@ public class PauseMenu_Scripts : MonoBehaviour
 
     private void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1.0f;
+        GameManager.instance.TransitionCanvas(1).OnComplete(() =>
+        {
+            GameManager.instance._inPause = false;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        });
     }
 
     private void QuitGame()
