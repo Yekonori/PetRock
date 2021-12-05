@@ -89,8 +89,6 @@ public class MainMenuManager : MonoBehaviour
     {
         SetMenuButtons();
         SetBackMenuButtons();
-
-        GameManager.instance.TransitionCanvas(0).SetDelay(1);
     }
 
     private void Director_Played(PlayableDirector obj)
@@ -101,7 +99,6 @@ public class MainMenuManager : MonoBehaviour
 
     private void Director_Stopped(PlayableDirector obj)
     {
-        _inCinematic = false;
         StartCoroutine(StartGame());
     }
 
