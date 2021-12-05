@@ -50,8 +50,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        SetVignettePostProcess();
-        SetDofPostProcess();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -59,6 +57,11 @@ public class GameManager : MonoBehaviour
     {
         if (_transitionCanvas == null)
             _transitionCanvas = GameObject.FindGameObjectWithTag("TransitionCanvas").GetComponent<CanvasGroup>();
+
+        volumePostProcessing = GameObject.FindGameObjectWithTag("PostProcess").GetComponent<Volume>();
+
+        SetVignettePostProcess();
+        SetDofPostProcess();
 
         TransitionCanvas(0).SetDelay(1);
     }

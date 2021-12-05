@@ -36,6 +36,21 @@ public class MainMenuManager : MonoBehaviour
     private const string _titleAudio = "Audio settings";
     private int _indexSettingsPanel = 0;
 
+    [Header("Input settings")]
+    [SerializeField]
+    private TextMeshProUGUI settingsNextPanel;
+    [SerializeField]
+    private TextMeshProUGUI settingsPreviousPanel;
+
+    private const string LB = "LB";
+    private const string RB = "RB";
+
+    private const string L1 = "L1";
+    private const string R1 = "R1";
+
+    private const string L = "L";
+    private const string R = "R";
+
     [Header("Animator")]
     [SerializeField]
     private Animator _creditsAnim;
@@ -61,6 +76,8 @@ public class MainMenuManager : MonoBehaviour
     private PlayableDirector _introCinematic;
     private bool _inCinematic = false;
 
+    GameManager _gameManager;
+
     public static MainMenuManager instance;
 
     private void Awake()
@@ -74,7 +91,9 @@ public class MainMenuManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        GameManager.instance.inMainMenu = true;
+        _gameManager = GameManager.instance;
+
+        _gameManager.inMainMenu = true;
 
         _backgroundMainMenu = GetComponent<Image>();
         _menuPanels = GetComponent<CanvasGroup>();
@@ -87,8 +106,12 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
+        _gameManager.dofPostProcessing.focusDistance.value = 0.1f;
+
         SetMenuButtons();
         SetBackMenuButtons();
+
+        GetController();
     }
 
     private void Director_Played(PlayableDirector obj)
@@ -105,7 +128,7 @@ public class MainMenuManager : MonoBehaviour
 
     void PlayGame()
     {
-        DOTween.To(() => GameManager.instance.dofPostProcessing.focusDistance.value, x => GameManager.instance.dofPostProcessing.focusDistance.value = x, 10.0f, 5.0f).OnPlay(() => 
+        DOTween.To(() => _gameManager.dofPostProcessing.focusDistance.value, x => _gameManager.dofPostProcessing.focusDistance.value = x, 10.0f, 5.0f).OnPlay(() => 
         { 
             _menuPanels.DOFade(0, 1).OnComplete(()=> _introCinematic.Play()); 
         });
@@ -121,7 +144,7 @@ public class MainMenuManager : MonoBehaviour
 
         yield return new WaitWhile(() => GetComponent<StartDialogue_Script>().CheckEndDialogue());
 
-        GameManager.instance.inMainMenu = false;
+        _gameManager.inMainMenu = false;
 
         _tutoCanvas.SetActive(true);
         _tutoCanvas.GetComponent<Tutorial_Script>().IsFirstPlayerMovement();
@@ -208,26 +231,49 @@ public class MainMenuManager : MonoBehaviour
 
     void PressedSelectedButton()
     {
-        if (GameManager.instance.player.GetButtonDown("PressButton") && !_inCinematic)
+        if (_gameManager.player.GetButtonDown("PressButton") && !_inCinematic)
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
     }
 
+    void GetController()
+    {
+        switch (ControllerType.Instance.typeController)
+        {
+            case ControllerType.TypeController.XBox:
+                settingsNextPanel.text = RB;
+                settingsPreviousPanel.text = LB;
+                break;
+            case ControllerType.TypeController.Playstation:
+                settingsNextPanel.text = R1;
+                settingsPreviousPanel.text = L1;
+                break;
+            case ControllerType.TypeController.Switch:
+                settingsNextPanel.text = R;
+                settingsPreviousPanel.text = L;
+                break;
+            default:
+                settingsNextPanel.text = RB;
+                settingsPreviousPanel.text = LB;
+                break;
+        }
+    }
+
     void ChangeSettingsPanel() 
     {
-        if(_optionsPanel.gameObject.activeSelf && (GameManager.instance.player.GetButtonDown("PreviousSettingsPanel") || GameManager.instance.player.GetButtonDown("NextSettingsPanel")))
+        if(_optionsPanel.gameObject.activeSelf && (_gameManager.player.GetButtonDown("PreviousSettingsPanel") || _gameManager.player.GetButtonDown("NextSettingsPanel")))
         {
             _settingsPanels[_indexSettingsPanel].SetActive(false);
 
-            if (GameManager.instance.player.GetButtonDown("PreviousSettingsPanel"))
+            if (_gameManager.player.GetButtonDown("PreviousSettingsPanel"))
             {
                 if (_indexSettingsPanel == 0)
                     _indexSettingsPanel = 1;
                 else
                     _indexSettingsPanel = 0;
             }
-            else if (GameManager.instance.player.GetButtonDown("NextSettingsPanel"))
+            else if (_gameManager.player.GetButtonDown("NextSettingsPanel"))
             {
                 if (_indexSettingsPanel == 1)
                     _indexSettingsPanel = 0;

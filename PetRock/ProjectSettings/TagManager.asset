@@ -11,6 +11,7 @@ TagManager:
   - Sculpture
   - TimeOutCamera
   - TransitionCanvas
+  - PostProcess
   layers:
   - Default
   - TransparentFX
