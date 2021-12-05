@@ -5,6 +5,7 @@ using Rewired;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class RockBalancingScript : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class RockBalancingScript : MonoBehaviour
     private Transform _startPosRock;
     public Transform startPlayerPos;
 
+    [Header("First rock balancing"), SerializeField]
+    private bool _isFirstRockBalancing = false;
+    [ShowIf("@_isFirstRockBalancing == true"), SerializeField]
+    private GameObject _tutoCanvas;
+
     [Header("Validate position rock")]
     [SerializeField]
     private Transform _finalPosRock;
@@ -34,9 +40,13 @@ public class RockBalancingScript : MonoBehaviour
     [SerializeField]
     private float _multiplicatorSpeedZoom;
     [SerializeField]
+    private TextMeshProUGUI _textToContinue;
+    [SerializeField]
     private bool _loadNewScene = false;
     [ShowIf("@_loadNewScene == true"), SerializeField]
-    private string nextScene;
+    private string _nextScene;
+    [SerializeField]
+    private float _timerDisplayText = 0.0f;
 
 
     private float _posVib;
@@ -68,6 +78,16 @@ public class RockBalancingScript : MonoBehaviour
 
         _finalA = _finalPosRock.GetChild(0);
         _finalB = _finalPosRock.GetChild(1);
+
+        if(ControllerType.Instance != null)
+        {
+            if(ControllerType.Instance.typeController == ControllerType.TypeController.Playstation)
+                _textToContinue.text = "Press ▲ to continue";
+            else
+                _textToContinue.text = "Press Y to continue";
+        }
+
+        FirstRockBalancing();
 
         StartCoroutine(startRockBalance());
     }
@@ -125,6 +145,15 @@ public class RockBalancingScript : MonoBehaviour
         }
     }
 
+    private void FirstRockBalancing()
+    {
+        if (_isFirstRockBalancing)
+        {
+            _tutoCanvas.SetActive(true);
+            _tutoCanvas.GetComponent<Tutorial_Script>().IsFirstRockBalancing();
+        }
+    }
+
     private bool ValidatePos()
     {
         if (_theRock.transform.position.z <= _finalA.position.z 
@@ -175,13 +204,15 @@ public class RockBalancingScript : MonoBehaviour
         GetComponent<RockBalancing_Dialogue>().EndDialogue();
         yield return new WaitWhile(() => GetComponent<RockBalancing_Dialogue>().CheckEndDialogue());
 
+        _textToContinue.DOFade(1, 1).SetDelay(_timerDisplayText);
+
         if (_loadNewScene)
         {
             yield return new WaitUntil(() => player.GetButton("ValidateEndRockBalancing"));
 
             GameManager.instance.TransitionCanvas(1).OnComplete(() =>
             {
-                SceneManager.LoadScene(nextScene);
+                SceneManager.LoadScene(_nextScene);
             });
         }
         else

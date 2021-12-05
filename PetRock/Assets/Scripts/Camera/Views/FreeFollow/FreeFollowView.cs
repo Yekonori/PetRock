@@ -39,7 +39,7 @@ public class FreeFollowView : AView
         //{
         //    yaw += yawSpeed * Time.deltaTime * Input.GetAxis("Mouse X");
         //}
-        /*else*/ if (_player != null)
+        /*else*/ if (_player != null && !GameManager.instance.inMainMenu)
         {
             float moveCam = _player.GetAxis("MoveFreeFollowCameraAround");
             if (Mathf.Abs(moveCam) > 0.4f)
@@ -60,6 +60,11 @@ public class FreeFollowView : AView
         _roll = MultiLerp(roll, curvePosition);
         _fov = MultiLerp(fov, curvePosition);
         curveToWorldMatrix = Matrix4x4.TRS(target.position, Quaternion.Euler(0f, yaw, 0f), Vector3.one);
+    }
+
+    public void ChangeTargetCam(Transform transform)
+    {
+        target = transform;
     }
 
     public override CameraConfiguration GetConfiguration()

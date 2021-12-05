@@ -2,25 +2,63 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 using DG.Tweening;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
     #region Script parameters
 
+    [Header("Buttons")]
     [SerializeField]
     private List<Button> _menuButtons = new List<Button>();
+    [SerializeField]
+    private List<Button> _backMenuButtons = new List<Button>();
 
     #endregion
 
+    [Header("Panels")]
     [SerializeField]
     private CanvasGroup _mainMenuPanel;
     [SerializeField]
+    private CanvasGroup _optionsPanel;
+    [SerializeField]
     private CanvasGroup _creditsPanel;
 
+    [Header("Settings Panel")]
+    [SerializeField]
+    private List<GameObject> _settingsPanels = new List<GameObject>();
+    [SerializeField]
+    private TextMeshProUGUI _titleSettings;
+    private const string _titleGraphics = "Graphics settings";
+    private const string _titleAudio = "Audio settings";
+    private int _indexSettingsPanel = 0;
+
+    [Header("Animator")]
+    [SerializeField]
+    private Animator _creditsAnim;
+    [SerializeField]
+    private Animator _playerStartAnimator;
+
+    [Header("Camera")]
+    [SerializeField]
+    private FreeFollowView _cam;
+    [SerializeField]
+    private Transform _rock;
+
+    [Header("Tutorial")]
+    [SerializeField]
+    private GameObject _tutoCanvas;
+
     private GameObject _lastButtonSelected;
+    private Image _backgroundMainMenu;
+    private CanvasGroup _menuPanels;
+
+    [Header("Cinematic")]
+    [SerializeField]
+    private PlayableDirector _introCinematic;
 
     public static MainMenuManager instance;
 
@@ -35,42 +73,98 @@ public class MainMenuManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        SetMainMenu();
+        GameManager.instance.inMainMenu = true;
+
+        _backgroundMainMenu = GetComponent<Image>();
+        _menuPanels = GetComponent<CanvasGroup>();
+
+        _titleSettings.text = _titleGraphics;
+
+        _introCinematic.played += Director_Played;
+        _introCinematic.stopped += Director_Stopped;
     }
 
     private void Start()
     {
         SetMenuButtons();
+        SetBackMenuButtons();
+
+        GameManager.instance.TransitionCanvas(0).SetDelay(1);
+    }
+
+    private void Director_Played(PlayableDirector obj)
+    {
+        _menuPanels.DOFade(0, 1);
+    }
+
+    private void Director_Stopped(PlayableDirector obj)
+    {
+        StartCoroutine(StartGame());
     }
 
     #region Buttons function
 
-    public void PlayGame()
+    void PlayGame()
     {
-        SceneManager.LoadScene(2);
+        _introCinematic.Play();
+        /*_menuPanels.DOFade(0, 1).OnComplete(() =>
+        {
+            _playerStartAnimator.SetBool("WakeUp", true);
+            StartCoroutine(StartGame());
+        });*/
     }
 
-    public void CreditsGame()
+    IEnumerator StartGame()
     {
-        _mainMenuPanel.DOFade(0.0f, 1.0f).OnComplete(() =>
+        yield return new WaitUntil(() => _playerStartAnimator.GetCurrentAnimatorStateInfo(0).IsName("StandingIdle"));
+
+        GetComponent<StartDialogue_Script>().StartDialogue();
+
+        _cam.ChangeTargetCam(_rock);
+
+        yield return new WaitWhile(() => GetComponent<StartDialogue_Script>().CheckEndDialogue());
+
+        GameManager.instance.inMainMenu = false;
+
+        _tutoCanvas.SetActive(true);
+        _tutoCanvas.GetComponent<Tutorial_Script>().IsFirstPlayerMovement();
+
+        Destroy(gameObject);
+    }
+
+    void OptionsGame()
+    {
+        PanelSwitch(_mainMenuPanel, _optionsPanel);
+    }
+
+    void CreditsGame()
+    {
+        PanelSwitch(_mainMenuPanel, _creditsPanel);
+        _backgroundMainMenu.DOFade(1, 1).OnComplete(() => _creditsAnim.SetBool("PlayCredits", true));
+    }
+
+    void BackCredits()
+    {
+        PanelSwitch(_creditsPanel, _mainMenuPanel);
+        _backgroundMainMenu.DOFade(0.5f, 1);
+    }
+
+    void BackOptions()
+    {
+        PanelSwitch(_optionsPanel, _mainMenuPanel);
+    }
+
+    void PanelSwitch(CanvasGroup firstPanel, CanvasGroup secondPanel)
+    {
+        firstPanel.DOFade(0.0f, 1.0f).OnComplete(() =>
         {
-            _mainMenuPanel.gameObject.SetActive(false);
-            _creditsPanel.gameObject.SetActive(true);
-            _creditsPanel.DOFade(1.0f, 1.0f);
+            firstPanel.gameObject.SetActive(false);
+            secondPanel.gameObject.SetActive(true);
+            secondPanel.DOFade(1.0f, 1.0f);
         });
     }
 
-    public void Back()
-    {
-        _creditsPanel.DOFade(0.0f, 1.0f).OnComplete(() =>
-        {
-            _creditsPanel.gameObject.SetActive(false);
-            _mainMenuPanel.gameObject.SetActive(true);
-            _mainMenuPanel.DOFade(1.0f, 1.0f);
-        });
-    }
-
-    public void QuitGame()
+    void QuitGame()
     {
        #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
@@ -82,11 +176,6 @@ public class MainMenuManager : MonoBehaviour
     #endregion
 
     #region Menu functions
-    private void SetMainMenu()
-    {
-        _mainMenuPanel.DOFade(1f, 0.1f);
-        _creditsPanel.DOFade(0f, 0.1f);
-    }
 
     private void SetMenuButtons()
     {
@@ -94,9 +183,18 @@ public class MainMenuManager : MonoBehaviour
             button.onClick.RemoveAllListeners();
 
         _menuButtons[0].onClick.AddListener(PlayGame); //Play button
-        _menuButtons[1].onClick.AddListener(CreditsGame); //Credits button
-        _menuButtons[2].onClick.AddListener(QuitGame); //Quit button
-        _menuButtons[3].onClick.AddListener(Back); //Back button
+        _menuButtons[1].onClick.AddListener(OptionsGame); //Options button
+        _menuButtons[2].onClick.AddListener(CreditsGame); //Credits button
+        _menuButtons[3].onClick.AddListener(QuitGame); //Quit button
+    }
+
+    private void SetBackMenuButtons()
+    {
+        foreach(Button button in _backMenuButtons)
+            button.onClick.RemoveAllListeners();
+
+        _backMenuButtons[0].onClick.AddListener(BackOptions); //Options back Button
+        _backMenuButtons[1].onClick.AddListener(BackCredits); //Credits back button
     }
 
     private void Update()
@@ -108,13 +206,62 @@ public class MainMenuManager : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(_lastButtonSelected);
 
         PressedSelectedButton();
+        ChangeSettingsPanel();
     }
 
-    private void PressedSelectedButton()
+    void PressedSelectedButton()
     {
-        if (Input.GetKeyUp("joystick button 1"))
+        if (GameManager.instance.player.GetButtonDown("PressButton"))
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+        }
+    }
+
+    void ChangeSettingsPanel() 
+    {
+        if(_optionsPanel.gameObject.activeSelf && (GameManager.instance.player.GetButtonDown("PreviousSettingsPanel") || GameManager.instance.player.GetButtonDown("NextSettingsPanel")))
+        {
+            _settingsPanels[_indexSettingsPanel].SetActive(false);
+
+            if (GameManager.instance.player.GetButtonDown("PreviousSettingsPanel"))
+            {
+                if (_indexSettingsPanel == 0)
+                    _indexSettingsPanel = 1;
+                else
+                    _indexSettingsPanel = 0;
+            }
+            else if (GameManager.instance.player.GetButtonDown("NextSettingsPanel"))
+            {
+                if (_indexSettingsPanel == 1)
+                    _indexSettingsPanel = 0;
+                else
+                    _indexSettingsPanel = 1;
+            }
+
+            _settingsPanels[_indexSettingsPanel].SetActive(true);
+
+            GameObject currentSelected;
+
+            Navigation navigation = new Navigation();
+
+            navigation.mode = Navigation.Mode.Explicit;
+
+            if (_indexSettingsPanel == 0)
+            {
+                _titleSettings.text = _titleGraphics;
+                currentSelected = GetComponent<GraphicSettings_Script>().firstSelectedObject;
+                navigation.selectOnDown = currentSelected.GetComponent<Button>();
+            }
+            else
+            {
+                _titleSettings.text = _titleAudio;
+                currentSelected = GetComponent<MainMenu_Audio>().firstSelectedObject;
+                navigation.selectOnDown = currentSelected.GetComponent<Slider>();
+            }
+
+            _backMenuButtons[0].navigation = navigation;
+
+            EventSystem.current.SetSelectedGameObject(currentSelected);
         }
     }
     #endregion

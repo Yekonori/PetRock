@@ -340,7 +340,7 @@ MonoBehaviour:
       SSRMaxRaySteps: 100000002000000040000000
   allowShaderVariantStripping: 1
   enableSRPBatcher: 1
-  shaderVariantLogLevel: 0
+  shaderVariantLogLevel: 2
   availableMaterialQualityLevels: -1
   m_DefaultMaterialQualityLevel: 4
   diffusionProfileSettings: {fileID: 0}

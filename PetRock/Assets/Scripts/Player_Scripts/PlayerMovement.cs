@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance._inPause || GameManager.instance.inRockBalancing || PlayerParameters.Instance.IsOnTimeOut() || inDialog)
+        if (GameManager.instance._inPause || GameManager.instance.inMainMenu || GameManager.instance.inRockBalancing || PlayerParameters.Instance.IsOnTimeOut() || inDialog)
         {
             dirX = 0;
             dirY = 0;
@@ -68,8 +68,9 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("talking", false);
         }
 
+        anim.SetFloat("Movement", dir.magnitude);
         
-        if (!isMoving && moveDir != Vector3.zero)
+        /*if (!isMoving && moveDir != Vector3.zero)
         {
             anim.SetBool("isMoving", true);
             isMoving = true;
@@ -78,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("isMoving", false);
             isMoving = false;
-        }
+        }*/
         
         float g = characterController.isGrounded ? 0.1f : gravity;
         characterController.Move((moveDir + g * Vector3.down) * Time.deltaTime);

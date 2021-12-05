@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Sirenix.OdinInspector;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     public bool inRockBalancing = false;
     [HideInInspector]
     public bool startDialogueRB = false;
+    //[HideInInspector]
+    public bool inMainMenu = false;
 
     [TitleGroup("Post-Processing")]
     [SerializeField]

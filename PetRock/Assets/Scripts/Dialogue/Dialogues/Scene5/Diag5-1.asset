@@ -16,19 +16,13 @@ MonoBehaviour:
   rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
   lines:
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Mmh, so this is a nice-looking place.
+    text: Hey, isn't that what you called a Dowsing Stone?
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "Looks like it. And that\u2019s what you called a Dowsing stone, right?"
+    text: That it is right. We can use it to detect the flow of underground water
+      and use it to find a lake.
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: That it is, glad you remember what I told you.
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "Mmhh\u2026So we should probably use it, is that right?"
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: For sure. You are not going to solely survive on puddles of rainwater,
-      are you?
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "You aren\u2019t wrong. If that so-called lake exists, it should be a plentiful
-      supply."
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Then let us get on with the Dowsing.
+    text: Very right indeed. And what a place for it to be! In any case, let us get
+      on with the Dowsing then!
   automatic: 0
