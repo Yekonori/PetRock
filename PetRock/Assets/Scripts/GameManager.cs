@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     private Volume volumePostProcessing;
     [HideInInspector]
     public Vignette vignettePostProcessing;
+    [HideInInspector]
+    public DepthOfField dofPostProcessing;
 
     [TitleGroup("Canvas")]
     [SerializeField]
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
         }
 
         SetVignettePostProcess();
+        SetDofPostProcess();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -112,6 +115,16 @@ public class GameManager : MonoBehaviour
         if (volumePostProcessing.profile.TryGet(out vignetteTmp))
         {
             vignettePostProcessing = vignetteTmp;
+        }
+    }
+
+    private void SetDofPostProcess()
+    {
+        DepthOfField depthOfFieldTemp;
+
+        if(volumePostProcessing.profile.TryGet(out depthOfFieldTemp))
+        {
+            dofPostProcessing = depthOfFieldTemp;
         }
     }
 

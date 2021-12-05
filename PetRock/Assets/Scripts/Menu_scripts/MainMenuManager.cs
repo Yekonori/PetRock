@@ -94,8 +94,7 @@ public class MainMenuManager : MonoBehaviour
     private void Director_Played(PlayableDirector obj)
     {
         _inCinematic = true;
-        _menuPanels.DOFade(0, 1);
-    }
+        }
 
     private void Director_Stopped(PlayableDirector obj)
     {
@@ -106,7 +105,10 @@ public class MainMenuManager : MonoBehaviour
 
     void PlayGame()
     {
-        _introCinematic.Play();
+        DOTween.To(() => GameManager.instance.dofPostProcessing.focusDistance.value, x => GameManager.instance.dofPostProcessing.focusDistance.value = x, 10.0f, 5.0f).OnPlay(() => 
+        { 
+            _menuPanels.DOFade(0, 1).OnComplete(()=> _introCinematic.Play()); 
+        });
     }
 
     IEnumerator StartGame()
@@ -245,13 +247,13 @@ public class MainMenuManager : MonoBehaviour
             {
                 _titleSettings.text = _titleGraphics;
                 currentSelected = GetComponent<GraphicSettings_Script>().firstSelectedObject;
-                navigation.selectOnDown = currentSelected.GetComponent<Button>();
+                navigation.selectOnUp = GetComponent<GraphicSettings_Script>().ObjectOnUp;
             }
             else
             {
                 _titleSettings.text = _titleAudio;
                 currentSelected = GetComponent<MainMenu_Audio>().firstSelectedObject;
-                navigation.selectOnDown = currentSelected.GetComponent<Slider>();
+                navigation.selectOnUp = GetComponent<MainMenu_Audio>().ObjectOnUp;
             }
 
             _backMenuButtons[0].navigation = navigation;
