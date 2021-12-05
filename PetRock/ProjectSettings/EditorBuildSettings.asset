@@ -14,22 +14,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LD5.unity
     guid: b1f5dcfd44f7b9341bf24c34e5cd2474
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ManagerScene.unity
     guid: 09463b332413f60499d499a01ff89757
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 8a09dbd04a99cd040a925c0f2e7ec59e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Victory_Scene.unity
     guid: 7a2bc676dfb928047b90156f8af42358
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Defeat_Scene.unity
     guid: 03a8a15ec189dc541ada6732b4f26e72
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CameraScene.unity
     guid: 0613a345351c0324db371d6643063d8a
   m_configObjects: {}
