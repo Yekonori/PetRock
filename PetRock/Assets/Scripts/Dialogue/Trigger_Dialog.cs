@@ -16,44 +16,64 @@ public class Trigger_Dialog : TriggeredViewVolume
     [Header("Next Scene")]
     [SerializeField] int nextScene = -1;
 
+    [Header("Transition")]
+    [SerializeField]
+    private bool _startTransition = false;
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            dialogDisplay.SetThisDialogTex(conversation);
-            dialogDisplay.DisplayDialog();
-            dialogDisplay.NextDialog();
-
-            if (conversation.automatic)
+            if (_startTransition)
             {
-                Destroy(this.gameObject);
+                GameManager.instance.TransitionCanvas(1).OnComplete(() =>
+                {
+                    StartDialogue(other);
+                    GameManager.instance.TransitionCanvas(0).SetDelay(1);
+                });
             }
             else
             {
-                other.transform.position = posPlayer.position;
-                other.transform.rotation = posPlayer.rotation;
-                Physics.SyncTransforms();
+                StartDialogue(other);
+            }
+        }
+    }
 
-                RockScript rock = other.GetComponentInChildren<RockScript>();
-                rock.MoveTotarget(posRock);
+    void StartDialogue(Collider other)
+    {
+        dialogDisplay.SetThisDialogTex(conversation);
+        dialogDisplay.DisplayDialog();
+        dialogDisplay.NextDialog();
 
-                SetActive(true);
+        if (conversation.automatic)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            other.transform.position = posPlayer.position;
+            other.transform.rotation = posPlayer.rotation;
+            Physics.SyncTransforms();
 
-                dialogDisplay.SetEndAction(() => SetActive(false));
-                dialogDisplay.SetEndAction(() => rock.ResetPosition());
-                dialogDisplay.SetEndAction(() => Destroy(this.gameObject));
+            RockScript rock = other.GetComponentInChildren<RockScript>();
+            rock.MoveTotarget(posRock);
 
-                if (nextScene != -1)
+            SetActive(true);
+
+            dialogDisplay.SetEndAction(() => SetActive(false));
+            dialogDisplay.SetEndAction(() => rock.ResetPosition());
+            dialogDisplay.SetEndAction(() => Destroy(this.gameObject));
+
+            if (nextScene != -1)
+            {
+                dialogDisplay.SetEndAction(() =>
                 {
-                    dialogDisplay.SetEndAction(() =>
+                    GameManager.instance.TransitionCanvas(1).OnComplete(() =>
                     {
-                        GameManager.instance.TransitionCanvas(1).OnComplete(() =>
-                        {
-                            SceneManager.LoadScene(nextScene);
-                        });
+                        SceneManager.LoadScene(nextScene);
                     });
-                }
+                });
             }
         }
     }

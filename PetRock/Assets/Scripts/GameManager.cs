@@ -49,6 +49,12 @@ public class GameManager : MonoBehaviour
         }
 
         SetVignettePostProcess();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        TransitionCanvas(0).SetDelay(1);
     }
 
     public DG.Tweening.Core.TweenerCore<float, float, DG.Tweening.Plugins.Options.FloatOptions> TransitionCanvas(float goTo)
@@ -58,6 +64,11 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator startRB(GameObject go)
     {
+        if(_transitionCanvas.alpha >= 1)
+        {
+            TransitionCanvas(0);
+        }
+
         inRockBalancing = true;
         PlayerParameters.Instance.UpdateRockBalancing(inRockBalancing);
 

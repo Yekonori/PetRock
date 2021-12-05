@@ -28,15 +28,16 @@ public class PanicManager : MonoBehaviour
     [PropertyTooltip("Sets the panic gauge decrement value every x seconds")]
     public float decreaseValue = 0;
 
-    [TitleGroup("Panic effect")]
-    public float startPanicEffectValue = 0;
-    [TitleGroup("Panic effect")]
-    public float startBigPanicEffectValue = 0;
-
     [TitleGroup("Panic Time Out")]
     [PropertyTooltip("Sets the panic gauge to this value after the dialogue with the pet rock in the panic time out")]
     [SerializeField]
     private float afterDialogueValue = 0;
+
+    [TitleGroup("Vignette Parameter")]
+    [SerializeField, Range(0, 100)]
+    private float _maxValueVignette;
+
+    private bool _canPanic = false;
 
     private bool _tweenIsPlaying = false;
     
@@ -52,11 +53,12 @@ public class PanicManager : MonoBehaviour
             Destroy(gameObject);
 
         _playerParameters = PlayerParameters.Instance;
+        _canPanic = false;
     }
 
     private void Update()
     {
-        if (_playerParameters.IsOnTimeOut() || GameManager.instance.inMainMenu)
+        if (_playerParameters.IsOnTimeOut() || GameManager.instance.inMainMenu || !_canPanic)
             return;
 
         if (!_playerParameters.IsOnRockBalancing())
@@ -88,7 +90,12 @@ public class PanicManager : MonoBehaviour
                 ModifyPanicGauge(-decreaseValue, decreaseSeconds);
         }
 
-        GameManager.instance.vignettePostProcessing.intensity.value = _playerParameters.panicGauge / 100;
+        GameManager.instance.vignettePostProcessing.intensity.value = Mathf.Clamp((_playerParameters.panicGauge / 100), 0.0f, _maxValueVignette/100.0f);
+    }
+
+    public void PlayerCanPanic(bool can)
+    {
+        _canPanic = can;
     }
 
     #region Gauge

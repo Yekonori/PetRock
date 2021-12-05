@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 93.60307, g: 534.6395, b: 650.0747, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12553,6 +12553,11 @@ PrefabInstance:
         type: 3}
       propertyPath: increaseSeconds
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827978209441939660, guid: f64b3c123b1ba1d488b8225c576a52d1,
+        type: 3}
+      propertyPath: _maxValueVignette
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 2827978209441939660, guid: f64b3c123b1ba1d488b8225c576a52d1,
         type: 3}
@@ -36394,6 +36399,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4441270225682469442, guid: 59f80f4a66b157947a33e1694e19ba1e,
         type: 3}
+      propertyPath: inMainMenu
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441270225682469442, guid: 59f80f4a66b157947a33e1694e19ba1e,
+        type: 3}
       propertyPath: _transitionCanvas
       value: 
       objectReference: {fileID: 186916496}
@@ -46389,6 +46399,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1886834847}
     m_Modifications:
+    - target: {fileID: 2094382825957240026, guid: cf5398cc4e0a4e543ae8942b4626a680,
+        type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2271507451838826883, guid: cf5398cc4e0a4e543ae8942b4626a680,
         type: 3}
       propertyPath: yaw
@@ -46525,6 +46540,11 @@ PrefabInstance:
       propertyPath: dialogDisplay
       value: 
       objectReference: {fileID: 1800454778}
+    - target: {fileID: 4439541857085846021, guid: cf5398cc4e0a4e543ae8942b4626a680,
+        type: 3}
+      propertyPath: _startTransition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4439541857085846024, guid: cf5398cc4e0a4e543ae8942b4626a680,
         type: 3}
       propertyPath: m_Name
@@ -58579,16 +58599,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4729378836783760449, guid: 4b2db09a3a224aa49a533c94344590ba,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 125.6001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4729378836783760449, guid: 4b2db09a3a224aa49a533c94344590ba,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -115.55005
-      objectReference: {fileID: 0}
     - target: {fileID: 5423105386432714066, guid: 4b2db09a3a224aa49a533c94344590ba,
         type: 3}
       propertyPath: m_Pivot.x
@@ -58704,21 +58714,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1255436240}
-    - target: {fileID: 5423105386730176709, guid: 4b2db09a3a224aa49a533c94344590ba,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -125
-      objectReference: {fileID: 0}
-    - target: {fileID: 6005722805451012460, guid: 4b2db09a3a224aa49a533c94344590ba,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -125.6001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6005722805451012460, guid: 4b2db09a3a224aa49a533c94344590ba,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -115.55005
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b2db09a3a224aa49a533c94344590ba, type: 3}
 --- !u!1 &1220980795
@@ -72005,6 +72000,11 @@ PrefabInstance:
       propertyPath: dialogDisplay
       value: 
       objectReference: {fileID: 1800454778}
+    - target: {fileID: 4439541857085846021, guid: cf5398cc4e0a4e543ae8942b4626a680,
+        type: 3}
+      propertyPath: _startTransition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4439541857085846024, guid: cf5398cc4e0a4e543ae8942b4626a680,
         type: 3}
       propertyPath: m_Name
@@ -100525,6 +100525,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1886834847}
     m_Modifications:
+    - target: {fileID: 2094382825957240026, guid: cf5398cc4e0a4e543ae8942b4626a680,
+        type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2271507451838826883, guid: cf5398cc4e0a4e543ae8942b4626a680,
         type: 3}
       propertyPath: yaw
@@ -100648,6 +100653,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2081402877}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2081402879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4439541857085846024, guid: cf5398cc4e0a4e543ae8942b4626a680,
+    type: 3}
+  m_PrefabInstance: {fileID: 2081402877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2081402880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081402879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d332977dfeb3e264aa96b9ad9af58811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
 --- !u!1 &2081684347
 GameObject:
   m_ObjectHideFlags: 0

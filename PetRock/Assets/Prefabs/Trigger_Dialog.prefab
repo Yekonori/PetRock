@@ -147,6 +147,8 @@ MonoBehaviour:
   dialogDisplay: {fileID: 0}
   posPlayer: {fileID: 8010579944167513587}
   posRock: {fileID: 3316118679534153448}
+  nextScene: -1
+  _startTransition: 0
 --- !u!1 &7137129063045094931
 GameObject:
   m_ObjectHideFlags: 0
