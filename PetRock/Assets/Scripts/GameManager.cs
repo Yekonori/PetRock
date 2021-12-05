@@ -54,6 +54,9 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (_transitionCanvas == null)
+            _transitionCanvas = GameObject.FindGameObjectWithTag("TransitionCanvas").GetComponent<CanvasGroup>();
+
         TransitionCanvas(0).SetDelay(1);
     }
 
