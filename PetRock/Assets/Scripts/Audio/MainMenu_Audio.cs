@@ -6,8 +6,9 @@ using TMPro;
 
 public class MainMenu_Audio : MonoBehaviour
 {
-    [Header("First selected object")]
+    [Header("Selected object")]
     public GameObject firstSelectedObject;
+    public Selectable ObjectOnUp;
 
     [Header("Slider")]
     [SerializeField]

@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     private Volume volumePostProcessing;
     [HideInInspector]
     public Vignette vignettePostProcessing;
+    [HideInInspector]
+    public DepthOfField dofPostProcessing;
 
     [TitleGroup("Canvas")]
     [SerializeField]
@@ -48,7 +50,20 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (_transitionCanvas == null)
+            _transitionCanvas = GameObject.FindGameObjectWithTag("TransitionCanvas").GetComponent<CanvasGroup>();
+
+        volumePostProcessing = GameObject.FindGameObjectWithTag("PostProcess").GetComponent<Volume>();
+
         SetVignettePostProcess();
+        SetDofPostProcess();
+
+        TransitionCanvas(0).SetDelay(1);
     }
 
     public DG.Tweening.Core.TweenerCore<float, float, DG.Tweening.Plugins.Options.FloatOptions> TransitionCanvas(float goTo)
@@ -58,6 +73,11 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator startRB(GameObject go)
     {
+        if(_transitionCanvas.alpha >= 1)
+        {
+            TransitionCanvas(0);
+        }
+
         inRockBalancing = true;
         PlayerParameters.Instance.UpdateRockBalancing(inRockBalancing);
 
@@ -98,6 +118,16 @@ public class GameManager : MonoBehaviour
         if (volumePostProcessing.profile.TryGet(out vignetteTmp))
         {
             vignettePostProcessing = vignetteTmp;
+        }
+    }
+
+    private void SetDofPostProcess()
+    {
+        DepthOfField depthOfFieldTemp;
+
+        if(volumePostProcessing.profile.TryGet(out depthOfFieldTemp))
+        {
+            dofPostProcessing = depthOfFieldTemp;
         }
     }
 

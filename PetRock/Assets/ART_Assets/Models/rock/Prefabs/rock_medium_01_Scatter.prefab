@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5027539516486080850}
   - component: {fileID: 148227581114120822}
   - component: {fileID: 8095071055594717613}
+  - component: {fileID: 1084489329673334525}
   m_Layer: 0
   m_Name: rock_medium_01_Scatter (1)
   m_TagString: Untagged
@@ -79,6 +80,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1084489329673334525
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058988634361302088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -164631496899695656, guid: 16d7c874fe62e824c89dfa27815827df, type: 3}
 --- !u!1 &2920281889814975876
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +105,7 @@ GameObject:
   - component: {fileID: 7807807294443118051}
   - component: {fileID: 8971747530033428345}
   - component: {fileID: 2700501640483981798}
+  - component: {fileID: 3591056632802030182}
   m_Layer: 0
   m_Name: rock_medium_01_Scatter (2)
   m_TagString: Untagged
@@ -158,6 +174,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3591056632802030182
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2920281889814975876}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -164631496899695656, guid: 16d7c874fe62e824c89dfa27815827df, type: 3}
 --- !u!1 &6215080496549260880
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +199,7 @@ GameObject:
   - component: {fileID: 4554285394471144468}
   - component: {fileID: 1301685552303361120}
   - component: {fileID: 7310501270471454202}
+  - component: {fileID: 4405841030790893894}
   m_Layer: 0
   m_Name: rock_medium_01_Scatter
   m_TagString: Untagged
@@ -237,6 +268,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4405841030790893894
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6215080496549260880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -164631496899695656, guid: 16d7c874fe62e824c89dfa27815827df, type: 3}
 --- !u!1 &8396102675932264235
 GameObject:
   m_ObjectHideFlags: 0
