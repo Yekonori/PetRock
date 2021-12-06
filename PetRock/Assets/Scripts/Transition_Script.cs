@@ -10,7 +10,7 @@ public class Transition_Script : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI _textTransition;
-    [SerializeField]
+    [SerializeField, TextArea]
     private string _textSceneTransition;
 
     private void Awake()
