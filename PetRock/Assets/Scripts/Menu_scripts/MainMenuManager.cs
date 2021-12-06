@@ -117,7 +117,8 @@ public class MainMenuManager : MonoBehaviour
     private void Director_Played(PlayableDirector obj)
     {
         _inCinematic = true;
-        }
+        EventSystem.current.SetSelectedGameObject(null);
+    }
 
     private void Director_Stopped(PlayableDirector obj)
     {
@@ -128,6 +129,9 @@ public class MainMenuManager : MonoBehaviour
 
     void PlayGame()
     {
+        if (_inCinematic)
+            return;
+
         DOTween.To(() => _gameManager.dofPostProcessing.focusDistance.value, x => _gameManager.dofPostProcessing.focusDistance.value = x, 10.0f, 5.0f).OnPlay(() => 
         { 
             _menuPanels.DOFade(0, 1).OnComplete(()=> _introCinematic.Play()); 
@@ -154,23 +158,35 @@ public class MainMenuManager : MonoBehaviour
 
     void OptionsGame()
     {
+        if (_inCinematic)
+            return;
+
         PanelSwitch(_mainMenuPanel, _optionsPanel);
     }
 
     void CreditsGame()
     {
+        if (_inCinematic)
+            return;
+
         PanelSwitch(_mainMenuPanel, _creditsPanel);
         _backgroundMainMenu.DOFade(1, 1).OnComplete(() => _creditsAnim.SetBool("PlayCredits", true));
     }
 
     void BackCredits()
     {
+        if (_inCinematic)
+            return;
+
         PanelSwitch(_creditsPanel, _mainMenuPanel);
         _backgroundMainMenu.DOFade(0, 1);
     }
 
     void BackOptions()
     {
+        if (_inCinematic)
+            return;
+
         PanelSwitch(_optionsPanel, _mainMenuPanel);
     }
 
@@ -219,19 +235,22 @@ public class MainMenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (EventSystem.current.currentSelectedGameObject != null)
-            _lastButtonSelected = EventSystem.current.currentSelectedGameObject;
+        if (!_inCinematic)
+        {
+            if (EventSystem.current.currentSelectedGameObject != null)
+                _lastButtonSelected = EventSystem.current.currentSelectedGameObject;
 
-        if (EventSystem.current.currentSelectedGameObject == null)
-            EventSystem.current.SetSelectedGameObject(_lastButtonSelected);
+            if (EventSystem.current.currentSelectedGameObject == null)
+                EventSystem.current.SetSelectedGameObject(_lastButtonSelected);
 
-        PressedSelectedButton();
-        ChangeSettingsPanel();
+            PressedSelectedButton();
+            ChangeSettingsPanel();
+        }
     }
 
     void PressedSelectedButton()
     {
-        if (_gameManager.player.GetButtonDown("PressButton") && !_inCinematic)
+        if (_gameManager.player.GetButtonDown("PressButton"))
         {
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }

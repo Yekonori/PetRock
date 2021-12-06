@@ -66,8 +66,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Press \u25B2 to continue"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c022ec4213aa8aa498712f2796af83b3, type: 2}
+  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -617,8 +618,9 @@ MonoBehaviour:
   _multiplicatorSpeedZoom: 2
   _textToContinue: {fileID: 6071202888709212385}
   _loadNewScene: 0
-  nextScene: 
-  _prefabRock: {fileID: 639969987513982064, guid: 8e45ba70ab3f5204bb30bcd2487c964a,
+  _nextScene: 
+  _timerDisplayText: 0
+  _prefabRock: {fileID: 1285334027378162216, guid: 771127f40d71d134091a03a95b368fa3,
     type: 3}
   _triggeredViewVolume: {fileID: 1706345123641779284}
   _dollyView: {fileID: 9127391229882537886}

@@ -18,7 +18,7 @@ public class Button_Script : MonoBehaviour
             else
                 GetComponent<TextMeshProUGUI>().color = GetComponent<Button>().colors.selectedColor;
 
-            GetComponentInChildren<TextMeshProUGUI>().DOFade(1.0f, 0.5f);
+            GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
         }
         else
         {
@@ -27,7 +27,7 @@ public class Button_Script : MonoBehaviour
             else
                 GetComponent<TextMeshProUGUI>().color = GetComponent<Button>().colors.normalColor;
 
-            GetComponentInChildren<TextMeshProUGUI>().DOFade(0.5f, 0.5f);
+            GetComponentInChildren<TextMeshProUGUI>().color = new Color(1, 1, 1, 0.5f);
         }
     }
 }

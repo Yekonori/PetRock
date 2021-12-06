@@ -70,17 +70,6 @@ public class PlayerMovement : MonoBehaviour
 
         anim.SetFloat("Movement", dir.magnitude);
         
-        /*if (!isMoving && moveDir != Vector3.zero)
-        {
-            anim.SetBool("isMoving", true);
-            isMoving = true;
-        }
-        else if (isMoving && moveDir == Vector3.zero)
-        {
-            anim.SetBool("isMoving", false);
-            isMoving = false;
-        }*/
-        
         float g = characterController.isGrounded ? 0.1f : gravity;
         characterController.Move((moveDir + g * Vector3.down) * Time.deltaTime);
 
