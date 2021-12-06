@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Sirenix.OdinInspector;
 
 public class Trigger_Dialog : TriggeredViewVolume
 {
@@ -20,6 +21,14 @@ public class Trigger_Dialog : TriggeredViewVolume
     [Header("Transition")]
     [SerializeField]
     private bool _startTransition = false;
+    [SerializeField]
+    private bool _endTransition = false;
+
+    [Header("Animation")]
+    [SerializeField]
+    private bool _hasAnim = false;
+    [SerializeField, ShowIf("@_hasAnim == true")]
+    private string animParam;
 
 
     private void OnTriggerEnter(Collider other)
@@ -43,6 +52,9 @@ public class Trigger_Dialog : TriggeredViewVolume
 
     void StartDialogue(Collider other)
     {
+        if (_hasAnim && animParam != null)
+            PlayerParameters.Instance.anim.SetBool(animParam, true);
+
         if (view is FixedFollowView)
         {
             dialogDisplay.SetView((FixedFollowView)view, posPlayer, posRock, posMiddle);
@@ -67,7 +79,29 @@ public class Trigger_Dialog : TriggeredViewVolume
 
             SetActive(true);
 
-            dialogDisplay.SetEndAction(() => SetActive(false));
+            dialogDisplay.SetEndAction(() => 
+            {
+                if (_endTransition)
+                {
+                    GameManager.instance.TransitionCanvas(1).OnComplete(() =>
+                    {
+                        if (_hasAnim && animParam != null)
+                            PlayerParameters.Instance.anim.SetBool(animParam, false);
+
+                        GameManager.instance.TransitionCanvas(0).SetDelay(1);
+
+                        SetActive(false);
+                    });
+                }
+                else
+                {
+                    if (_hasAnim && animParam != null)
+                        PlayerParameters.Instance.anim.SetBool(animParam, false);
+
+                    SetActive(false);
+                }
+            });
+
             dialogDisplay.SetEndAction(() => rock.ResetPosition());
             dialogDisplay.SetEndAction(() => Destroy(this.gameObject));
 
@@ -77,7 +111,13 @@ public class Trigger_Dialog : TriggeredViewVolume
                 {
                     GameManager.instance.TransitionCanvas(1).OnComplete(() =>
                     {
-                        SceneManager.LoadScene(nextScene);
+                        GameManager.instance.TransitionTextDialogue(1).OnComplete(() =>
+                        {
+                            GameManager.instance.TransitionTextDialogue(0).SetDelay(5).OnComplete(() =>
+                            {
+                                SceneManager.LoadScene(nextScene);
+                            });
+                        });
                     });
                 });
             }
