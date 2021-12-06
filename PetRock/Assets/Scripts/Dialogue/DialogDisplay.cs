@@ -31,6 +31,12 @@ public class DialogDisplay : MonoBehaviour
     private IEnumerator currentRoutine = null;
     private List<Action> actionWhenDialogEnd = new List<Action>();
 
+    // Camera Movement
+    private FixedFollowView fixedFollowView;
+    private Transform playerTransform;
+    private Transform rockTransform;
+    private Transform middleTransform;
+
     private void Start()
     {
         _player = ReInput.players.GetPlayer(0);
@@ -115,11 +121,19 @@ public class DialogDisplay : MonoBehaviour
         if (speakerUILeft.SpeakerIs(character))
         {
             SetDialog(speakerUILeft, speakerUIRight, line.text);
-            
         }
         else
         {
             SetDialog(speakerUIRight, speakerUILeft, line.text);
+        }
+
+        if (line.focusCharacter)
+        {
+            FocusChar(line.character.fullName == "Me");
+        }
+        else if (fixedFollowView != null)
+        {
+            fixedFollowView.target = middleTransform;
         }
     }
 
@@ -171,5 +185,18 @@ public class DialogDisplay : MonoBehaviour
     public void SetEndAction(Action action)
     {
         actionWhenDialogEnd.Add(action);
+    }
+
+    void FocusChar(bool isPlayer)
+    {
+        fixedFollowView.target = isPlayer ? playerTransform : rockTransform;
+    }
+
+    public void SetView(FixedFollowView view, Transform player, Transform rock, Transform middle)
+    {
+        fixedFollowView = view;
+        playerTransform = player;
+        rockTransform = rock;
+        middleTransform = middle;
     }
 }

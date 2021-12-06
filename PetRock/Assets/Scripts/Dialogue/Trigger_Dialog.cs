@@ -12,6 +12,7 @@ public class Trigger_Dialog : TriggeredViewVolume
     [Header("Positions")]
     [SerializeField] Transform posPlayer;
     [SerializeField] Transform posRock;
+    [SerializeField] Transform posMiddle;
 
     [Header("Next Scene")]
     [SerializeField] int nextScene = -1;
@@ -42,6 +43,11 @@ public class Trigger_Dialog : TriggeredViewVolume
 
     void StartDialogue(Collider other)
     {
+        if (view is FixedFollowView)
+        {
+            dialogDisplay.SetView((FixedFollowView)view, posPlayer, posRock, posMiddle);
+        }
+
         dialogDisplay.SetThisDialogTex(conversation);
         dialogDisplay.DisplayDialog();
         dialogDisplay.NextDialog();
