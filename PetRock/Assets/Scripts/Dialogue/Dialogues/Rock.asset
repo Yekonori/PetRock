@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Rock
   m_EditorClassIdentifier: 
   fullName: The Rock
-  portrait: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  portrait: {fileID: 21300000, guid: 3ec2a0d4afdc68e49960ffc81540b2f5, type: 3}

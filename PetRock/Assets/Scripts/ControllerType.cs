@@ -6,21 +6,6 @@ using TMPro;
 
 public class ControllerType : MonoBehaviour
 {
-    [Header("Input settings")]
-    [SerializeField]
-    private TextMeshProUGUI settingsNextPanel;
-    [SerializeField]
-    private TextMeshProUGUI settingsPreviousPanel;
-
-    private const string LB = "LB";
-    private const string RB = "RB";
-
-    private const string L1 = "L1";
-    private const string R1 = "R1";
-
-    private const string L = "L";
-    private const string R = "R";
-
     public enum TypeController
     {
         XBox,
@@ -28,7 +13,7 @@ public class ControllerType : MonoBehaviour
         Switch
     }
 
-    [Header("Controller type")]
+    [Header("Controller type"), HideInInspector]
     public TypeController typeController;
 
     public static ControllerType Instance;
@@ -77,33 +62,15 @@ public class ControllerType : MonoBehaviour
     void SetSwtich()
     {
         typeController = TypeController.Switch;
-
-        if(MainMenuManager.instance != null)
-        {
-            settingsPreviousPanel.text = L;
-            settingsNextPanel.text = R;
-        }
     }
 
     void SetPlaystation()
     {
         typeController = TypeController.Playstation;
-
-        if (MainMenuManager.instance != null)
-        {
-            settingsPreviousPanel.text = L1;
-            settingsNextPanel.text = R1;
-        }
     }
 
     void SetXbox()
     {
         typeController = TypeController.XBox;
-
-        if (MainMenuManager.instance != null)
-        {
-            settingsPreviousPanel.text = LB;
-            settingsNextPanel.text = RB;
-        }
     }
 }

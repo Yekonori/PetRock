@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 1335737211496091878}
   m_Layer: 0
   m_Name: TransitionCanvas
-  m_TagString: Untagged
+  m_TagString: TransitionCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,7 +182,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5003897918810798627}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

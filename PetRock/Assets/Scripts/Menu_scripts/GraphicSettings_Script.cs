@@ -6,8 +6,9 @@ using TMPro;
 
 public class GraphicSettings_Script : MonoBehaviour
 {
-    [Header("First selected object")]
+    [Header("Selected object")]
     public GameObject firstSelectedObject;
+    public Selectable ObjectOnUp;
 
     [Header("Graphics settings buttons")]
     [SerializeField]

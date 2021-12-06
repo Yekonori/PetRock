@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 using TMPro;
 
 public class Button_Script : MonoBehaviour
@@ -16,6 +17,8 @@ public class Button_Script : MonoBehaviour
                 GetComponent<Image>().color = GetComponent<Button>().colors.selectedColor;
             else
                 GetComponent<TextMeshProUGUI>().color = GetComponent<Button>().colors.selectedColor;
+
+            GetComponentInChildren<TextMeshProUGUI>().DOFade(1.0f, 0.5f);
         }
         else
         {
@@ -23,6 +26,8 @@ public class Button_Script : MonoBehaviour
                 GetComponent<Image>().color = GetComponent<Button>().colors.normalColor;
             else
                 GetComponent<TextMeshProUGUI>().color = GetComponent<Button>().colors.normalColor;
+
+            GetComponentInChildren<TextMeshProUGUI>().DOFade(0.5f, 0.5f);
         }
     }
 }

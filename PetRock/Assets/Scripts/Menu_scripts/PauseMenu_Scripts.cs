@@ -24,8 +24,11 @@ public class PauseMenu_Scripts : MonoBehaviour
         _isOpen = true;
         transform.DOLocalMove(Vector3.zero, 1.5f).SetEase(Ease.OutBack).OnComplete(() =>
         {
-            Time.timeScale = 0.0f;
-            EventSystem.current.SetSelectedGameObject(_menuPauseButtons[0].gameObject);
+            DOTween.To(() => GameManager.instance.dofPostProcessing.focusDistance.value, x => GameManager.instance.dofPostProcessing.focusDistance.value = x, 0.1f, 0.5f).OnComplete(()=>
+            {
+                Time.timeScale = 0.0f;
+                EventSystem.current.SetSelectedGameObject(_menuPauseButtons[0].gameObject);
+            });
         });
         SetMenuButtons();
     }
@@ -39,6 +42,7 @@ public class PauseMenu_Scripts : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         transform.DOLocalMoveX(1500f, 1.5f).SetEase(Ease.InBack).OnComplete(() => 
         {
+            DOTween.To(() => GameManager.instance.dofPostProcessing.focusDistance.value, x => GameManager.instance.dofPostProcessing.focusDistance.value = x, 10.0f, 0.5f);
             GameManager.instance._inPause = false;
             Destroy(gameObject); 
         });
@@ -46,7 +50,12 @@ public class PauseMenu_Scripts : MonoBehaviour
 
     private void RestartLevel()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1.0f;
+        GameManager.instance.TransitionCanvas(1).OnComplete(() =>
+        {
+            GameManager.instance._inPause = false;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        });
     }
 
     private void QuitGame()
