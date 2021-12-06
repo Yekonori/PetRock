@@ -19453,6 +19453,16 @@ PrefabInstance:
       propertyPath: m_Alpha
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2508154407133965581, guid: bb247dfccde9a8841af00b36a190a652,
+        type: 3}
+      propertyPath: m_fontColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508154407133965581, guid: bb247dfccde9a8841af00b36a190a652,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
+      objectReference: {fileID: 0}
     - target: {fileID: 5003897918134467552, guid: bb247dfccde9a8841af00b36a190a652,
         type: 3}
       propertyPath: m_IsActive
@@ -19571,16 +19581,20 @@ PrefabInstance:
     - target: {fileID: 5003897918810798627, guid: bb247dfccde9a8841af00b36a190a652,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003897918810798639, guid: bb247dfccde9a8841af00b36a190a652,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179642547505720431, guid: bb247dfccde9a8841af00b36a190a652,
+        type: 3}
+      propertyPath: _textSceneTransition
+      value: Test text
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb247dfccde9a8841af00b36a190a652, type: 3}
---- !u!225 &807503509 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 1335737211496091878, guid: bb247dfccde9a8841af00b36a190a652,
-    type: 3}
-  m_PrefabInstance: {fileID: 807503507}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &807966558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4283963612509782603, guid: 44d952594889f244f99b0fcb4a1dc8d3,
@@ -32559,7 +32573,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _transitionCanvas
       value: 
-      objectReference: {fileID: 807503509}
+      objectReference: {fileID: 0}
     - target: {fileID: 4441270225682469442, guid: 59f80f4a66b157947a33e1694e19ba1e,
         type: 3}
       propertyPath: volumePostProcessing
@@ -34741,6 +34755,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439541857085846021, guid: cf5398cc4e0a4e543ae8942b4626a680,
+        type: 3}
+      propertyPath: _hasAnim
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4439541857085846021, guid: cf5398cc4e0a4e543ae8942b4626a680,
+        type: 3}
+      propertyPath: animParam
+      value: InTimeOut
       objectReference: {fileID: 0}
     - target: {fileID: 4439541857085846021, guid: cf5398cc4e0a4e543ae8942b4626a680,
         type: 3}
