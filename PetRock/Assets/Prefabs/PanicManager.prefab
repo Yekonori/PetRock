@@ -49,6 +49,5 @@ MonoBehaviour:
   beforeRbIncreaseValue: 1.5
   decreaseSeconds: 10
   decreaseValue: 5
-  startPanicEffectValue: 0
-  startBigPanicEffectValue: 0
   afterDialogueValue: 0
+  _maxValueVignette: 70

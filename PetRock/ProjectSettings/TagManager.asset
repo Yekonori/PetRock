@@ -10,6 +10,8 @@ TagManager:
   - SafeZone
   - Sculpture
   - TimeOutCamera
+  - TransitionCanvas
+  - PostProcess
   layers:
   - Default
   - TransparentFX
