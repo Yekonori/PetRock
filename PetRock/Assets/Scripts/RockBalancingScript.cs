@@ -95,7 +95,7 @@ public class RockBalancingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_canRockBalance)
+        if (!_canRockBalance || GameManager.instance._inPause)
             return;
 
         if (!_endRockBalancing)
