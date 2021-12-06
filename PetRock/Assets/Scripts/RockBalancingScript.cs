@@ -42,6 +42,8 @@ public class RockBalancingScript : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _textToContinue;
     [SerializeField]
+    private TextMeshProUGUI _textToValidateRb;
+    [SerializeField]
     private bool _loadNewScene = false;
     [ShowIf("@_loadNewScene == true"), SerializeField]
     private string _nextScene;
@@ -85,6 +87,9 @@ public class RockBalancingScript : MonoBehaviour
                 _textToContinue.text = "Press ▲ to continue";
             else
                 _textToContinue.text = "Press Y to continue";
+
+
+            _textToValidateRb.text = "Press any trigger to continue";
         }
 
         FirstRockBalancing();
@@ -115,6 +120,7 @@ public class RockBalancingScript : MonoBehaviour
         
             if(ValidateRot() && ValidatePos())
             {
+                _textToValidateRb.DOFade(1, 1);
                 if (player.GetButton("ValidatePetRockPos"))
                 {
                     if (_fixedView.fov >= _endZoomCamera)
@@ -122,7 +128,10 @@ public class RockBalancingScript : MonoBehaviour
                     else
                     {
                         DOTween.To(() => _fixedView.fov, x => _fixedView.fov = x, 75, 0.5f).SetDelay(1).OnComplete(() =>
-                        _endRockBalancing = true);
+                        {
+                            _endRockBalancing = true;
+                            _textToValidateRb.DOFade(0, 1);
+                        });
                     }
                 }
                 else if (player.GetButtonUp("ValidatePetRockPos"))
@@ -130,6 +139,8 @@ public class RockBalancingScript : MonoBehaviour
                     DOTween.To(() => _fixedView.fov, x => _fixedView.fov = x, 75, 1.5f);
                 }
             }
+            else
+                _textToValidateRb.DOFade(0, 1);
         }
 
         if (_endRockBalancing)
