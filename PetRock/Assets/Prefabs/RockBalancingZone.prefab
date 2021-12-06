@@ -620,7 +620,7 @@ MonoBehaviour:
   _loadNewScene: 0
   _nextScene: 
   _timerDisplayText: 0
-  _prefabRock: {fileID: 639969987513982064, guid: 8e45ba70ab3f5204bb30bcd2487c964a,
+  _prefabRock: {fileID: 1285334027378162216, guid: 771127f40d71d134091a03a95b368fa3,
     type: 3}
   _triggeredViewVolume: {fileID: 1706345123641779284}
   _dollyView: {fileID: 9127391229882537886}
