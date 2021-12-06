@@ -212,7 +212,13 @@ public class RockBalancingScript : MonoBehaviour
 
             GameManager.instance.TransitionCanvas(1).OnComplete(() =>
             {
-                SceneManager.LoadScene(_nextScene);
+                GameManager.instance.TransitionTextDialogue(1).OnComplete(() =>
+                {
+                    GameManager.instance.TransitionTextDialogue(0).SetDelay(5).OnComplete(() =>
+                    {
+                        SceneManager.LoadScene(_nextScene);
+                    });
+                });
             });
         }
         else
