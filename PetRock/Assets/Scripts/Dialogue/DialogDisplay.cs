@@ -193,6 +193,11 @@ public class DialogDisplay : MonoBehaviour
         {            
             active.dialog.text += character;
 
+            if (active.dialog.text == text)
+            {
+                needToCompleteDialogue = false;
+            }
+
             yield return new WaitForSeconds(textSpeedRatio);
         }
     }
