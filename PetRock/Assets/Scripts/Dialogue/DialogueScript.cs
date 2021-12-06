@@ -11,6 +11,7 @@ public struct Line
 
     [TextArea(2, 5)]
     public string text;
+    public bool focusCharacter;
 }
 
 [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue")]
@@ -20,5 +21,4 @@ public class DialogueScript : ScriptableObject
     public Characters rightCharacter;
     public Line[] lines;
     public bool automatic;
-    
 }
