@@ -47,10 +47,11 @@ public class PlayerParameters : MonoBehaviour
         if (playerStates == PlayerStates.GiantZone)
         {
             stateTimer += Time.deltaTime;
+            anim.SetBool("isStressed", true);
             if (stateTimer > timeFromGiantToStressed)
             {
                 UpdatePlayerState(PlayerStates.Stressed);
-                anim.SetBool("isStressed", true);
+                anim.SetBool("isStressed", false);
             }
         }
         else if (playerStates == PlayerStates.Stressed)
@@ -59,7 +60,6 @@ public class PlayerParameters : MonoBehaviour
             if (stateTimer > timeFromStressedToRegular)
             {
                 UpdatePlayerState(PlayerStates.Regular);
-                anim.SetBool("isStressed", false);
             }
         }
         if(playerStates != PlayerStates.TimeOut)
