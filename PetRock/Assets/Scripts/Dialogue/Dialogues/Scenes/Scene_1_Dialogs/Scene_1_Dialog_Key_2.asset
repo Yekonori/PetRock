@@ -17,7 +17,7 @@ MonoBehaviour:
   lines:
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: No...! It can't be real! How could that happen to me?!
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "There's no way I'll find anyone to help me out there\u2026Oh no, no, no!"
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "This is so bad\u2026it\u2019s awful\u2026I'm dead, I'm toast, I'm done
