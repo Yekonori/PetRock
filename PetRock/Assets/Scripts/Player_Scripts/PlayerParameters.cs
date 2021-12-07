@@ -21,6 +21,8 @@ public class PlayerParameters : MonoBehaviour
     [HideInInspector]
     public Animator anim;
 
+    AudioSource audioSource;
+
     public enum PlayerStates
     {
         Regular,
@@ -36,6 +38,7 @@ public class PlayerParameters : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         if (Instance == null)
             Instance = this;
         else
@@ -141,4 +144,9 @@ public class PlayerParameters : MonoBehaviour
     }
 
     #endregion Bool
+
+    void PlayFootStep()
+    {
+        audioSource.PlayOneShot(audioSource.clip);
+    }
 }
