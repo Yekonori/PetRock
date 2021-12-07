@@ -85,7 +85,7 @@ public class Trigger_Dialog : TriggeredViewVolume
                 {
                     GameManager.instance.TransitionCanvas(1).OnComplete(() =>
                     {
-                        if (_hasAnim && animParam != null && nextScene == -1)
+                        if (_hasAnim && animParam != null)
                             PlayerParameters.Instance.anim.SetBool(animParam, false);
 
                         GameManager.instance.TransitionCanvas(0).SetDelay(1);
@@ -95,7 +95,7 @@ public class Trigger_Dialog : TriggeredViewVolume
                 }
                 else
                 {
-                    if (_hasAnim && animParam != null)
+                    if (_hasAnim && animParam != null && nextScene == -1)
                         PlayerParameters.Instance.anim.SetBool(animParam, false);
 
                     SetActive(false);
