@@ -6,6 +6,13 @@ using TMPro;
 
 public class Tutorial_Script : MonoBehaviour
 {
+    [Header("Sounds tuto")]
+    [SerializeField]
+    private AudioClip _openTuto;
+    [SerializeField]
+    private AudioClip _closeTuto;
+
+    [Header("Text tuto")]
     [SerializeField]
     private TextMeshProUGUI _leftText;
     [SerializeField]
@@ -24,6 +31,7 @@ public class Tutorial_Script : MonoBehaviour
 
     private void OnEnable()
     {
+        GetComponent<AudioSource>().PlayOneShot(_openTuto);
         GetComponent<CanvasGroup>().DOFade(1, 1);
         _canTuto = true;
     }
@@ -54,6 +62,7 @@ public class Tutorial_Script : MonoBehaviour
             _moveLeft = false;
             _moveRight = false;
 
+            GetComponent<AudioSource>().PlayOneShot(_closeTuto);
             GetComponent<CanvasGroup>().DOFade(0, 1).OnComplete(() => gameObject.SetActive(false));
         }
     }

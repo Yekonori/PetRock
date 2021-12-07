@@ -8,26 +8,50 @@ using TMPro;
 
 public class Button_Script : MonoBehaviour
 {
+    private bool _isAlreadySelected = false;
+    private AudioSource _audioSource;
+
+    [SerializeField]
+    private AudioClip _selectedClip;
+
+    private Selectable selectable;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        selectable = GetComponent<Selectable>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (EventSystem.current.currentSelectedGameObject == gameObject)
         {
-            if (GetComponent<Image>() != null)
-                GetComponent<Image>().color = GetComponent<Button>().colors.selectedColor;
-            else
-                GetComponent<TextMeshProUGUI>().color = GetComponent<Button>().colors.selectedColor;
+            if (!_isAlreadySelected)
+            {
+                _isAlreadySelected = true;
 
-            GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+                selectable.targetGraphic.color = selectable.colors.selectedColor;
+
+                if(GetComponentInChildren<TextMeshProUGUI>() != null)
+                    GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+
+                _audioSource.PlayOneShot(_selectedClip);
+            }
         }
         else
         {
-            if (GetComponent<Image>() != null)
-                GetComponent<Image>().color = GetComponent<Button>().colors.normalColor;
-            else
-                GetComponent<TextMeshProUGUI>().color = GetComponent<Button>().colors.normalColor;
+            _isAlreadySelected = false;
 
-            GetComponentInChildren<TextMeshProUGUI>().color = new Color(1, 1, 1, 0.5f);
+            selectable.targetGraphic.color = selectable.colors.normalColor;
+
+            if (GetComponentInChildren<TextMeshProUGUI>() != null)
+                GetComponentInChildren<TextMeshProUGUI>().color = new Color(1, 1, 1, 0.5f);
         }
+    }
+
+    public AudioSource GetAudioSource()
+    {
+        return _audioSource;
     }
 }

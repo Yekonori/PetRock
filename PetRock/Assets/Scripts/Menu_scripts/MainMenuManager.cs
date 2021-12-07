@@ -76,6 +76,14 @@ public class MainMenuManager : MonoBehaviour
     private PlayableDirector _introCinematic;
     private bool _inCinematic = false;
 
+    [Header("Sounds")]
+    [SerializeField]
+    private AudioClip _launchClip;
+    [SerializeField]
+    private AudioClip _changeSettingsClip;
+    [SerializeField]
+    private AudioSource _ambiantSound;
+
     GameManager _gameManager;
 
     public static MainMenuManager instance;
@@ -127,10 +135,14 @@ public class MainMenuManager : MonoBehaviour
 
     #region Buttons function
 
-    void PlayGame()
+    void PlayGame(Button_Script button)
     {
         if (_inCinematic)
             return;
+
+        button.GetAudioSource().PlayOneShot(_launchClip);
+
+        _ambiantSound.PlayDelayed(1);
 
         DOTween.To(() => _gameManager.dofPostProcessing.focusDistance.value, x => _gameManager.dofPostProcessing.focusDistance.value = x, 10.0f, 5.0f).OnPlay(() => 
         { 
@@ -156,42 +168,43 @@ public class MainMenuManager : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OptionsGame()
+    void OptionsGame(Button_Script button)
     {
         if (_inCinematic)
             return;
 
-        PanelSwitch(_mainMenuPanel, _optionsPanel);
+        PanelSwitch(_mainMenuPanel, _optionsPanel, button);
     }
 
-    void CreditsGame()
+    void CreditsGame(Button_Script button)
     {
         if (_inCinematic)
             return;
 
-        PanelSwitch(_mainMenuPanel, _creditsPanel);
+        PanelSwitch(_mainMenuPanel, _creditsPanel, button);
         _backgroundMainMenu.DOFade(1, 1).OnComplete(() => _creditsAnim.SetBool("PlayCredits", true));
     }
 
-    void BackCredits()
+    void BackCredits(Button_Script button)
     {
         if (_inCinematic)
             return;
 
-        PanelSwitch(_creditsPanel, _mainMenuPanel);
+        PanelSwitch(_creditsPanel, _mainMenuPanel, button);
         _backgroundMainMenu.DOFade(0, 1);
     }
 
-    void BackOptions()
+    void BackOptions(Button_Script button)
     {
         if (_inCinematic)
             return;
 
-        PanelSwitch(_optionsPanel, _mainMenuPanel);
+        PanelSwitch(_optionsPanel, _mainMenuPanel, button);
     }
 
-    void PanelSwitch(CanvasGroup firstPanel, CanvasGroup secondPanel)
+    void PanelSwitch(CanvasGroup firstPanel, CanvasGroup secondPanel, Button_Script button)
     {
+        button.GetAudioSource().Play();
         firstPanel.DOFade(0.0f, 1.0f).OnComplete(() =>
         {
             firstPanel.gameObject.SetActive(false);
@@ -218,9 +231,9 @@ public class MainMenuManager : MonoBehaviour
         foreach (Button button in _menuButtons)
             button.onClick.RemoveAllListeners();
 
-        _menuButtons[0].onClick.AddListener(PlayGame); //Play button
-        _menuButtons[1].onClick.AddListener(OptionsGame); //Options button
-        _menuButtons[2].onClick.AddListener(CreditsGame); //Credits button
+        _menuButtons[0].onClick.AddListener(() => PlayGame(_menuButtons[0].gameObject.GetComponent<Button_Script>())); //Play button
+        _menuButtons[1].onClick.AddListener(() => OptionsGame(_menuButtons[1].gameObject.GetComponent<Button_Script>())); //Options button
+        _menuButtons[2].onClick.AddListener(() => CreditsGame(_menuButtons[2].gameObject.GetComponent<Button_Script>())); //Credits button
         _menuButtons[3].onClick.AddListener(QuitGame); //Quit button
     }
 
@@ -229,8 +242,8 @@ public class MainMenuManager : MonoBehaviour
         foreach(Button button in _backMenuButtons)
             button.onClick.RemoveAllListeners();
 
-        _backMenuButtons[0].onClick.AddListener(BackOptions); //Options back Button
-        _backMenuButtons[1].onClick.AddListener(BackCredits); //Credits back button
+        _backMenuButtons[0].onClick.AddListener(() => BackOptions(_backMenuButtons[0].gameObject.GetComponent<Button_Script>())); //Options back Button
+        _backMenuButtons[1].onClick.AddListener(() => BackCredits(_backMenuButtons[1].gameObject.GetComponent<Button_Script>())); //Credits back button
     }
 
     private void Update()
@@ -283,6 +296,8 @@ public class MainMenuManager : MonoBehaviour
     {
         if(_optionsPanel.gameObject.activeSelf && (_gameManager.player.GetButtonDown("PreviousSettingsPanel") || _gameManager.player.GetButtonDown("NextSettingsPanel")))
         {
+            GetComponent<AudioSource>().PlayOneShot(_changeSettingsClip);
+
             _settingsPanels[_indexSettingsPanel].SetActive(false);
 
             if (_gameManager.player.GetButtonDown("PreviousSettingsPanel"))

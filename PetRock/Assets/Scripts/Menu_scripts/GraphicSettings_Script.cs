@@ -33,6 +33,10 @@ public class GraphicSettings_Script : MonoBehaviour
     private TextMeshProUGUI _qualityFxTextValue;
     private int _indexEffets;
 
+    [Header("Sounds")]
+    [SerializeField]
+    private AudioClip _pressedButtonSound;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -66,6 +70,14 @@ public class GraphicSettings_Script : MonoBehaviour
         _graphicSettingsButtons[0].onClick.AddListener(ChangeResolution); //Resolution button
         _graphicSettingsButtons[1].onClick.AddListener(ChangeWindowMode); //Windows mode button
         _graphicSettingsButtons[2].onClick.AddListener(ChangeQualityFx); //Quality levels button
+
+        foreach (Button button in _graphicSettingsButtons)
+            button.onClick.AddListener(() => PlayPressedButton(button.gameObject.GetComponent<Button_Script>()));
+    }
+
+    void PlayPressedButton(Button_Script button_Script)
+    {
+        button_Script.GetAudioSource().PlayOneShot(_pressedButtonSound);
     }
 
     void ChangeResolution()

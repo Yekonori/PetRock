@@ -111,7 +111,7 @@ public class Trigger_Dialog : TriggeredViewVolume
                 {
                     GameManager.instance.TransitionCanvas(1).OnComplete(() =>
                     {
-                        GameManager.instance.TransitionTextDialogue(1).OnComplete(() =>
+                        GameManager.instance.TransitionTextDialogue(1).OnPlay(() => DOTween.To(() => AudioListener.volume, x => AudioListener.volume = x, 0, 2)).OnComplete(() =>
                         {
                             GameManager.instance.TransitionTextDialogue(0).SetDelay(5).OnComplete(() =>
                             {
