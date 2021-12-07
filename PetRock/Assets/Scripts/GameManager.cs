@@ -64,6 +64,14 @@ public class GameManager : MonoBehaviour
         SetVignettePostProcess();
         SetDofPostProcess();
 
+        if(player != null)
+        {
+            player.SetVibration(0, 0);
+            player.StopVibration();
+        }
+
+        inRockBalancing = false;
+
         TransitionCanvas(0).SetDelay(1);
     }
 
@@ -79,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator startRB(GameObject go)
     {
-        if(_transitionCanvas.transitionCanvas.alpha >= 1)
+        if(_transitionCanvas.isOnTransition)
         {
             TransitionCanvas(0);
         }
@@ -92,6 +100,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitWhile(() => go.GetComponent<RockBalancing_Dialogue>().CheckEndDialogue());
         TransitionCanvas(1).OnComplete(() =>
         {
+            PlayerParameters.Instance.gameObject.GetComponent<Player_PetRock>().petRock.SetActive(false);
+
             PlayerParameters.Instance.gameObject.transform.parent = go.GetComponent<RockBalancingScript>().transform;
 
             PlayerParameters.Instance.gameObject.transform.localPosition = go.GetComponent<RockBalancingScript>().startPlayerPos.localPosition;
@@ -109,6 +119,10 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         _inPause = true;
+
+        player.SetVibration(0, 0);
+        player.StopVibration();
+
         GameObject pMenu = Instantiate(_pauseMenu, GameObject.FindGameObjectWithTag("Canvas").transform);
         pMenu.transform.localPosition = new Vector3(1500, 0, 0);
     }
