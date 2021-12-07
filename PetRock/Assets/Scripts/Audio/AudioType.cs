@@ -30,6 +30,8 @@ public class AudioType : MonoBehaviour
         {
             AudioManager.instance._musicAudios.Add(this);
         }
+
+        ChangeVolume((audioType == enumAudioType.SFX ? PlayerPrefs.GetFloat("SfxVolume", 100.0f) : PlayerPrefs.GetFloat("MusicVolume", 100.0f)) / 100.0f);
     }
 
     public void ChangeVolume(float value)
