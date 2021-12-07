@@ -33,6 +33,8 @@ public class FieldOfView : MonoBehaviour
     private Coroutine flickerRoutine;
     private EyeMovement eyeMovement;
 
+    private Vector3 posOnGround;
+
     private void Start()
     {
         eyeMovement = GetComponent<EyeMovement>();
@@ -45,6 +47,9 @@ public class FieldOfView : MonoBehaviour
 
         viewMesh = new Mesh();
         viewMeshFilter.mesh = viewMesh;
+
+        posOnGround = new Vector3(transform.position.x, GetHeight(transform.position), transform.position.z);
+
         StartCoroutine(FindVisibleTargetsWithDelay(0.2f)); // J'aime pas le invoke Repeating
     }
 
@@ -55,6 +60,11 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
+        if (eyeMovement.EyeCanMove())
+        {
+            posOnGround = new Vector3(transform.position.x, GetHeight(transform.position) + 0.5f, transform.position.z);
+        }
+
         if (playerSpotted || _playerParameters.IsOnTimeOut()) return;
 
         if (resumingtoNormal)
@@ -194,7 +204,7 @@ public class FieldOfView : MonoBehaviour
                 }
             }
 
-            int vertexCount = 1 + stepCount * (decoupage + 1);
+            int vertexCount = 1 + viewPoints.Count * (decoupage + 1);
             //int trianglesCount = (stepCount - 1) * (2 * decoupage + 1);
             Vector3[] vertices = new Vector3[vertexCount];
             //int[] triangles = new int[(trianglesCount) * 3];
@@ -203,7 +213,7 @@ public class FieldOfView : MonoBehaviour
             Vector3 posGround = new Vector3(transform.position.x, GetHeight(transform.position), transform.position.z);
             vertices[0] = transform.InverseTransformPoint(posGround);
 
-            for (int i = 0; i < stepCount; ++i)
+            for (int i = 0; i < viewPoints.Count; ++i)
             {
                 allPoints[0][i] = new Vector3(viewPoints[i].x, GetHeight(viewPoints[i]), viewPoints[i].z);
 
@@ -211,7 +221,7 @@ public class FieldOfView : MonoBehaviour
                 {
                     vertices[1 + j * stepCount + i] = transform.InverseTransformPoint(allPoints[j][i]);
 
-                    if (i < stepCount - 1)
+                    if (i < viewPoints.Count - 1)
                     {
                         if (j == decoupage)
                         {
@@ -245,7 +255,7 @@ public class FieldOfView : MonoBehaviour
         Vector3 dir = DirFromAngle(globalAngle, true);
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, dir, out hit, eyeVision.range, obstableLayerMask))
+        if (Physics.Raycast(posOnGround, dir, out hit, eyeVision.range, obstableLayerMask))
             return new ViewCastInfo(true, hit.point, hit.distance, globalAngle);
         else return new ViewCastInfo(false, transform.position + dir * eyeVision.range, eyeVision.range, globalAngle);
     }
