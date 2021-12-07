@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1150206693087794624}
   - component: {fileID: 1150206693087794628}
   - component: {fileID: 1150206693087794631}
+  - component: {fileID: 3775677940850181273}
   m_Layer: 0
   m_Name: GiantEye
   m_TagString: Untagged
@@ -187,6 +188,7 @@ MonoBehaviour:
     timeToClose: 1
     timeToStayClosed: 3
     timeToOpen: 1
+  delayResumeNormalMovement: 2
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -197,6 +199,7 @@ MonoBehaviour:
   edgeResolveIteration: 4
   edgeDistanceThreshold: 0.5
   viewMeshFilter: {fileID: 1150206693368598136}
+  decoupage: 0
 --- !u!114 &1150206693087794631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,6 +255,22 @@ MonoBehaviour:
     maxAngle: 120
     timeToRotate: 5
   player: {fileID: 0}
+  rotateTowardsPlayerSpeed: 90
+--- !u!114 &3775677940850181273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150206693087794625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f940dd15187eba143868e1a1b35df574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxYmovement: 0.1
+  yMovementTime: 3
+  yOffset: 0
 --- !u!1 &1150206693368598137
 GameObject:
   m_ObjectHideFlags: 0
