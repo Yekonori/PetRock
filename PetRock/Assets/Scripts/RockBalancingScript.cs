@@ -89,7 +89,7 @@ public class RockBalancingScript : MonoBehaviour
                 _textToContinue.text = "Press Y to continue";
 
 
-            _textToValidateRb.text = "Press any trigger to continue";
+            _textToValidateRb.text = "Stay press on any trigger to validate";
         }
 
         FirstRockBalancing();
@@ -204,7 +204,7 @@ public class RockBalancingScript : MonoBehaviour
 
     private IEnumerator finishRockBalancing()
     {
-        _theRock.GetComponent<Rigidbody>().isKinematic = false;
+        _theRock.GetComponentInChildren<Rigidbody>().isKinematic = false;
 
         yield return new WaitForSeconds(1);
 
