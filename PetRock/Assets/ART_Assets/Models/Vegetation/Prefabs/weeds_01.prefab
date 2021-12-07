@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5071202162654233684}
   - component: {fileID: 8200875610436652017}
   - component: {fileID: 6209245228049448763}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: weeds_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

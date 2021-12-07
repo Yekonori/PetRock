@@ -21,6 +21,8 @@ public class PlayerParameters : MonoBehaviour
     [HideInInspector]
     public Animator anim;
 
+    AudioSource audioSource;
+
     public enum PlayerStates
     {
         Regular,
@@ -36,6 +38,7 @@ public class PlayerParameters : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         if (Instance == null)
             Instance = this;
         else
@@ -47,10 +50,11 @@ public class PlayerParameters : MonoBehaviour
         if (playerStates == PlayerStates.GiantZone)
         {
             stateTimer += Time.deltaTime;
+            anim.SetBool("isStressed", true);
             if (stateTimer > timeFromGiantToStressed)
             {
                 UpdatePlayerState(PlayerStates.Stressed);
-                anim.SetBool("isStressed", true);
+                anim.SetBool("isStressed", false);
             }
         }
         else if (playerStates == PlayerStates.Stressed)
@@ -59,7 +63,6 @@ public class PlayerParameters : MonoBehaviour
             if (stateTimer > timeFromStressedToRegular)
             {
                 UpdatePlayerState(PlayerStates.Regular);
-                anim.SetBool("isStressed", false);
             }
         }
         if(playerStates != PlayerStates.TimeOut)
@@ -141,4 +144,9 @@ public class PlayerParameters : MonoBehaviour
     }
 
     #endregion Bool
+
+    void PlayFootStep()
+    {
+        audioSource.PlayOneShot(audioSource.clip);
+    }
 }

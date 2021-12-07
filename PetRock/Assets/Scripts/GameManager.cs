@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 using Rewired;
 using DG.Tweening;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     [TitleGroup("Canvas")]
     [SerializeField]
-    private CanvasGroup _transitionCanvas;
+    private Transition_Script _transitionCanvas;
 
     [HideInInspector]
     public Player player;
@@ -56,24 +57,37 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (_transitionCanvas == null)
-            _transitionCanvas = GameObject.FindGameObjectWithTag("TransitionCanvas").GetComponent<CanvasGroup>();
+            _transitionCanvas = GameObject.FindGameObjectWithTag("TransitionCanvas").GetComponent<Transition_Script>();
 
         volumePostProcessing = GameObject.FindGameObjectWithTag("PostProcess").GetComponent<Volume>();
 
         SetVignettePostProcess();
         SetDofPostProcess();
 
+        if(player != null)
+        {
+            player.SetVibration(0, 0);
+            player.StopVibration();
+        }
+
+        inRockBalancing = false;
+
         TransitionCanvas(0).SetDelay(1);
     }
 
     public DG.Tweening.Core.TweenerCore<float, float, DG.Tweening.Plugins.Options.FloatOptions> TransitionCanvas(float goTo)
     {
-        return _transitionCanvas.DOFade(goTo, 2f);
+        return _transitionCanvas.transitionCanvas.DOFade(goTo, 2f);
+    }
+    
+    public DG.Tweening.Core.TweenerCore<UnityEngine.Color, UnityEngine.Color, DG.Tweening.Plugins.Options.ColorOptions> TransitionTextDialogue(float goTo)
+    {
+        return _transitionCanvas.gameObject.GetComponentInChildren<TextMeshProUGUI>().DOFade(goTo, 2f);
     }
 
     public IEnumerator startRB(GameObject go)
     {
-        if(_transitionCanvas.alpha >= 1)
+        if(_transitionCanvas.isOnTransition)
         {
             TransitionCanvas(0);
         }
@@ -86,6 +100,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitWhile(() => go.GetComponent<RockBalancing_Dialogue>().CheckEndDialogue());
         TransitionCanvas(1).OnComplete(() =>
         {
+            PlayerParameters.Instance.gameObject.GetComponent<Player_PetRock>().petRock.SetActive(false);
+
             PlayerParameters.Instance.gameObject.transform.parent = go.GetComponent<RockBalancingScript>().transform;
 
             PlayerParameters.Instance.gameObject.transform.localPosition = go.GetComponent<RockBalancingScript>().startPlayerPos.localPosition;
@@ -103,6 +119,10 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         _inPause = true;
+
+        player.SetVibration(0, 0);
+        player.StopVibration();
+
         GameObject pMenu = Instantiate(_pauseMenu, GameObject.FindGameObjectWithTag("Canvas").transform);
         pMenu.transform.localPosition = new Vector3(1500, 0, 0);
     }

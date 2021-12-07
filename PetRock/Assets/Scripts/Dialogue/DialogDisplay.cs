@@ -31,6 +31,16 @@ public class DialogDisplay : MonoBehaviour
     private IEnumerator currentRoutine = null;
     private List<Action> actionWhenDialogEnd = new List<Action>();
 
+    private bool needToCompleteDialogue = false;
+    private DialogueUI currentSpeakerUI;
+    private string currentTextSpeaking;
+
+    // Camera Movement
+    private FixedFollowView fixedFollowView;
+    private Transform playerTransform;
+    private Transform rockTransform;
+    private Transform middleTransform;
+
     private void Start()
     {
         _player = ReInput.players.GetPlayer(0);
@@ -75,8 +85,19 @@ public class DialogDisplay : MonoBehaviour
         }
         else if (_player.GetButtonDown("ProgressDialogue") && !conversation.automatic && canNextDialogue)
         {
-            canNextDialogue = false;
-            NextDialog();
+            if (needToCompleteDialogue)
+            {
+                if (currentRoutine != null)
+                {
+                    StopCoroutine(currentRoutine);
+                    EndSpeaking();
+                }
+            }
+            else
+            {
+                canNextDialogue = false;
+                NextDialog();
+            }
         }
     }
 
@@ -115,11 +136,19 @@ public class DialogDisplay : MonoBehaviour
         if (speakerUILeft.SpeakerIs(character))
         {
             SetDialog(speakerUILeft, speakerUIRight, line.text);
-            
         }
         else
         {
             SetDialog(speakerUIRight, speakerUILeft, line.text);
+        }
+
+        if (line.focusCharacter)
+        {
+            FocusChar(line.character.fullName == "Me");
+        }
+        else if (fixedFollowView != null)
+        {
+            fixedFollowView.target = middleTransform;
         }
     }
 
@@ -128,11 +157,10 @@ public class DialogDisplay : MonoBehaviour
         activeSpeakerUI.Show();
         inactiveSpeakerUI.Hide();
 
-        if (currentRoutine != null)
-        {
-            StopCoroutine(currentRoutine);
-        }
+        currentSpeakerUI = activeSpeakerUI;
+        currentTextSpeaking = text;
 
+        needToCompleteDialogue = false;
         currentRoutine = StartSpeaking(activeSpeakerUI, text);
 
         StartCoroutine(currentRoutine);
@@ -154,6 +182,7 @@ public class DialogDisplay : MonoBehaviour
     {
         active.dialog.text = "";
         canNextDialogue = true;
+        needToCompleteDialogue = true;
 
         int textLength = text.Length;
         float textSpeedRatio = textDuration / textLength;
@@ -164,6 +193,11 @@ public class DialogDisplay : MonoBehaviour
         {            
             active.dialog.text += character;
 
+            if (active.dialog.text == text)
+            {
+                needToCompleteDialogue = false;
+            }
+
             yield return new WaitForSeconds(textSpeedRatio);
         }
     }
@@ -171,5 +205,24 @@ public class DialogDisplay : MonoBehaviour
     public void SetEndAction(Action action)
     {
         actionWhenDialogEnd.Add(action);
+    }
+
+    private void EndSpeaking()
+    {
+        currentSpeakerUI.dialog.text = currentTextSpeaking;
+        needToCompleteDialogue = false;
+    }
+
+    void FocusChar(bool isPlayer)
+    {
+        fixedFollowView.target = isPlayer ? playerTransform : rockTransform;
+    }
+
+    public void SetView(FixedFollowView view, Transform player, Transform rock, Transform middle)
+    {
+        fixedFollowView = view;
+        playerTransform = player;
+        rockTransform = rock;
+        middleTransform = middle;
     }
 }

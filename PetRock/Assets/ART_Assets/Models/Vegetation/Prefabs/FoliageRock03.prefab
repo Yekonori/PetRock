@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3915166285323600815}
   - component: {fileID: 142617015423831050}
   - component: {fileID: 2746731927323244736}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FoliageRock03
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5712431615345925660}
   - component: {fileID: 4799577067661582277}
   - component: {fileID: 1493784011972351825}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FoliageRock01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 3266554329041132338}
   - component: {fileID: 1944141409326847127}
   - component: {fileID: 4403971806547746909}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FoliageRock01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

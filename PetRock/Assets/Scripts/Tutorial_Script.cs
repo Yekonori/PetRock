@@ -14,7 +14,7 @@ public class Tutorial_Script : MonoBehaviour
     private const string _leftFirstMovementPlayerText = "Player movement";
     private const string _rightFirstMovementPlayerText = "Camera movement";
 
-    private const string _leftFirstRockBalancingText = "Rock transalation";
+    private const string _leftFirstRockBalancingText = "Rock translation";
     private const string _rightFirstRockBalancingText = "Rock rotation";
 
     bool _canTuto = false;

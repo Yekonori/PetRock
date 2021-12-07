@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 148227581114120822}
   - component: {fileID: 8095071055594717613}
   - component: {fileID: 1084489329673334525}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock_medium_01_Scatter (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 8971747530033428345}
   - component: {fileID: 2700501640483981798}
   - component: {fileID: 3591056632802030182}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock_medium_01_Scatter (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 1301685552303361120}
   - component: {fileID: 7310501270471454202}
   - component: {fileID: 4405841030790893894}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock_medium_01_Scatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9209617466938256785}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock_medium_01_Scatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

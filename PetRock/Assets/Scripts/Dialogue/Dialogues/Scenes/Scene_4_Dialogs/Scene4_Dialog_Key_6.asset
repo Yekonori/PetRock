@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfda5e4a1e9ab58429616bafaa2845cf, type: 3}
+  m_Name: Scene4_Dialog_Key_6
+  m_EditorClassIdentifier: 
+  leftCharacter: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+  rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: You did well in going so far. Congratulations are in order.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: Thank you... We're going to go up the mountain right?
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Yes. Besides being a vantage point, I can feel a Dowsing Stone up there,
+      it will surely help us in finding a lake.
+  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: Right...Let's just hope it can find one for us...Let's go.
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
+    text: Yes, let us go.
+  automatic: 0
