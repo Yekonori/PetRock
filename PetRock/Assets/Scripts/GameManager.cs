@@ -64,8 +64,13 @@ public class GameManager : MonoBehaviour
         SetVignettePostProcess();
         SetDofPostProcess();
 
-        player.SetVibration(0, 0);
-        player.StopVibration();
+        if(player != null)
+        {
+            player.SetVibration(0, 0);
+            player.StopVibration();
+        }
+
+        inRockBalancing = false;
 
         TransitionCanvas(0).SetDelay(1);
     }
