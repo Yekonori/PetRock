@@ -94,4 +94,9 @@ public class EyeMovement : MonoBehaviour
             rot = transform.rotation;
         }
     }
+
+    public bool EyeCanMove()
+    {
+        return param.movementType == MovementType.Moving;
+    }
 }

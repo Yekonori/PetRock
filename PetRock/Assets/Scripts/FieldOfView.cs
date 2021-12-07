@@ -221,7 +221,7 @@ public class FieldOfView : MonoBehaviour
                 {
                     vertices[1 + j * stepCount + i] = transform.InverseTransformPoint(allPoints[j][i]);
 
-                    if (i < stepCount - 1)
+                    if (i < viewPoints.Count - 1)
                     {
                         if (j == decoupage)
                         {
