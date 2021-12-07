@@ -17,7 +17,7 @@ public class AudioType : MonoBehaviour
 
     public enumAudioType audioType; 
     
-    void Awake()
+    void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
         maxVolume = audioSource.volume;
@@ -31,7 +31,7 @@ public class AudioType : MonoBehaviour
             AudioManager.instance._musicAudios.Add(this);
         }
 
-        ChangeVolume(audioType == enumAudioType.SFX ? PlayerPrefs.GetFloat("SfxVolume", 1) : PlayerPrefs.GetFloat("MusicVolume", 1));
+        ChangeVolume((audioType == enumAudioType.SFX ? PlayerPrefs.GetFloat("SfxVolume", 100.0f) : PlayerPrefs.GetFloat("MusicVolume", 100.0f)) / 100.0f);
     }
 
     public void ChangeVolume(float value)

@@ -41,9 +41,16 @@ public class DialogDisplay : MonoBehaviour
     private Transform rockTransform;
     private Transform middleTransform;
 
+    [Header("Sounds")]
+    [SerializeField]
+    private AudioClip _showDialogueSound;
+    private AudioSource _audioSource;
+
     private void Start()
     {
         _player = ReInput.players.GetPlayer(0);
+
+        _audioSource = GetComponent<AudioSource>();
 
         speakerUILeft = speakerLeft.GetComponent<DialogueUI>();
         speakerUIRight = speakerRight.GetComponent<DialogueUI>();
@@ -104,6 +111,9 @@ public class DialogDisplay : MonoBehaviour
     //Passe au texte suivant
     public void NextDialog()
     {
+        if(activeDialog)
+            _audioSource.PlayOneShot(_showDialogueSound);
+
         if (activeLineIndex < conversation.lines.Length && activeDialog)
         {
             DisplayLine();
