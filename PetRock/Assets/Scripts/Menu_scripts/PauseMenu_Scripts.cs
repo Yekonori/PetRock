@@ -17,6 +17,12 @@ public class PauseMenu_Scripts : MonoBehaviour
 
     private bool _isOpen = false;
 
+    [Header("Sounds")]
+    [SerializeField]
+    private AudioClip _resumeGameClip;
+    [SerializeField]
+    private AudioClip _restartGameClip;
+
     #endregion
 
     private void Awake()
@@ -35,9 +41,10 @@ public class PauseMenu_Scripts : MonoBehaviour
 
     #region Buttons function
 
-    private void ClosePauseMenu()
+    private void ClosePauseMenu(Button_Script button)
     {
         Time.timeScale = 1.0f;
+        button.GetAudioSource().PlayOneShot(_resumeGameClip);
         _isOpen = false;
         EventSystem.current.SetSelectedGameObject(null);
         transform.DOLocalMoveX(1500f, 1.5f).SetEase(Ease.InBack).OnComplete(() => 
@@ -48,9 +55,10 @@ public class PauseMenu_Scripts : MonoBehaviour
         });
     }
 
-    private void RestartLevel()
+    private void RestartLevel(Button_Script button)
     {
         Time.timeScale = 1.0f;
+        button.GetAudioSource().PlayOneShot(_restartGameClip);
         GameManager.instance.TransitionCanvas(1).OnComplete(() =>
         {
             GameManager.instance._inPause = false;
@@ -77,8 +85,8 @@ public class PauseMenu_Scripts : MonoBehaviour
         foreach (Button button in _menuPauseButtons)
             button.onClick.RemoveAllListeners();
 
-        _menuPauseButtons[0].onClick.AddListener(ClosePauseMenu); //Resume button
-        _menuPauseButtons[1].onClick.AddListener(RestartLevel); //Restart button
+        _menuPauseButtons[0].onClick.AddListener(() => ClosePauseMenu(_menuPauseButtons[0].gameObject.GetComponent<Button_Script>())); //Resume button
+        _menuPauseButtons[1].onClick.AddListener(() => RestartLevel(_menuPauseButtons[1].gameObject.GetComponent<Button_Script>())); //Restart button
         _menuPauseButtons[2].onClick.AddListener(QuitGame); //Quit button
     }
 

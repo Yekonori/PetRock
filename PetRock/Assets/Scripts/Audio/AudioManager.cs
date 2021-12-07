@@ -30,8 +30,7 @@ public class AudioManager : MonoBehaviour
         }
 
         SetVolumes();
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     //Call when a scene is loaded
