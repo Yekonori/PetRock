@@ -92,6 +92,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitWhile(() => go.GetComponent<RockBalancing_Dialogue>().CheckEndDialogue());
         TransitionCanvas(1).OnComplete(() =>
         {
+            PlayerParameters.Instance.gameObject.GetComponent<Player_PetRock>().petRock.SetActive(false);
+
             PlayerParameters.Instance.gameObject.transform.parent = go.GetComponent<RockBalancingScript>().transform;
 
             PlayerParameters.Instance.gameObject.transform.localPosition = go.GetComponent<RockBalancingScript>().startPlayerPos.localPosition;
