@@ -88,6 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4538201067613622512}
+  - component: {fileID: 4888453114308863228}
   m_Layer: 0
   m_Name: Eye_pet_rock
   m_TagString: Untagged
@@ -111,6 +112,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4888453114308863228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3868941170572315210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f940dd15187eba143868e1a1b35df574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxYmovement: 0.1
+  yMovementTime: 3
+  yOffset: 0
 --- !u!1 &8878382295564378032
 GameObject:
   m_ObjectHideFlags: 0

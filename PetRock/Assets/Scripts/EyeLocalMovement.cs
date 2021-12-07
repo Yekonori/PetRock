@@ -10,13 +10,13 @@ public class EyeLocalMovement : MonoBehaviour
     private float yCurrent = 0;
     private float yTimer = 0;
     private float omega = 0;
-    private float yLocalPosStart = 0;
+    private Vector3 localPosStart;
 
     // Start is called before the first frame update
     void Start()
     {
         omega = Mathf.PI * 2 / yMovementTime;
-        yLocalPosStart = transform.localPosition.y + yOffset;
+        localPosStart = transform.localPosition + yOffset * Vector3.up;
     }
 
     // Update is called once per frame
@@ -24,6 +24,6 @@ public class EyeLocalMovement : MonoBehaviour
     {
         yTimer += Time.deltaTime;
         yCurrent = maxYmovement * Mathf.Sin(yTimer * omega);
-        transform.localPosition = yLocalPosStart * Vector3.up + new Vector3(0, yCurrent, 0);
+        transform.localPosition = localPosStart + new Vector3(0, yCurrent, 0);
     }
 }
