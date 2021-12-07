@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2735641484454777501}
   - component: {fileID: 1322133023704014136}
   - component: {fileID: 3872497214729234930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Prefab_Cliff02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
