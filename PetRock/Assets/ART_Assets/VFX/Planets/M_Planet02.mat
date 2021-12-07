@@ -78,7 +78,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_44CF6887: {r: 8.47419, g: 1.3310245, b: 4.0374413, a: 0}
+    - Color_44CF6887: {r: 8.47419, g: 1.3753916, b: 2.5832813, a: 0}
     - Color_ACF34ABD: {r: 0, g: 0.69136316, b: 1.6929536, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
