@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator startRB(GameObject go)
     {
-        if(_transitionCanvas.transitionCanvas.alpha >= 1)
+        if(_transitionCanvas.isOnTransition)
         {
             TransitionCanvas(0);
         }
