@@ -14,9 +14,12 @@ public class Button_Script : MonoBehaviour
     [SerializeField]
     private AudioClip _selectedClip;
 
+    private Selectable selectable;
+
     private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
+        selectable = GetComponent<Selectable>();
     }
 
     // Update is called once per frame
@@ -28,12 +31,10 @@ public class Button_Script : MonoBehaviour
             {
                 _isAlreadySelected = true;
 
-                if (GetComponent<Image>() != null)
-                    GetComponent<Image>().color = GetComponent<Button>().colors.selectedColor;
-                else
-                    GetComponent<TextMeshProUGUI>().color = GetComponent<Button>().colors.selectedColor;
+                selectable.targetGraphic.color = selectable.colors.selectedColor;
 
-                GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+                if(GetComponentInChildren<TextMeshProUGUI>() != null)
+                    GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
 
                 _audioSource.PlayOneShot(_selectedClip);
             }
@@ -42,12 +43,10 @@ public class Button_Script : MonoBehaviour
         {
             _isAlreadySelected = false;
 
-            if (GetComponent<Image>() != null)
-                GetComponent<Image>().color = GetComponent<Button>().colors.normalColor;
-            else
-                GetComponent<TextMeshProUGUI>().color = GetComponent<Button>().colors.normalColor;
+            selectable.targetGraphic.color = selectable.colors.normalColor;
 
-            GetComponentInChildren<TextMeshProUGUI>().color = new Color(1, 1, 1, 0.5f);
+            if (GetComponentInChildren<TextMeshProUGUI>() != null)
+                GetComponentInChildren<TextMeshProUGUI>().color = new Color(1, 1, 1, 0.5f);
         }
     }
 

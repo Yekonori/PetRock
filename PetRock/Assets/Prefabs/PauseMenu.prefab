@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 7487719739750066607}
   - component: {fileID: 7661156054316047446}
   - component: {fileID: 430581149170770419}
+  - component: {fileID: 7757599680838914656}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -241,7 +242,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -325,6 +326,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7757599680838914656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487719739750066577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33c70cd25a130944926b8c75b1a7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  maxVolume: 0
+  audioType: 1
 --- !u!1 &7487719739897425526
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,6 +860,7 @@ GameObject:
   - component: {fileID: 7487719740579723776}
   - component: {fileID: 878732524094853267}
   - component: {fileID: 7111072949359684153}
+  - component: {fileID: 4672300044351168011}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -976,7 +993,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1060,6 +1077,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4672300044351168011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487719740579723778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33c70cd25a130944926b8c75b1a7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  maxVolume: 0
+  audioType: 1
 --- !u!1 &7487719740583549410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,6 +1163,7 @@ GameObject:
   - component: {fileID: 1470185286}
   - component: {fileID: 1470185287}
   - component: {fileID: 7199383287489467262}
+  - component: {fileID: 6581758065787902357}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -1322,6 +1355,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6581758065787902357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487719741021463281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33c70cd25a130944926b8c75b1a7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  maxVolume: 0
+  audioType: 1
 --- !u!1 &7487719741175897469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1384,7 @@ GameObject:
   - component: {fileID: 7487719741175897467}
   - component: {fileID: 5391863117743324688}
   - component: {fileID: 1590502100857974835}
+  - component: {fileID: 301365420441431543}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -1468,7 +1517,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1552,6 +1601,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &301365420441431543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487719741175897469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33c70cd25a130944926b8c75b1a7056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  maxVolume: 0
+  audioType: 1
 --- !u!1 &7487719741445932222
 GameObject:
   m_ObjectHideFlags: 0
