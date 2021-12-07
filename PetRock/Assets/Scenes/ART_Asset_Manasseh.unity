@@ -923,7 +923,7 @@ PrefabInstance:
     - target: {fileID: 251261652023201301, guid: 1edfeebc707d88941b6289c6a1de76aa,
         type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3868941170572315210, guid: 1edfeebc707d88941b6289c6a1de76aa,
         type: 3}
@@ -1033,7 +1033,7 @@ PrefabInstance:
     - target: {fileID: 8878382295564378032, guid: 1edfeebc707d88941b6289c6a1de76aa,
         type: 3}
       propertyPath: m_Layer
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1edfeebc707d88941b6289c6a1de76aa, type: 3}
