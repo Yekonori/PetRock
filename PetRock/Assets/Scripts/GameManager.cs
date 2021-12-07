@@ -64,6 +64,9 @@ public class GameManager : MonoBehaviour
         SetVignettePostProcess();
         SetDofPostProcess();
 
+        player.SetVibration(0, 0);
+        player.StopVibration();
+
         TransitionCanvas(0).SetDelay(1);
     }
 
@@ -111,6 +114,10 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         _inPause = true;
+
+        player.SetVibration(0, 0);
+        player.StopVibration();
+
         GameObject pMenu = Instantiate(_pauseMenu, GameObject.FindGameObjectWithTag("Canvas").transform);
         pMenu.transform.localPosition = new Vector3(1500, 0, 0);
     }

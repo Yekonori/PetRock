@@ -151,7 +151,7 @@ public class RockBalancingScript : MonoBehaviour
         }
         else
         {
-            if(!_endRockBalancing)
+            if(!_endRockBalancing && !GameManager.instance._inPause)
                 player.SetVibration(0, _posVib + _rotVib);
         }
     }
