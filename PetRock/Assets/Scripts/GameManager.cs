@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        AudioListener.volume = 0;
+
         if (_transitionCanvas == null)
             _transitionCanvas = GameObject.FindGameObjectWithTag("TransitionCanvas").GetComponent<Transition_Script>();
 

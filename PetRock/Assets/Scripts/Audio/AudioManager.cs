@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class AudioManager : MonoBehaviour
 {
@@ -30,15 +31,13 @@ public class AudioManager : MonoBehaviour
         }
 
         SetVolumes();
-        //SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     //Call when a scene is loaded
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        ChangeGlobalVolume();
-        ChangeSfxVolume();
-        ChangeMusicVolume();
+        DOTween.To(() => AudioListener.volume, x => AudioListener.volume = x, _globalVolume/100.0f, 2).SetDelay(2);
     }
 
     void SetVolumes()

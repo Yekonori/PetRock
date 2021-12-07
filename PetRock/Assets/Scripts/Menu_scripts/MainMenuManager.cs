@@ -79,6 +79,10 @@ public class MainMenuManager : MonoBehaviour
     [Header("Sounds")]
     [SerializeField]
     private AudioClip _launchClip;
+    [SerializeField]
+    private AudioClip _changeSettingsClip;
+    [SerializeField]
+    private AudioSource _ambiantSound;
 
     GameManager _gameManager;
 
@@ -137,6 +141,8 @@ public class MainMenuManager : MonoBehaviour
             return;
 
         button.GetAudioSource().PlayOneShot(_launchClip);
+
+        _ambiantSound.PlayDelayed(1);
 
         DOTween.To(() => _gameManager.dofPostProcessing.focusDistance.value, x => _gameManager.dofPostProcessing.focusDistance.value = x, 10.0f, 5.0f).OnPlay(() => 
         { 
@@ -290,6 +296,8 @@ public class MainMenuManager : MonoBehaviour
     {
         if(_optionsPanel.gameObject.activeSelf && (_gameManager.player.GetButtonDown("PreviousSettingsPanel") || _gameManager.player.GetButtonDown("NextSettingsPanel")))
         {
+            GetComponent<AudioSource>().PlayOneShot(_changeSettingsClip);
+
             _settingsPanels[_indexSettingsPanel].SetActive(false);
 
             if (_gameManager.player.GetButtonDown("PreviousSettingsPanel"))
