@@ -19,6 +19,8 @@ public class PauseMenu_Scripts : MonoBehaviour
 
     [Header("Sounds")]
     [SerializeField]
+    private AudioClip _openPauseMenu;
+    [SerializeField]
     private AudioClip _resumeGameClip;
     [SerializeField]
     private AudioClip _restartGameClip;
@@ -27,7 +29,10 @@ public class PauseMenu_Scripts : MonoBehaviour
 
     private void Awake()
     {
+        GetComponent<AudioSource>().PlayOneShot(_openPauseMenu);
+
         _isOpen = true;
+
         transform.DOLocalMove(Vector3.zero, 1.5f).SetEase(Ease.OutBack).OnComplete(() =>
         {
             DOTween.To(() => GameManager.instance.dofPostProcessing.focusDistance.value, x => GameManager.instance.dofPostProcessing.focusDistance.value = x, 0.1f, 0.5f).OnComplete(()=>
@@ -36,6 +41,7 @@ public class PauseMenu_Scripts : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(_menuPauseButtons[0].gameObject);
             });
         });
+
         SetMenuButtons();
     }
 
