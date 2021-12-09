@@ -17,64 +17,89 @@ MonoBehaviour:
   lines:
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: No...! It can't be real! How could that happen to me?!
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "There's no way I'll find anyone to help me out there\u2026Oh no, no, no!"
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "This is so bad\u2026it\u2019s awful\u2026I'm dead, I'm toast, I'm done
       for, this it\u2026"
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "Uh?! ...Is this rock\u2026moving?!"
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: Ah, that was a good rest! Hello, friend!
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: What the?!
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: "Now now, do not make such a face\u2026My\u2026Oh my, looking at your expression,
+    text: "No no, do not make such a face\u2026My\u2026Oh my, looking at your expression,
       I must look quite terrible!"
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "Uh, no, that\u2019s not it\u2026You're\u2026You're talking? You're a talking
       rock?!"
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Did you just--?! I have never been unsulted in such a manner! I'm the great
+    text: Did you just--?! I have never been insulted in such a manner! I'm the great
       Beaumont, and you should do well to remember this name!
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: In my great generosity, I will forgive this slander, but once, only once!
       Now, please, tell me what could you be doing here?
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "I-I\u2026 was flying over the planet and something terrible happened\u2026
       Next thing I knew\u2026I was waking up down here and my ship was\u2026Well\u2026"
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: "I see, so that explains the ruckus I heard\u2026"
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "So I'm stuck down here\u2026Without being able to fix my ship\u2026Talking
       to a rock\u2026."
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: I am still there. In any case, it does seem like you're in a bit of a pickle
       indeed.
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "Understatement of the century\u2026But\u2026"
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "I can't do anything about it\u2026right? So I might as well stay put right
       here and wait for help. Yes, that's a good idea!"
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: You do know the odds that help arrives before you dehydrate entirely are
       awfully low, right?
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "Well, what do you want me to do about it?! I don\u2019t know this place!"
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: Do you really need me to tell you everything? Use your brain!
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "I\u2019m getting called out by a rock, this is ridiculous."
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: I have a name, I will remind you, and it is Beaumont, make sure you do
       not forget it again!
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: Sure, sure, if I go look for water or something, will you stop berating
       me?
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: ...I will consider it.
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "Good enough, I suppose\u2026Let\u2019s\u2026go, I guess."
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: Good!
+    focusCharacter: 0
   automatic: 0

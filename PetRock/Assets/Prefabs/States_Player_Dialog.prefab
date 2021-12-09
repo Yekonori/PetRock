@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogDisplay: {fileID: 0}
-  conversation1: {fileID: 11400000, guid: 61a312215c17ae745b66c51c056cdcc2, type: 2}
-  conversation2: {fileID: 11400000, guid: c20db397c9cf5f041a82d3fee3965c63, type: 2}
+  conversation: {fileID: 11400000, guid: 9aeb7f2a011b80a4889848bc464a9fc0, type: 2}
+  timeBetweenSpotedDialog: 180
+  timeBetweenSameStressDialogue: 30
+  listDialogueStress: []

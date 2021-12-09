@@ -204,16 +204,15 @@ public class FieldOfView : MonoBehaviour
                 }
             }
 
-            int vertexCount = 1 + viewPoints.Count * (decoupage + 1);
-            //int trianglesCount = (stepCount - 1) * (2 * decoupage + 1);
+            stepCount = viewPoints.Count;
+            int vertexCount = 1 + stepCount * (decoupage + 1);
             Vector3[] vertices = new Vector3[vertexCount];
-            //int[] triangles = new int[(trianglesCount) * 3];
             List<int> triangles = new List<int>();
 
             Vector3 posGround = new Vector3(transform.position.x, GetHeight(transform.position), transform.position.z);
             vertices[0] = transform.InverseTransformPoint(posGround);
 
-            for (int i = 0; i < viewPoints.Count; ++i)
+            for (int i = 0; i < stepCount; ++i)
             {
                 allPoints[0][i] = new Vector3(viewPoints[i].x, GetHeight(viewPoints[i]), viewPoints[i].z);
 
@@ -221,7 +220,7 @@ public class FieldOfView : MonoBehaviour
                 {
                     vertices[1 + j * stepCount + i] = transform.InverseTransformPoint(allPoints[j][i]);
 
-                    if (i < viewPoints.Count - 1)
+                    if (i < stepCount - 1)
                     {
                         if (j == decoupage)
                         {
