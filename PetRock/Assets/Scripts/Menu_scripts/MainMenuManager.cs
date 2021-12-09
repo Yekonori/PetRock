@@ -124,7 +124,6 @@ public class MainMenuManager : MonoBehaviour
 
     private void Director_Played(PlayableDirector obj)
     {
-        _inCinematic = true;
         EventSystem.current.SetSelectedGameObject(null);
     }
 
@@ -139,6 +138,8 @@ public class MainMenuManager : MonoBehaviour
     {
         if (_inCinematic)
             return;
+
+        _inCinematic = true;
 
         button.GetAudioSource().PlayOneShot(_launchClip);
 

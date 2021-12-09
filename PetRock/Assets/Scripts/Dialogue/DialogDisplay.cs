@@ -13,7 +13,7 @@ public class DialogDisplay : MonoBehaviour
 
     public float textDuration = 1;
 
-    public float timeBeforeNextPanel = 3;
+    public float timeBeforeNextPanel = 2;
 
     public PlayerMovement player;
 
@@ -78,7 +78,7 @@ public class DialogDisplay : MonoBehaviour
             }
         }
 
-        if (conversation.automatic)
+        if (conversation.automatic && canNextDialogue)
         {
             if(t >= timeBeforeNextPanel)
             {
@@ -184,6 +184,12 @@ public class DialogDisplay : MonoBehaviour
 
     public void SetThisDialogTex(DialogueScript dialogText)
     {
+        if (conversation != null && currentRoutine != null)
+        {
+            EndSpeaking();
+            StopCoroutine(currentRoutine);
+        }
+
         conversation = dialogText;
     }
 
