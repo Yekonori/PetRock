@@ -184,6 +184,12 @@ public class DialogDisplay : MonoBehaviour
 
     public void SetThisDialogTex(DialogueScript dialogText)
     {
+        if (conversation != null && currentRoutine != null)
+        {
+            EndSpeaking();
+            StopCoroutine(currentRoutine);
+        }
+
         conversation = dialogText;
     }
 
