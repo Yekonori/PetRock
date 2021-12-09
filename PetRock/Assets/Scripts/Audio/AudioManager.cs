@@ -37,7 +37,7 @@ public class AudioManager : MonoBehaviour
     //Call when a scene is loaded
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        DOTween.To(() => AudioListener.volume, x => AudioListener.volume = x, _globalVolume/100.0f, 2).SetDelay(2);
+        //DOTween.To(() => AudioListener.volume, x => AudioListener.volume = x, _globalVolume/100.0f, 2).SetDelay(2);
     }
 
     void SetVolumes()
