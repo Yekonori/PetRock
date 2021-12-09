@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 91.84983, g: 533.9735, b: 649.89795, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12378,7 +12378,9 @@ PrefabInstance:
     - target: {fileID: 5179642547505720431, guid: bb247dfccde9a8841af00b36a190a652,
         type: 3}
       propertyPath: _textSceneTransition
-      value: Going to the next level...
+      value: As the Astronaut and Beaumont walk up the mountain, worried thoughts
+        circle in their mind. But as they reach the top, a strange structure appears
+        in view...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb247dfccde9a8841af00b36a190a652, type: 3}
@@ -128767,6 +128769,37 @@ PrefabInstance:
       propertyPath: dialogDisplay
       value: 
       objectReference: {fileID: 1800454778}
+    - target: {fileID: 4986059838337872012, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: listDialogueStress.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872012, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: listDialogueStress.Array.data[0].panicLevel
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872012, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: listDialogueStress.Array.data[1].panicLevel
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872012, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: listDialogueStress.Array.data[0].canActivate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872012, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: listDialogueStress.Array.data[1].canActivate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986059838337872012, guid: 10b6d8f9f1092b049ad246ed294eea7d,
+        type: 3}
+      propertyPath: listDialogueStress.Array.data[0].conversation
+      value: 
+      objectReference: {fileID: 11400000, guid: 752883c992151c148b967fd516b45beb,
+        type: 2}
     - target: {fileID: 4986059838337872013, guid: 10b6d8f9f1092b049ad246ed294eea7d,
         type: 3}
       propertyPath: m_Name

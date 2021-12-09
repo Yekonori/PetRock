@@ -20893,7 +20893,8 @@ PrefabInstance:
     - target: {fileID: 5179642547505720431, guid: bb247dfccde9a8841af00b36a190a652,
         type: 3}
       propertyPath: _textSceneTransition
-      value: Going to the next level...
+      value: The Astronaut and their new friend, Beaumont, walk further into the
+        island. But something wicked lurks inside...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb247dfccde9a8841af00b36a190a652, type: 3}
