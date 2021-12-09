@@ -21,7 +21,5 @@ MonoBehaviour:
     text: There is a spot where we can take a break soon. Think you can hold on a
       bit?
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "I have no choice, right\u2026?"
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: "Focus on walking then.\r"
+    text: Do I even have a choice...?
   automatic: 1

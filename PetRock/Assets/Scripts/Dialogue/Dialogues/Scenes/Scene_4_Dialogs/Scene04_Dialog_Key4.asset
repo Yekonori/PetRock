@@ -20,30 +20,20 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: Used to it or not, you do not have a choice in facing them.
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "I know you're right, but still\u2026"
+    text: "I know you're right, but still\u2026Whenever they look at me, it's like
+      they can see everything I hide."
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "When they look at me, it\u2019s almost as if they could see everything.
-      Every little mistake I made\u2026"
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: Every little doubt I've had. All at once.
+    text: Every little mistake, and every doubt. A pain so read, so vivid in my chest,
+      as if my heart was gonna burst.
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: "I see\u2026"
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "It\u2019s just so vivid, so real. A pain in my chest, as if my heart was
-      gonna burst."
+    text: It's like during those nights where your mind wanders, and you realize
+      your own powerlessness. When you can't see yourself as anything more than a
+      side-character in your own life.
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: "Yes\u2026"
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: Like those nights when you can't sleep. When your mind wanders into thinking
-      of what could have been.
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: The nights when you feel helpless. As if you were a side-character in your
-      own life.
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: '"I  know. Yet you certainly realize. That any change can only come from
-      yourself.
-
-      "'
+    text: "I  know. Yet you certainly realize. That any change can only come from
+      yourself.\r"
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "But it\u2019s like a curse that pulls you back. Regrets. Remorses. I sometimes
       feel like turning the page would be akin to bury my failings under a carpet."
