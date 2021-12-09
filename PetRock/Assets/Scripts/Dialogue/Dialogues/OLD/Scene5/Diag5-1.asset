@@ -15,14 +15,18 @@ MonoBehaviour:
   leftCharacter: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
   rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
   lines:
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Hey, isn't that what you called a Dowsing Stone?
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: Hey, isn't that what you called a Dowsing Stone?
+    focusCharacter: 0
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: That it is right. We can use it to detect the flow of underground water
       and use it to find a lake.
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: "Mmhh\u2026So we should probably use it, is that right?"
+    focusCharacter: 0
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
+    text: "Mmhh\u2026So we should probably use it, is that right?"
+    focusCharacter: 0
+  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: Very right indeed. And what a place for it to be! In any case, let us get
       on with the Dowsing then!
+    focusCharacter: 0
   automatic: 0
