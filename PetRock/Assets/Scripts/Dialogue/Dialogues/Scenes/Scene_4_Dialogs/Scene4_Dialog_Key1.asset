@@ -16,12 +16,10 @@ MonoBehaviour:
   rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
   lines:
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Look! It seems that if you go this way, you will be able to go up the moutain!
+    text: Look! If you go this way, you might go up the moutain!
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "I'm mostly seeing all the eyes in the way\u2026"
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: "I know, they sure are terrifying\u2026But we have no choice but to keep
       going! So hold strong!"
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "I'll do what I can\u2026Just don't get your hopes up too much."
   automatic: 1

@@ -16,19 +16,10 @@ MonoBehaviour:
   rightCharacter: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
   lines:
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: What even are those things...?
-    focusCharacter: 0
+    text: What even are those things...? They give me the shivers...
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: It is best you do not ask this kind of questions. They are something you
-      must not be spotted by, and that is it.
-    focusCharacter: 0
-  - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: Still...They give me the shivers.
-    focusCharacter: 0
-  - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
-    text: Understandably so. But you must press onwards.
-    focusCharacter: 0
+    text: It is not the time to think about that. But I understand about the last
+      part...You must just keep walking and avoid being spotted.
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: Alright...
-    focusCharacter: 0
-  automatic: 0
+  automatic: 1
