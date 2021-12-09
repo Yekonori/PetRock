@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 91.84983, g: 533.9735, b: 649.89795, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8577,12 +8577,12 @@ GameObject:
   m_Component:
   - component: {fileID: 135765207}
   m_Layer: 0
-  m_Name: Colliders
+  m_Name: Colliders_DO_NOT_ACTIVATE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &135765207
 Transform:
   m_ObjectHideFlags: 0
