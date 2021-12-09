@@ -128853,7 +128853,7 @@ PrefabInstance:
         type: 3}
       propertyPath: conversation
       value: 
-      objectReference: {fileID: 11400000, guid: 1ad1b6004177a4746a27165dc0e631ba,
+      objectReference: {fileID: 11400000, guid: 9aeb7f2a011b80a4889848bc464a9fc0,
         type: 2}
     - target: {fileID: 4986059838337872012, guid: 10b6d8f9f1092b049ad246ed294eea7d,
         type: 3}
