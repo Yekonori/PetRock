@@ -4460,7 +4460,7 @@ MonoBehaviour:
   m_text: Simon BARETTE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4976,7 +4976,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 865.63574, y: -115.74994}
+  m_AnchoredPosition: {x: 865.73035, y: -115.74994}
   m_SizeDelta: {x: 633.76746, y: 231.49988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3816904190877038317
@@ -5072,7 +5072,7 @@ MonoBehaviour:
   m_text: Elise NGUYEN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5361,7 +5361,7 @@ MonoBehaviour:
   m_text: Game art
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: -7935534220915373276, guid: 824820441173ade408d4e388a381e645,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5528,7 +5528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 865.63574, y: -117.92612}
+  m_AnchoredPosition: {x: 865.73035, y: -117.92612}
   m_SizeDelta: {x: 633.76746, y: 235.85223}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3816904191262062805
@@ -5591,8 +5591,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 677.202, y: -1389.2771}
-  m_SizeDelta: {x: 1254.404, y: 231.49988}
+  m_AnchoredPosition: {x: 677.29663, y: -1389.2771}
+  m_SizeDelta: {x: 1254.5933, y: 231.49988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3816904191311565027
 MonoBehaviour:
@@ -5654,8 +5654,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 677.202, y: -73.520386}
-  m_SizeDelta: {x: 1254.404, y: 147.04077}
+  m_AnchoredPosition: {x: 677.29663, y: -73.520386}
+  m_SizeDelta: {x: 1254.5933, y: 147.04077}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3816904191382420533
 MonoBehaviour:
@@ -5749,7 +5749,7 @@ MonoBehaviour:
   m_text: Programming
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: -7935534220915373276, guid: 824820441173ade408d4e388a381e645,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6034,6 +6034,7 @@ MonoBehaviour:
   _introCinematic: {fileID: 0}
   _launchClip: {fileID: 8300000, guid: e17cacba3907e1f459c0d90426fa5c56, type: 3}
   _changeSettingsClip: {fileID: 8300000, guid: b18d4d7bea3156540aa305b683eed886, type: 3}
+  _ambiantSound: {fileID: 0}
 --- !u!114 &1403173085587076835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6277,8 +6278,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 677.202, y: -464.9669}
-  m_SizeDelta: {x: 1254.404, y: 235.85223}
+  m_AnchoredPosition: {x: 677.29663, y: -464.9669}
+  m_SizeDelta: {x: 1254.5933, y: 235.85223}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3816904191557903201
 MonoBehaviour:
@@ -6875,7 +6876,7 @@ MonoBehaviour:
   m_text: Jules VICTOR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6997,8 +6998,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 677.202, y: -928.21}
-  m_SizeDelta: {x: 1254.404, y: 290.63403}
+  m_AnchoredPosition: {x: 677.29663, y: -928.21}
+  m_SizeDelta: {x: 1254.5933, y: 290.63403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3816904191646763350
 MonoBehaviour:
@@ -7093,7 +7094,7 @@ MonoBehaviour:
   m_text: "Aur\xE9lien FONTAINE"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7248,7 +7249,7 @@ MonoBehaviour:
   m_text: Paul (Pablo) BOURDEAU - LEAD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7466,7 +7467,7 @@ MonoBehaviour:
   m_text: Tristan SOLARO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7776,7 +7777,7 @@ MonoBehaviour:
   m_text: Martin ARRIBARD - LEAD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8337,7 +8338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 865.63574, y: -73.520386}
+  m_AnchoredPosition: {x: 865.73035, y: -73.520386}
   m_SizeDelta: {x: 633.76746, y: 147.04077}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3816904191979744879
@@ -8433,7 +8434,7 @@ MonoBehaviour:
   m_text: Alexandre AGNIEL
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8588,7 +8589,7 @@ MonoBehaviour:
   m_text: Alexis SAINSARD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8779,7 +8780,7 @@ MonoBehaviour:
   m_text: Audrey AMIABLE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9146,7 +9147,7 @@ MonoBehaviour:
   m_text: Julien SAUVAN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9606,7 +9607,7 @@ MonoBehaviour:
   m_text: Manasseh RAKOTOASIMBOLA
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9760,7 +9761,7 @@ MonoBehaviour:
   m_text: Producing
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: -7935534220915373276, guid: 824820441173ade408d4e388a381e645,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -9958,7 +9959,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 865.63574, y: -145.31702}
+  m_AnchoredPosition: {x: 865.73035, y: -145.31702}
   m_SizeDelta: {x: 633.76746, y: 290.63403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3816904192424316591
@@ -10078,8 +10079,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 677.202, y: -2386.5579}
-  m_SizeDelta: {x: 1254.404, y: 381.79327}
+  m_AnchoredPosition: {x: 677.29663, y: -2386.5579}
+  m_SizeDelta: {x: 1254.5933, y: 381.79327}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3816904192561279828
 CanvasRenderer:
@@ -10186,7 +10187,7 @@ MonoBehaviour:
   m_text: Louise JEANSON - LEAD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10340,7 +10341,7 @@ MonoBehaviour:
   m_text: Game design
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: -7935534220915373276, guid: 824820441173ade408d4e388a381e645,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10475,7 +10476,7 @@ MonoBehaviour:
   m_text: Mallaurie LE BIHAN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10630,7 +10631,7 @@ MonoBehaviour:
   m_text: Yannis de MACEDO - LEAD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11095,7 +11096,7 @@ MonoBehaviour:
   m_text: Maxence COLAS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11405,7 +11406,7 @@ MonoBehaviour:
   m_text: Chistophe AMORIM RODRIGUES
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: 1718357518045122813, guid: c022ec4213aa8aa498712f2796af83b3,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11527,8 +11528,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 677.202, y: -1850.344}
-  m_SizeDelta: {x: 1254.404, y: 290.63403}
+  m_AnchoredPosition: {x: 677.29663, y: -1850.344}
+  m_SizeDelta: {x: 1254.5933, y: 290.63403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3816904192833861638
 MonoBehaviour:
@@ -11622,7 +11623,7 @@ MonoBehaviour:
   m_text: Sound design
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 45fbe26bf124a8b4c9154c46c4989078, type: 2}
-  m_sharedMaterial: {fileID: -7935534220915373276, guid: 824820441173ade408d4e388a381e645,
+  m_sharedMaterial: {fileID: 5484420137915416243, guid: 45fbe26bf124a8b4c9154c46c4989078,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11726,7 +11727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 865.63574, y: -145.31702}
+  m_AnchoredPosition: {x: 865.73035, y: -145.31702}
   m_SizeDelta: {x: 633.76746, y: 290.63403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3816904192904557766
