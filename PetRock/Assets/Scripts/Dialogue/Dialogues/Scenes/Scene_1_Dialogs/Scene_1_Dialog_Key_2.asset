@@ -17,7 +17,7 @@ MonoBehaviour:
   lines:
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: No...! It can't be real! How could that happen to me?!
-    focusCharacter: 0
+    focusCharacter: 1
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "This is so bad\u2026it\u2019s awful\u2026I'm dead, I'm toast, I'm done
       for, this it\u2026"
@@ -38,7 +38,7 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: Count yourself lucky, for in my great generosity, I will forgive this slander
       for now! But, please, tell me what could you be doing here?
-    focusCharacter: 0
+    focusCharacter: 1
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "Uh\u2026uh\u2026I'm sorry? I was flying over the planet in my spaceship
       and then\u2026Well, now I am stuck down here, unable to fix my ship..."
@@ -53,18 +53,18 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: You do know the odds that help arrives before you dehydrate entirely are
       awfully low, right?
-    focusCharacter: 0
+    focusCharacter: 1
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "You're so loud for a rock\u2026If I go look for water or something, will
       you stop berating me?"
-    focusCharacter: 0
+    focusCharacter: 1
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: Call me by my name... but I will consider it.
-    focusCharacter: 0
+    focusCharacter: 1
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: "Good enough, I suppose\u2026Let\u2019s\u2026go, I guess."
-    focusCharacter: 0
+    focusCharacter: 1
   - character: {fileID: 11400000, guid: 8096678c4d8dc234d949df06177fdd34, type: 2}
     text: Good!
-    focusCharacter: 0
+    focusCharacter: 1
   automatic: 0
