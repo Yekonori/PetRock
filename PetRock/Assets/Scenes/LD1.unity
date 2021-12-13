@@ -48256,13 +48256,28 @@ PrefabInstance:
     - target: {fileID: 7990629210855665588, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
         type: 3}
       propertyPath: yaw
-      value: 0
+      value: 3.215501
       objectReference: {fileID: 0}
     - target: {fileID: 7990629210855665588, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
         type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 944047243}
+    - target: {fileID: 7990629210855665588, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
+        type: 3}
+      propertyPath: curvePosition
+      value: 0.406
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990629210855665589, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990629210855665589, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.02
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7990629209478972109, guid: 0442a1741f56c5a4c82efc4ba01bd7d1, type: 3}
     - {fileID: 4627867200795364801, guid: 0442a1741f56c5a4c82efc4ba01bd7d1, type: 3}

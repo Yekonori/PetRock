@@ -72,8 +72,6 @@ public class PlayerMovement : MonoBehaviour
         
         float g = characterController.isGrounded ? 0.1f : gravity;
         characterController.Move((moveDir + g * Vector3.down) * Time.deltaTime);
-
-        
     }
 
     public void SetMovementDirection(float x, float y)
@@ -85,6 +83,11 @@ public class PlayerMovement : MonoBehaviour
     public void SetInDialog(bool value)
     {
         inDialog = value;
+    }
+
+    public bool GetInDialog()
+    {
+        return inDialog;
     }
 
     private void OnDrawGizmos()

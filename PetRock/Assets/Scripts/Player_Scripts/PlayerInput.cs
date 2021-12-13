@@ -40,7 +40,7 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        if (_player.GetButton("Pause") && !GameManager.instance._inPause && !GameManager.instance.inMainMenu)
+        if (_player.GetButton("Pause") && !GameManager.instance._inPause && !GameManager.instance.inMainMenu && !playerMovement.GetInDialog())
         {
             GameManager.instance.PauseGame();
         }
