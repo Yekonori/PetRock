@@ -21,6 +21,7 @@ public class RockScript : MonoBehaviour
     private float moveTimer = 0;
     private bool moving = false;
     private Vector3 startPos;
+    private Quaternion startRot;
     private Transform targetPos;
 
     private void Start()
@@ -43,6 +44,7 @@ public class RockScript : MonoBehaviour
         {
             moveTimer += Time.deltaTime;
             transform.position = Vector3.Lerp(startPos, targetPos.position, moveTimer/timeToMove);
+            transform.rotation = Quaternion.Lerp(startRot, targetPos.rotation, moveTimer / timeToMove);
             if (moveTimer > timeToMove)
             {
                 transform.position = targetPos.position;
@@ -55,6 +57,7 @@ public class RockScript : MonoBehaviour
     {
         onPlayer = true;
         transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
         yCurrent = 0;
         yTimer = 0;
     }
@@ -63,6 +66,7 @@ public class RockScript : MonoBehaviour
     {
         moveTimer = 0;
         startPos = transform.position;
+        startRot = transform.rotation;
         moving = true;
         onPlayer = false;
         targetPos = target;
