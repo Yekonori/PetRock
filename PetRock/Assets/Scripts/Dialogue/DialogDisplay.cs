@@ -66,18 +66,6 @@ public class DialogDisplay : MonoBehaviour
 
     private void Update()
     {
-        if (!conversation.automatic)
-        {
-            if (activeDialog)
-            {
-                player.SetInDialog(true);
-            }
-            else
-            {
-                player.SetInDialog(false);
-            }
-        }
-
         if (conversation.automatic && canNextDialogue)
         {
             if(t >= timeBeforeNextPanel)
