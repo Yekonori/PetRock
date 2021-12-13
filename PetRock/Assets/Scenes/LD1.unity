@@ -10615,6 +10615,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1403173085106480981, guid: d2f253b79e7dacf4caee5c91c9660193,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -152.29883
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403173085961352017, guid: d2f253b79e7dacf4caee5c91c9660193,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 959.90625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403173086091348704, guid: d2f253b79e7dacf4caee5c91c9660193,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 959.90625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403173086091348704, guid: d2f253b79e7dacf4caee5c91c9660193,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -163.61719
+      objectReference: {fileID: 0}
     - target: {fileID: 1570432947205040409, guid: d2f253b79e7dacf4caee5c91c9660193,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -10680,6 +10700,16 @@ PrefabInstance:
       propertyPath: _dialogDisplay
       value: 
       objectReference: {fileID: 820859624}
+    - target: {fileID: 3816904190812014292, guid: d2f253b79e7dacf4caee5c91c9660193,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 959.90625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816904190812014292, guid: d2f253b79e7dacf4caee5c91c9660193,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -277.23438
+      objectReference: {fileID: 0}
     - target: {fileID: 3816904190877038316, guid: d2f253b79e7dacf4caee5c91c9660193,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -10789,6 +10819,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816904191190187250, guid: d2f253b79e7dacf4caee5c91c9660193,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 959.90625
       objectReference: {fileID: 0}
     - target: {fileID: 3816904191262062804, guid: d2f253b79e7dacf4caee5c91c9660193,
         type: 3}
@@ -11609,6 +11644,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816904192728406949, guid: d2f253b79e7dacf4caee5c91c9660193,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -152.29883
       objectReference: {fileID: 0}
     - target: {fileID: 3816904192761172874, guid: d2f253b79e7dacf4caee5c91c9660193,
         type: 3}
@@ -36676,6 +36716,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4439541857085846021, guid: cf5398cc4e0a4e543ae8942b4626a680,
         type: 3}
+      propertyPath: view
+      value: 
+      objectReference: {fileID: 2028954933}
+    - target: {fileID: 4439541857085846021, guid: cf5398cc4e0a4e543ae8942b4626a680,
+        type: 3}
       propertyPath: _hasAnim
       value: 1
       objectReference: {fileID: 0}
@@ -50941,6 +50986,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a55f58eac50908045984cab9b093202e, type: 3}
+--- !u!114 &2028954933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5751908492877657195, guid: cf5398cc4e0a4e543ae8942b4626a680,
+    type: 3}
+  m_PrefabInstance: {fileID: 1404348600}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2306577381a8e742a0c73cb49c72d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2035347765
 PrefabInstance:
   m_ObjectHideFlags: 0
