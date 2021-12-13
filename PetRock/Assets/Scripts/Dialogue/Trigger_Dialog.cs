@@ -35,6 +35,8 @@ public class Trigger_Dialog : TriggeredViewVolume
     {
         if (other.gameObject.tag == "Player")
         {
+            other.gameObject.GetComponent<PlayerMovement>().SetInDialog(true);
+
             if (_startTransition)
             {
                 GameManager.instance.TransitionCanvas(1).OnComplete(() =>
@@ -88,7 +90,10 @@ public class Trigger_Dialog : TriggeredViewVolume
                         if (_hasAnim && animParam != null)
                             PlayerParameters.Instance.anim.SetBool(animParam, false);
 
-                        GameManager.instance.TransitionCanvas(0).SetDelay(1);
+                        GameManager.instance.TransitionCanvas(0).SetDelay(1).OnComplete(()=> 
+                        {
+                            other.gameObject.GetComponent<PlayerMovement>().SetInDialog(false);
+                        });
 
                         SetActive(false);
                     });
