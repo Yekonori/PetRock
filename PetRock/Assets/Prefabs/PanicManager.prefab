@@ -43,11 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac802f6d07520a4393d1b218eb2e732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increaseSeconds: 2
+  increaseSeconds: 1
   normalIncreaseValue: 0.5
   giantZoneIncreaseValue: 3
-  beforeRbIncreaseValue: 1.5
-  decreaseSeconds: 10
-  decreaseValue: 5
-  afterDialogueValue: 0
-  _maxValueVignette: 70
+  beforeRbIncreaseValue: 1
+  decreaseSeconds: 0.5
+  decreaseValue: 1
+  afterDialogueValue: 70
+  _maxValueVignette: 65
