@@ -35,10 +35,10 @@ public class Trigger_Dialog : TriggeredViewVolume
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerMovement>().SetInDialog(true);
 
             if (_startTransition)
             {
+                other.gameObject.GetComponent<PlayerMovement>().SetInDialog(true);
                 GameManager.instance.TransitionCanvas(1).OnComplete(() =>
                 {
                     StartDialogue(other);
