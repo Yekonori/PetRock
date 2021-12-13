@@ -46,7 +46,7 @@ MonoBehaviour:
   increaseSeconds: 1
   normalIncreaseValue: 0.5
   giantZoneIncreaseValue: 3
-  beforeRbIncreaseValue: 1
+  beforeRbIncreaseValue: 0.5
   decreaseSeconds: 0.5
   decreaseValue: 1
   afterDialogueValue: 70
