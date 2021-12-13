@@ -18,5 +18,5 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
     text: Where...am I? A beach?
   - character: {fileID: 11400000, guid: 7b9571e32814fbb42b8e4653389490d6, type: 2}
-    text: "That smoke\u2026It can't be\u2026Don't be my ship, please\u2026"
+    text: 'Smells like...burning? Oh no, don''t be my ship, please! '
   automatic: 1
