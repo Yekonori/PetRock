@@ -14644,22 +14644,42 @@ PrefabInstance:
     - target: {fileID: 7990629210855665588, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
         type: 3}
       propertyPath: yaw
-      value: -163.56
+      value: -65.5
       objectReference: {fileID: 0}
     - target: {fileID: 7990629210855665588, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 762705040}
+      objectReference: {fileID: 1200867600}
+    - target: {fileID: 7990629210855665588, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
+        type: 3}
+      propertyPath: curvePosition
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7990629210855665588, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
         type: 3}
       propertyPath: pitch.Array.data[0]
-      value: 70
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 7990629210855665588, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
         type: 3}
       propertyPath: pitch.Array.data[1]
       value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990629210855665589, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.084
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990629210855665589, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.216
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990629210855665589, guid: 0442a1741f56c5a4c82efc4ba01bd7d1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.589
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1800371974, guid: 0442a1741f56c5a4c82efc4ba01bd7d1, type: 3}
