@@ -62,6 +62,11 @@ public class RockScript : MonoBehaviour
         yTimer = 0;
     }
 
+    public void ResetPosDelay()
+    {
+        StartCoroutine(ResetPositionWithDelay());
+    }
+
     public void MoveTotarget(Transform target)
     {
         moveTimer = 0;
@@ -70,5 +75,11 @@ public class RockScript : MonoBehaviour
         moving = true;
         onPlayer = false;
         targetPos = target;
+    }
+
+    IEnumerator ResetPositionWithDelay()
+    {
+        yield return new WaitForSeconds(1);
+        ResetPosition();
     }
 }
