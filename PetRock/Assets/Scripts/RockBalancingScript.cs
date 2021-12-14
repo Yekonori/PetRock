@@ -111,7 +111,10 @@ public class RockBalancingScript : MonoBehaviour
             float rotate = player.GetAxis("TiltPetRock");
             rotate = Mathf.Abs(rotate) > deadZone ? rotate : 0;
 
-            _theRock.transform.position += move * -transform.forward * _speed * Time.deltaTime; // += gravity * 
+            Vector3 newPos = _theRock.transform.position + move * -transform.forward * _speed * Time.deltaTime;
+            newPos.z = Mathf.Clamp(newPos.z, -1, 1);
+
+            _theRock.transform.position = newPos;
             _theRock.transform.Rotate(Vector3.right, -rotate * _rotationSpeed * Time.deltaTime);
 
             _posVib = Mathf.Clamp(Mathf.Abs(_theRock.transform.position.z - _finalPosRock.position.z), 0f, 0.5f);
