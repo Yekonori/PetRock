@@ -52,6 +52,9 @@ public class GameManager : MonoBehaviour
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        QualitySettings.vSyncCount = 0;  // VSync must be disabled
+        Application.targetFrameRate = 45;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
