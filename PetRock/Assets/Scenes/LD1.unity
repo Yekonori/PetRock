@@ -48863,7 +48863,7 @@ PrefabInstance:
     - target: {fileID: 646051012329039583, guid: d9cb306db075fb240aa0a9e9e900a28e,
         type: 3}
       propertyPath: m_ShadowUpdateMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 646051013649973504, guid: d9cb306db075fb240aa0a9e9e900a28e,
         type: 3}
