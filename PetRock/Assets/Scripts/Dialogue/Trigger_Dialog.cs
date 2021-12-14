@@ -101,9 +101,13 @@ public class Trigger_Dialog : TriggeredViewVolume
                 }
                 else
                 {
-                    if (_hasAnim && animParam != null && nextScene == -1)
+                    if (nextScene == -1)
                     {
-                        PlayerParameters.Instance.anim.SetBool(animParam, false);
+                        if (_hasAnim && animParam != null)
+                        {
+                            PlayerParameters.Instance.anim.SetBool(animParam, false);
+                        }
+
                         other.gameObject.GetComponent<PlayerMovement>().SetInDialog(false);
                     }
 
