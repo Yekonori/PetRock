@@ -62,9 +62,9 @@ public class RockScript : MonoBehaviour
         yTimer = 0;
     }
 
-    public void ResetPosDelay()
+    public void ResetPosDelay(float delay)
     {
-        StartCoroutine(ResetPositionWithDelay());
+        StartCoroutine(ResetPositionWithDelay(delay));
     }
 
     public void MoveTotarget(Transform target)
@@ -77,9 +77,9 @@ public class RockScript : MonoBehaviour
         targetPos = target;
     }
 
-    IEnumerator ResetPositionWithDelay()
+    IEnumerator ResetPositionWithDelay(float delay)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(delay);
         ResetPosition();
     }
 }
