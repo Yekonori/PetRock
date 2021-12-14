@@ -12,6 +12,10 @@ public class DollyViewAutoCircle : AView
     [SerializeField] Rail rail;
     [SerializeField] float timeToRotate = 5;
 
+    [Header("Stop rotating")]
+    [SerializeField, Min(1)] int maxNumberTour = 3;
+    private bool canMove = true;
+
     private Vector3 railPosition = Vector3.zero;
 
     private float yaw = 0f;
@@ -28,15 +32,22 @@ public class DollyViewAutoCircle : AView
     // Update is called once per frame
     void Update()
     {
-        if (isActive)
+        if (isActive && canMove)
         {
             timer += Time.deltaTime;
 
-            railPosition = rail.GetPosition(timer / timeToRotate * railLength);
+            if (timer > timeToRotate * maxNumberTour)
+            {
+                canMove = false;
+            }
+            else
+            {
+                railPosition = rail.GetPosition(timer / timeToRotate * railLength);
 
-            Quaternion rot = Quaternion.LookRotation(target.position - railPosition);
-            yaw = rot.eulerAngles.y;
-            pitch = rot.eulerAngles.x;
+                Quaternion rot = Quaternion.LookRotation(target.position - railPosition);
+                yaw = rot.eulerAngles.y;
+                pitch = rot.eulerAngles.x;
+            }
         }
     }
 
