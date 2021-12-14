@@ -6303,6 +6303,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8341308837690094717, guid: 31755fe62352bac4d9c43117b0b5f96f,
         type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341308837690094717, guid: 31755fe62352bac4d9c43117b0b5f96f,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[5].key
+      value: 
+      objectReference: {fileID: -8311557366731589107, guid: 3afd20041629844418f2497da7a505cf,
+        type: 2}
+    - target: {fileID: 8341308837690094717, guid: 31755fe62352bac4d9c43117b0b5f96f,
+        type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
       objectReference: {fileID: 1380042185}
@@ -6326,6 +6337,11 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[4].value
       value: 
       objectReference: {fileID: 944047242}
+    - target: {fileID: 8341308837690094717, guid: 31755fe62352bac4d9c43117b0b5f96f,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[5].value
+      value: 
+      objectReference: {fileID: 828570569}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31755fe62352bac4d9c43117b0b5f96f, type: 3}
 --- !u!320 &244769553 stripped
