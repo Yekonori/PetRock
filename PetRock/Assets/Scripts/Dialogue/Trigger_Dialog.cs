@@ -115,7 +115,15 @@ public class Trigger_Dialog : TriggeredViewVolume
                 }
             });
 
-            dialogDisplay.SetEndAction(() => rock.ResetPosition());
+            if (_endTransition)
+            {
+                dialogDisplay.SetEndAction(() => rock.ResetPosDelay(3));
+            }
+            else
+            {
+                dialogDisplay.SetEndAction(() => rock.ResetPosition());
+            }
+            
             dialogDisplay.SetEndAction(() => Destroy(this.gameObject));
 
             if (nextScene != -1)
