@@ -11,6 +11,10 @@ public class MainMenuManager : MonoBehaviour
 {
     #region Script parameters
 
+    [Header("CAMERA")]
+    [SerializeField]
+    private GameObject myCamera;
+
     [Header("Buttons")]
     [SerializeField]
     private List<Button> _menuButtons = new List<Button>();
@@ -146,7 +150,9 @@ public class MainMenuManager : MonoBehaviour
         _ambiantSound.PlayDelayed(1);
 
         DOTween.To(() => _gameManager.dofPostProcessing.focusDistance.value, x => _gameManager.dofPostProcessing.focusDistance.value = x, 10.0f, 5.0f).OnPlay(() => 
-        { 
+        {
+            //Active the mainCamera
+            myCamera.SetActive(true);
             _menuPanels.DOFade(0, 1).OnComplete(()=> _introCinematic.Play()); 
         });
     }
